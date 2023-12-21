@@ -1,0 +1,32 @@
+*{
+    background-color: rgb(139, 107, 79);
+}
+
+header{
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    margin: 0px auto;
+    width: 100%;
+}
+
+main{
+    position: absolute;
+    top: 100px;
+}
+
+h1{
+    background-color: rgba(240, 248, 255, 0);
+}
+
+#HomeButton{
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
