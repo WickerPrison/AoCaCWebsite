@@ -33,7 +33,7 @@
 }
 
 .talent:hover::after{
-    content: "Talent Description";
+    content: attr(data-content);
     display: inline;
     position: absolute;
     top: 70px;

@@ -1,9 +1,15 @@
-var buttons = document.getElementsByClassName("class-link");
+var className = sessionStorage.getItem('className');
+var nameElement = document.getElementById("class-name");
+var talents = document.getElementsByClassName("talent");
 
-for(var i = 0; i < buttons.length; i++){
-    buttons[i].addEventListener("click", getClassName);
+
+if(nameElement != null){
+    
+    nameElement.innerHTML = className;
 }
 
-function getClassName(){
-    
+for(var i=0;i<20;i++){
+    var talentName = window.skillTrees[className][i];
+    talents[i].innerHTML = talentName;
+    talents[i].dataset.content = window.talentList[talentName];
 }
