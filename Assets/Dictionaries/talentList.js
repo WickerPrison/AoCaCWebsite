@@ -49,6 +49,8 @@ var talentList ={
 
     "Combat Conditioning":"Once per turn you may spend 1 Stamina to take an extra Maneuver. This Maneuver cannot exceed the normal limit of 2 Maneuvers per turn.",
 
+    "Complex Caster":"Whenever you cast a spell with two or more unique spell effects, add 1 Boost die to your roll for each unique spell effect.",
+
     "Confidence":"Upgrade the Ability of your Discipline checks 2 times to resist the Frightened condition and its ongoing effect, and when opposing Coercion checks. Upgrade the Ability of all Cool checks 1 time.",
 
     "Consume the Enslaved":"As a Reaction when one or more of your Undead Followers takes damage, you may choose to unsummon those Followers. For each Permanent Follower slot worth of summons you unsummon, gain 4 temporary Hit Points. For each Temporary Follower slot worth of summons you unsummon, gain 2 temporary Hit Points. These temporary Hit Points expire after 1 hour if unused.",

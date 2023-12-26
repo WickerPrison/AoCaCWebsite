@@ -1,4 +1,53 @@
 var skillTrees = {
+    // Combat Classes
+    "Barbarian":[
+        "Focused Strike: Brawn",
+        "Knockdown",
+        "Deadly Accuracy",
+        "Grit",
+        "Toughened",
+        "Toughened",
+        "Swift",
+        "Durable",
+        "Relentless",
+        "Creative Killer",
+        "Skill Mastery: Coercion",
+        "Hard Headed",
+        "Feral Strength",
+        "Feral Strength",
+        "Frenzied Attack",
+        "Frenzied Attack",
+        "Dedication",
+        "Indomitable Rage",
+        "Cleave",
+        "Steely Resolve"
+    ],
+
+    // Utility Classes
+    "Monster Hunter":[
+        "Extrasensory Perception",
+        "Arcane Predation",
+        "Expert Tracker",
+        "Outdoorsman",
+        "Utility Belt",
+        "Toughened",
+        "Well Rounded",
+        "Grit",
+        "Touch of Undeath",
+        "Silver Inlay",
+        "Toughened",
+        "Swift",
+        "Preternatural Senses",
+        "Arcanologist",
+        "Faunologist",
+        "Dodge",
+        "Indignance",
+        "Dedication",
+        "Knowing is Half the Battle",
+        "Big Game Hunter"
+    ],
+    
+    // Innate Classes
     "Shapeshifter":[
         "Skill Proficiency: Survival",
         "Outdoorsman",
@@ -20,5 +69,53 @@ var skillTrees = {
         "Dedication",
         "Spirit Transformation",
         "Unarmored Mastery"
+    ],
+
+    // Scholarly Classes
+    "Wizard":[
+        "Spellcasting: Initiate",
+        "Skill Proficiency: Scholarly Magic",
+        "Metamagician",
+        "Grit",
+        "Slippery Minded",
+        "Grit",
+        "Spellcasting: Adept",
+        "Grit",
+        "Magical Duelist",
+        "Expertise",
+        "Arcane Potency",
+        "Spellcasting: Magister",
+        "Alert",
+        "Spell Efficiency",
+        "Spellcasting: Arcanist",
+        "Metamagic Master",
+        "Dedication",
+        "Complex Caster",
+        "Spellmaster",
+        "Perfectionist"
+    ],
+
+    // Speech Classes
+    "Merchant":[
+        "Supporting Evidence",
+        "Wheel and Deal",
+        "Skill Proficiency: Negotiation",
+        "Wheel and Deal",
+        "Utility Belt",
+        "Smooth Talker",
+        "In the Know",
+        "Street Vendor",
+        "Nobody's Fool",
+        "Well Rounded",
+        "Greased Palms",
+        "Wheel and Deal",
+        "De-escalation Technique",
+        "Nobody's Fool",
+        "Dodge",
+        "Smooth Talker",
+        "Aggressive Negotiations",
+        "Rare Weapon",
+        "Dedication",
+        "Traveling Merchant"
     ]
 }
