@@ -1,9 +1,3 @@
-var test = new File;
-
-var listString = test("./talentList.csv");
-console.log(listString);
-
-
 var talentList ={
     "Action Surge":"Once per day at the end of your turn you may immediately take another turn. This does not change the turn order.",
 
@@ -269,7 +263,165 @@ var talentList ={
 
     "One with the Magicks":"Gain 1 Natural Tier and 1 Developed Tier Innate spell from any Innate class spell list other than Fundamentalist. These spells do not need to be from the same class spell list.",
 
-    "Outdoorsman":"Remove 1 Penalty die from checks due to Environmental Effects. You and your party may travel overland through Difficult Terrain at a Normal Pace, instead of at a Slow Pace."
+    "Outdoorsman":"Remove 1 Penalty die from checks due to Environmental Effects. You and your party may travel overland through Difficult Terrain at a Normal Pace, instead of at a Slow Pace.",
 
-    
+    "Overdraw":"Whenever you cast an Innate spell, you may choose to lose 2 Hit Points and upgrade your check 3 times.",
+
+    "Perfectionist":"You may spend 2 Stamina to reroll any one Scholarly check. You may only use this ability once per check.",
+
+    "Point Blank":"Add 1 damage to Ranged attacks within Short Range.",
+
+    "Power of the Grave":"Each of your Undead Followers deal 1 additional damage on all attacks.",
+
+    "Power Play":"You may spend 2 Stamina to reroll any Society or Speech skill check. This can be done multiple times on the same check.",
+
+    "Practical Experience":"Decrease the Difficulty of all non-Combat Class skill checks by 1, to a minimum of 0.",
+
+    "Precise Aim":"As an Incidental, spend Stamina up to ranks in Precise Aim and ignore 2 Penalty dice per Stamina spent on one attack made this turn.",
+
+    "Preternatural Senses":"Gain Truesight.",
+
+    "Quick Draw":"Once per round, draw or stow a weapon or item as an Incidental instead of a Maneuver, or for free instead of as an Incidental.",
+
+    "Quick Strike":"Add a Boost die to Combat checks against creatures that have not yet taken a turn during this combat.",
+
+    "Rapid Reaction":"Gain 1 automatic Success on skill checks to determine Initiative.",
+
+    "Rapid Recovery":"You may benefit from a Short Rest one additional time per day.",
+
+    "Rare Weapon":"Choose one piece of armor or a weapon that already has a Masterwork attachment. That piece of equipment can gain an additional, different Masterwork attachment, to a maximum of 2. Improving an item in this way requires an hour, and you may spend 10 minutes to remove the second Masterwork attachment to allow you to improve a different item. If the item is permanently lost or destroyed you may improve a different item.",
+
+    "Recluse":"Upgrade the Ability of all skill checks 2 times when in the wilderness, and upgrade the Difficulty of all skill checks 2 times when in an urban environment.",
+
+    "Relentless":"Lose 2 Hit Points to take another Maneuver this turn. You may take up to 3 Maneuvers this turn instead of 2.",
+
+    "Representative":"Whenever you would make a Negotiation check, you may use Leadership instead. Whenever an ally within Medium range of you makes a Discipline check, they may use your ranks in Leadership instead of their ranks in Discipline.",
+
+    "Restoring Force":"As a Incidental, you may spend 1 Stamina to reset your Polarization to 0.",
+
+    "Riposte":"As a Reaction when hit by a Brawl, Heavy Weapons, or Light Weapons attack from a creature within Extended range of you, you may make a single Brawl or Light Weapons attack against the attacker. You may only use this talent once per successful attack against you.",
+
+    "Ritual Transferance":"Once per day, as an Action, choose 2 targets within Medium Range; one target loses 5 Hit Points and the other target gains 3 Hit Points. After using this ability, roll 1d10; if the result is equal to or lower than your ranks in Lore, you regain the use of this ability. ",
+
+    "Scavenger":"While looting the corpse of any Rival or Nemesis level creature, you may make a Difficulty 2 Perception check per creature. The number of net successes on each roll determines the Encumbrance of crafting materials, of a kind determined by the GM, found by the player. ",
+
+    "Scuttlebutt":"You may use Cunning instead of Intellect when making Society checks.",
+
+    "Second Wind":"Once per day, as an Incidental, regain Stamina equal to 2 times your ranks in this talent.",
+
+    "Shield Master":"When you are wielding a weapon with the Block property, decrease the number of disadvantage required to trigger the Block property by 1.",
+
+    "Silver Inlay":"Whenever you use a weapon with a Masterwork attachment, treat it as having the Silvered Masterwork attachment as well.",
+
+    "Single Combat":"If you are within Extended range of exactly one enemy and no other creatures, Upgrade the Ability of all your checks 2 times and Upgrade the Difficulty of all checks made against you 2 times.",
+
+    "Sixth Sense":"Permanently increase your Ranged Defense by 2.",
+
+    "Skill Mastery":"Add 1 automatic Success to all skill checks for the listed skill. Multiple instances of this talent cannot stack for the same skill.",
+
+    "Skill Mastery: Knowledge Skill":"Choose 1 Knowledge Skill. Add 1 automatic Success to all skill checks for the chosen skill.",
+
+    "Skill Proficiency":"Add 1 Boost die to all skill checks for the listed skill.",
+
+    "Slippery Minded":"You are immune to the Charmed Condition. You also cannot have your thoughts read involuntarily. ",
+
+    "Smooth Talker":"Choose Charm, Coercion, Deception, Negotiation, or Society upon acquiring. When you make a skill check for the chosen skill, you may spend 3 Advantage to gain 1 additional Success. Choose a different skill from the list each time this talent is chosen.",
+
+    "Sociologist":"As an Incidental, choose a Humanoid creature that is within Medium range and eyesight of you. Make a Difficulty 2 Society check, using either Cunning or Intellect, to learn one of the following pieces of information: Melee and Ranged Defense, Damage Reduction, any single Attribute, all Resistances, all Immunities, all Weaknesses, maximum and current HP, all other creature types it has, or their ranks in any one skill. You may increase the Difficulty of the check any number of times and learn that many additional pieces of information from the list.",
+
+    "Song of Rest":"After completing a Short Rest, allies that have been within Short range of you for the whole hour may regain 1 Stamina for each 2 Advantage they roll on their Cool or Discipline checks made to regain Stamina.",
+
+    "Specialty Arrows":"When making a Ranged attack using , you may Upgrade the Difficulty of your Ranged check 2 times and spend 1 Stamina. If your attack is successful, inflict the Burning, Bleeding, or Poisoned Condition.",
+
+    "Spell Efficiency":"Whenever you cast a Scholarly spell consisting of only Initiate and Metamagic Tier spell effects this spell does not cost any Stamina; however, this spell cannot contain the Heal or Aid spell effects or a number of nodes greater than half your Intellect.",
+
+    "Spell Index":"Once per day you may spend 10 uninterrupted minutes, then choose any number of Scholarly spell effects you know and replace them with an equal number of spell effects from the same Casting Tiers. The new list of known spell effects is permanent unless changed again with this talent.",
+
+    "Spell Penetration":"Whenever you cast a spell that contains the Damage spell effect, the spell gains Pierce +2.",
+
+    "Spellcasting: Adept":"Choose 5 spell effects from the Adept Tier list and gain the ability to use them when casting Scholarly spells. You may also choose one of the Initiate or Metamagic Tier spell effects you know and replace it with an Adept Tier spell effect. ",
+
+    "Spellcasting: Arcanist":"Choose 3 spell effects from the Arcanist Tier list and gain the ability to use them when casting Scholarly spells. You may also choose one of the Initiate, Metamagic, Adept, or Magister Tier spell effects you know and replace it with an Adept, Magister, or Arcanist Tier spell effect. ",
+
+    "Spellcasting: Developed":"Gain the ability to cast 2 of the Developed Tier spells appropriate for your Class. ",
+
+    "Spellcasting: Initiate":"Choose 6 spell effects from the Initiate or Metamagic Tier lists and gain the ability to use them when casting Scholarly spells.",
+
+    "Spellcasting: Magister":"Choose 4 spell effects from the Magister Tier list and gain the ability to use them when casting Scholarly spells. You may also choose one of the Initiate, Metamagic, or Adept Tier spell effects you know and replace it with an Adept or Magister Tier spell effect. ",
+
+    "Spellcasting: Natural":"Gain the ability to cast 3 of the Natural Tier spells appropriate for your Class.",
+
+    "Spellmaster":"Choose 2 spell effects from Initiate, Adept, Magister, and Arcanist Tier lists and gain the ability to use them when casting Scholarly spells. Upon aquiring this talent, choose 1 spell effect; add 1 Boost die to your roll for each node of this effect used in a spell. Choose a different spell effect each time this talent is chosen.",
+
+    "Spirit Animal":"At the end of each Long or Short Rest, choose an animal aspect and gain it's associated bonus: Monkey: Gain the Climber Ability. Sparrow: Your Maximum Movement Points are increased by 2. Viper: Gain the Thermal Vision Ability. Wolverine: Increase your level of sleeping by 1, to a maximum of Modest, Treat all food you consume as 1 tier higher.",
+
+    "Spirit Animal (Improved)":"You may now choose your animal aspect as an Action by spending 2 Stamina. Gain an additional benefit based on your animal aspect: Monkey: Gain the Grappler Ability. Sparrow: Your Maximum Movement Points are increased by 2. You are immune to fall damage.Viper: Gain 1 rank in the Quick Strikes talent and gain 1 Automatic Success on all Stealth checks. Wolverine: Gain 1 rank in the Hunter and Lethal Blows talents.",
+
+    "Spirit Transformation":"Using an Action and a Maneuver in the same turn, you may spend 4 Stamina to transform into an animal from the Spirit Transformation Table. You remain in this form until you enter the Unconscious State, you spend a Maneuver to end the transformation, you transform into a different animal, or 8 hours have elapsed since transforming. While transformed, you cannot use weapons or armor or equipment, cast spells, or ride Mounts. You cannot speak with others (such as attempting Charm, Deception, Leadership or Negotiation checks nor talk about party decisions in game) unless they pass a Difficulty 4 Animal Handling check to understand you. They Upgrade the Ability of their check a number of times equal to your ranks in Performance. You may speak with other animals of your same species.",
+
+    "Stalker":"As an Action, mark a target you can see within Extreme range. Upgrade the Ability of all Coordination, Perception, Stealth, Streetwise, and Survival checks 2 times if they are directly affecting the marked target. This effect lasts as long as the target is within Extreme range of you, or for eight hours, whichever ends first. Marking a new target removes the mark from the previous target.",
+
+    "Steely Resolve":"You ignore the effects of all Severity 3 and 4 Critical Injuries you have; further Critical Injuries you suffer still add +10 to their roll for each Critical Injury suffered.",
+
+    "Street Vendor":"Once per day, when in a city, you may make a Difficulty 0 Streetwise check. For each Success gain 3 gold, for each advantage gain 1 shilling, and for each Conquest gain 5 gold.",
+
+    "Strength of the Wild":"After finishing a Long or Short Rest in one of the following environments, gain it's assciated bonus until leaving the environment: Underground: gain Darkvision, and add 2 automatic Successes to all Perception checks. Dense Vegetation: Upgrade the Ability of all Nature checks 1 time. Hills/Mountains: gain the Righting Reflex talent and the Climber ability. Coastal/Underwater: gain the Aquatic ability and treat your Athletics skill as 2 higher (to a maximum of 6). Plains/Steppe: your 2nd Maneuver is free each turn. Desert: gain Immunity to Extreme Heat and Resist Fire +2. Arctic/Tundra: gain Immunity to Extreme Cold and Resist Cold +2. Swamp: add 1 automatic Success to all Resilience and Survival Checks.",
+
+    "Stroke of Intellect":"Once per day, you may use Intellect instead of the normal Attribute for a non-combat check. Explain how this would occur to the GM.",
+
+    "Stunning Blows":"Your Brawl attacks have the Disorient 1 Property, or increase their Disorient rating by 1 if they already have Disorient.",
+
+    "Stunning Blows (Improved)":"On a successful Brawl attack, you may spend a Conquest and 4 Advantage to inflict the Staggered condition on the target for one round.",
+
+    "Summoner":"Your Follower cap is increased by 1.",
+
+    "Superior Reflexes":"Permanently increase your Melee Defense by 2.",
+
+    "Supporting Evidence":"When making a Charm, Deception, Leadership, or Negotiation check, add an automatic advantage per rank of Supporting Evidence.",
+
+    "Surgeon":"You may spend 2 Stamina and 1 uninterrupted hour working on a creature within Engaged range, then make a Medicine check with a Difficulty equal to the Severity of one Critical Injury the creature has. Upgrade the Difficulty of this check 1 time if you are making this check on yourself. A successful check removes the Critical Injury. A failed check deals 5 damage to the creature and inflicts a Critical Injury on them. This talent may only be used on each creature once per day, regardless of the result of the attempt.",
+
+    "Swift":"Your maximum Movement Points are permanently increased by 3.",
+
+    "Tavern Brawler":"When you roll a Conquest on a successful Brawl check using an Improvised Melee weapon, you may spend 1 Conquest to deal an extra 3 damage or inflict the Bleeding condition on the target of the attack. When this happens the Item Quality of the improvised weapon is reduced by one category.",
+
+    "Team Player":"When you assist another creature's check you may spend 1 Stamina to use your ranks in Leadership instead of the skill check being made by the creature you are assisting.",
+
+    "Temperature Modulation":"You, and creatures within Short range of you ignore the effects of Extreme Heat and Extreme Cold.",
+
+    "Temperature Modulation (Improved)":"Gain Resist 3 to Fire and Cold damage.",
+
+    "Theoretical Manipulation":"Choose two of the three Theories from the Fundamentalist spell list. Gain the ability to cast these spells. ",
+
+    "Thorough Assessment":"As an Action, spend 1 Stamina and make a Difficulty 3 Knowledge check about a task you are about to undertake. The specific type of check is chosen by the GM. Gain Boost dice equal to Successes on the skill check that can be distributed to yourself or allies for skill checks related to the task during the next 1 hour. No more than 2 Boost dice can be distributed on any one check. ",
+
+    "Touch of Fate":"Once per day, add 2 Boost dice to any 1 skill check.",
+
+    "Touch of Undeath":"Gain Resist: Necrotic and Poison 2.",
+
+    "Toughened":"Increase your Maximum Hit Points by 2.",
+
+    "Traveling Merchant":"Once per week, when making a check for the Street Vendor talent multiply the money earned by 5. This cannot be done in the same city two weeks in a row.",
+
+    "Tricky Target":"If riding a mount that used 2 Maneuvers to move during your turn, until your next turn gain 1 Melee and Ranged Defense.",
+
+    "True Aim":"When you take the Aim Maneuver, you may spend 1 Stamina to Upgrade the Ability of your next Ranged attack made before the end of your next turn 2 times.",
+
+    "Unarmored Mastery":"Gain 2 Melee and Ranged Defense as long as you are not wearing armor. As a Reaction when you are targeted by an attack, Upgrade the Difficulty of that attack 2 times.",
+
+    "Utility Belt":"Once per day as a Maneuver, you can produce any non-weapon item with Encumbrance 2 or lower that you own but that is not stated to be on your person currently, as if you had stated that you had brought it with you.",
+
+    "War Caster":"You may cast spells with something in both hands as if you had one free hand.",
+
+    "Warcry":"Whenever you roll a Conquest on a check to determine Initiative, you may use that Conquest to add 1 Success to every allied Initiative roll within Medium range instead of adding 1 Success to a single allied Initiative roll. This can be done for each Conquest rolled on Initiative checks. Whenever an enemy within Long range of you makes a check to determine Initiative against you, they add a Penalty die to their check.",
+
+    "Well Read":"Gain a Boost die to all Knowledge checks.",
+
+    "Well Rounded":"Choose any 2 skills and make them Class skills.",
+
+    "Wheel and Deal":"Buy items for 5% less and sell items for 5% more.",
+
+    "Wild Empathy":"Animals will not attack you or allies that are within Long range of you unless you attack them, make a Coercion check against them, or engage in similar aggressive actions, as determined by the GM.",
+
+    "Woodland Stride":"Ignore the effects of Difficult Terrain."
 }
