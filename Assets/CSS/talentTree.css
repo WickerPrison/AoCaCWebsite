@@ -14,7 +14,7 @@
 #talent-tree{
     display: flex;
     width: 100%;
-    height: calc(var(--talentSize) * 8);
+    height: calc(var(--talentSize) * 10);
     flex-direction: column;
     justify-content: space-evenly;
     margin-top: calc(var(--talentSize)/2);
@@ -42,6 +42,7 @@
     text-align: center;
     vertical-align: middle;
     position: relative;
+    min-width: 100px;
     width: 15%;
     height: var(--talentSize);
 }
@@ -52,7 +53,7 @@
     position: absolute;
     top: 100%;
     left: -25%;
-    font-size: 60%;
+    font-size: calc(var(--baseTextSize) * 0.8);
     background-color: rgb(139, 107, 79);
     border: 4px;
     border-style: solid;
@@ -72,14 +73,9 @@
     :root{
         --baseTextSize: 15px;
     }
-    
-    .talent{
-        font-size: 80%;
-    }
 
     .talent:focus::after, .talent:hover::after{
         left: calc(-10% - 4px);
-        font-size: 100%;
         width: 120%;
     }
 }
