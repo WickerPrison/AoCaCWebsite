@@ -19,6 +19,7 @@ main{
 }
 
 h1{
+    font-size: 32px;
     background-color: rgba(240, 248, 255, 0);
 }
 
@@ -31,6 +32,24 @@ h1{
     font-size: 20px;
 }
 
-.class-link{
+@media screen and (max-width: 1200px) {
+    h1{
+        font-size: 27px;
+    }
     
+    #HomeButton{
+        top: 17px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 20px;
+    }
+    
+    #HomeButton{
+        top: 13px;
+        font-size: 15px;
+    }
 }
