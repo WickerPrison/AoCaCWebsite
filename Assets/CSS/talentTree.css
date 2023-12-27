@@ -6,6 +6,7 @@
 }
 
 #class-name{
+    min-width: 510px;
     margin: calc(var(--talentSize) *2) auto 0 auto;
     text-align: center;
     font-size: calc(var(--baseTextSize) * 2);
@@ -13,6 +14,7 @@
 
 #talent-tree{
     display: flex;
+    min-width: 492px;
     width: 100%;
     height: calc(var(--talentSize) * 10);
     flex-direction: column;
