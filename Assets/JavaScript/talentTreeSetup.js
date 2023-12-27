@@ -1,7 +1,8 @@
 var className = sessionStorage.getItem('className');
 var nameElement = document.getElementById("class-name");
 var talents = document.getElementsByClassName("talent");
-
+var tableTalets = document.getElementsByClassName("table-talent");
+var tableDescriptions = document.getElementsByClassName("table-description");
 
 if(nameElement != null){
     
@@ -11,7 +12,10 @@ if(nameElement != null){
 for(var i = 0; i < 20; i++){
     var talentName = window.skillTrees[className][i];
     talents[i].innerHTML = talentName;
-    talents[i].dataset.content = getTalentDescription(talentName);
+    var description = getTalentDescription(talentName);
+    talents[i].dataset.content = description;
+    tableTalets[i].innerHTML = talentName;
+    tableDescriptions[i].innerHTML = description;
 }
 
 function getTalentDescription(talentName){

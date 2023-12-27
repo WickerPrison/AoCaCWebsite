@@ -3,10 +3,12 @@
     --borderSize: 4px;
     --paddingSize: 10px;
     --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
+    --minScreenWidth: 510px;
+    --roundedCorners: 10px;
 }
 
 #class-name{
-    min-width: 510px;
+    min-width: var(--minScreenWidth);
     margin: calc(var(--talentSize) *2) auto 0 auto;
     text-align: center;
     font-size: calc(var(--baseTextSize) * 2);
@@ -36,7 +38,7 @@
     border: var(--borderSize);
     border-style: solid;
     border-color: white;
-    border-radius: 10px;
+    border-radius: var(--roundedCorners);
     padding: var(--paddingSize);  
     font-size: var(--baseTextSize);
     text-wrap: wrap;
@@ -63,6 +65,58 @@
     color: black;
     width: 150%;
     z-index: 2;
+}
+
+#talent-grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 85%;
+    margin: 0 auto;
+    min-width: var(--minScreenWidth);
+    grid-template-columns: max-content auto;
+}
+
+#talent-grid div{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: var(--baseTextSize);
+}
+
+#talent-grid :nth-child(1){
+    border-radius: var(--roundedCorners) 0 0 0;
+    border-top: 4px solid white;
+}
+
+#talent-grid :nth-child(2){
+    border-radius: 0 var(--roundedCorners) 0 0;
+    border-top: 4px solid white;
+}
+
+#talent-grid :nth-child(39){
+    border-radius: 0 0 0 var(--roundedCorners);
+    border-bottom: 4px solid white;
+}
+
+#talent-grid :nth-child(40){
+    border-radius: 0 0 var(--roundedCorners) 0;
+    border-bottom: 4px solid white;
+}
+
+
+.table-talent{
+    border: 2px solid white;
+    border-left: 4px solid white;
+
+}
+
+.table-description{
+    border: 2px solid white;
+    border-right: 4px solid white;
+}
+
+.table-description:first-child{
+    border-radius: var(--roundedCorners) 0 0 0;
 }
 
 @media screen and (max-width: 1200px) {
