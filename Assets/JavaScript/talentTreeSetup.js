@@ -25,6 +25,9 @@ function getTalentDescription(talentName){
     else if(talentName.includes("Skill Mastery")){
         talentName = "Skill Mastery";
     }
+    else if(talentName.includes("Mastered Spell")){
+        talentName = "Mastered Spell"
+    }
 
     return window.talentList[talentName];
 }

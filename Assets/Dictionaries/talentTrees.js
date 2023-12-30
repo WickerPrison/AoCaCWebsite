@@ -232,6 +232,52 @@ var skillTrees = {
     ],
     
     // Innate Classes
+    "Channeler":[
+        "Grit",
+        "Focused Strike: Willpower",
+        "Spellcasting: Natural",
+        "Quick Draw",
+        "Toughened",
+        "Grit",
+        "Swift",
+        "Grit",
+        "Numbed Senses",
+        "Toughened",
+        "Spellcasting: Developed",
+        "Swift",
+        "Imbue Element",
+        "Armor Master",
+        "War Caster",
+        "Natural Channeler",
+        "Dedication",
+        "Overdraw",
+        "Mastered Spell: Elemental Nova",
+        "Elemental Attunement"
+    ],
+
+    "Druid":[
+        "Forager",
+        "Outdoorsman",
+        "Spellcasting: Natural",
+        "Outdoorsman",
+        "Skill Proficiency: Innate",
+        "Skill Proficiency: Survival",
+        "Grit",
+        "Grit",
+        "Recluse",
+        "Wild Empathy",
+        "Spellcasting: Developed",
+        "Woodland Stride",
+        "Natural Trainer",
+        "One with the Magicks",
+        "Lay of the Land",
+        "Faunologist",
+        "Unarmored Mastery",
+        "Dedication",
+        "Mastered Spell: Control Terrain",
+        "Strength of the Wild"
+    ],
+
     "Shapeshifter":[
         "Skill Proficiency: Survival",
         "Outdoorsman",

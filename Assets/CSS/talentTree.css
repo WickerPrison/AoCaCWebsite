@@ -79,7 +79,7 @@
 #talent-grid div{
     background-color: black;
     color: white;
-    padding: 5px;
+    padding: 10px;
     font-size: var(--baseTextSize);
 }
 
