@@ -1,5 +1,15 @@
+:root{
+    --blue: #1654a8;
+    --red: #A8161a;
+    --green: #8fa816;
+    --silver: #C0C5C1;
+    --grey: #8B94A3;
+    --headerFont: 'Quintessential', serif;
+}
+
 *{
-    background-color: rgb(139, 107, 79);
+    background-color: var(--silver);
+    font-family: 'Merriweather', serif;
 }
 
 header{
@@ -8,10 +18,11 @@ header{
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: black;
+    background-color: var(--red);
     margin: 0px auto;
     min-width: 510px;
     width: 100%;
+    font-family: var(--headerFont);
 }
 
 main{
@@ -20,17 +31,57 @@ main{
 }
 
 h1{
+    font-weight: normal;
     font-size: 32px;
     background-color: rgba(240, 248, 255, 0);
+    font-family: var(--headerFont);
+}
+
+h2{
+    font-size: 40px;
+    font-family: var(--headerFont);
+    margin: 0;
+}
+
+h3{
+    font-size: 25px;
+    font-family: var(--headerFont);
+    margin-top: 0;
+}
+
+h4{
+    font-size: 20px;
 }
 
 #HomeButton{
     position: absolute;
     top: 25px;
     left: 15px;
-    background-color: black;
+    background-color: var(--red);
     color: white;
     font-size: 20px;
+    text-decoration: none;
+}
+
+#HomeButton:hover{
+    color: black;
+}
+
+ul{
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: var(--red);
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,0 +1,11 @@
+main{
+    width:100%;
+}
+
+#classes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}

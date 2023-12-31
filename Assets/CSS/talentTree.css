@@ -1,17 +1,19 @@
 :root{
-    --baseTextSize: 25px;
+    --baseTextSize: 20px;
     --borderSize: 4px;
     --paddingSize: 10px;
     --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
     --minScreenWidth: 510px;
     --roundedCorners: 10px;
+    --tableBorder: black;
 }
 
 #class-name{
     min-width: var(--minScreenWidth);
     margin: calc(var(--talentSize) *2) auto 0 auto;
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 2);
+    font-size: calc(var(--baseTextSize) * 3);
+    font-family: 'Quintessential', serif;
 }
 
 #talent-tree{
@@ -51,6 +53,10 @@
     height: var(--talentSize);
 }
 
+.talent:focus, .talent:hover{
+    border-color: var(--red);
+}
+
 .talent:focus::after, .talent:hover::after{
     content: attr(data-content);
     display: inline;
@@ -58,10 +64,10 @@
     top: 100%;
     left: -25%;
     font-size: calc(var(--baseTextSize) * 0.8);
-    background-color: rgb(139, 107, 79);
+    background-color: var(--silver);;
     border: 4px;
     border-style: solid;
-    border-color: black;
+    border-color: var(--red);
     color: black;
     width: 150%;
     z-index: 2;
@@ -77,42 +83,42 @@
 }
 
 #talent-grid div{
-    background-color: black;
-    color: white;
+    background-color: var(--silver);
+    color: black;
     padding: 10px;
     font-size: var(--baseTextSize);
 }
 
 #talent-grid :nth-child(1){
     border-radius: var(--roundedCorners) 0 0 0;
-    border-top: 4px solid white;
+    border-top: 4px solid var(--tableBorder);
 }
 
 #talent-grid :nth-child(2){
     border-radius: 0 var(--roundedCorners) 0 0;
-    border-top: 4px solid white;
+    border-top: 4px solid var(--tableBorder);
 }
 
 #talent-grid :nth-child(39){
     border-radius: 0 0 0 var(--roundedCorners);
-    border-bottom: 4px solid white;
+    border-bottom: 4px solid var(--tableBorder);
 }
 
 #talent-grid :nth-child(40){
     border-radius: 0 0 var(--roundedCorners) 0;
-    border-bottom: 4px solid white;
+    border-bottom: 4px solid var(--tableBorder);
 }
 
 
 .table-talent{
-    border: 2px solid white;
-    border-left: 4px solid white;
+    border: 2px solid var(--tableBorder);
+    border-left: 4px solid var(--tableBorder);
 
 }
 
 .table-description{
-    border: 2px solid white;
-    border-right: 4px solid white;
+    border: 2px solid var(--tableBorder);
+    border-right: 4px solid var(--tableBorder);
 }
 
 .table-description:first-child{
