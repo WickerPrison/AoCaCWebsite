@@ -127,7 +127,7 @@ var talentList ={
 
     "Field Commander":"As an Action during combat, choose any number of creatures within Medium range of you, including yourself; make a Leadership check with Difficulty equal to the number of chosen creatures. If you succeed, each chosen creature may perform 1 Maneuver as a Reaction.",
     
-    "Field Commander - Improved":"When you make a Leadership check for the Field Commander talent, for each Conquest or 4 Advantage spent, you may give one of the chosen creatures an Action rather than a Maneuver.",
+    "Field Commander (Improved)":"When you make a Leadership check for the Field Commander talent, for each Conquest or 4 Advantage spent, you may give one of the chosen creatures an Action rather than a Maneuver.",
 
     "Focused Strike: Agility":"Once per day, after making a successful attack using your Agility Characteristic, you may add your Agility value to the damage. Multiple instances of Focused Strike cannot be used on the same attack.",
 
