@@ -422,7 +422,7 @@ var skillTrees = {
         "Grit",
         "Skill Proficiency: Knowledge Skill",
         "Grit",
-        "Researcher",
+        "Slippery Minded",
         "Spellcasting: Adept",
         "Well Rounded",
         "Well Read",
