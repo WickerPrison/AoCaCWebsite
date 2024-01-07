@@ -9,3 +9,11 @@ main{
     width: 90%;
     flex-wrap: wrap;
 }
+
+#equipment{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}
