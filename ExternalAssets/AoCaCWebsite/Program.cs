@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AoCaCWebsite;
 
-SpellEffects spellEffects = new SpellEffects();
+ParseCSV parseCSV = new ParseCSV();
 
-spellEffects.Start();
+parseCSV.Parse("SpellEffects", "spellEffects");

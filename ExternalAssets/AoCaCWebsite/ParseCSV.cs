@@ -7,21 +7,16 @@ using System.Threading.Tasks;
 
 namespace AoCaCWebsite
 {
-    internal class SpellEffects
+    internal class ParseCSV
     {
         string[] headings;
         string quote = "\"";
 
-        public void Start()
+        public void Parse(string csvName, string txtName)
         {
-            Effects();
-        }
+            StreamReader reader = new StreamReader(@"C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\ExternalAssets\" + csvName + ".csv");
 
-        void Effects()
-        {
-            StreamReader reader = new StreamReader(@"C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\ExternalAssets\SpellEffects.csv");
-
-            using (StreamWriter outputFile = new StreamWriter(@"C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\ExternalAssets\spellEffects.txt"))
+            using (StreamWriter outputFile = new StreamWriter(@"C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\ExternalAssets\" + txtName + ".txt"))
             {
                 outputFile.WriteLine("{");
                 string line = reader.ReadLine();
@@ -29,7 +24,7 @@ namespace AoCaCWebsite
                 while (!reader.EndOfStream)
                 {
                     line = reader.ReadLine();
-                    outputFile.WriteLine(WriteEffect(line));
+                    outputFile.WriteLine(WriteObject(line));
                     outputFile.WriteLine("\n");
                     if (!reader.EndOfStream) outputFile.WriteLine(",");
                 }
@@ -37,7 +32,7 @@ namespace AoCaCWebsite
             }
         }
 
-        string WriteEffect(string line)
+        string WriteObject(string line)
         {
             string[] columns = line.Split("|");
             string output = "\t" + quote + columns[0] + quote + ":{";
