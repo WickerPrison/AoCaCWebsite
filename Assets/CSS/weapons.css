@@ -1,0 +1,19 @@
+.weapon{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.weapon div{
+    padding: 3px;
+    flex: 1;
+    border: black solid 2px;
+}
+
+.weapon .properties{
+    flex: 5;
+}
+
+#top-spacer{
+    margin-top: 150px;
+}
