@@ -1,42 +1,17 @@
 var table = document.getElementById("effects-table");
+var currentTier = "Metamagic";
 
+createSectionHeading(currentTier);
 var keys = Object.keys(window.spellEffects);
 for(var i = 0; i < keys.length; i++){
-
-
+    if(window.spellEffects[keys[i]].Tier != currentTier){
+        currentTier = window.spellEffects[keys[i]].Tier;
+        createSectionHeading(currentTier);
+    }
+    
     spellCard(keys[i]);
-
-
-
-
-    // var spellName = document.createElement("div");
-    // setupTableElement(spellName, "name");
-    // spellName.innerText = keys[i];
-
-    // var dictionaryRef = window.spellEffects[keys[i]];
-
-    // var tier = document.createElement("div");
-    // setupTableElement(tier, "tier");
-    // tier.innerText = dictionaryRef.Tier;
-
-    // var duration = document.createElement("div");
-    // setupTableElement(duration, "duration");
-    // duration.innerText = dictionaryRef.Duration;
-
-    // var modifier = document.createElement("div");
-    // setupTableElement(modifier, "modifier");
-    // modifier.innerText = dictionaryRef.Modifier;
-
-    // var description = document.createElement("div");
-    // setupTableElement(description, "description");
-    // description.innerText = dictionaryRef.Description;
 }
 
-// function setupTableElement(element, className){
-//     table.appendChild(element);
-//     element.classList.add("grid-item");
-//     element.classList.add(className);
-// }
 
 function spellCard(spellName){
     var card = document.createElement("div");
@@ -82,4 +57,11 @@ function createLine(card){
     var line = document.createElement("div");
     createCardElement(card, line);
     line.classList.add("card-line");
+}
+
+function createSectionHeading(sectionTitle){
+    var sectionHeading = document.createElement("h3");
+    table.appendChild(sectionHeading);
+    sectionHeading.classList.add("tier-heading");
+    sectionHeading.innerText = sectionTitle;
 }

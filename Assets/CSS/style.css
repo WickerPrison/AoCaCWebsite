@@ -5,6 +5,8 @@
     --silver: #C0C5C1;
     --grey: #8B94A3;
     --headerFont: 'Quintessential', serif;
+    --minScreenWidth: 510px;
+    --baseTextSize: 20px;
 }
 
 *{
@@ -67,6 +69,14 @@ h4{
     color: black;
 }
 
+#page-heading{
+    min-width: var(--minScreenWidth);
+    margin: calc(var(--baseTextSize) * 4 + 28px ) auto 0 auto;
+    text-align: center;
+    font-size: calc(var(--baseTextSize) * 3);
+    font-family: 'Quintessential', serif;
+}
+
 ul{
     margin: 0;
 }
@@ -103,5 +113,22 @@ a:hover{
     #HomeButton{
         top: 13px;
         font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    :root{
+        --baseTextSize:20px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    :root{
+        --baseTextSize: 15px;
+    }
+
+    .talent:focus::after, .talent:hover::after{
+        left: calc(-10% - 4px);
+        width: 120%;
     }
 }

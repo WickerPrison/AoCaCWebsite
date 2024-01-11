@@ -1,9 +1,7 @@
 :root{
-    --baseTextSize: 20px;
     --borderSize: 4px;
     --paddingSize: 10px;
     --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
-    --minScreenWidth: 510px;
     --roundedCorners: 10px;
     --tableBorder: black;
 }
@@ -123,21 +121,4 @@
 
 .table-description:first-child{
     border-radius: var(--roundedCorners) 0 0 0;
-}
-
-@media screen and (max-width: 1200px) {
-    :root{
-        --baseTextSize:20px;
-    }
-}
-
-@media screen and (max-width: 768px){
-    :root{
-        --baseTextSize: 15px;
-    }
-
-    .talent:focus::after, .talent:hover::after{
-        left: calc(-10% - 4px);
-        width: 120%;
-    }
 }

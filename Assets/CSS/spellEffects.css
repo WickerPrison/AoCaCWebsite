@@ -1,5 +1,5 @@
 #effects-table{
-    margin-top: 150px;
+    margin-top: 20px;
     /* display: grid; */
     /* grid-template-columns: auto auto auto auto 50%; */
     /* border: black 2px solid; */
@@ -30,4 +30,13 @@
 .name{
     text-align: center;
     font-size: 150%;
+}
+
+.tier-heading{
+    min-width: var(--minScreenWidth);
+    margin: 0 auto 0 auto;
+    text-align: center;
+    font-size: calc(var(--baseTextSize) * 2.5);
+    font-family: 'Quintessential', serif;
+    border-bottom: 5px black solid;
 }

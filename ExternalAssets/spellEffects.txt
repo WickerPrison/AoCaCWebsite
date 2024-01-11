@@ -1,4 +1,92 @@
 {
+	"Delay Effect":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"boost","Modifier":"Add 1 Boost die","Description":"The effects of this spell occur at the beginning of your next turn, instead of Immediately. Additional instances of this Spell Effect delay the effects of this spell by an additional round but do not add any additional Boost dice beyond the first."}
+
+
+,
+	"Exclude Targets":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Add 1 Penalty die","Description":"One affected creature ignores one node of a spell effect cast together with this spell effect. Indirect effects of spells, such as damage from the attacks of summoned creatures or Penalty dice from magically created weather events, still affect a creautre targeted by this spell effect."}
+
+
+,
+	"Increase Area of Effect":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Any area of effect given in a spell effect's description that is cast together with this effect has its radius increased by 5 cm. This spell effect cannot stack with itself."}
+
+
+,
+	"Increase Duration":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"double","Modifier":"Apply the Casting Modifier a second time for each Spell Effect that was doubled ","Description":"The duration of all non-instantaneous spell effect cast together with this spell effect is doubled. This spell effect does not stack with itself."}
+
+
+,
+	"Overexert":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"success","Modifier":"Add 1 automatic Success to your roll","Description":"Take 1 Stamina."}
+
+
+,
+	"Recklessly Cast":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade check 2 times","Description":"Until the end of your next turn, upgrade the Difficulty of all skill checks by 2. This spell effect has no effect out of combat."}
+
+
+,
+	"Store Spell":{"Tier":"Metamagic","Duration":"10 minutes","Difficulty":"0","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time","Description":"For each node of this spell effect, choose one other node of a non-Metamagic spell effect that you are trying to cast. The chosen nodes do not affect this spell's target, but are instead stored by the target. The next time the target hits a creature with a weapon attack, the stored nodes affect the target of the weapon attack. If you target a creature that already has spell effect nodes stored with this spell, your new nodes replace their previous ones."}
+
+
+,
+	"Subtle Cast ":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"When casting a spell that includes this spell effect, you show no outward signs that you are casting a spell. However, another creature can still tell that you are casting a spell if they pass an Arcana check with a number of Challenge dice equal to your ranks in Arcana, plus one Penalty die for each node of Subtle Cast included in the spell. "}
+
+
+,
+	"Aid":{"Tier":"Initiate","Duration":"1 round","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty 1 time","Description":"The target may Upgrade the Ability of one check 2 times before the end of this effect's duration. Additional nodes of this effect increase the duration of this effect by 1 round each."}
+
+
+,
+	"Animate Object":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1, upgrade Difficulty of check 1 time","Description":"Target a non-magical, non-Broken, non-carried or worn object of Encumbrance 0-3 to become an Animated Object. It remains under your control for the duration of the spell until it is destroyed, dismissed as an incidental, or reaches Extreme range. The object becomes Broken if it is reduced to 0 Hit Points or less. The Animated Object is immediately hostile to you if you pass the spell check and roll 1 or more Calamity, but you may spend 1 Conquest to negate this effect. Each additional node of this spell increases the duration by 1 hour. Anytime before this spell would end you may spend 1 Stamina as an Incidental to refresh the duration of this spell, additional nodes included, for all targets within Extreme range.This spell effect cannot be cast as an area-target spell."}
+
+
+,
+	"Candle Light":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"0","Upgrades":"0","Penalty":"2","SpecialModifier":"","Modifier":"Add 2 Penalty dice","Description":"If cast on one or multiple targets, each of those targets sheds light as if they were carrying a candle with them (moving where they go). This spell effect cannot be cast as an area-target spell."}
+
+
+,
+	"Darkvision":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"The target gains Darkvision for the duration. For each additional node of this spell, increase the duration by 1 hour. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
+
+
+,
+	"Damage":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Upon acquiring, choose a non-Physical, non-Silver damage type to gain access to. When casting a spell with this mode, do 2 damage of the chosen type per spell point used. This damage ignores Defense, but does not ignore Damage Reduction or resistances."}
+
+
+,
+	"Detect Magic":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"2","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty of check by 2","Description":"You are able to see a slight magical aura around all magical items and spell-affected areas within Short range. While this spell is active, add 2 Boost dice to Arcana checks made to identify magical properties."}
+
+
+,
+	"Find Person / Object":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"2","SpecialModifier":"","Modifier":"Increase Difficulty by 1, add 2 Penalty dice","Description":"Choose a specific object or creature known to you by name or appearance. If that object is within Ballistic range of the target, the target knows the direction and range band it falls in."}
+
+
+,
+	"Haste":{"Tier":"Initiate","Duration":"3 rounds","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Target has their Movement Point Max increased by 2. If another spell including Haste is cast on the same target while this effect is active, the new casting replaces the current one."}
+
+
+,
+	"Heal":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"2","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 2, upgrade Difficulty 1 time","Description":"Heal 2 Hit Points."}
+
+
+,
+	"Hinder":{"Tier":"Initiate","Duration":"1 round","Difficulty":"0","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time","Description":"The target upgrades the Difficulty of all checks on their next turn 1 time."}
+
+
+,
+	"Send Message":{"Tier":"Initiate","Duration":"1 minute","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Establish a telepathic link to a known intelligent creature. Either party may mentally speak to each other for the duration. The link ends if either party moves beyond Extreme range, or if either party chooses to end the link. For each additional node of this spell, increase the duration by 1 minute. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect, including increased duration, anytime before this spell would end. If mutliple creatures are targeted by this spell, they can also mentally speak to each other."}
+
+
+,
+	"Shockwave":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"0","Upgrades":"1","Penalty":"1","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time, add 1 Penalty die","Description":"Deal 1 damage (ignoring Damage Reduction) and push the target 5 cm directly away from you. The target then must pass a Difficulty 3 Coordination check or gain the Prone state. Additional nodes of this effect deal an additional 1 damage and push the target an additional 5 cm. Silhouette 4 or larger creatures automatically pass the Coordination check and are not pushed back. "}
+
+
+,
+	"Water Breathing":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"The target gains the ability to breathe under water for the duration. For each additional node of this spell, increase the duration by 1 hour. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
+
+
+,
+	"Water Walking":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"0","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Add 1 Penalty die","Description":"The target gains the ability to walk on the surface of any body of water as if it were solid ground. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
+
+
+,
 	"Animate Corpse":{"Tier":"Adept","Duration":"1 minute","Difficulty":"1","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1, upgrade Difficulty of check 2 times","Description":"Target corpse of a humanoid (playable race, except Construct) is reanimated as your choice of Skeleton or Zombie. Each Skeleton or Zombie is a Temporary Follower, and takes up 1 follower slot. The Animated Corpse is immediately hostile to you if you pass the spell check and roll 1 or more Calamity, but you may spend 1 Conquest to negate this effect."}
 
 
@@ -75,90 +163,6 @@
 
 
 ,
-	"Dread Summoning":{"Tier":"Arcanist","Duration":"Permanent","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 2 times","Description":"After 1 hour of uninterupted concentration, summon followers from the undead followers list. The total follower points of these followers cannot exceed the number of corpses targeted. If the spell is successful the corpses are consumed."}
-
-
-,
-	"Impede Movement":{"Tier":"Arcanist","Duration":"3 rounds","Difficulty":"1","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Increase Difficulty by 1, add 1 Penalty die","Description":"Target loses their free Maneuver."}
-
-
-,
-	"Inflict Weakness":{"Tier":"Arcanist","Duration":"5 rounds","Difficulty":"1","Upgrades":"1","Penalty":"1","SpecialModifier":"","Modifier":"Increase Difficulty by 1, Upgrade Difficulty 1 time, add 1 Penalty die","Description":"Choose a non-Physical, non-Silver damage type. Reduce the target(s) Resistance to that damage by 1. If this reduces the target(s) Resist to below 0, then they gain Weakness equal to the remaining reduction. Alternatively, the spell effect can reduce Immunity to a damage type to Resist 5 to that damage type. If this spell is used to reduce Immunity, increase the Difficulty of the casting check by 1, in addition to the regular casting modifier. If another spell including Inflict Weakness is cast on the same target while this effect is active, the new casting replaces the current one."}
-
-
-,
-	"Polymorph":{"Tier":"Arcanist","Duration":"1 minute","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 2 times","Description":"The target must make a Discipline check with Difficulty equal to the number of nodes of this spell effect cast on the target. If they fail, roll a d100, adding 10 to the roll for each Calamity rolled on your spell check, and subtracting 10 for each Conquest rolled on your spell check - the target, including what they are wearing and carrying, is tranformed into the corresponding animal from the Polymorph Table. The target retains its Intellect score, memories, and disposition, but otherwise must use the stat block for the animal it was transformed into. If target is reduced to zero Hit Points while in animal form, it immediately reverts to its original form with whatever Hit Points it had before being transformed. "}
-
-
-,
-	"Resurrection":{"Tier":"Arcanist","Duration":"Permanent","Difficulty":"6","Upgrades":"6","Penalty":"0","SpecialModifier":"","Modifier":"Add 6 Challenge dice","Description":"After 1 hour of uninterupted concentration, attempt to return a deceased non-Undead Humanoid to life. The body must be relatively intact, and have been dead for no more than 7 days. If you succeed and do not roll any Calamities, the creature is brought back to life at 1 Hit Point. If you succeed but roll any number of Calamities, you gain 1 level of Exhaustion for each Calamity rolled. If you fail your check but do not roll any Calamities, the dead body turns to ash. If you fail your check but roll at least 1 Calamity, the dead body is reanimated as a Zombie that is immediately hostile to all creatures."}
-
-
-,
-	"Translocate":{"Tier":"Arcanist","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"unwillingTarget","Modifier":"Upgrade Difficulty 1 time for each unwilling target","Description":"For each creature targeted by this spell, you may move it to the location of another creature targeted by this spell. No more than one creature can end up at any one location."}
-
-
-,
-	"Teleport":{"Tier":"Arcanist","Duration":"Instantaneous","Difficulty":"1","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Add 1 Challenge die","Description":"Each affected creature teleports to a point of their choosing that is visible to them and within the range band corresponding to the number of nodes chosen for this spell: 1 is Extended, 2 Short, 3 Medium, 4 Long, 5 Extreme, 6 Ballistic."}
-
-
-,
-	"Aid":{"Tier":"Initiate","Duration":"1 round","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty 1 time","Description":"The target may Upgrade the Ability of one check 2 times before the end of this effect's duration. Additional nodes of this effect increase the duration of this effect by 1 round each."}
-
-
-,
-	"Animate Object":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1, upgrade Difficulty of check 1 time","Description":"Target a non-magical, non-Broken, non-carried or worn object of Encumbrance 0-3 to become an Animated Object. It remains under your control for the duration of the spell until it is destroyed, dismissed as an incidental, or reaches Extreme range. The object becomes Broken if it is reduced to 0 Hit Points or less. The Animated Object is immediately hostile to you if you pass the spell check and roll 1 or more Calamity, but you may spend 1 Conquest to negate this effect. Each additional node of this spell increases the duration by 1 hour. Anytime before this spell would end you may spend 1 Stamina as an Incidental to refresh the duration of this spell, additional nodes included, for all targets within Extreme range.This spell effect cannot be cast as an area-target spell."}
-
-
-,
-	"Candle Light":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"0","Upgrades":"0","Penalty":"2","SpecialModifier":"","Modifier":"Add 2 Penalty dice","Description":"If cast on one or multiple targets, each of those targets sheds light as if they were carrying a candle with them (moving where they go). This spell effect cannot be cast as an area-target spell."}
-
-
-,
-	"Darkvision":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"The target gains Darkvision for the duration. For each additional node of this spell, increase the duration by 1 hour. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
-
-
-,
-	"Damage":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Upon acquiring, choose a non-Physical, non-Silver damage type to gain access to. When casting a spell with this mode, do 2 damage of the chosen type per spell point used. This damage ignores Defense, but does not ignore Damage Reduction or resistances."}
-
-
-,
-	"Detect Magic":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"2","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty of check by 2","Description":"You are able to see a slight magical aura around all magical items and spell-affected areas within Short range. While this spell is active, add 2 Boost dice to Arcana checks made to identify magical properties."}
-
-
-,
-	"Find Person / Object":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"2","SpecialModifier":"","Modifier":"Increase Difficulty by 1, add 2 Penalty dice","Description":"Choose a specific object or creature known to you by name or appearance. If that object is within Ballistic range of the target, the target knows the direction and range band it falls in."}
-
-
-,
-	"Haste":{"Tier":"Initiate","Duration":"3 rounds","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Target has their Movement Point Max increased by 2. If another spell including Haste is cast on the same target while this effect is active, the new casting replaces the current one."}
-
-
-,
-	"Heal":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"2","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 2, upgrade Difficulty 1 time","Description":"Heal 2 Hit Points."}
-
-
-,
-	"Hinder":{"Tier":"Initiate","Duration":"1 round","Difficulty":"0","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time","Description":"The target upgrades the Difficulty of all checks on their next turn 1 time."}
-
-
-,
-	"Send Message":{"Tier":"Initiate","Duration":"1 minute","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Establish a telepathic link to a known intelligent creature. Either party may mentally speak to each other for the duration. The link ends if either party moves beyond Extreme range, or if either party chooses to end the link. For each additional node of this spell, increase the duration by 1 minute. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect, including increased duration, anytime before this spell would end. If mutliple creatures are targeted by this spell, they can also mentally speak to each other."}
-
-
-,
-	"Shockwave":{"Tier":"Initiate","Duration":"Instantaneous","Difficulty":"0","Upgrades":"1","Penalty":"1","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time, add 1 Penalty die","Description":"Deal 1 damage (ignoring Damage Reduction) and push the target 5 cm directly away from you. The target then must pass a Difficulty 3 Coordination check or gain the Prone state. Additional nodes of this effect deal an additional 1 damage and push the target an additional 5 cm. Silhouette 4 or larger creatures automatically pass the Coordination check and are not pushed back. "}
-
-
-,
-	"Water Breathing":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"The target gains the ability to breathe under water for the duration. For each additional node of this spell, increase the duration by 1 hour. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
-
-
-,
-	"Water Walking":{"Tier":"Initiate","Duration":"1 hour","Difficulty":"0","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Add 1 Penalty die","Description":"The target gains the ability to walk on the surface of any body of water as if it were solid ground. You may spend 1 Stamina as an Incidental to refresh the duration of this spell effect on all targets within extreme range, extra nodes included, anytime before this spell would end."}
-
-
-,
 	"Comprehend Languages":{"Tier":"Magister","Duration":"1 hour","Difficulty":"2","Upgrades":"0","Penalty":"0","SpecialModifier":"languages","Modifier":"Difficulty 2 for Common languages, Difficulty 4 for Rare languages","Description":"You can read, understand, and speak one common or rare language. This does not extend to ancient, encoded, or intentionally obscure languages (including Thieves Cant)."}
 
 
@@ -219,35 +223,31 @@
 
 
 ,
-	"Delay Effect":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"boost","Modifier":"Add 1 Boost die","Description":"The effects of this spell occur at the beginning of your next turn, instead of Immediately. Additional instances of this Spell Effect delay the effects of this spell by an additional round but do not add any additional Boost dice beyond the first."}
+	"Dread Summoning":{"Tier":"Arcanist","Duration":"Permanent","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 2 times","Description":"After 1 hour of uninterupted concentration, summon followers from the undead followers list. The total follower points of these followers cannot exceed the number of corpses targeted. If the spell is successful the corpses are consumed."}
 
 
 ,
-	"Exclude Targets":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Add 1 Penalty die","Description":"One affected creature ignores one node of a spell effect cast together with this spell effect. Indirect effects of spells, such as damage from the attacks of summoned creatures or Penalty dice from magically created weather events, still affect a creautre targeted by this spell effect."}
+	"Impede Movement":{"Tier":"Arcanist","Duration":"3 rounds","Difficulty":"1","Upgrades":"0","Penalty":"1","SpecialModifier":"","Modifier":"Increase Difficulty by 1, add 1 Penalty die","Description":"Target loses their free Maneuver."}
 
 
 ,
-	"Increase Area of Effect":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"Any area of effect given in a spell effect's description that is cast together with this effect has its radius increased by 5 cm. This spell effect cannot stack with itself."}
+	"Inflict Weakness":{"Tier":"Arcanist","Duration":"5 rounds","Difficulty":"1","Upgrades":"1","Penalty":"1","SpecialModifier":"","Modifier":"Increase Difficulty by 1, Upgrade Difficulty 1 time, add 1 Penalty die","Description":"Choose a non-Physical, non-Silver damage type. Reduce the target(s) Resistance to that damage by 1. If this reduces the target(s) Resist to below 0, then they gain Weakness equal to the remaining reduction. Alternatively, the spell effect can reduce Immunity to a damage type to Resist 5 to that damage type. If this spell is used to reduce Immunity, increase the Difficulty of the casting check by 1, in addition to the regular casting modifier. If another spell including Inflict Weakness is cast on the same target while this effect is active, the new casting replaces the current one."}
 
 
 ,
-	"Increase Duration":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"double","Modifier":"Apply the Casting Modifier a second time for each Spell Effect that was doubled ","Description":"The duration of all non-instantaneous spell effect cast together with this spell effect is doubled. This spell effect does not stack with itself."}
+	"Polymorph":{"Tier":"Arcanist","Duration":"1 minute","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 2 times","Description":"The target must make a Discipline check with Difficulty equal to the number of nodes of this spell effect cast on the target. If they fail, roll a d100, adding 10 to the roll for each Calamity rolled on your spell check, and subtracting 10 for each Conquest rolled on your spell check - the target, including what they are wearing and carrying, is tranformed into the corresponding animal from the Polymorph Table. The target retains its Intellect score, memories, and disposition, but otherwise must use the stat block for the animal it was transformed into. If target is reduced to zero Hit Points while in animal form, it immediately reverts to its original form with whatever Hit Points it had before being transformed. "}
 
 
 ,
-	"Overexert":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"success","Modifier":"Add 1 automatic Success to your roll","Description":"Take 1 Stamina."}
+	"Resurrection":{"Tier":"Arcanist","Duration":"Permanent","Difficulty":"6","Upgrades":"6","Penalty":"0","SpecialModifier":"","Modifier":"Add 6 Challenge dice","Description":"After 1 hour of uninterupted concentration, attempt to return a deceased non-Undead Humanoid to life. The body must be relatively intact, and have been dead for no more than 7 days. If you succeed and do not roll any Calamities, the creature is brought back to life at 1 Hit Point. If you succeed but roll any number of Calamities, you gain 1 level of Exhaustion for each Calamity rolled. If you fail your check but do not roll any Calamities, the dead body turns to ash. If you fail your check but roll at least 1 Calamity, the dead body is reanimated as a Zombie that is immediately hostile to all creatures."}
 
 
 ,
-	"Recklessly Cast":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"2","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade check 2 times","Description":"Until the end of your next turn, upgrade the Difficulty of all skill checks by 2. This spell effect has no effect out of combat."}
+	"Translocate":{"Tier":"Arcanist","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"unwillingTarget","Modifier":"Upgrade Difficulty 1 time for each unwilling target","Description":"For each creature targeted by this spell, you may move it to the location of another creature targeted by this spell. No more than one creature can end up at any one location."}
 
 
 ,
-	"Store Spell":{"Tier":"Metamagic","Duration":"10 minutes","Difficulty":"0","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Upgrade Difficulty 1 time","Description":"For each node of this spell effect, choose one other node of a non-Metamagic spell effect that you are trying to cast. The chosen nodes do not affect this spell's target, but are instead stored by the target. The next time the target hits a creature with a weapon attack, the stored nodes affect the target of the weapon attack. If you target a creature that already has spell effect nodes stored with this spell, your new nodes replace their previous ones."}
-
-
-,
-	"Subtle Cast ":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"1","Upgrades":"0","Penalty":"0","SpecialModifier":"","Modifier":"Increase Difficulty by 1","Description":"When casting a spell that includes this spell effect, you show no outward signs that you are casting a spell. However, another creature can still tell that you are casting a spell if they pass an Arcana check with a number of Challenge dice equal to your ranks in Arcana, plus one Penalty die for each node of Subtle Cast included in the spell. "}
+	"Teleport":{"Tier":"Arcanist","Duration":"Instantaneous","Difficulty":"1","Upgrades":"1","Penalty":"0","SpecialModifier":"","Modifier":"Add 1 Challenge die","Description":"Each affected creature teleports to a point of their choosing that is visible to them and within the range band corresponding to the number of nodes chosen for this spell: 1 is Extended, 2 Short, 3 Medium, 4 Long, 5 Extreme, 6 Ballistic."}
 
 
 }
