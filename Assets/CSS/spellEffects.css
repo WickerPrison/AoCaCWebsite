@@ -1,4 +1,33 @@
 #effects-table{
-    margin-top: 200px;
-    display: grid;
+    margin-top: 150px;
+    /* display: grid; */
+    /* grid-template-columns: auto auto auto auto 50%; */
+    /* border: black 2px solid; */
+    /* background-color: var(--red); */
+    display: flex;
+    flex-direction: column;
+}
+
+.spell-card{
+    background-color: var(--red);
+    width: 80%;
+    margin: 1% auto;
+    padding: 1%;
+}
+
+.card-element{
+    margin: 5px;
+    background-color: var(--red);
+    color: white;
+}
+
+.card-line{
+    border: 1px white solid;
+    width: 100%;
+    margin: 0;
+}
+
+.name{
+    text-align: center;
+    font-size: 150%;
 }
