@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AoCaCWebsite;
 
-Console.WriteLine("Hello, World!");
-Talents talents = new Talents();
+SpellEffects spellEffects = new SpellEffects();
 
-talents.Start();
+spellEffects.Start();

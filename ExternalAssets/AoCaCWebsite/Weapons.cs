@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AoCaCWebsite
 {
-    internal class Talents
+    internal class Weapons
     {
         string[] headingsWithBars = ["Brawl", "Light Weapons", "Heavy Weapons", "Ranged"];
         string bars = "||||||||||";
@@ -24,10 +24,10 @@ namespace AoCaCWebsite
                 headingsWithBars[i] += bars;
             }
 
-            Weapons();
+            WriteWeapons();
         }
 
-        void Weapons()
+        void WriteWeapons()
         {
             StreamReader reader = new StreamReader(@"C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\ExternalAssets\Weapons.csv");
 
