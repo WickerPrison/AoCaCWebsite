@@ -4,6 +4,11 @@ const TargetingType ={
     area: "area"
 }
 
+function SpellEffect(){
+    this.name;
+    this.nodeInput;
+    this.nodes;
+}
 
 var rangeSelector = document.getElementById("ranges");
 var singleTarget = document.getElementById("single-target");
@@ -16,6 +21,14 @@ var targetNum = document.getElementById("target-num");
 var addEffect = document.getElementById("add-effect");
 var effectMenu = document.getElementById("spell-selection");
 var spellEffectsBox = document.getElementById("spell-effects-box");
+var assembleBtn = document.getElementById("assemble-pool");
+var challengeDisp = document.getElementById("challenge");
+var difficultyDisp = document.getElementById("difficulty");
+var penaltyDisp = document.getElementById("penalty");
+var proficiencyDisp = document.getElementById("proficiency");
+var abilityDisp = document.getElementById("ability");
+var boosDisp = document.getElementById("boost");
+var autoSucDisp = document.getElementById("auto-success");
 
 const TargetingDict ={
     "single":singleTarget,
@@ -24,15 +37,19 @@ const TargetingDict ={
 }
 
 var difficulty = 0;
+var challenges = 0;
 var upgrades = 0;
 var penalties = 0;
 
 var target = TargetingType.single;
 
+var currentEffects = [];
+
 setupEffectMenu();
 
-function update(){
+function assembleDicePool(){
     difficulty = 0;
+    challenges = 0;
     upgrades = 0;
     penalties = 0;
 
@@ -47,14 +64,42 @@ function update(){
         upgrades += 3;
     }
 
-    console.log("Difficulty:" + difficulty + ", Upgrades:" + upgrades + ", Penalty:" + penalties);
+    //modifiers from spell effects
+    for(var i = 0; i < currentEffects.length; i++){
+        var name = currentEffects[i].name;
+        for(var j = 0; j < currentEffects[i].nodes; j++){
+            difficulty += Number(window.spellEffects[name].Difficulty);
+            upgrades += Number(window.spellEffects[name].Upgrades);
+            penalties += Number(window.spellEffects[name].Penalty);
+        }
+    }
+
+    //update ui
+    for(var i = 0; i < upgrades;i++){
+        if(difficulty > 0){
+            difficulty--;
+            challenges++;
+        }
+        else{
+            difficulty++;
+        }
+    }
+    challengeDisp.value = challenges;
+    difficultyDisp.value = difficulty;
+    penaltyDisp.value = penalties;
+}
+
+function specialModifier(modifierName){
+    switch(modifierName){
+        case "boost":
+            
+    }
 }
 
 function changeTargetingType(evt){
     TargetingDict[target].classList.remove("selected");
     target = evt.currentTarget.myTarget;
     evt.currentTarget.classList.add("selected");
-    update();
 }
 
 function addEffectMenu(){
@@ -94,7 +139,7 @@ function createNewEffect(effectName){
     effectElm.appendChild(nodesElm);
     
     var inputElm = document.createElement("input");
-    inputElm.classList.add("node-num");
+    inputElm.classList.add("can-point");
     inputElm.type = "number";
     inputElm.value = "1";
     inputElm.min = "1";
@@ -117,9 +162,18 @@ function createNewEffect(effectName){
 
     var descriptionElm = document.createElement("h4");
     descriptionElm.innerText = effectDict.Description;
+    descriptionElm.classList.add("description");
     effectElm.appendChild(descriptionElm);
 
+    var currentEffect = new SpellEffect;
+    currentEffect.name = effectName;
+    currentEffect.nodeInput = inputElm;
+    currentEffect.nodes = inputElm.value;
+
+    currentEffects.push(currentEffect);
+    buttonElm.effect = currentEffect;
     buttonElm.addEventListener("click", destroyEffect);
+    inputElm.addEventListener("change", changeNodes);
 }
 
 function destroyEffect(evt){
@@ -131,6 +185,17 @@ function destroyEffect(evt){
         effectElm.removeChild(effectElm.firstChild);
     }
     effectElm.remove();
+    var index = currentEffects.indexOf(evt.currentTarget.effect);
+    currentEffects.splice(index, 1);
+}
+
+function changeNodes(evt){
+    var myInput = evt.currentTarget;
+    for(var i = 0; i < currentEffects.length; i++){
+        if(currentEffects[i].nodeInput === myInput){
+            currentEffects[i].nodes = myInput.value;
+        }
+    }
 }
 
 function createLine(effectElm){
@@ -162,3 +227,4 @@ singleTarget.addEventListener("click", changeTargetingType);
 multiTarget.addEventListener("click", changeTargetingType);
 areaTarget.addEventListener("click", changeTargetingType);
 addEffect.addEventListener("click", addEffectMenu);
+assembleBtn.addEventListener("click", assembleDicePool);

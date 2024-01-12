@@ -20,9 +20,10 @@
         <p>Each time you cast a scholarly spell, you must make a Scholarly Magic skill check. The Difficulty of this skill check will depend on various factors. When you cast a scholarly spell, follow the steps listed below to determine the Difficulty of the Scholarly Magic skill check.</p>
         <h3>Step 1. Choose a Range Band</h3>
         <section class="box-holder">
-            <div class="box">
+            <p>Choose a range band up to Extreme Range. Only creatures within your chosen range band can be selected as a target of the spell. Targeting yourself or anything in Extended Range is a Difficulty 0 base check, and the Difficulty of the skill check increases by 1 for each range band past Extended up to Extreme (Difficulty 4).</p>
+            <div class="box small-button">
                 <label for="ranges" id="range-dropdown" >Range Band:</label>
-                <select name="ranges" id="ranges" onChange="update()">
+                <select name="ranges" id="ranges">
                     <option value="0">Engaged</option>
                     <option value="0">Extended</option>
                     <option value="1">Short</option>
@@ -30,18 +31,17 @@
                     <option value="3">Long</option>
                     <option value="4">Extreme</option>
                 </select>
-                <p>Choose a range band up to Extreme Range. Only creatures within your chosen range band can be selected as a target of the spell. Targeting yourself or anything in Extended Range is a Difficulty 0 base check, and the Difficulty of the skill check increases by 1 for each range band past Extended up to Extreme (Difficulty 4).</p>
             </div>
         </section>
         <h3>Step 2. Choose a Targeting Type</h3>
-        <section class="box-holder">
+        <section class="box-holder" id="targeting-box">
             <button class="box selected" id="single-target">
                 <h4>Single Target<h4>
                 <p>Choose a single target. Does not affect the Difficulty of the spell check.</p>
             </button>
             <button class="box" id="multi-target">
                 <h4>Multi-Target</h4>
-                Number of Targets: <input id="target-num" type="number" value="2" min="2" oninput="validity.valid||(value='');">
+                <h4>Number of Targets: <input class="can-point" id="target-num" type="number" value="2" min="2" oninput="validity.valid||(value='');"></h4>
                 <p>Choose 2 or more targets within your chosen range band. Increase the Difficulty of the spell check 1 time for each target chosen.</p>
             </button>
             <button class="box" id="area-target">
@@ -52,18 +52,8 @@
         <h3>Step 3. Choose Spell Effects</h3>
         <section class="box-holder" id="spell-effects-box">
             <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
-            <!-- <div class="spell-effect box">
-                <h4 class="effect-name">Effect Name</h4>
-                <button class="remove-effect">x</button>
-                <div class="line"></div>
-                <h4>Number of Nodes: <input class="node-num" type="number" value="1" min="1" oninput="validity.valid||(value='');"></h4>
-                <h4>Tier: Tier</h4>
-                <h4>Duration: Duration</h4>
-                <h4>Difficulty Modifier: Modifier</h4>
-                <div class="line"></div>
-                <h4>description</h4>
-            </div> -->
-            <button id="add-effect" class="box">+ Add Spell Effect</button>
+
+            <button id="add-effect" class="box small-button">+ Add Spell Effect</button>
             <div class="box" id="spell-selection">
                 <ul>
                     <h3><li>Metamagic</li></h3>
@@ -82,9 +72,40 @@
                 </ul>
             </div>
         </section>
+        <h3>Step 4. Assemble the Dice Pool</h3>
+        <section class="box-holder">
+            <p>Assemble all the dice for your Scholarly Magic skill check, including your Intellect and Magic Scholarly skill ranks, dice from Steps 1-3, and from other factors (environment, gear, talents, etc.).</p>
+            <button id="assemble-pool" class="box small-button">Assemble Dice Pool</button>
+            <div id="pool-box">
+                <div class="pool-column">
+                    <h4>Challenge: <input id="challenge" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                    <h4>Difficulty: <input id="difficulty" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                    <h4>Penalty: <input id="penalty" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                </div>
+                <div class="pool-column">
+                    <h4>Proficiency: <input id="proficiency" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                    <h4>Ability: <input id="ability" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                    <h4>Boost: <input id="boost" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
+                </div>
+                <h4>Automatic Successes: <input id="auto-success" type="number" value="0"></h4>
+            </div>
+        </section>
         <footer></footer>
     </main>
     <script src="./Assets/Dictionaries/spellEffects.js"></script>
     <script src="./Assets/JavaScript/spellBuilder.js"></script>
 </body>
 </html>
+
+<!-- Spell card html -->
+<!-- <div class="spell-effect box">
+    <h4 class="effect-name">Effect Name</h4>
+    <button class="remove-effect">x</button>
+    <div class="line"></div>
+    <h4>Number of Nodes: <input class="node-num" type="number" value="1" min="1" oninput="validity.valid||(value='');"></h4>
+    <h4>Tier: Tier</h4>
+    <h4>Duration: Duration</h4>
+    <h4>Difficulty Modifier: Modifier</h4>
+    <div class="line"></div>
+    <h4>description</h4>
+</div> -->
