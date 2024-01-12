@@ -26,6 +26,11 @@
     font-family: var(--bodyFont);
 }
 
+.box-header{
+    padding-bottom: 0.2em;
+    border-bottom: .2em var(--red) solid;
+}
+
 .box-holder{
     display: flex;
     flex-direction: column;
