@@ -7,6 +7,10 @@
     --minScreenWidth: 510px;
 }
 
+header{
+    position: absolute;
+}
+
 #class-name{
     min-width: var(--minScreenWidth);
     margin: calc(var(--talentSize) *2) auto 0 auto;

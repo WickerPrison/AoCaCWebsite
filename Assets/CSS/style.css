@@ -5,24 +5,56 @@
     --silver: #C0C5C1;
     --grey: #8B94A3;
     --headerFont: 'Quintessential', serif;
+    --bodyFont: 'Merriweather', serif;
     --baseTextSize: 20px;
 }
 
-*{
-    background-color: var(--silver);
-    font-family: 'Merriweather', serif;
-}
-
 header{
+    display: flex; 
+    align-items: center;
+    justify-content: start;
     text-align: center;
     color: white;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     background-color: var(--red);
     margin: 0px auto;
     width: 100%;
     font-family: var(--headerFont);
+    z-index: 10;
+}
+
+#HomeButton{
+    color: white;
+}
+
+#HomeButton:hover{
+    color: black;
+}
+
+.nav-bar{
+    color: white;
+    flex: 1;
+    text-align: center;
+    flex-basis: auto;
+    font-family: var(--bodyFont);
+    font-size: calc(var(--baseTextSize) * .8);
+    padding: 0 1%;
+}
+
+.nav-bar:hover{
+    color: black;
+    cursor: pointer;
+}
+
+#nav-spacer{
+    flex: 100;
+}
+
+body{
+    background-color: var(--silver);
+    font-family: var(--bodyFont);
 }
 
 main{
@@ -31,10 +63,12 @@ main{
 }
 
 h1{
+    color: white;
     font-weight: normal;
-    font-size: var(--baseTextSize * 2);
-    background-color: rgba(240, 248, 255, 0);
+    font-size: calc(var(--baseTextSize) * 1.3);
+    background-color: var(--red);
     font-family: var(--headerFont);
+    padding: 0 5px;
 }
 
 h2{
@@ -52,20 +86,6 @@ h3{
 
 h4{
     font-size: var(--baseTextSize);
-}
-
-#HomeButton{
-    position: absolute;
-    top: 25px;
-    left: 15px;
-    background-color: var(--red);
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-#HomeButton:hover{
-    color: black;
 }
 
 #page-heading{
@@ -99,22 +119,12 @@ a:hover{
 
 @media screen and (max-width: 1200px) {
     :root{
-        --baseTextSize:27px;
-    }
-    
-    #HomeButton{
-        top: 17px;
-        font-size: 17px;
+        --baseTextSize:20px;
     }
 }
 
 @media screen and (max-width: 768px){
     :root{
-        --baseTextSize: 20px;
-    }
-    
-    #HomeButton{
-        top: 13px;
-        font-size: 15px;
+        --baseTextSize: 15px;
     }
 }
