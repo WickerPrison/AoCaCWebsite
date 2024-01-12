@@ -15,7 +15,7 @@
 
 
 ,
-	"Overexert":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"success","Modifier":"Add 1 automatic Success to your roll","Description":"Take 1 Stamina."}
+	"Overexert":{"Tier":"Metamagic","Duration":"Instantaneous","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"success","Modifier":"Add 1 automatic Success to your roll","Description":"Lose 1 Stamina."}
 
 
 ,

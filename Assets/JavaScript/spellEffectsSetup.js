@@ -1,12 +1,12 @@
 var table = document.getElementById("effects-table");
 var currentTier = "Metamagic";
 
-createSectionHeading(currentTier);
+createSectionHeading(currentTier + "s");
 var keys = Object.keys(window.spellEffects);
 for(var i = 0; i < keys.length; i++){
     if(window.spellEffects[keys[i]].Tier != currentTier){
         currentTier = window.spellEffects[keys[i]].Tier;
-        createSectionHeading(currentTier);
+        createSectionHeading(currentTier + " Spell Effects");
     }
     
     spellCard(keys[i]);
@@ -63,5 +63,6 @@ function createSectionHeading(sectionTitle){
     var sectionHeading = document.createElement("h3");
     table.appendChild(sectionHeading);
     sectionHeading.classList.add("tier-heading");
+    sectionHeading.id = sectionTitle;
     sectionHeading.innerText = sectionTitle;
 }

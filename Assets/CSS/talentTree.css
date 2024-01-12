@@ -4,6 +4,7 @@
     --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
     --roundedCorners: 10px;
     --tableBorder: black;
+    --minScreenWidth: 510px;
 }
 
 #class-name{

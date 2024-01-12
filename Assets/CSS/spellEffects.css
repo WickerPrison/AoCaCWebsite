@@ -9,7 +9,7 @@
 }
 
 .spell-card{
-    background-color: var(--red);
+    background-color: var(--blue);
     width: 80%;
     margin: 1% auto;
     padding: 1%;
@@ -17,8 +17,9 @@
 
 .card-element{
     margin: 5px;
-    background-color: var(--red);
+    background-color: var(--blue);
     color: white;
+    font-size: calc(var(--baseTextSize) * 0.9);
 }
 
 .card-line{
@@ -29,14 +30,15 @@
 
 .name{
     text-align: center;
-    font-size: 150%;
+    font-size: calc(var(--baseTextSize) * 1.2);
 }
 
 .tier-heading{
     min-width: var(--minScreenWidth);
     margin: 0 auto 0 auto;
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 2.5);
+    font-size: calc(var(--baseTextSize) * 2);
     font-family: 'Quintessential', serif;
     border-bottom: 5px black solid;
+    width: 100%;
 }

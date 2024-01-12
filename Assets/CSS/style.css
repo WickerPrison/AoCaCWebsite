@@ -5,7 +5,6 @@
     --silver: #C0C5C1;
     --grey: #8B94A3;
     --headerFont: 'Quintessential', serif;
-    --minScreenWidth: 510px;
     --baseTextSize: 20px;
 }
 
@@ -22,7 +21,6 @@ header{
     left: 0px;
     background-color: var(--red);
     margin: 0px auto;
-    min-width: 510px;
     width: 100%;
     font-family: var(--headerFont);
 }
@@ -34,25 +32,26 @@ main{
 
 h1{
     font-weight: normal;
-    font-size: 32px;
+    font-size: var(--baseTextSize * 2);
     background-color: rgba(240, 248, 255, 0);
     font-family: var(--headerFont);
 }
 
 h2{
-    font-size: 40px;
+    font-size: calc(var(--baseTextSize)*2);
     font-family: var(--headerFont);
     margin: 0;
 }
 
 h3{
-    font-size: 25px;
+    font-size: calc(var(--baseTextSize)*1.5);
     font-family: var(--headerFont);
     margin-top: 0;
+    margin-left: 1.17em;
 }
 
 h4{
-    font-size: 20px;
+    font-size: var(--baseTextSize);
 }
 
 #HomeButton{
@@ -81,6 +80,10 @@ ul{
     margin: 0;
 }
 
+ul h3{
+    margin-left: 0;
+}
+
 li{
     list-style: none;
 }
@@ -95,8 +98,8 @@ a:hover{
 }
 
 @media screen and (max-width: 1200px) {
-    h1{
-        font-size: 27px;
+    :root{
+        --baseTextSize:27px;
     }
     
     #HomeButton{
@@ -106,29 +109,12 @@ a:hover{
 }
 
 @media screen and (max-width: 768px){
-    h1{
-        font-size: 20px;
+    :root{
+        --baseTextSize: 20px;
     }
     
     #HomeButton{
         top: 13px;
         font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    :root{
-        --baseTextSize:20px;
-    }
-}
-
-@media screen and (max-width: 768px){
-    :root{
-        --baseTextSize: 15px;
-    }
-
-    .talent:focus::after, .talent:hover::after{
-        left: calc(-10% - 4px);
-        width: 120%;
     }
 }
