@@ -4,7 +4,7 @@
     border: 4px var(--red) solid;
     padding: 0.2em;
     color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
     margin: 0 auto;
     font-size: var(--baseTextSize);
@@ -41,4 +41,50 @@
 
 h3{
     margin-bottom: 0;
+}
+
+main > p{
+    margin: 1em 2.17em;
+    font-size: var(--baseTextSize);
+}
+
+.box-holder > p{
+    display: block;
+    font-size: var(--baseTextSize);
+}
+
+#spell-effects-box{
+    flex-direction: column;
+}
+
+.spell-effect{
+    width: 80%;
+    max-width: 80%;
+    margin: 1em auto;
+    text-align: left;
+    position: relative;
+}
+
+.effect-name{
+    /* border-bottom: .2em var(--red) solid; */
+    font-size: calc(var(--baseTextSize) * 1.1);
+    text-align: center;
+}
+
+.remove-effect{
+    position: absolute;
+    top: 0.4em;
+    left: 0.5em;
+}
+
+.node-num{
+    pointer-events: all;
+}
+
+.line{
+    border-bottom: .2em var(--red) solid;
+}
+
+footer{
+    min-height: 100px;
 }

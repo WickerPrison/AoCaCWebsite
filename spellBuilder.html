@@ -17,6 +17,7 @@
     </header>    
     <main>
         <h2 id="page-heading">Spell Builder</h2>
+        <p>Each time you cast a scholarly spell, you must make a Scholarly Magic skill check. The Difficulty of this skill check will depend on various factors. When you cast a scholarly spell, follow the steps listed below to determine the Difficulty of the Scholarly Magic skill check.</p>
         <h3>Step 1. Choose a Range Band</h3>
         <section class="box-holder">
             <div class="box">
@@ -29,6 +30,7 @@
                     <option value="3">Long</option>
                     <option value="4">Extreme</option>
                 </select>
+                <p>Choose a range band up to Extreme Range. Only creatures within your chosen range band can be selected as a target of the spell. Targeting yourself or anything in Extended Range is a Difficulty 0 base check, and the Difficulty of the skill check increases by 1 for each range band past Extended up to Extreme (Difficulty 4).</p>
             </div>
         </section>
         <h3>Step 2. Choose a Targeting Type</h3>
@@ -47,6 +49,23 @@
                 <p>Choose a point within your chosen range band, all creatures within Engaged Range of this point are targeted by the spell. Upgrade the Difficulty of the spell check 3 times.</p>
             </button>
         </section>
+        <h3>Step 3. Choose Spell Effects</h3>
+        <section class="box-holder" id="spell-effects-box">
+            <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
+            <div class="spell-effect box">
+                <h4 class="effect-name">Effect Name</h4>
+                <button class="remove-effect">x</button>
+                <div class="line"></div>
+                <h4>Number of Nodes: <input class="node-num" type="number" value="1" min="1" oninput="validity.valid||(value='');"></h4>
+                <h4>Tier: Tier</h4>
+                <h4>Duration: Duration</h4>
+                <h4>Difficulty Modifier: Modifier</h4>
+                <div class="line"></div>
+                <h4>description</h4>
+            </div>
+            <button class="box">+ Add Spell Effect</button>
+        </section>
+        <footer></footer>
     </main>
     <script src="./Assets/Dictionaries/spellEffects.js"></script>
     <script src="./Assets/JavaScript/spellBuilder.js"></script>
