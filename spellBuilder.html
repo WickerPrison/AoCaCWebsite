@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Talent Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><a id="HomeButton" href="index.html">Age of Conquest and Calamity</a></h1>
+    </header>    
+    <main>
+        <h2 id="page-heading">Spell Builder</h2>
+        <label for="ranges" id="range-dropdown" >Choose a Range Band:</label>
+        <select name="ranges" id="ranges" onChange="update()">
+            <option value="0">Engaged</option>
+            <option value="0">Extended</option>
+            <option value="1">Short</option>
+            <option value="2">Medium</option>
+            <option value="3">Long</option>
+            <option value="4">Extreme</option>
+        </select>
+    </main>
+    <script src="./Assets/Dictionaries/spellEffects.js"></script>
+    <script src="./Assets/JavaScript/spellBuilder.js"></script>
+</body>
+</html>

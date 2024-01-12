@@ -8,18 +8,10 @@ main{
     width:100%;
 }
 
-#classes{
+main > section{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
-    flex-wrap: wrap;
-}
-
-#equipment{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     width: 90%;
     flex-wrap: wrap;
 }
