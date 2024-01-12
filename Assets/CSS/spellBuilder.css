@@ -123,6 +123,13 @@ main > p{
     font-size: calc(var(--baseTextSize) * 1);
 }
 
+#custom-modifiers{
+    width: 90%;
+    max-width: 90%;
+    padding: 1em 0;
+    margin-bottom: 1em;
+}
+
 #pool-box{
     display: flex;
     flex-direction: row;
@@ -130,12 +137,19 @@ main > p{
     flex-wrap: wrap;
 }
 
+#pool-box input{
+    pointer-events: all;
+}
+
 .pool-column{
     text-align: right;
 }
 
-.flex-break{
-    break-after: always;
+#output{
+    width: 90%;
+    max-width: 90%;
+    padding: 1em 0;
+    margin-top: 1em;
 }
 
 footer{

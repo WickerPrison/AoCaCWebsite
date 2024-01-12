@@ -11,6 +11,7 @@ function SpellEffect(){
 }
 
 var rangeSelector = document.getElementById("ranges");
+
 var singleTarget = document.getElementById("single-target");
 singleTarget.myTarget = TargetingType.single;
 var multiTarget = document.getElementById("multi-target");
@@ -18,17 +19,30 @@ multiTarget.myTarget = TargetingType.multi;
 var areaTarget = document.getElementById("area-target");
 areaTarget.myTarget = TargetingType.area;
 var targetNum = document.getElementById("target-num");
+
 var addEffect = document.getElementById("add-effect");
 var effectMenu = document.getElementById("spell-selection");
 var spellEffectsBox = document.getElementById("spell-effects-box");
+
 var assembleBtn = document.getElementById("assemble-pool");
-var challengeDisp = document.getElementById("challenge");
-var difficultyDisp = document.getElementById("difficulty");
-var penaltyDisp = document.getElementById("penalty");
-var proficiencyDisp = document.getElementById("proficiency");
-var abilityDisp = document.getElementById("ability");
-var boosDisp = document.getElementById("boost");
-var autoSucDisp = document.getElementById("auto-success");
+
+var challengeInpt = document.getElementById("challenge");
+var difficultyInpt = document.getElementById("difficulty");
+var penaltyInpt = document.getElementById("penalty");
+var proficiencyInpt = document.getElementById("proficiency");
+var abilityInpt = document.getElementById("ability");
+var boosInpt = document.getElementById("boost");
+var upgradesInpt = document.getElementById("upgrade-diff");
+var upgradgeAbilityInpt = document.getElementById("upgrade-abil");
+var autoSucInpt = document.getElementById("auto-success");
+
+var challengeOut = document.getElementById("challenge-out");
+var difficultyOut = document.getElementById("difficulty-out");
+var penaltyOut = document.getElementById("penalty-out");
+var proficiencyOut = document.getElementById("proficiency-out");
+var abilityOut = document.getElementById("ability-out");
+var boostOut = document.getElementById("boost-out");
+var autoSucOut = document.getElementById("auto-success-out");
 
 const TargetingDict ={
     "single":singleTarget,
@@ -36,10 +50,15 @@ const TargetingDict ={
     "area":areaTarget
 }
 
-var difficulty = 0;
-var challenges = 0;
 var upgrades = 0;
+var upgradeAbilities = 0;
+var challenges = 0;
+var difficulty = 0;
 var penalties = 0;
+var proficiencies = 0;
+var abilities = 0;
+var boosts = 0;
+var autoSuccess = 0;
 
 var target = TargetingType.single;
 
@@ -48,10 +67,15 @@ var currentEffects = [];
 setupEffectMenu();
 
 function assembleDicePool(){
-    difficulty = 0;
-    challenges = 0;
     upgrades = 0;
+    upgradeAbilities = 0;
+    challenges = 0;
+    difficulty = 0;
     penalties = 0;
+    proficiencies = 0;
+    abilities = 0;
+    boosts = 0;
+    autoSuccess = 0;
 
     // Range modifier
     difficulty += Number(rangeSelector.value);
@@ -74,7 +98,18 @@ function assembleDicePool(){
         }
     }
 
-    //update ui
+    //custom modifiers
+    upgrades += Number(upgradesInpt.value);
+    upgradeAbilities += Number(upgradgeAbilityInpt.value);
+    challenges += Number(challengeInpt.value);
+    difficulty +=Number( difficultyInpt.value);
+    penalties += Number(penaltyInpt.value);
+    proficiencies += Number(proficiencyInpt.value);
+    abilities += Number(abilityInpt.value);
+    boosts +=Number( boosInpt.value);
+    autoSuccess += Number(autoSucInpt.value);
+
+    //handle upgrades
     for(var i = 0; i < upgrades;i++){
         if(difficulty > 0){
             difficulty--;
@@ -84,15 +119,31 @@ function assembleDicePool(){
             difficulty++;
         }
     }
-    challengeDisp.value = challenges;
-    difficultyDisp.value = difficulty;
-    penaltyDisp.value = penalties;
+
+    for(var i = 0; i < upgradeAbilities; i++){
+        if(abilities > 0){
+            abilities--;
+            proficiencies++
+        }
+        else{
+            abilities++;
+        }
+    }
+
+    //update ui
+    challengeOut.innerText = "Challenge: " + challenges;
+    difficultyOut.innerText = "Difficulty: " + difficulty;
+    penaltyOut.innerText = "Penalty: " + penalties;
+    proficiencyOut.innerText = "Proficiency: " + proficiencies;
+    abilityOut.innerText = "Ability: " + abilities;
+    boostOut.innerText = "Boost: " + boosts;
+    autoSucOut.innerText = "Automatic Successes: " + autoSuccess;
 }
 
 function specialModifier(modifierName){
     switch(modifierName){
         case "boost":
-            
+
     }
 }
 
