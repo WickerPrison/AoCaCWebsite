@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quintessential&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="stylesheet" href="./Assets/CSS/spellBuilder.css">
 </head>
 
 <body>
@@ -16,15 +17,36 @@
     </header>    
     <main>
         <h2 id="page-heading">Spell Builder</h2>
-        <label for="ranges" id="range-dropdown" >Choose a Range Band:</label>
-        <select name="ranges" id="ranges" onChange="update()">
-            <option value="0">Engaged</option>
-            <option value="0">Extended</option>
-            <option value="1">Short</option>
-            <option value="2">Medium</option>
-            <option value="3">Long</option>
-            <option value="4">Extreme</option>
-        </select>
+        <h3>Step 1. Choose a Range Band</h3>
+        <section class="box-holder">
+            <div class="box">
+                <label for="ranges" id="range-dropdown" >Range Band:</label>
+                <select name="ranges" id="ranges" onChange="update()">
+                    <option value="0">Engaged</option>
+                    <option value="0">Extended</option>
+                    <option value="1">Short</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Long</option>
+                    <option value="4">Extreme</option>
+                </select>
+            </div>
+        </section>
+        <h3>Step 2. Choose a Targeting Type</h3>
+        <section class="box-holder">
+            <button class="box selected" id="single-target">
+                <h4>Single Target<h4>
+                <p>Choose a single target. Does not affect the Difficulty of the spell check.</p>
+            </button>
+            <button class="box" id="multi-target">
+                <h4>Multi-Target</h4>
+                Number of Targets: <input id="target-num" type="number" value="2" min="2" oninput="validity.valid||(value='');">
+                <p>Choose 2 or more targets within your chosen range band. Increase the Difficulty of the spell check 1 time for each target chosen.</p>
+            </button>
+            <button class="box" id="area-target">
+                <h4>Area Target</h4>
+                <p>Choose a point within your chosen range band, all creatures within Engaged Range of this point are targeted by the spell. Upgrade the Difficulty of the spell check 3 times.</p>
+            </button>
+        </section>
     </main>
     <script src="./Assets/Dictionaries/spellEffects.js"></script>
     <script src="./Assets/JavaScript/spellBuilder.js"></script>
