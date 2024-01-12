@@ -52,6 +52,18 @@ header{
     flex: 100;
 }
 
+#nav-hide{
+    display: none;
+    flex: none;
+    position: absolute;
+    left: 5%;
+    top: calc(var(--baseTextSize) * 1.3);
+}
+
+.hidden{
+    display: flex;
+}
+
 body{
     background-color: var(--silver);
     font-family: var(--bodyFont);
@@ -126,5 +138,23 @@ a:hover{
 @media screen and (max-width: 768px){
     :root{
         --baseTextSize: 15px;
+    }
+
+    header{
+        flex-direction: column;
+    }
+
+    .nav-bar{
+        /* display: none; */
+        padding: 1%;
+        text-align: left;
+    }
+
+    #nav-hide{
+        display: block;
+    }
+
+    .hidden{
+        display: none;
     }
 }
