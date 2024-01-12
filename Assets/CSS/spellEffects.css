@@ -44,3 +44,9 @@
     border-bottom: 5px black solid;
     width: 100%;
 }
+
+@media screen and (max-width: 768px){
+    .spell-card{
+        width: 95%;
+    }
+}
