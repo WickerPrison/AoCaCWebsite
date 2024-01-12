@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Talent Tree</title>
+    <title>Spell Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quintessential&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
         <h3>Step 3. Choose Spell Effects</h3>
         <section class="box-holder" id="spell-effects-box">
             <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
-            <div class="spell-effect box">
+            <!-- <div class="spell-effect box">
                 <h4 class="effect-name">Effect Name</h4>
                 <button class="remove-effect">x</button>
                 <div class="line"></div>
@@ -62,8 +62,25 @@
                 <h4>Difficulty Modifier: Modifier</h4>
                 <div class="line"></div>
                 <h4>description</h4>
+            </div> -->
+            <button id="add-effect" class="box">+ Add Spell Effect</button>
+            <div class="box" id="spell-selection">
+                <ul>
+                    <h3><li>Metamagic</li></h3>
+                </ul>
+                <ul>
+                    <h3><li>Initiate</li></h3>
+                </ul>
+                <ul>
+                    <h3><li>Adept</li></h3>
+                </ul>
+                <ul>
+                    <h3><li>Magister</li></h3>
+                </ul>
+                <ul>
+                    <h3><li>Arcanist</li></h3>
+                </ul>
             </div>
-            <button class="box">+ Add Spell Effect</button>
         </section>
         <footer></footer>
     </main>
