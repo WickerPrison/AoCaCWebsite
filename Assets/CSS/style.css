@@ -7,6 +7,7 @@
     --headerFont: 'Quintessential', serif;
     --bodyFont: 'Merriweather', serif;
     --baseTextSize: 20px;
+    --leftMargin: 1.17em;
 }
 
 header{
@@ -96,7 +97,7 @@ h3{
     font-size: calc(var(--baseTextSize)*1.5);
     font-family: var(--headerFont);
     margin-top: 0;
-    margin-left: 1.17em;
+    margin-left: var(--leftMargin);
 }
 
 h4{
