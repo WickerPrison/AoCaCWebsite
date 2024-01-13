@@ -60,6 +60,8 @@ var abilities = 0;
 var boosts = 0;
 var autoSuccess = 0;
 
+var double = false;
+
 var target = TargetingType.single;
 
 var currentEffects = [];
@@ -89,12 +91,18 @@ function assembleDicePool(){
     }
 
     //modifiers from spell effects
+    double = false;
     for(var i = 0; i < currentEffects.length; i++){
         var name = currentEffects[i].name;
-        for(var j = 0; j < currentEffects[i].nodes; j++){
-            difficulty += Number(window.spellEffects[name].Difficulty);
-            upgrades += Number(window.spellEffects[name].Upgrades);
-            penalties += Number(window.spellEffects[name].Penalty);
+        applyNodes(name, i);
+    }
+
+    if(double){
+        for(var i = 0; i < currentEffects.length; i++){
+            var name = currentEffects[i].name;
+            if(window.spellEffects[name].Duration != "Instantaneous"){
+                applyNodes(name, i);
+            }
         }
     }
 
@@ -140,10 +148,27 @@ function assembleDicePool(){
     autoSucOut.innerText = "Automatic Successes: " + autoSuccess;
 }
 
+function applyNodes(name, i){
+    for(var j = 0; j < currentEffects[i].nodes; j++){
+        difficulty += Number(window.spellEffects[name].Difficulty);
+        upgrades += Number(window.spellEffects[name].Upgrades);
+        penalties += Number(window.spellEffects[name].Penalty);
+        if(window.spellEffects[name].SpecialModifier != ""){
+            specialModifier(window.spellEffects[name].SpecialModifier);
+        }
+    }
+}
+
 function specialModifier(modifierName){
     switch(modifierName){
         case "boost":
-
+            boosts++;
+            break;
+        case "double":
+            double = true;
+            break;
+        case "success":
+            autoSuccess++;
     }
 }
 
