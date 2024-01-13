@@ -163,7 +163,7 @@ var spellEffects = {
 
 
 ,
-	"Comprehend Languages":{"Tier":"Magister","Duration":"1 hour","Difficulty":"2","Upgrades":"0","Penalty":"0","SpecialModifier":"languages","Modifier":"Difficulty 2 for Common languages, Difficulty 4 for Rare languages","Description":"You can read, understand, and speak one common or rare language. This does not extend to ancient, encoded, or intentionally obscure languages (including Thieves Cant)."}
+	"Comprehend Languages":{"Tier":"Magister","Duration":"1 hour","Difficulty":"0","Upgrades":"0","Penalty":"0","SpecialModifier":"languages","Modifier":"Difficulty 2 for Common languages, Difficulty 4 for Rare languages","Description":"You can read, understand, and speak one common or rare language. This does not extend to ancient, encoded, or intentionally obscure languages (including Thieves Cant)."}
 
 
 ,

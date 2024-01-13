@@ -8,6 +8,8 @@ function SpellEffect(){
     this.name;
     this.nodeInput;
     this.nodes;
+    this.specialInput;
+    this.special;
 }
 
 var rangeSelector = document.getElementById("ranges");
@@ -154,12 +156,12 @@ function applyNodes(name, i){
         upgrades += Number(window.spellEffects[name].Upgrades);
         penalties += Number(window.spellEffects[name].Penalty);
         if(window.spellEffects[name].SpecialModifier != ""){
-            specialModifier(window.spellEffects[name].SpecialModifier);
+            specialModifier(window.spellEffects[name].SpecialModifier, i);
         }
     }
 }
 
-function specialModifier(modifierName){
+function specialModifier(modifierName, i){
     switch(modifierName){
         case "boost":
             boosts++;
@@ -169,6 +171,19 @@ function specialModifier(modifierName){
             break;
         case "success":
             autoSuccess++;
+            break;
+        case "lock":
+            difficulty += Number(currentEffects[i].special);
+            break;
+        case "unwillingTarget":
+            upgrades += Number(currentEffects[i].special);
+            break;
+        case "languages":
+            difficulty += Number(currentEffects[i].special);
+            break;
+        case "enemyType":
+            penalties += Number(currentEffects[i].special);
+            break;
     }
 }
 
@@ -190,6 +205,7 @@ function selectMenuOption(evt){
 }
 
 function createNewEffect(effectName){
+    var currentEffect = new SpellEffect;
     var effectDict = window.spellEffects[effectName];
 
     var effectElm = document.createElement("div");
@@ -233,7 +249,9 @@ function createNewEffect(effectName){
     var modElm = document.createElement("h4");
     modElm.innerText = "Difficulty Modifier: " + effectDict.Modifier;
     effectElm.appendChild(modElm);
-    
+
+    edgeCaseElements(effectDict, effectElm, currentEffect);
+
     createLine(effectElm);
 
     var descriptionElm = document.createElement("h4");
@@ -241,7 +259,6 @@ function createNewEffect(effectName){
     descriptionElm.classList.add("description");
     effectElm.appendChild(descriptionElm);
 
-    var currentEffect = new SpellEffect;
     currentEffect.name = effectName;
     currentEffect.nodeInput = inputElm;
     currentEffect.nodes = inputElm.value;
@@ -278,6 +295,90 @@ function createLine(effectElm){
     var lineElm = document.createElement("div");
     lineElm.classList.add("line");
     effectElm.appendChild(lineElm);
+}
+
+function edgeCaseElements(effectDict, effectElm, currentEffect){
+    if(effectDict.SpecialModifier == "") return;
+
+    switch(effectDict.SpecialModifier){
+        case "lock":
+            var labelText = "Difficulty of Lock: ";
+            createEdgeCaseLabel(effectElm, currentEffect, labelText);
+            break;
+        case "unwillingTarget":
+            var labelText = "Unwilling Targets: ";
+            var edgeCase = createEdgeCaseLabel(effectElm, currentEffect, labelText);
+            edgeCase.value = 0;
+            currentEffect.special = edgeCase.value;
+            break;
+        case "languages":
+            var labelText = "Language Rarity: ";
+            var dropdown = createEdgeCaseDropdown(effectElm, currentEffect, labelText);
+            createEdgeCaseOption(dropdown, "Common", 2);
+            dropdown.value = 2;
+            currentEffect.special = dropdown.value;
+            createEdgeCaseOption(dropdown, "Rare", 4);
+            break;
+        case "enemyType":
+            var labelText = "Enemy Type: ";
+            var dropdown = createEdgeCaseDropdown(effectElm, currentEffect, labelText);
+            createEdgeCaseOption(dropdown, "Minion", 0);
+            dropdown.value = 0;
+            currentEffect.special = 0;
+            createEdgeCaseOption(dropdown, "Rival", 2);
+            createEdgeCaseOption(dropdown, "Nemesis", 4);
+            break;
+    }
+}
+
+function createEdgeCaseLabel(effectElm, currentEffect, innerString){
+    var edgeElmLabel = document.createElement("h4");
+    edgeElmLabel.innerText = innerString;
+    effectElm.appendChild(edgeElmLabel);
+
+    var edgeElm = document.createElement("input");
+    edgeElm.classList.add("can-point");
+    edgeElm.type = "number";
+    edgeElm.value = "1";
+    edgeElm.min = "0";
+    edgeElm.oninput = "validity.valid||(value='');";
+    edgeElmLabel.appendChild(edgeElm);
+
+    currentEffect.specialInput = edgeElm;
+    currentEffect.special = edgeElm.value;
+    edgeElm.addEventListener("change", changeSpecial);
+    return edgeElm;
+}
+
+function createEdgeCaseDropdown(effectElm, currentEffect, innerString){
+    var edgeCaseLabel = document.createElement("label");
+    edgeCaseLabel.for = "options";
+    edgeCaseLabel.innerText = innerString;
+    effectElm.appendChild(edgeCaseLabel);
+
+    var dropdown = document.createElement("select");
+    dropdown.name = "options";
+    effectElm.appendChild(dropdown);
+    currentEffect.specialInput = dropdown;
+    currentEffect.special = dropdown.value;
+    dropdown.addEventListener("change", changeSpecial);
+    return dropdown;
+}
+
+function createEdgeCaseOption(selectElm, innerString, value){
+    var option = document.createElement("option");
+    option.value = value;
+    option.innerText = innerString;
+    selectElm.appendChild(option);
+}
+
+function changeSpecial(evt){
+    var myInput = evt.currentTarget;
+    for(var i = 0; i < currentEffects.length; i++){
+        if(currentEffects[i].specialInput === myInput){
+            currentEffects[i].special = myInput.value;
+        }
+    }
 }
 
 function setupEffectMenu(){
