@@ -1,7 +1,11 @@
+header{
+    position: absolute;
+}
+
 .box{
     display: inline-block;
     background-color: var(--blue);
-    border: 4px var(--red) solid;
+    border: .2em var(--red) solid;
     padding: 0.2em;
     color: white;
     border-radius: 12px;
@@ -35,7 +39,7 @@
     display: flex;
     flex-direction: column;
     left: 0;
-    border-top: 5px black solid;
+    border-top: .3em black solid;
     margin: 0;
     padding: 1em;
 }
@@ -44,6 +48,11 @@
     display: block;
     font-size: var(--baseTextSize);
     margin: 1em 1.21em;
+}
+
+input{
+    width: calc(var(--baseTextSize) * 2);
+    vertical-align: 2px;
 }
 
 .small-button{
@@ -83,6 +92,19 @@ main > p{
     font-weight: normal;
 }
 
+#spell-selection ul{
+    padding: 0.2em;
+}
+
+#spell-selection ul h3{
+    border-bottom: .1em var(--red) solid;
+    font-size: calc(var(--baseTextSize) * 1.3);
+}
+
+.list-spacer{
+    display: none;
+}
+
 .menu-option{
     font-size: calc(var(--baseTextSize) * 0.7);
 }
@@ -90,11 +112,6 @@ main > p{
 .menu-option:hover{
     cursor: pointer;
     color: black;
-}
-
-#spell-selection ul h3{
-    border-bottom: .1em var(--red) solid;
-    font-size: calc(var(--baseTextSize) * 1.3);
 }
 
 .spell-effect{
@@ -159,4 +176,49 @@ main > p{
 
 footer{
     min-height: 100px;
+}
+
+@media screen and (max-width: 768px){
+    h3{
+        font-size: calc(var(--baseTextSize) * 1.3);
+    }
+
+    .box-holder{
+        border-top: 0.2em black solid;
+    }
+
+    .box{
+        max-width: 90%;
+    }
+
+    #targeting-box{
+        flex-direction: column;
+    }
+
+    #targeting-box .box{
+        margin: 0.3em auto;
+    }
+
+    #spell-selection{
+        flex-direction: column;
+    }
+
+    #spell-selection ul li{
+        display: inline;
+    }
+
+    .list-spacer{
+        display: inline;
+        margin: 0 0.1em;
+    }
+
+    .spell-effect{
+        max-width: 90%;
+        width: 90%;
+        margin: 0.5em auto;
+    }
+
+    .remove-effect{
+        font-size: calc(var(--baseTextSize) * .7);
+    }
 }

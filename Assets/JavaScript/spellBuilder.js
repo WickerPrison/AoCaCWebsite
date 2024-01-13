@@ -394,6 +394,12 @@ function setupEffectMenu(){
             currentTier = currentEffect.Tier;
             currentChild++;
         }
+        else if(i >0){
+            var listSpacer = document.createElement("li");
+            listSpacer.classList.add("list-spacer");
+            listSpacer.innerText = "|";
+            effectMenu.children[currentChild].appendChild(listSpacer);
+        }
         effectMenu.children[currentChild].appendChild(option);
         option.classList.add("menu-option");
         option.addEventListener("click", selectMenuOption);
