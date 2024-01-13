@@ -5,6 +5,7 @@ const TargetingType ={
 }
 
 function SpellEffect(){
+    this.element;
     this.name;
     this.nodeInput;
     this.nodes;
@@ -25,7 +26,9 @@ var targetNum = document.getElementById("target-num");
 var addEffect = document.getElementById("add-effect");
 var effectMenu = document.getElementById("spell-selection");
 var spellEffectsBox = document.getElementById("spell-effects-box");
+var clearEffects = document.getElementById("clear-effects");
 
+var clearCustom = document.getElementById("clear-custom");
 var assembleBtn = document.getElementById("assemble-pool");
 
 var challengeInpt = document.getElementById("challenge");
@@ -150,6 +153,18 @@ function assembleDicePool(){
     autoSucOut.innerText = "Automatic Successes: " + autoSuccess;
 }
 
+function clearCustomModifiers(){
+    upgradesInpt.value = 0;
+    upgradgeAbilityInpt.value =0;
+    challengeInpt.value = 0;
+    difficultyInpt.value = 0;
+    penaltyInpt.value = 0;
+    proficiencyInpt.value = 0;
+    abilityInpt.value = 0;
+    boosInpt.value = 0;
+    autoSucInpt.value = 0;
+}
+
 function applyNodes(name, i){
     for(var j = 0; j < currentEffects[i].nodes; j++){
         difficulty += Number(window.spellEffects[name].Difficulty);
@@ -198,6 +213,10 @@ function addEffectMenu(){
     effectMenu.style.display = "flex";
 }
 
+function clearAllEffects(){
+    
+}
+
 function selectMenuOption(evt){
     createNewEffect(evt.currentTarget.name);
     addEffect.style.display = "block";
@@ -221,7 +240,6 @@ function createNewEffect(effectName){
     var buttonElm = document.createElement("button");
     buttonElm.classList.add("remove-effect");
     buttonElm.innerText = "X";
-    buttonElm.rootElm = effectElm;
     effectElm.appendChild(buttonElm);
     
     createLine(effectElm);
@@ -259,26 +277,37 @@ function createNewEffect(effectName){
     descriptionElm.classList.add("description");
     effectElm.appendChild(descriptionElm);
 
+    currentEffect.element = effectElm;
     currentEffect.name = effectName;
     currentEffect.nodeInput = inputElm;
     currentEffect.nodes = inputElm.value;
 
     currentEffects.push(currentEffect);
     buttonElm.effect = currentEffect;
-    buttonElm.addEventListener("click", destroyEffect);
+    buttonElm.addEventListener("click", destroyEffectEvent);
     inputElm.addEventListener("change", changeNodes);
 }
 
-function destroyEffect(evt){
-    var effectElm = evt.currentTarget.rootElm;
-    while(effectElm.firstChild){
-        while(effectElm.firstChild.firstChild){
-            effectElm.firstChild.removeChild(effectElm.firstChild.firstChild);
-        }
-        effectElm.removeChild(effectElm.firstChild);
+function destroyEffectEvent(evt){
+    var effect = evt.currentTarget.effect;
+    destroyEffect(effect);
+}
+
+function destroyAllEffects(){
+    for(var i = currentEffects.length - 1; i >= 0; i--){
+        destroyEffect(currentEffects[i]);
     }
-    effectElm.remove();
-    var index = currentEffects.indexOf(evt.currentTarget.effect);
+}
+
+function destroyEffect(effect){
+    while(effect.element.firstChild){
+        while(effect.element.firstChild.firstChild){
+            effect.element.firstChild.removeChild(effect.element.firstChild.firstChild);
+        }
+        effect.element.removeChild(effect.element.firstChild);
+    }
+    effect.element.remove();
+    var index = currentEffects.indexOf(effect);
     currentEffects.splice(index, 1);
 }
 
@@ -410,4 +439,6 @@ singleTarget.addEventListener("click", changeTargetingType);
 multiTarget.addEventListener("click", changeTargetingType);
 areaTarget.addEventListener("click", changeTargetingType);
 addEffect.addEventListener("click", addEffectMenu);
+clearEffects.addEventListener("click", destroyAllEffects);
+clearCustom.addEventListener("click", clearCustomModifiers);
 assembleBtn.addEventListener("click", assembleDicePool);

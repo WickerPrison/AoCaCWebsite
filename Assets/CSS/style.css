@@ -132,6 +132,16 @@ a:hover{
     color: var(--red);
 }
 
+@media screen and (min-width: 3000px) {
+    :root{
+        --baseTextSize:35px;
+    }
+
+    main{
+        top: 170px;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     :root{
         --baseTextSize:20px;
@@ -141,6 +151,10 @@ a:hover{
 @media screen and (max-width: 768px){
     :root{
         --baseTextSize: 15px;
+    }
+
+    main{
+        top: 70px;
     }
 
     header{

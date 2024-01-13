@@ -59,6 +59,10 @@ input{
     padding: 0.6em;
 }
 
+#clear-effects{
+    margin-top: 1em;
+}
+
 .selected{
     background-color: var(--red);
     border-color: var(--blue);
@@ -165,6 +169,10 @@ main > p{
 
 .pool-column{
     text-align: right;
+}
+
+#clear-custom{
+    margin-top: 0.5em;
 }
 
 #output{

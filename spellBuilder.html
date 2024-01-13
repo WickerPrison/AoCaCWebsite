@@ -52,7 +52,6 @@
         <h3>Step 3. Choose Spell Effects</h3>
         <section class="box-holder" id="spell-effects-box">
             <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
-
             <button id="add-effect" class="box small-button">+ Add Spell Effect</button>
             <div class="box" id="spell-selection">
                 <ul>
@@ -71,6 +70,7 @@
                     <h3><li>Arcanist</li></h3>
                 </ul>
             </div>
+            <button id="clear-effects" class="box small-button">Clear All Effects</button>
         </section>
         <h3>Step 4. Assemble the Dice Pool</h3>
         <section class="box-holder">
@@ -93,6 +93,9 @@
                         <h4>Upgrade Ability: <input id="upgrade-abil" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
                         <h4>Automatic Successes: <input id="auto-success" type="number" value="0"></h4>
                     </div>
+                </div>
+                <div id="clear-custom" class="box can-point">
+                    <h4>Clear All</h4>
                 </div>
             </div>
             <button id="assemble-pool" class="box small-button">Assemble Dice Pool</button>
@@ -125,7 +128,7 @@
         <section class="box-holder">
             <p>Each spell effect will affect each valid target in the area of the spell. The caster decides the order that the spell effects resolve when interacting with targets, but the effect order must be the same for all targets affected.</p>
         </section>
-        <footer></footer>
+        <!-- <footer></footer> -->
     </main>
     <script src="./Assets/Dictionaries/spellEffects.js"></script>
     <script src="./Assets/JavaScript/spellBuilder.js"></script>
