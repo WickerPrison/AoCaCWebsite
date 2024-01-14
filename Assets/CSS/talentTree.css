@@ -18,12 +18,8 @@ h3{
 }
 
 h3::after{
-    display: block;
-    position: absolute;
-    left:30%;
     width: 40%;
-    border-bottom: .12em black solid;
-    content: "";
+    left: 30%;
 }
 
 #class-name{
@@ -88,10 +84,23 @@ h3::after{
     z-index: 2;
 }
 
+.spell{
+    width: 80%;
+    max-width: 80%;
+    margin: 1em auto;
+    text-align: left;
+    position: relative;
+}
+
+.spell-name{
+    font-size: calc(var(--baseTextSize) * 1.2);
+    text-align: center;
+}
+
 #talent-grid{
     display: grid;
     width: 90%;
-    margin: 0 auto;
+    margin: 2em auto 0 auto;
     grid-template-columns: 30% auto;
     border: 2px solid var(--tableBorder);
     border-radius: 12px;

@@ -3,4 +3,4 @@ using AoCaCWebsite;
 
 ParseCSV parseCSV = new ParseCSV();
 
-parseCSV.Parse("SpellEffects", "spellEffects");
+parseCSV.Parse("Fundamentalist", "fundamentalist");

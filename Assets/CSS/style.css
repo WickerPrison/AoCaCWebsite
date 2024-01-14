@@ -97,7 +97,17 @@ h3{
     font-size: calc(var(--baseTextSize)*1.5);
     font-family: var(--headerFont);
     margin-top: 0;
+    margin-bottom: 0;
     margin-left: var(--leftMargin);
+}
+
+h3::after{
+    display: block;
+    position: absolute;
+    left:0;
+    width: 100%;
+    border-bottom: .13em black solid;
+    content: "";
 }
 
 h4{
@@ -111,6 +121,58 @@ h4{
     font-size: calc(var(--baseTextSize) * 3);
     font-family: 'Quintessential', serif;
 }
+
+.box{
+    display: inline-block;
+    background-color: var(--blue);
+    border: .2em var(--red) solid;
+    padding: 0.2em;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: var(--baseTextSize);
+    max-width: 30%;
+}
+
+.box p, .box h4{
+    pointer-events: none;
+}
+
+.box h4{
+    font-weight: normal;
+    margin: 0;
+    font-family: var(--bodyFont);
+}
+
+.box p{
+    font-size: calc(var(--baseTextSize) * 0.8);
+    font-family: var(--bodyFont);
+}
+
+.line{
+    border-bottom: .2em var(--red) solid;
+}
+
+.box-header{
+    padding-bottom: 0.2em;
+    border-bottom: .2em var(--red) solid;
+}
+
+.box-holder{
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    margin: 0;
+    padding: 1em;
+}
+
+.box-holder > p{
+    display: block;
+    font-size: var(--baseTextSize);
+    margin: 1em 1.21em;
+}
+
 
 ul{
     margin: 0;

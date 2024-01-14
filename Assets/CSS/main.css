@@ -16,6 +16,10 @@ main > section{
     flex-wrap: wrap;
 }
 
+h3::after{
+    border: 0;
+}
+
 @media screen and (max-width: 768px){
     #classes{
         flex-direction: column;

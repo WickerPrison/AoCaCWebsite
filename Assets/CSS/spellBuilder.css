@@ -2,54 +2,6 @@ header{
     position: absolute;
 }
 
-.box{
-    display: inline-block;
-    background-color: var(--blue);
-    border: .2em var(--red) solid;
-    padding: 0.2em;
-    color: white;
-    border-radius: 12px;
-    text-align: center;
-    margin: 0 auto;
-    font-size: var(--baseTextSize);
-    max-width: 30%;
-}
-
-.box p, .box h4{
-    pointer-events: none;
-}
-
-.box h4{
-    font-weight: normal;
-    margin: 0;
-    font-family: var(--bodyFont);
-}
-
-.box p{
-    font-size: calc(var(--baseTextSize) * 0.8);
-    font-family: var(--bodyFont);
-}
-
-.box-header{
-    padding-bottom: 0.2em;
-    border-bottom: .2em var(--red) solid;
-}
-
-.box-holder{
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    border-top: .3em black solid;
-    margin: 0;
-    padding: 1em;
-}
-
-.box-holder > p{
-    display: block;
-    font-size: var(--baseTextSize);
-    margin: 1em 1.21em;
-}
-
 input{
     width: calc(var(--baseTextSize) * 2);
     vertical-align: 2px;
@@ -139,10 +91,6 @@ main > p{
 
 .can-point{
     pointer-events: all;
-}
-
-.line{
-    border-bottom: .2em var(--red) solid;
 }
 
 .description{
