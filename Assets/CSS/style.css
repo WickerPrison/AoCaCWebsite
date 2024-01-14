@@ -1,12 +1,12 @@
 :root{
-    --blue: #1654a8;
+    --blue: #2f578e;
     --red: #A8161a;
     --green: #8fa816;
     --silver: #C0C5C1;
     --grey: #8B94A3;
     --headerFont: 'Quintessential', serif;
     --bodyFont: 'Merriweather', serif;
-    --baseTextSize: 1em;
+    --baseTextSize: 15px;
     --size2: calc(var(--baseTextSize) * 1.62);
     --size3: calc(var(--size2) * 1.62);
     --size4: calc(var(--size3) * 1.62);
@@ -126,6 +126,15 @@ h4{
     font-family: 'Quintessential', serif;
 }
 
+#page-heading::after{
+    display: block;
+    position: absolute;
+    left:30%;
+    width: 40%;
+    border-bottom: .07em black solid;
+    content: "";
+}
+
 .box{
     display: inline-block;
     background-color: var(--blue);
@@ -211,13 +220,13 @@ a:hover{
 
 @media screen and (max-width: 1200px) {
     :root{
-        --baseTextSize: 1em;
+        --baseTextSize: 15px;
     }
 }
 
 @media screen and (max-width: 768px){
     :root{
-        --baseTextSize: 0.75em;
+        --baseTextSize: 12px;
     }
 
     main{
@@ -240,5 +249,9 @@ a:hover{
 
     .hidden{
         display: none;
+    }
+
+    #page-heading::after{
+        width: 0;
     }
 }

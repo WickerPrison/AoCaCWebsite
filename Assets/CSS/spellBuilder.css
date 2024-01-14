@@ -7,6 +7,10 @@ input{
     vertical-align: 2px;
 }
 
+input[type='text']{
+    font-size: calc(var(--baseTextSize) * 0.6);
+}
+
 .small-button{
     padding: 0.6em;
 }
@@ -98,12 +102,12 @@ main > p{
 }
 
 .description{
-    font-size: var(--baseTextSize) * 1;
+    font-size: var(--baseTextSize);
 }
 
 #custom-modifiers{
-    width: 90%;
-    max-width: 90%;
+    width: 80%;
+    max-width: 80%;
     padding: 1em 0;
     margin-bottom: 1em;
 }
@@ -129,8 +133,8 @@ main > p{
 }
 
 #output{
-    width: 90%;
-    max-width: 90%;
+    width: 80%;
+    max-width: 80%;
     padding: 1em 0;
     margin-top: 1em;
 }

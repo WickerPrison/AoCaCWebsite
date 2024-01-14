@@ -54,8 +54,7 @@ h3::after{
     border-color: var(--red);
     border-radius: var(--roundedCorners);
     padding: var(--paddingSize);  
-    /* font-size: var(--baseTextSize); */
-    font-size: 0.75em;
+    font-size: var(--baseTextSize);
     font-weight: normal;
     text-wrap: wrap;
     word-wrap: break-word;
@@ -143,7 +142,6 @@ h3::after{
 }
 
 @media screen and (max-width: 768px){
-
     .talent{
         font-size: calc(var(--baseTextSize) * 0.7) ;
     }
