@@ -21,7 +21,7 @@
     margin: 5px;
     background-color: var(--blue);
     color: white;
-    font-size: calc(var(--baseTextSize) * 0.9);
+    font-size: var(--baseTextSize);
 }
 
 .card-line{
@@ -32,14 +32,14 @@
 
 .name{
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 1.2);
+    font-size: var(--size2);
 }
 
 .tier-heading{
     min-width: var(--minScreenWidth);
     margin: 0 auto 0 auto;
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 2);
+    font-size: var(--size3);
     font-family: 'Quintessential', serif;
     width: 100%;
 }

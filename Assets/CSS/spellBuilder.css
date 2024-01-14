@@ -54,7 +54,11 @@ main > p{
 
 #spell-selection ul h3{
     border-bottom: .1em var(--red) solid;
-    font-size: calc(var(--baseTextSize) * 1.3);
+    font-size: var(--baseTextSize);
+}
+
+#spell-selection ul h3::after{
+    width: 0%;
 }
 
 .list-spacer{
@@ -79,7 +83,7 @@ main > p{
 }
 
 .effect-name{
-    font-size: calc(var(--baseTextSize) * 1.2);
+    font-size: var(--size2);
     text-align: center;
 }
 
@@ -94,7 +98,7 @@ main > p{
 }
 
 .description{
-    font-size: calc(var(--baseTextSize) * 1);
+    font-size: var(--baseTextSize) * 1;
 }
 
 #custom-modifiers{
@@ -137,7 +141,7 @@ footer{
 
 @media screen and (max-width: 768px){
     h3{
-        font-size: calc(var(--baseTextSize) * 1.3);
+        font-size: var(--size2);
     }
 
     .box-holder{

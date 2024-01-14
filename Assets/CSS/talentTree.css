@@ -13,7 +13,7 @@ header{
 
 h3{
     text-align: center;
-    font-size: calc(var(--baseTextSize)*2);
+    font-size: var(--size3);
     margin-left: 0;
 }
 
@@ -25,7 +25,7 @@ h3::after{
 #class-name{
     /* margin: calc(var(--talentSize) *2) auto 0 auto; */
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 3);
+    font-size: var(--size4);
     font-family: 'Quintessential', serif;
 }
 
@@ -54,7 +54,9 @@ h3::after{
     border-color: var(--red);
     border-radius: var(--roundedCorners);
     padding: var(--paddingSize);  
-    font-size: var(--baseTextSize);
+    /* font-size: var(--baseTextSize); */
+    font-size: 0.75em;
+    font-weight: normal;
     text-wrap: wrap;
     word-wrap: break-word;
     word-break: break-word;
@@ -74,7 +76,7 @@ h3::after{
     position: absolute;
     top: 100%;
     left: calc(var(--borderSize) * -1);
-    font-size: calc(var(--baseTextSize) * 0.8);
+    font-size: var(--baseTextSize);
     background-color: var(--silver);;
     border: 4px;
     border-style: solid;
@@ -93,7 +95,7 @@ h3::after{
 }
 
 .spell-name{
-    font-size: calc(var(--baseTextSize) * 1.2);
+    font-size: var(--size2);
     text-align: center;
 }
 
@@ -110,7 +112,7 @@ h3::after{
     background-color: var(--silver);
     color: black;
     padding: 10px;
-    font-size: calc(var(--baseTextSize) * 0.8);
+    font-size: var(--baseTextSize);
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -141,15 +143,12 @@ h3::after{
 }
 
 @media screen and (max-width: 768px){
-    :root{
-        --baseTextSize: 15px;
-    }
 
     .talent{
-        font-size: calc(var(--baseTextSize) * 0.6);
+        font-size: calc(var(--baseTextSize) * 0.7) ;
     }
 
     #talent-grid div{
-        font-size: calc(var(--baseTextSize) * 0.7);
+        font-size: calc(var(--baseTextSize) * 0.7) ;
     }
 }

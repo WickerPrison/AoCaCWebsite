@@ -6,7 +6,11 @@
     --grey: #8B94A3;
     --headerFont: 'Quintessential', serif;
     --bodyFont: 'Merriweather', serif;
-    --baseTextSize: 20px;
+    --baseTextSize: 1em;
+    --size2: calc(var(--baseTextSize) * 1.62);
+    --size3: calc(var(--size2) * 1.62);
+    --size4: calc(var(--size3) * 1.62);
+    --smallFont: calc(var(--baseTextSize) / 1.62);
     --leftMargin: 1.17em;
 }
 
@@ -40,7 +44,7 @@ header{
     text-align: center;
     flex-basis: auto;
     font-family: var(--bodyFont);
-    font-size: calc(var(--baseTextSize) * .8);
+    font-size: var(--baseTextSize);
     padding: 0 1%;
 }
 
@@ -81,20 +85,20 @@ main{
 h1{
     color: white;
     font-weight: normal;
-    font-size: calc(var(--baseTextSize) * 1.3);
+    font-size: var(--size2);
     background-color: var(--red);
     font-family: var(--headerFont);
     padding: 0 5px;
 }
 
 h2{
-    font-size: calc(var(--baseTextSize)*2);
+    font-size: var(--size3);
     font-family: var(--headerFont);
     margin: 0;
 }
 
 h3{
-    font-size: calc(var(--baseTextSize)*1.5);
+    font-size: var(--size2);
     font-family: var(--headerFont);
     margin-top: 0;
     margin-bottom: 0;
@@ -118,7 +122,7 @@ h4{
     min-width: var(--minScreenWidth);
     /* margin: calc(var(--baseTextSize) * 4 + 28px ) auto 0 auto; */
     text-align: center;
-    font-size: calc(var(--baseTextSize) * 3);
+    font-size: var(--size4);
     font-family: 'Quintessential', serif;
 }
 
@@ -146,7 +150,7 @@ h4{
 }
 
 .box p{
-    font-size: calc(var(--baseTextSize) * 0.8);
+    font-size: var(--baseTextSize);
     font-family: var(--bodyFont);
 }
 
@@ -197,7 +201,7 @@ a:hover{
 
 @media screen and (min-width: 3000px) {
     :root{
-        --baseTextSize:35px;
+        --baseTextSize:1.75em;
     }
 
     main{
@@ -207,13 +211,13 @@ a:hover{
 
 @media screen and (max-width: 1200px) {
     :root{
-        --baseTextSize:20px;
+        --baseTextSize: 1em;
     }
 }
 
 @media screen and (max-width: 768px){
     :root{
-        --baseTextSize: 15px;
+        --baseTextSize: 0.75em;
     }
 
     main{
