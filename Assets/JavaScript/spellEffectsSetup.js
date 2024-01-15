@@ -20,7 +20,7 @@ function spellCard(spellName){
 
     var nameElement = document.createElement("div");
     createCardElement(card, nameElement);
-    nameElement.classList.add("name");
+    nameElement.classList.add("spell-name");
     nameElement.innerText = spellName;
 
     var tier = document.createElement("div");

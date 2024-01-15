@@ -68,28 +68,30 @@ else{
 
 function createSpellCard(spellName){
     var cardElm = document.createElement("div");
-    cardElm.classList.add("spell");
-    cardElm.classList.add("box");
+    cardElm.classList.add("spell-card");
+    // cardElm.classList.add("box");
 
     var nameElm = document.createElement("h4");
     nameElm.classList.add("spell-name");
+    nameElm.classList.add("card-element");
     nameElm.innerText = spellName;
     cardElm.appendChild(nameElm);
 
-    createLine(cardElm);
-
     var tierElm = document.createElement("h4");
     tierElm.innerText = "Tier: " + window.innateSpells[spellName].Tier;
+    tierElm.classList.add("card-element");
     cardElm.appendChild(tierElm);
 
     var stamElm = document.createElement("h4");
     stamElm.innerText = "Stamina Cost: " + window.innateSpells[spellName].Stamina;
+    stamElm.classList.add("card-element");
     cardElm.appendChild(stamElm);
 
     createLine(cardElm);
 
     var descriptionElm = document.createElement("h4");
     descriptionElm.innerText = window.innateSpells[spellName].Description;
+    descriptionElm.classList.add("card-element");
     cardElm.appendChild(descriptionElm);
 
     TierDict[window.innateSpells[spellName].Tier].appendChild(cardElm);
@@ -97,7 +99,8 @@ function createSpellCard(spellName){
 
 function createLine(cardElm){
     var lineElm = document.createElement("div");
-    lineElm.classList.add("line");
+    lineElm.classList.add("card-line");
+    lineElm.classList.add("card-element");
     cardElm.appendChild(lineElm);
 }
 
