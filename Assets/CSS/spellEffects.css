@@ -53,10 +53,6 @@
     text-align: center;
     font-size: var(--size3);
     font-family: 'Quintessential', serif;
-    width: 100%;
-    background-color: var(--green);
-    color: white;
-    padding: 1% 0;
 }
 
 @media screen and (max-width: 768px){

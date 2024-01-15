@@ -3,7 +3,7 @@
     --silver: #C0C5C1;
     --grey: #8B94A3;
 
-    --brown: #502419;
+    --brown: #AB4D36;
     --lightGreen: #7EA172;
     --green: #053B06;
     --green2: #0A710C;
@@ -112,6 +112,10 @@ h3{
     margin-top: 0;
     margin-bottom: 0;
     margin-left: var(--leftMargin);
+    width: 100%;
+    background-color: var(--green);
+    color: white;
+    padding: 1% 0;
 }
 
 h3::after{
@@ -215,6 +219,10 @@ a{
 
 a:hover{
     color: var(--green);
+}
+
+footer{
+    min-height: 100px;
 }
 
 @media screen and (min-width: 3000px) {

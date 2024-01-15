@@ -24,13 +24,14 @@ if(nameElement != null){
     nameElement.innerHTML = className;
 }
 
+
 for(var i = 0; i < 20; i++){
     var talentName = window.skillTrees[className][i];
     talents[i].innerHTML = talentName;
     var description = getTalentDescription(talentName);
     talents[i].dataset.content = description;
-    tableTalets[i].innerHTML = talentName;
-    tableDescriptions[i].innerHTML = description;
+    tableTalets[i+1].innerHTML = talentName;
+    tableDescriptions[i+1].innerHTML = description;
 }
 
 var innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];

@@ -139,10 +139,6 @@ main > p{
     margin-top: 1em;
 }
 
-footer{
-    min-height: 100px;
-}
-
 @media screen and (max-width: 768px){
     h3{
         font-size: var(--size2);
