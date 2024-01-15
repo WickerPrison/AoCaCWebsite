@@ -11,6 +11,10 @@ input[type='text']{
     font-size: calc(var(--baseTextSize) * 0.6);
 }
 
+.heading-band{
+    font-weight: normal;
+}
+
 #clear-effects{
     margin-top: 1em;
 }
@@ -19,14 +23,6 @@ input[type='text']{
     background-color: var(--green);
     /* border-color: var(--green2); */
     box-shadow: 0 0 5px 0.2px black;
-}
-
-h3{
-    margin-bottom: 0;
-    padding-left: 1.17em;
-    margin-left: 0;
-    width: calc(100% - 1.17em);
-    font-weight: normal;
 }
 
 main > p{
@@ -156,13 +152,6 @@ main > p{
 }
 
 @media screen and (max-width: 768px){
-    h3{
-        font-size: var(--size2);
-    }
-
-    .box-holder{
-        border-top: 0.2em black solid;
-    }
 
     .box{
         max-width: 90%;

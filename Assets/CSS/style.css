@@ -118,6 +118,13 @@ h3{
     padding: 1% 0;
 }
 
+.heading-band{
+    margin-bottom: 0;
+    padding-left: 1.17em;
+    margin-left: 0;
+    width: calc(100% - 1.17em);
+}
+
 h4{
     font-size: var(--baseTextSize);
 }
@@ -304,9 +311,9 @@ footer{
         display: none;
     }
 
-    #page-heading::after{
+    /* #page-heading::after{
         width: 0;
-    }
+    } */
 
     .spell-card{
         width: 95%;
