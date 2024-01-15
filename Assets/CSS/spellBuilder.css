@@ -11,8 +11,8 @@ input[type='text']{
     font-size: calc(var(--baseTextSize) * 0.6);
 }
 
-.small-button{
-    padding: 0.6em;
+.heading-band{
+    font-weight: normal;
 }
 
 #clear-effects{
@@ -20,12 +20,9 @@ input[type='text']{
 }
 
 .selected{
-    background-color: var(--red);
-    border-color: var(--blue);
-}
-
-h3{
-    margin-bottom: 0;
+    background-color: var(--green);
+    /* border-color: var(--green2); */
+    box-shadow: 0 0 5px 0.2px black;
 }
 
 main > p{
@@ -35,6 +32,14 @@ main > p{
 
 #targeting-box{
     flex-direction: row;
+}
+
+#targeting-box button{
+    padding: 1em;
+}
+
+#targeting-box button h4{
+    margin: 0.1em;
 }
 
 #add-effect{
@@ -57,8 +62,12 @@ main > p{
 }
 
 #spell-selection ul h3{
-    border-bottom: .1em var(--red) solid;
+    border-bottom: .1em var(--green) solid;
     font-size: var(--baseTextSize);
+    background-color: var(--green2);
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
 }
 
 #spell-selection ul h3::after{
@@ -75,15 +84,7 @@ main > p{
 
 .menu-option:hover{
     cursor: pointer;
-    color: black;
-}
-
-.spell-effect{
-    width: 80%;
-    max-width: 80%;
-    margin: 1em auto;
-    text-align: left;
-    position: relative;
+    color: var(--green3);
 }
 
 .effect-name{
@@ -93,8 +94,8 @@ main > p{
 
 .remove-effect{
     position: absolute;
-    top: 0.4em;
-    left: 0.5em;
+    top: 1em;
+    left: 1em;
 }
 
 .can-point{
@@ -108,7 +109,7 @@ main > p{
 #custom-modifiers{
     width: 80%;
     max-width: 80%;
-    padding: 1em 0;
+    padding-bottom: 1em;
     margin-bottom: 1em;
 }
 
@@ -129,28 +130,28 @@ main > p{
 
 #clear-custom{
     margin-top: 0.5em;
-    padding: 0.3em;
+    padding: 0.8em;
+    background-color: var(--green);
+    box-shadow: 0 0 5px 0.2px black;
+}
+
+#clear-custom h4{
+    margin: 0;
+}
+
+#assemble-pool{
+    font-size: var(--size2);
 }
 
 #output{
     width: 80%;
     max-width: 80%;
-    padding: 1em 0;
+    padding: 0;
+    padding-bottom: 1em;
     margin-top: 1em;
 }
 
-footer{
-    min-height: 100px;
-}
-
 @media screen and (max-width: 768px){
-    h3{
-        font-size: var(--size2);
-    }
-
-    .box-holder{
-        border-top: 0.2em black solid;
-    }
 
     .box{
         max-width: 90%;
@@ -164,6 +165,10 @@ footer{
         margin: 0.3em auto;
     }
 
+    #single-target{
+        width: 90%;
+    }
+
     #spell-selection{
         flex-direction: column;
     }
@@ -175,12 +180,6 @@ footer{
     .list-spacer{
         display: inline;
         margin: 0 0.1em;
-    }
-
-    .spell-effect{
-        max-width: 90%;
-        width: 90%;
-        margin: 0.5em auto;
     }
 
     .remove-effect{

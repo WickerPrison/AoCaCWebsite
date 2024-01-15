@@ -228,12 +228,12 @@ function createNewEffect(effectName){
     var effectDict = window.spellEffects[effectName];
 
     var effectElm = document.createElement("div");
-    effectElm.classList.add("spell-effect");
-    effectElm.classList.add("box");
+    effectElm.classList.add("spell-card");
     spellEffectsBox.insertBefore(effectElm, addEffect);
 
     var nameElm = document.createElement("h4");
-    nameElm.classList.add("effect-name");
+    nameElm.classList.add("spell-name");
+    nameElm.classList.add("card-element");
     nameElm.innerText = effectName;
     effectElm.appendChild(nameElm);
 
@@ -241,11 +241,10 @@ function createNewEffect(effectName){
     buttonElm.classList.add("remove-effect");
     buttonElm.innerText = "X";
     effectElm.appendChild(buttonElm);
-    
-    createLine(effectElm);
 
     var nodesElm = document.createElement("h4");
     nodesElm.innerText = "Number of Nodes: ";
+    nodesElm.classList.add("card-element");
     effectElm.appendChild(nodesElm);
     
     var inputElm = document.createElement("input");
@@ -258,14 +257,17 @@ function createNewEffect(effectName){
     
     var tierElm = document.createElement("h4");
     tierElm.innerText = "Tier: " + effectDict.Tier;
+    tierElm.classList.add("card-element");
     effectElm.appendChild(tierElm);
 
     var durationElm = document.createElement("h4");
     durationElm.innerText = "Duration: " + effectDict.Duration;
+    durationElm.classList.add("card-element");
     effectElm.appendChild(durationElm);
 
     var modElm = document.createElement("h4");
     modElm.innerText = "Difficulty Modifier: " + effectDict.Modifier;
+    modElm.classList.add("card-element");
     effectElm.appendChild(modElm);
 
     edgeCaseElements(effectDict, effectElm, currentEffect);
@@ -275,6 +277,7 @@ function createNewEffect(effectName){
     var descriptionElm = document.createElement("h4");
     descriptionElm.innerText = effectDict.Description;
     descriptionElm.classList.add("description");
+    descriptionElm.classList.add("card-element");
     effectElm.appendChild(descriptionElm);
 
     currentEffect.element = effectElm;
@@ -322,7 +325,7 @@ function changeNodes(evt){
 
 function createLine(effectElm){
     var lineElm = document.createElement("div");
-    lineElm.classList.add("line");
+    lineElm.classList.add("card-line");
     effectElm.appendChild(lineElm);
 }
 
@@ -362,6 +365,7 @@ function edgeCaseElements(effectDict, effectElm, currentEffect){
 
 function createEdgeCaseLabel(effectElm, currentEffect, innerString){
     var edgeElmLabel = document.createElement("h4");
+    edgeElmLabel.classList.add("card-element");
     edgeElmLabel.innerText = innerString;
     effectElm.appendChild(edgeElmLabel);
 
@@ -381,6 +385,7 @@ function createEdgeCaseLabel(effectElm, currentEffect, innerString){
 
 function createEdgeCaseDropdown(effectElm, currentEffect, innerString){
     var edgeCaseLabel = document.createElement("label");
+    edgeCaseLabel.classList.add("card-element");
     edgeCaseLabel.for = "options";
     edgeCaseLabel.innerText = innerString;
     effectElm.appendChild(edgeCaseLabel);

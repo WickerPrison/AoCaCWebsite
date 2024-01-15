@@ -1,10 +1,9 @@
 :root{
-    --blue: #2f578e;
-    --red: #A8161a;
+    --green2: #2f578e;
     --silver: #C0C5C1;
     --grey: #8B94A3;
 
-    --brown: #502419;
+    --brown: #AB4D36;
     --lightGreen: #7EA172;
     --green: #053B06;
     --green2: #0A710C;
@@ -20,6 +19,8 @@
     --size4: calc(var(--size3) * 1.62);
     --smallFont: calc(var(--baseTextSize) / 1.62);
     --leftMargin: 1.17em;
+
+    --cardCorner: 1.5em;
 }
 
 header{
@@ -31,7 +32,7 @@ header{
     position: fixed;
     top: 0px;
     left: 0px;
-    background-color: var(--red);
+    background-color: var(--green);
     margin: 0px auto;
     width: 100%;
     font-family: var(--headerFont);
@@ -43,7 +44,7 @@ header{
 }
 
 #HomeButton:hover{
-    color: black;
+    color: var(--green3);
 }
 
 .nav-bar{
@@ -57,7 +58,7 @@ header{
 }
 
 .nav-bar:hover{
-    color: black;
+    color: var(--green3);
     cursor: pointer;
 }
 
@@ -94,7 +95,7 @@ h1{
     color: white;
     font-weight: normal;
     font-size: var(--size2);
-    background-color: var(--red);
+    background-color: var(--green);
     font-family: var(--headerFont);
     padding: 0 5px;
 }
@@ -111,15 +112,17 @@ h3{
     margin-top: 0;
     margin-bottom: 0;
     margin-left: var(--leftMargin);
+    width: 100%;
+    background-color: var(--green);
+    color: white;
+    padding: 1% 0;
 }
 
-h3::after{
-    display: block;
-    position: absolute;
-    left:0;
-    width: 100%;
-    border-bottom: .13em black solid;
-    content: "";
+.heading-band{
+    margin-bottom: 0;
+    padding-left: 1.17em;
+    margin-left: 0;
+    width: calc(100% - 1.17em);
 }
 
 h4{
@@ -134,26 +137,19 @@ h4{
     font-family: 'Quintessential', serif;
 }
 
-#page-heading::after{
-    display: block;
-    position: absolute;
-    left:30%;
-    width: 40%;
-    border-bottom: .07em black solid;
-    content: "";
-}
-
 .box{
     display: inline-block;
-    background-color: var(--blue);
-    border: .2em var(--red) solid;
+    background-color: var(--green2);
+    border: none;
     padding: 0.2em;
+    padding-top: 0;
     color: white;
     border-radius: 12px;
     text-align: center;
     margin: 0 auto;
     font-size: var(--baseTextSize);
     max-width: 30%;
+    overflow: hidden;
 }
 
 .box p, .box h4{
@@ -162,7 +158,6 @@ h4{
 
 .box h4{
     font-weight: normal;
-    margin: 0;
     font-family: var(--bodyFont);
 }
 
@@ -172,12 +167,19 @@ h4{
 }
 
 .line{
-    border-bottom: .2em var(--red) solid;
+    border-bottom: .2em var(--green) solid;
 }
 
 .box-header{
-    padding-bottom: 0.2em;
-    border-bottom: .2em var(--red) solid;
+    background-color: var(--green);
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+    width: 150%;
+    position: relative;
+    left: -25%;
+    font-size: var(--size2);
+    margin-bottom: 0.4em;
+    margin-top: 0;
 }
 
 .box-holder{
@@ -192,6 +194,52 @@ h4{
     display: block;
     font-size: var(--baseTextSize);
     margin: 1em 1.21em;
+}
+
+.small-button{
+    padding: 0.6em;
+    box-shadow: 0 0 5px .2px black;
+}
+
+.spell-card{
+    background-color: var(--green2);
+    width: 80%;
+    margin: 1% auto;
+    padding: 1%;
+    padding-top: 0;
+    /* border: .2em var(--green) solid; */
+    border-radius: var(--cardCorner);
+    overflow: hidden;
+    position: relative;
+}
+
+.card-element{
+    margin: 5px;
+    margin-top: 5px;
+    background-color: var(--green2);
+    color: white;
+    font-size: var(--baseTextSize);
+    font-weight: normal;
+}
+
+.card-line{
+    border: .11em var(--green) solid;
+    position: relative;
+    width: 150%;
+    left: -25%;
+    margin: 10px;
+}
+
+.spell-name{
+    position: relative;
+    left: -25%;
+    text-align: center;
+    font-size: var(--size2);
+    background-color: var(--green);
+    width: 150%;
+    left: -25%;
+    margin: 0;
+    padding: 1%;
 }
 
 
@@ -213,7 +261,11 @@ a{
 }
 
 a:hover{
-    color: var(--red);
+    color: var(--green);
+}
+
+footer{
+    min-height: 100px;
 }
 
 @media screen and (min-width: 3000px) {
@@ -259,7 +311,11 @@ a:hover{
         display: none;
     }
 
-    #page-heading::after{
+    /* #page-heading::after{
         width: 0;
+    } */
+
+    .spell-card{
+        width: 95%;
     }
 }

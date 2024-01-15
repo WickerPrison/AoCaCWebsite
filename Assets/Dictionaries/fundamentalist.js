@@ -1,48 +1,48 @@
 function createFundamentalistCard(spellName){
 	var cardElm = document.createElement("div");
-	cardElm.classList.add("spell");
-	cardElm.classList.add("box");
+	cardElm.classList.add("spell-card");
 
 	var nameElm = document.createElement("h4");
 	nameElm.classList.add("spell-name");
+	nameElm.classList.add("card-element");
 	nameElm.innerText = spellName;
 	cardElm.appendChild(nameElm);
 
-	window.createLine(cardElm);
-
 	var tierElm = document.createElement("h4");
-	console.log(spellName);
     tierElm.innerText = "Tier: " + fundamentalistSpells[spellName].Tier;
+	tierElm.classList.add("card-element");
     cardElm.appendChild(tierElm);
 
 	var stamElm = document.createElement("h4");
     stamElm.innerText = "Stamina Cost: " + fundamentalistSpells[spellName].Stamina;
+	stamElm.classList.add("card-element");
     cardElm.appendChild(stamElm);
 
 	var polarizationElm = document.createElement("h4");
 	polarizationElm.innerText = "Polarization: +/- " + fundamentalistSpells[spellName].Polarization;
+	polarizationElm.classList.add("card-element");
 	cardElm.appendChild(polarizationElm);
-
-	window.createLine(cardElm);
 
 	var positiveLabelElm = document.createElement("h4");
 	positiveLabelElm.classList.add("spell-name");
+	positiveLabelElm.classList.add("card-element");
 	positiveLabelElm.innerText = "Positive Version";
 	cardElm.appendChild(positiveLabelElm);
 
 	var posDescriptionElm = document.createElement("h4");
 	posDescriptionElm.innerText = fundamentalistSpells[spellName].Positive;
+	posDescriptionElm.classList.add("card-element");
 	cardElm.appendChild(posDescriptionElm);
-
-	window.createLine(cardElm);
 
 	var negativeLabelElm = document.createElement("h4");
 	negativeLabelElm.classList.add("spell-name");
+	negativeLabelElm.classList.add("card-element");
 	negativeLabelElm.innerText = "Negative Version";
 	cardElm.appendChild(negativeLabelElm);
 
 	var negDescriptionElm = document.createElement("h4");
 	negDescriptionElm.innerText = fundamentalistSpells[spellName].Negative;
+	negDescriptionElm.classList.add("card-element");
 	cardElm.appendChild(negDescriptionElm);
 
 	return cardElm;

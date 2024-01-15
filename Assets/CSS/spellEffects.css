@@ -8,45 +8,10 @@
     flex-direction: column;
 }
 
-.spell-card{
-    background-color: var(--blue);
-    width: 80%;
-    margin: 1% auto;
-    padding: 1%;
-    border: .2em var(--red) solid;
-    border-radius: 1.5em;
-}
-
-.card-element{
-    margin: 5px;
-    background-color: var(--blue);
-    color: white;
-    font-size: var(--baseTextSize);
-}
-
-.card-line{
-    border: .11em var(--red) solid;
-    width: 100%;
-    margin: 0;
-}
-
-.name{
-    text-align: center;
-    font-size: var(--size2);
-}
-
 .tier-heading{
     min-width: var(--minScreenWidth);
-    margin: 0 auto var(--baseTextSize) auto;
+    margin: var(--baseTextSize) auto var(--baseTextSize) auto;
     text-align: center;
     font-size: var(--size3);
     font-family: 'Quintessential', serif;
-    width: 100%;
-}
-
-@media screen and (max-width: 768px){
-    .spell-card{
-        width: 95%;
-    }
-    
 }

@@ -18,7 +18,7 @@
     <main>
         <h2 id="page-heading">Spell Builder</h2>
         <p>Each time you cast a scholarly spell, you must make a Scholarly Magic skill check. The Difficulty of this skill check will depend on various factors. When you cast a scholarly spell, follow the steps listed below to determine the Difficulty of the Scholarly Magic skill check.</p>
-        <h3>Step 1. Choose the Maximum Range Band</h3>
+        <h3 class="heading-band">Step 1. Choose the Maximum Range Band</h3>
         <section class="box-holder">
             <p>Choose a range band up to Extreme Range. Only creatures within your chosen range band can be selected as a target of the spell. Targeting yourself or anything in Extended Range is a Difficulty 0 base check, and the Difficulty of the skill check increases by 1 for each range band past Extended up to Extreme (Difficulty 4).</p>
             <div class="box small-button">
@@ -33,7 +33,7 @@
                 </select>
             </div>
         </section>
-        <h3>Step 2. Choose a Targeting Type</h3>
+        <h3 class="heading-band">Step 2. Choose a Targeting Type</h3>
         <section class="box-holder" id="targeting-box">
             <button class="box selected" id="single-target">
                 <h4>Single Target<h4>
@@ -49,7 +49,7 @@
                 <p>Choose a point within your chosen range band, all creatures within Engaged Range of this point are targeted by the spell. Upgrade the Difficulty of the spell check 3 times.</p>
             </button>
         </section>
-        <h3>Step 3. Choose Spell Effects</h3>
+        <h3 class="heading-band">Step 3. Choose Spell Effects</h3>
         <section class="box-holder" id="spell-effects-box">
             <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
             <button id="add-effect" class="box small-button">+ Add Spell Effect</button>
@@ -72,7 +72,7 @@
             </div>
             <button id="clear-effects" class="box small-button">Clear All Effects</button>
         </section>
-        <h3>Step 4. Assemble the Dice Pool</h3>
+        <h3 class="heading-band">Step 4. Assemble the Dice Pool</h3>
         <section class="box-holder">
             <p>Assemble all the dice for your Scholarly Magic skill check, including your Intellect and Magic Scholarly skill ranks, dice from Steps 1-3, and from other factors (environment, gear, talents, etc.).</p>
             <div class="box" id="custom-modifiers">
@@ -116,15 +116,15 @@
                 </div>
             </div>
         </section>
-        <h3>Step 5. Spend Stamina</h3>
+        <h3 class="heading-band">Step 5. Spend Stamina</h3>
         <section class="box-holder">
             <p>Casting a scholarly spell costs 1 Stamina.</p>
         </section>
-        <h3>Step 6. Make Scholarly Magic Skill Check</h3>
+        <h3 class="heading-band">Step 6. Make Scholarly Magic Skill Check</h3>
         <section class="box-holder">
             <p>Make the skill check. If you fail the check you still lose the Stamina and your Action, but the effects of the spell do not occur. If you succeed, proceed to Step 7.</p>
         </section>
-        <h3>Step 7. Resolve Spell Roll and Effects of Spell</h3>
+        <h3 class="heading-band">Step 7. Resolve Spell Roll and Effects of Spell</h3>
         <section class="box-holder">
             <p>Each spell effect will affect each valid target in the area of the spell. The caster decides the order that the spell effects resolve when interacting with targets, but the effect order must be the same for all targets affected.</p>
         </section>
