@@ -1,6 +1,5 @@
 :root{
-    --blue: #2f578e;
-    --red: #A8161a;
+    --green2: #2f578e;
     --silver: #C0C5C1;
     --grey: #8B94A3;
 
@@ -20,6 +19,8 @@
     --size4: calc(var(--size3) * 1.62);
     --smallFont: calc(var(--baseTextSize) / 1.62);
     --leftMargin: 1.17em;
+
+    --cardCorner: 1.5em;
 }
 
 header{
@@ -31,7 +32,7 @@ header{
     position: fixed;
     top: 0px;
     left: 0px;
-    background-color: var(--red);
+    background-color: var(--green);
     margin: 0px auto;
     width: 100%;
     font-family: var(--headerFont);
@@ -43,7 +44,7 @@ header{
 }
 
 #HomeButton:hover{
-    color: black;
+    color: var(--green3);
 }
 
 .nav-bar{
@@ -57,7 +58,7 @@ header{
 }
 
 .nav-bar:hover{
-    color: black;
+    color: var(--green3);
     cursor: pointer;
 }
 
@@ -94,7 +95,7 @@ h1{
     color: white;
     font-weight: normal;
     font-size: var(--size2);
-    background-color: var(--red);
+    background-color: var(--green);
     font-family: var(--headerFont);
     padding: 0 5px;
 }
@@ -114,12 +115,12 @@ h3{
 }
 
 h3::after{
-    display: block;
+    /* display: block;
     position: absolute;
     left:0;
     width: 100%;
     border-bottom: .13em black solid;
-    content: "";
+    content: ""; */
 }
 
 h4{
@@ -135,18 +136,18 @@ h4{
 }
 
 #page-heading::after{
-    display: block;
+    /* display: block;
     position: absolute;
     left:30%;
     width: 40%;
     border-bottom: .07em black solid;
-    content: "";
+    content: ""; */
 }
 
 .box{
     display: inline-block;
-    background-color: var(--blue);
-    border: .2em var(--red) solid;
+    background-color: var(--green2);
+    border: .2em var(--green) solid;
     padding: 0.2em;
     color: white;
     border-radius: 12px;
@@ -172,12 +173,12 @@ h4{
 }
 
 .line{
-    border-bottom: .2em var(--red) solid;
+    border-bottom: .2em var(--green) solid;
 }
 
 .box-header{
     padding-bottom: 0.2em;
-    border-bottom: .2em var(--red) solid;
+    border-bottom: .2em var(--green) solid;
 }
 
 .box-holder{
@@ -213,7 +214,7 @@ a{
 }
 
 a:hover{
-    color: var(--red);
+    color: var(--green);
 }
 
 @media screen and (min-width: 3000px) {

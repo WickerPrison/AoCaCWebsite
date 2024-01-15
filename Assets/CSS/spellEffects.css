@@ -9,39 +9,54 @@
 }
 
 .spell-card{
-    background-color: var(--blue);
+    background-color: var(--green2);
     width: 80%;
     margin: 1% auto;
     padding: 1%;
-    border: .2em var(--red) solid;
-    border-radius: 1.5em;
+    padding-top: 0;
+    /* border: .2em var(--green) solid; */
+    border-radius: var(--cardCorner);
+    overflow: hidden;
 }
 
 .card-element{
     margin: 5px;
-    background-color: var(--blue);
+    margin-top: 5px;
+    background-color: var(--green2);
     color: white;
     font-size: var(--baseTextSize);
 }
 
 .card-line{
-    border: .11em var(--red) solid;
-    width: 100%;
-    margin: 0;
+    border: .11em var(--green) solid;
+    position: relative;
+    width: 150%;
+    left: -25%;
+    margin: 10px;
 }
 
 .name{
+    position: relative;
+    left: -25%;
     text-align: center;
     font-size: var(--size2);
+    background-color: var(--green);
+    width: 150%;
+    left: -25%;
+    margin: 0;
+    padding: 1%;
 }
 
 .tier-heading{
     min-width: var(--minScreenWidth);
-    margin: 0 auto var(--baseTextSize) auto;
+    margin: var(--baseTextSize) auto var(--baseTextSize) auto;
     text-align: center;
     font-size: var(--size3);
     font-family: 'Quintessential', serif;
     width: 100%;
+    background-color: var(--green);
+    color: white;
+    padding: 1% 0;
 }
 
 @media screen and (max-width: 768px){
