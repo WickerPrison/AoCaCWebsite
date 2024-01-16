@@ -116,7 +116,7 @@ h2:has(+ #page-title){
     font-weight: bold;
     color: var(--green);
     font-size: var(--size4);
-    text-shadow: 0 0 6px var(--green2);
+    text-shadow: 0 0 3px var(--green2);
     margin-bottom: 0;
     margin-top: 10px;
     z-index: 2;
@@ -152,9 +152,8 @@ h3{
 
 .heading-band{
     margin-bottom: 0;
-    padding-left: 1.17em;
     margin-left: 0;
-    width: calc(100% - 1.17em);
+    width: 100%;
 }
 
 h4{

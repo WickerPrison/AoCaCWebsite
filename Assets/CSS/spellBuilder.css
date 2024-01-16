@@ -13,6 +13,8 @@ input[type='text']{
 
 .heading-band{
     font-weight: normal;
+    padding-left: 1.17em;
+    width: calc(100% - 1.17em);
 }
 
 #clear-effects{
