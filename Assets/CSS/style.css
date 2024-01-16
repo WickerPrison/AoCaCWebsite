@@ -21,6 +21,8 @@
     --leftMargin: 1.17em;
 
     --cardCorner: 1.5em;
+
+    --diceSize: 9vh;
 }
 
 header{
@@ -89,6 +91,36 @@ main{
     position: absolute;
     top: 100px;
     left: 0;
+}
+
+#page-title{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: -9px auto 40px;
+}
+
+#page-title img{
+    height: var(--diceSize);
+    margin: 1%;
+    position: relative;
+}
+
+#page-title .square-die {
+    height: calc(var(--diceSize) * 0.75);
+}
+
+h2:has(+ #page-title){
+    font-weight: bold;
+    color: var(--green);
+    font-size: var(--size4);
+    text-shadow: 0 0 6px var(--green2);
+    margin-bottom: 0;
+    margin-top: 10px;
+    z-index: 2;
+    position: relative;
 }
 
 h1{
@@ -287,6 +319,7 @@ footer{
 @media screen and (max-width: 768px){
     :root{
         --baseTextSize: 12px;
+        --diceSize: 8vh;
     }
 
     main{
@@ -311,9 +344,9 @@ footer{
         display: none;
     }
 
-    /* #page-heading::after{
-        width: 0;
-    } */
+    #page-title{
+        margin: -4px auto 30px;
+    }
 
     .spell-card{
         width: 95%;

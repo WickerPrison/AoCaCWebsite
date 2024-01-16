@@ -7,10 +7,6 @@
     --minScreenWidth: 510px;
 }
 
-header{
-    position: absolute;
-}
-
 h3{
     text-align: center;
     font-size: var(--size3);

@@ -1,0 +1,13 @@
+header{
+    position: absolute;
+}
+
+main{
+    top: 80px;
+}
+
+@media screen and (max-width: 768px){
+    main{
+        top: 60px;
+    }
+}
