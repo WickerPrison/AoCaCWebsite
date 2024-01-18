@@ -1,3 +1,7 @@
+:root{
+    --outputDice: 4em;
+}
+
 #new-roll{
     display: block;
     font-size: var(--baseTextSize);
@@ -112,48 +116,57 @@ input[type='text']{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 90%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 0.5em auto;
+    min-height: var(--outputDice);
 }
 
 .output-element{
-    padding: 1em 0;
+    padding: calc(var(--outputDice)/2 - 1em) 0;
     flex-basis: 25%;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .output-element h4{
+    position: relative;
     display: inline;
     vertical-align: middle ;
     z-index: 3;
 }
 
 .dice-holder{
-    display: inline;
+    display: inline-block;
     position: relative;
-    vertical-align: middle;
-    text-align: left;
+    height: 100%;
+    width: var(--outputDice);
 }
 
 .dice-holder img{
-    height: var(--diceSize);
-    top: 50%;
-    right: 1em;
+    position: absolute;
+    height: var(--outputDice);
+    right: 0;
     z-index: 2;
 }
 
 .dice-holder h4{
     position: absolute;
     text-align: center;
-    height: 100%;
+    line-height: 2.5em;
+    height: 50%;
     width: 100%;
     right: 0;
-    top: -140%;
+    top: 0;
     margin: 0;
     font-size: var(--size2);
 }
 
 @media screen and (max-width: 768px){
+    :root{
+        --outputDice: 3.5em;
+    }
+    
     .button-box{
         width: 90%;
     }
@@ -173,6 +186,6 @@ input[type='text']{
     }
 
     .dice-holder h4{
-        top: -160%;
+        line-height: 2.1em;
     }
 }
