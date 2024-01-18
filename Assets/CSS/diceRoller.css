@@ -72,13 +72,6 @@
     margin: 0.3em;
 }
 
-.output-box{
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin: 0 auto;
-}
-
 .roll-box{
     display: block;
     margin-bottom: 1em;
@@ -88,10 +81,34 @@
     display: none;
 }
 
+.output-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+
 .output-element{
     padding: 1em 0;
+    flex-basis: 25%;
 }
 
 .output-element h4{
     display: inline;
+}
+
+@media screen and (max-width: 768px){
+    .button-box{
+        width: 90%;
+    }
+
+    .output-element{
+        flex-basis: 50%;
+    }
+
+    .remove-button{
+        left: 1em;
+        top: 0.6em;
+    }
 }
