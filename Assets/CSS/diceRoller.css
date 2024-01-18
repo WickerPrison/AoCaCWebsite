@@ -5,6 +5,11 @@
     margin: 0 auto;
 }
 
+#new-roll:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
 .box-holder{
     padding: 0;
 }
@@ -40,6 +45,11 @@ input[type='text']{
     top: 1em;
 }
 
+.remove-button:hover{
+    color: black;
+    cursor: pointer;
+}
+
 .input-box{
     display: flex;
     flex-direction: row;
@@ -68,6 +78,11 @@ input[type='text']{
     border-radius: var(--cardCorner);
     padding: 0.6em;
     box-shadow: 0 0 5px .2px black;
+}
+
+.dice-button:hover{
+    color: var(--green3);
+    cursor: pointer;
 }
 
 .apply-upgrades{
