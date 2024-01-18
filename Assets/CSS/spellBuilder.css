@@ -2,15 +2,6 @@ header{
     position: absolute;
 }
 
-input{
-    width: calc(var(--baseTextSize) * 2);
-    vertical-align: 2px;
-}
-
-input[type='text']{
-    font-size: calc(var(--baseTextSize) * 0.6);
-}
-
 .heading-band{
     font-weight: normal;
     padding-left: 1.17em;
@@ -98,10 +89,6 @@ main > p{
     position: absolute;
     top: 1em;
     left: 1em;
-}
-
-.can-point{
-    pointer-events: all;
 }
 
 .description{

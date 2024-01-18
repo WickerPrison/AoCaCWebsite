@@ -1,0 +1,97 @@
+#new-roll{
+    display: block;
+    font-size: var(--baseTextSize);
+    padding: 0.6em;
+    margin: 0 auto;
+}
+
+.box-holder{
+    padding: 0;
+}
+
+.box{
+    position: relative;
+    width: 90%;
+    max-width: 90%;
+}
+
+.remove-button{
+    color: white;
+    font-family: sans-serif;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.9em;
+    box-shadow: 0 0 5px .2px black;
+    position: absolute;
+    z-index: 3;
+    left: 2em;
+    top: 1em;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.input-box input{
+    pointer-events: all;
+}
+
+.input-column{
+    text-align: right;
+}
+
+.button-box{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 1em auto 1.5em;
+}
+
+.dice-button{
+    width: 20%;
+    background-color: var(--green);
+    border-radius: var(--cardCorner);
+    padding: 0.6em;
+    box-shadow: 0 0 5px .2px black;
+}
+
+.apply-upgrades{
+    width: 35%;
+}
+
+.card-banner{
+    background-color: var(--green);
+    width: 110%;
+    position: relative;
+    left: -5%;
+    font-size: var(--size2);
+    padding: 0.3em 0;
+    margin: 0.3em;
+}
+
+.output-box{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.roll-box{
+    display: block;
+    margin-bottom: 1em;
+}
+
+#roll-template{
+    display: none;
+}
+
+.output-element{
+    padding: 1em 0;
+}
+
+.output-element h4{
+    display: inline;
+}

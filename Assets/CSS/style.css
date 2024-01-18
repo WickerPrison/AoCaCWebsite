@@ -227,8 +227,16 @@ h4{
     margin: 1em 1.21em;
 }
 
+button{
+    border: 0;
+    color: white;
+    font-family: var(--bodyFont);
+}
+
 .small-button{
-    padding: 0.6em;
+    background-color: var(--green);
+    border-radius: var(--cardCorner);
+    padding: 1em;
     box-shadow: 0 0 5px .2px black;
 }
 
@@ -295,7 +303,21 @@ a:hover{
     color: var(--green);
 }
 
+input{
+    width: calc(var(--baseTextSize) * 2);
+    vertical-align: 2px;
+}
+
+input[type='text']{
+    font-size: calc(var(--baseTextSize) * 0.6);
+}
+
+.can-point{
+    pointer-events: all;
+}
+
 footer{
+    width: 90%;
     min-height: 100px;
 }
 
