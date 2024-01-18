@@ -13,6 +13,9 @@ function createNewRoll(){
     newRollElm.classList.add("roll-box");
     rollsHolder.appendChild(newRollElm);
 
+    var title = newRollElm.querySelector(".roll-title");
+    title.value = "New Roll " + rollCounter;
+
     var newRollData = new RollData();
     newRollElm.data = newRollData;
 

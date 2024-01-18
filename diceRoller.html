@@ -33,9 +33,11 @@
         <button id="new-roll" class="small-button">+ New Roll</button>
 
         <!-- this is just a template to be copied by the js -->
-        <div class="box" id="roll-template">
+        <div class="box roll-box" id="roll-template">
             <button class="remove-button">X</button>
-            <h4 class="box-header">New Roll</h4>
+            <div class="box-header">
+                <input class="roll-title" type="text" value="New Roll"></input>
+            </div>  
             <div class="input-box">
                 <div class="input-column">
                     <h4>Proficiency: <input class="proficiency" type="number" value="0" min="0" oninput="validity.valid||(value='');"></h4>
