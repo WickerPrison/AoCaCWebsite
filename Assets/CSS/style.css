@@ -13,7 +13,7 @@
 
     --headerFont: 'Quintessential', serif;
     --bodyFont: 'Merriweather', serif;
-    --baseTextSize: 16px;
+    --baseTextSize: 15px;
     --size2: calc(var(--baseTextSize) * 1.62);
     --size3: calc(var(--size2) * 1.62);
     --size4: calc(var(--size3) * 1.62);

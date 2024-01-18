@@ -112,17 +112,45 @@ input[type='text']{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
 .output-element{
     padding: 1em 0;
     flex-basis: 25%;
+    position: relative;
 }
 
 .output-element h4{
     display: inline;
+    vertical-align: middle ;
+    z-index: 3;
+}
+
+.dice-holder{
+    display: inline;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.dice-holder img{
+    height: var(--diceSize);
+    top: 50%;
+    right: 1em;
+    z-index: 2;
+}
+
+.dice-holder h4{
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    top: -140%;
+    margin: 0;
+    font-size: var(--size2);
 }
 
 @media screen and (max-width: 768px){
@@ -142,5 +170,9 @@ input[type='text']{
     input[type='text']{
         width: 50%;
         margin-left: 0.9em;
+    }
+
+    .dice-holder h4{
+        top: -160%;
     }
 }
