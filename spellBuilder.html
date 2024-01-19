@@ -44,19 +44,19 @@
         </section>
         <h3 class="heading-band">Step 2. Choose a Targeting Type</h3>
         <section class="box-holder" id="targeting-box">
-            <button class="box selected" id="single-target">
+            <div class="box selected" id="single-target">
                 <h4>Single Target<h4>
                 <p>Choose a single target. Does not affect the Difficulty of the spell check.</p>
-            </button>
-            <button class="box" id="multi-target">
+            </div>
+            <div class="box" id="multi-target">
                 <h4>Multi-Target</h4>
                 <h4>Number of Targets: <input class="can-point" id="target-num" type="number" value="2" min="2" oninput="validity.valid||(value='');"></h4>
                 <p>Choose 2 or more targets within your chosen range band. Increase the Difficulty of the spell check 1 time for each target chosen.</p>
-            </button>
-            <button class="box" id="area-target">
+            </div>
+            <div class="box" id="area-target">
                 <h4>Area Target</h4>
                 <p>Choose a point within your chosen range band, all creatures within Engaged Range of this point are targeted by the spell. Upgrade the Difficulty of the spell check 3 times.</p>
-            </button>
+            </div>
         </section>
         <h3 class="heading-band">Step 3. Choose Spell Effects</h3>
         <section class="box-holder" id="spell-effects-box">
@@ -103,9 +103,9 @@
                         <h4>Automatic Successes: <input id="auto-success" type="number" value="0"></h4>
                     </div>
                 </div>
-                <div id="clear-custom" class="box can-point">
+                <button id="clear-custom" class="box can-point">
                     <h4>Clear Custom Modifiers</h4>
-                </div>
+                </button>
             </div>
             <button id="assemble-pool" class="box small-button">Assemble Dice Pool</button>
             <div class="box" id="output">
@@ -132,6 +132,40 @@
         <h3 class="heading-band">Step 6. Make Scholarly Magic Skill Check</h3>
         <section class="box-holder">
             <p>Make the skill check. If you fail the check you still lose the Stamina and your Action, but the effects of the spell do not occur. If you succeed, proceed to Step 7.</p>
+            <button id="roll-dice" class="box small-button">Roll Dice</button>
+            <div class="box" id="roll-results">
+                <h4 class="box-header">Results</h4>
+                <div class="output-box">
+                    <div class = output-element>
+                        <h4>Conquests: </h4>
+                        <div class="dice-holder">
+                            <img src="./Assets/SVG/d12.svg">
+                            <h4 id="conquests">0</h4>
+                        </div>
+                    </div>
+                    <div class = output-element>
+                        <h4>Calamities: </h4>
+                        <div class="dice-holder">
+                            <img src="./Assets/SVG/d12.svg">
+                            <h4 id="calamities">0</h4>
+                        </div>
+                    </div>
+                    <div class = output-element>
+                        <h4>Successes: </h4>
+                        <div class="dice-holder">
+                            <img src="./Assets/SVG/d12.svg">
+                            <h4 id="successes">0</h4>
+                        </div>
+                    </div>
+                    <div class = output-element>
+                        <h4>Advantage: </h4>
+                        <div class="dice-holder">
+                            <img src="./Assets/SVG/d12.svg">
+                            <h4 id="advantage">0</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <h3 class="heading-band">Step 7. Resolve Spell Roll and Effects of Spell</h3>
         <section class="box-holder">
@@ -139,6 +173,7 @@
         </section>
         <!-- <footer></footer> -->
     </main>
+    <script src="./Assets/JavaScript/rollDice.js"></script>
     <script src="./Assets/Dictionaries/spellEffects.js"></script>
     <script src="./Assets/JavaScript/spellBuilder.js"></script>
 </body>

@@ -49,6 +49,12 @@ var abilityOut = document.getElementById("ability-out");
 var boostOut = document.getElementById("boost-out");
 var autoSucOut = document.getElementById("auto-success-out");
 
+var rollDiceBtn = document.getElementById("roll-dice");
+var conquestsDisplay = document.getElementById("conquests");
+var calamityDisplay = document.getElementById("calamities");
+var successDisplay = document.getElementById("successes");
+var advantageDisplay = document.getElementById("advantage");
+
 const TargetingDict ={
     "single":singleTarget,
     "multi":multiTarget,
@@ -151,6 +157,24 @@ function assembleDicePool(){
     abilityOut.innerText = "Ability: " + abilities;
     boostOut.innerText = "Boost: " + boosts;
     autoSucOut.innerText = "Automatic Successes: " + autoSuccess;
+}
+
+function spellCheck(){
+    var data = new RollData();
+    data.proficiency = proficiencies;
+    data.ability = abilities;
+    data.boost = boosts;
+    data.challenge = challenges;
+    data.difficulty = difficulty;
+    data.penalty = penalties;
+    data.autoSuccess = autoSuccess;
+
+    var results = window.rollDice(data);
+
+    conquestsDisplay.innerText = results.conquests;
+    calamityDisplay.innerText = results.calamities;
+    successDisplay.innerText = results.successes;
+    advantageDisplay.innerText = results.advantage;
 }
 
 function clearCustomModifiers(){
@@ -447,3 +471,4 @@ addEffect.addEventListener("click", addEffectMenu);
 clearEffects.addEventListener("click", destroyAllEffects);
 clearCustom.addEventListener("click", clearCustomModifiers);
 assembleBtn.addEventListener("click", assembleDicePool);
+rollDiceBtn.addEventListener("click", spellCheck);

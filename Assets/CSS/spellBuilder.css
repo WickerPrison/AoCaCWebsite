@@ -87,8 +87,17 @@ main > p{
 
 .remove-effect{
     position: absolute;
-    top: 1em;
+    top: 0.8em;
     left: 1em;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.6em;
+    box-shadow: 0 0 5px 0.2px black;
+    font-family: sans-serif;
+}
+
+.remove-effect:hover{
+    color: black;
 }
 
 .description{
@@ -140,6 +149,12 @@ main > p{
     margin-top: 1em;
 }
 
+#roll-results{
+    margin-top: 1.2em;
+    width: 80%;
+    max-width: 80%;
+}
+
 @media screen and (max-width: 768px){
 
     .box{
@@ -173,5 +188,7 @@ main > p{
 
     .remove-effect{
         font-size: calc(var(--baseTextSize) * .7);
+        top: 1em;
+        left: 1.5em;
     }
 }

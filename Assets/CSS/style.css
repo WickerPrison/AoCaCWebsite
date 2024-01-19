@@ -23,6 +23,7 @@
     --cardCorner: 1.5em;
 
     --diceSize: 9vh;
+    --outputDice: 4em;
 }
 
 header{
@@ -233,6 +234,10 @@ button{
     font-family: var(--bodyFont);
 }
 
+button:hover{
+    color: var(--green3);
+}
+
 .small-button{
     background-color: var(--green);
     border-radius: var(--cardCorner);
@@ -281,6 +286,55 @@ button{
     padding: 1%;
 }
 
+.output-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 95%;
+    margin: 0.5em auto;
+    min-height: var(--outputDice);
+}
+
+.output-element{
+    padding: calc(var(--outputDice)/2 - 1em) 0;
+    flex-basis: 25%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.output-element h4{
+    position: relative;
+    display: inline;
+    vertical-align: middle ;
+    z-index: 3;
+}
+
+.dice-holder{
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: var(--outputDice);
+}
+
+.dice-holder img{
+    position: absolute;
+    height: var(--outputDice);
+    right: 0;
+    z-index: 2;
+}
+
+.dice-holder h4{
+    position: absolute;
+    text-align: center;
+    line-height: 2.5em;
+    height: 50%;
+    width: 100%;
+    right: 0;
+    top: 0;
+    margin: 0;
+    font-size: var(--size2);
+}
 
 ul{
     margin: 0;
@@ -341,6 +395,7 @@ footer{
     :root{
         --baseTextSize: 12px;
         --diceSize: 8vh;
+        --outputDice: 3.5em;
     }
 
     main{
@@ -371,5 +426,13 @@ footer{
 
     .spell-card{
         width: 95%;
+    }
+
+    .dice-holder h4{
+        line-height: 2.1em;
+    }
+
+    .output-element{
+        flex-basis: 50%;
     }
 }

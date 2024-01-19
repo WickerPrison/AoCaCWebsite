@@ -6,6 +6,7 @@
     display: block;
     font-size: var(--baseTextSize);
     padding: 0.6em;
+    padding-right: 1em;
     margin: 0 auto;
 }
 
@@ -34,6 +35,10 @@ input[type='text']{
     background-color: var(--green);
     margin: 0;
     border: 0;
+}
+
+input[type="text"]:focus-visible, input[type="text"]:hover{
+    outline: white dashed 1px;
 }
 
 .remove-button{
