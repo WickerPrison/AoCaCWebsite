@@ -77,9 +77,14 @@
     margin: 0.4em 0;
 }
 
-.dotted-line{
-    width: 100%;
-    border-bottom: 0.15em black dashed;
+
+.attacks-heading{
+    width: 120%;
+    position: relative;
+    left: -10%;
+    background-color: var(--green);
+    font-size: var(--size2);
+    padding: 0.3em;
 }
 
 .attacks{
@@ -100,14 +105,14 @@
     text-align: left;
 }
 
-.attack-line{
+.monster-line{
     width: 100%;
     border-bottom: 0.15em solid black;
     margin: 0.3em 0;
 }
 
 .attack-stats{
-    flex-basis: 30%;
+    flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -126,4 +131,25 @@
 
 #attack-template{
     display: none;
+}
+
+@media screen and (max-width: 768px){
+    .stat-block-section{
+        flex-direction: column;
+    }
+
+    .attack-stats{
+        flex-basis: 100%;
+    }
+
+    .phone-line{
+        width: 100%;
+        border-bottom: 0.15em solid black;
+        margin: 0.3em 0;
+    }
+    
+    .properties{
+        margin-top: 0.2em;
+        flex-basis: 100%;
+    }
 }
