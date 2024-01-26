@@ -1,0 +1,91 @@
+#monster-list{
+    width: 100%;
+    display: flex;
+}
+
+.monster-card{
+    display: block;
+    width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    background-color: var(--green2);
+    padding: 0 2em 2em;
+}
+
+.monster-row{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.row-1 *{
+    flex-basis: 50%;
+}
+
+.row-2 *{
+    flex-basis: 16.6%;
+}
+
+.row-3 *{
+    flex-basis: 16.6%;
+}
+
+.row-4 *{
+    flex-basis: 33.3%;
+}
+
+.skills{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.talents-abilities{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.special-features{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.dotted-line{
+    width: 100%;
+    border-bottom: 0.15em black dashed;
+}
+
+.attacks{
+    display: flex;
+    flex-direction: column;
+}
+
+.attack-profile{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.attack-profile *{
+    flex-basis: 20%;
+    margin: 0.3em 0;
+}
+
+.attack-spacer{
+    flex-basis: 3%;
+}
+
+.properties{
+    flex-basis: 97%;
+}
+
+#monster-template{
+    display: none;
+}
+
+#attack-template{
+    display: none;
+}

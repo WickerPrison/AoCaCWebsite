@@ -106,15 +106,15 @@ function createLine(cardElm){
 
 function getTalentDescription(talentName){
     if(talentName.includes("Skill Proficiency")){
-        talentName = "Skill Proficiency";
+        talentName = "Skill Proficiency: ___";
     }
     else if(talentName.includes("Skill Mastery")){
-        talentName = "Skill Mastery";
+        talentName = "Skill Mastery: ___";
     }
     else if(talentName.includes("Mastered Spell")){
-        talentName = "Mastered Spell"
+        talentName = "Mastered Spell: ___"
     }
 
-    return window.talentList[talentName];
+    return window.talentList[talentName].Description;
 }
 

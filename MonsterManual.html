@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Manual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="stylesheet" href="./Assets/CSS/monsterManual.css">
+</head>
+<body>
+    <header>
+        <h1><a id="HomeButton" href="index.html">Age of Conquest and Calamity</a></h1>
+    </header>    
+    <main>
+        <h2 id="page-heading">Monster Manual</h2>
+        <section id="page-title">
+            <img class="square-die" src="./Assets/SVG/Boost.svg">
+            <img src="./Assets/SVG/Ability.svg">
+            <img src="./Assets/SVG/Proficiency.svg">
+            <img src="./Assets/SVG/Challenge.svg">
+            <img src="./Assets/SVG/Difficulty.svg">
+            <img class="square-die" src="./Assets/SVG/Penalty.svg">
+        </section>
+
+        <section id="monster-list">
+            
+        </section>
+
+        <footer></footer>
+    </main>
+
+    <section id="monster-template" class="box monster-card hidden">
+        <div class="box-header">Name</div>
+        <div class="monster-row row-1">
+            <div class="creature-types">Creature Types:</div>
+            <div class="monster-tier">Tier: </div>
+        </div>
+        <div class="monster-row row-2">
+            <div class="hp">HP:</div>
+            <div class="stamina">Stamina:</div>
+            <div class="damage-reduction">DR:</div>
+            <div class="defense">Def (M|R):</div>
+            <div class="sil">Silhouette:</div>
+            <div class="move-pts">Move. Pts.:</div>
+        </div>
+        <div class="monster-row row-3">
+            <div class="agility">Agility: </div>
+            <div class="brawn">Brawn:</div>
+            <div class="cunning">Cunning:</div>
+            <div class="intellect">Intellect: </div>
+            <div class="presence">Presence:</div>
+            <div class="willpower">Willpower:</div>
+        </div>
+        <div class="monster-row row-4">
+            <div class="immunities">Immunities:</div>
+            <div class="resistances">Resistances:</div>
+            <div class="weaknesses">Weaknesses:</div>
+        </div>
+        <div class="skills">Skills:</div>
+        <div class="talents-abilities">Talents/Abilities:</div>
+        <div class="special-features">Special Features: </div>
+        <div class="dotted-line"></div>
+        <div class="attacks">
+
+        </div>
+    </section>
+
+    <div id="attack-template" class="attack-profile">
+        <div class="attack-name">Name</div>
+        <div class="attack-skill">Skill:</div>
+        <div class="damage">Damage:</div>
+        <div class="range">Range:</div>
+        <div class="crit">Crit:</div>
+        <div class="attack-spacer"></div>
+        <div class="properties">Properties:</div>
+    </div>
+
+    <script src="./Assets/Dictionaries/monsters.js"></script>
+    <script src="./Assets/Dictionaries/attacks.js"></script>
+    <script src="./Assets/JavaScript/monsterManualSetup.js"></script>
+</body>
+</html>
