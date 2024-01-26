@@ -6,5 +6,14 @@ attacks = {
 	"Eat Fear":{"Skill":"Coercion ","Damage":"4","Attribute":"Willpower","Range":"Short","Crit":"5","Properties":"Gain temporary hit points equal to damage dealt"}
 
 
+,
+	"Knife":{"Skill":"Brawl","Damage":"5","Attribute":"Brawn","Range":"Engaged","Crit":"4","Properties":"Finesse, Grapple, Nimble"}
+
+
+,
+	"Heavy Crossbow":{"Skill":"Ranged","Damage":"6","Attribute":"Agility","Range":"Long","Crit":"3","Properties":"Accurate 1, Cumbersome 2, Limited Ammo 1"}
+
+
 }
+
 

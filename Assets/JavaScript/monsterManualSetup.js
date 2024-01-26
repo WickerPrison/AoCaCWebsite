@@ -17,35 +17,49 @@ function createMonster(name, monster){
     newMonster.querySelector(".box-header").innerText = name;
 
     var creatureTypesElm = newMonster.querySelector(".creature-types");
-    creatureTypesElm.innerText = "Creature Types: " + monster["Creature Types"];
+    creatureTypesElm.innerHTML = "<strong>Creature Types:</strong> " + monster["Creature Types"];
 
     var tierElm = newMonster.querySelector(".monster-tier");
-    tierElm.innerText = "Tier: " + monster["Tier"];
+    tierElm.innerHTML = "<strong>Tier:</strong> " + monster["Tier"];
 
-    newMonster.querySelector(".hp").innerText = "HP: " + monster["HP"];
-    newMonster.querySelector(".stamina").innerText = "Stamina: " + monster["Stamina"];
-    newMonster.querySelector(".damage-reduction").innerText = "DR: " + monster["Damage Reduction"];
+    newMonster.querySelector(".hp").innerText = monster["HP"];
+    newMonster.querySelector(".stamina").innerText = monster["Stamina"];
+    newMonster.querySelector(".damage-reduction").innerText = monster["Damage Reduction"];
 
     var defenseElm = newMonster.querySelector(".defense");
-    defenseElm.innerText = "Def (M|R): " + monster["Melee Defense"] + "|" + monster["Ranged Defense"];
+    defenseElm.innerText = monster["Melee Defense"] + "|" + monster["Ranged Defense"];
 
-    newMonster.querySelector(".sil").innerText = "Silhouette: " + monster["Silhouette"];
-    newMonster.querySelector(".move-pts").innerText = "Move. Pts.: " + monster["Speed"];
-    newMonster.querySelector(".agility").innerText = "Agility: " + monster["Agility"];
-    newMonster.querySelector(".brawn").innerText = "Brawn: " + monster["Brawn"];
-    newMonster.querySelector(".cunning").innerText = "Cunning: " + monster["Cunning"];
-    newMonster.querySelector(".intellect").innerText = "Intellect: " + monster["Intellect"];
-    newMonster.querySelector(".presence").innerText = "Presence: " + monster["Presence"];
-    newMonster.querySelector(".willpower").innerText = "Willpower: " + monster["Willpower"];
+    newMonster.querySelector(".sil").innerText = monster["Silhouette"];
+    newMonster.querySelector(".move-pts").innerText = monster["Speed"];
+    newMonster.querySelector(".agility").innerText = monster["Agility"];
+    newMonster.querySelector(".brawn").innerText = monster["Brawn"];
+    newMonster.querySelector(".cunning").innerText = monster["Cunning"];
+    newMonster.querySelector(".intellect").innerText = monster["Intellect"];
+    newMonster.querySelector(".presence").innerText = monster["Presence"];
+    newMonster.querySelector(".willpower").innerText = monster["Willpower"];
 
-    newMonster.querySelector(".immunities").innerText = "Immunities: " + monster["Immunities"];
-    newMonster.querySelector(".resistances").innerText = "Resistances: " + monster["Resistances"];
-    newMonster.querySelector(".weaknesses").innerText = "Weaknesses: " + monster["Weaknesses"];
+    var immunitiesString = "";
+    if(monster["Immunities"] != ""){
+        immunitiesString += "<strong>Immunities:</strong> " + monster["Immunities"] + " ";
+    }
+    if(monster["Resistances"] != ""){
+        immunitiesString += "<strong>Resistances:</strong> " + monster["Resistances"] + " ";
+    }
+    if(monster["Weaknesses"] != ""){
+        immunitiesString += "<strong>Weaknesses:</strong> " + monster["Weaknesses"] + " ";
+    }
+    var immunitiesElm = newMonster.querySelector(".immunities");
+    immunitiesElm.innerHTML = immunitiesString;
 
-    newMonster.querySelector(".skills").innerText = "Skills: " + monster["Skills"];
+    newMonster.querySelector(".skills").innerHTML = "<strong>Skills:</strong> " + monster["Skills"];
     
-    newMonster.querySelector(".talents-abilities").innerText = "Talents/Abilities: " + monster["Talents/Abilities"];
-    newMonster.querySelector(".special-features").innerText = "Special Features: " + monster["Special Features"]
+    if(monster["Talents/Abilities"] != ""){
+        newMonster.querySelector(".talents-abilities").innerHTML = "<strong>Talents/Abilities:</strong> " + monster["Talents/Abilities"];
+    }
+
+    if(monster["Special Features"] != ""){
+        newMonster.querySelector(".special-features").innerHTML = "<strong>Special Features:</strong> " + monster["Special Features"]
+    }
 
     var attackArray = monster["Attacks"].split(", ");
     var attackDict = window.attacks;
@@ -58,12 +72,12 @@ function createMonster(name, monster){
 
         var attack = attackDict[attackArray[i]];
 
-        attackElm.querySelector(".attack-name").innerText = attackArray[i];
-        attackElm.querySelector(".attack-skill").innerText = "Skill: " + attack.Skill;
-        attackElm.querySelector(".damage").innerText = "Damage: " + attack.Damage;
-        attackElm.querySelector(".range").innerText = "Range: " + attack.Range;
-        attackElm.querySelector(".crit").innerText = "Crit: " + attack.Crit;
-        attackElm.querySelector(".properties").innerText = "Properties: " + attack.Properties;
+        attackElm.querySelector(".attack-name").innerHTML = attackArray[i].bold();
+        attackElm.querySelector(".attack-skill").innerHTML = "<strong>Skill:</strong> " + attack.Skill;
+        attackElm.querySelector(".damage").innerHTML = "<strong>Damage:</strong> " + attack.Damage;
+        attackElm.querySelector(".range").innerHTML = "<strong>Range:</strong> " + attack.Range;
+        attackElm.querySelector(".crit").innerHTML = "<strong>Crit:</strong> " + attack.Crit;
+        attackElm.querySelector(".properties").innerHTML = "<strong>Properties:</strong> " + attack.Properties;
 
         attacksHolder.appendChild(attackElm);
     }

@@ -32,36 +32,56 @@
         <footer></footer>
     </main>
 
-    <section id="monster-template" class="box monster-card hidden">
+    <section id="monster-template" class="box monster-card">
         <div class="box-header">Name</div>
-        <div class="monster-row row-1">
+        <div class="monster-row">
             <div class="creature-types">Creature Types:</div>
             <div class="monster-tier">Tier: </div>
         </div>
-        <div class="monster-row row-2">
-            <div class="hp">HP:</div>
-            <div class="stamina">Stamina:</div>
-            <div class="damage-reduction">DR:</div>
-            <div class="defense">Def (M|R):</div>
-            <div class="sil">Silhouette:</div>
-            <div class="move-pts">Move. Pts.:</div>
+        <div class="dotted-line"></div>
+        <div class="stat-block-section">
+            <div class="stat-numbers">
+                <div class="labels">
+                    <div>HP:</div>
+                    <div>Stamina:</div>
+                    <div>DR:</div>
+                    <div>Def (M|R):</div>
+                    <div>Silhouette:</div>
+                    <div>Move. Pts.:</div>
+                </div>
+                <div class="monster-column">
+                    <div class="hp">0</div>
+                    <div class="stamina">0</div>
+                    <div class="damage-reduction">0</div>
+                    <div class="defense">0|0</div>
+                    <div class="sil">0</div>
+                    <div class="move-pts">0</div>
+                </div>
+                <div class="labels">
+                    <div>Agility: </div>
+                    <div>Brawn:</div>
+                    <div>Cunning:</div>
+                    <div>Intellect: </div>
+                    <div>Presence:</div>
+                    <div>Willpower:</div>
+                </div>
+                <div class="monster-column">
+                    <div class="agility">0</div>
+                    <div class="brawn">0</div>
+                    <div class="cunning">0</div>
+                    <div class="intellect">0</div>
+                    <div class="presence">0</div>
+                    <div class="willpower">0</div>
+                </div>
+            </div>
+        <div class="stat-text">
+            <div class="immunities"></div>
+            <div class="skills">Skills:</div>
+            <div class="talents-abilities"></div>
+            <div class="special-features"></div>
         </div>
-        <div class="monster-row row-3">
-            <div class="agility">Agility: </div>
-            <div class="brawn">Brawn:</div>
-            <div class="cunning">Cunning:</div>
-            <div class="intellect">Intellect: </div>
-            <div class="presence">Presence:</div>
-            <div class="willpower">Willpower:</div>
+
         </div>
-        <div class="monster-row row-4">
-            <div class="immunities">Immunities:</div>
-            <div class="resistances">Resistances:</div>
-            <div class="weaknesses">Weaknesses:</div>
-        </div>
-        <div class="skills">Skills:</div>
-        <div class="talents-abilities">Talents/Abilities:</div>
-        <div class="special-features">Special Features: </div>
         <div class="dotted-line"></div>
         <div class="attacks">
 
@@ -70,11 +90,13 @@
 
     <div id="attack-template" class="attack-profile">
         <div class="attack-name">Name</div>
-        <div class="attack-skill">Skill:</div>
-        <div class="damage">Damage:</div>
-        <div class="range">Range:</div>
-        <div class="crit">Crit:</div>
-        <div class="attack-spacer"></div>
+        <div class="attack-line"></div>
+        <div class="attack-stats">
+            <div class="attack-skill">Skill:</div>
+            <div class="damage">Damage:</div>
+            <div class="range">Range:</div>
+            <div class="crit">Crit:</div>
+        </div>
         <div class="properties">Properties:</div>
     </div>
 
