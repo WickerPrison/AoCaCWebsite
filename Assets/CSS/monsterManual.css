@@ -112,7 +112,7 @@
 }
 
 .attack-stats{
-    flex-basis: 100%;
+    flex-basis: 30%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -133,6 +133,11 @@
     display: none;
 }
 
+.clickable-text:hover{
+    cursor: pointer;
+    color: black;
+}
+
 @media screen and (max-width: 768px){
     .stat-block-section{
         flex-direction: column;
@@ -142,14 +147,15 @@
         flex-basis: 100%;
     }
 
+    .properties{
+        margin-top: 0.2em;
+        flex-basis: 100%;
+    }
+
     .phone-line{
         width: 100%;
         border-bottom: 0.15em solid black;
         margin: 0.3em 0;
     }
     
-    .properties{
-        margin-top: 0.2em;
-        flex-basis: 100%;
-    }
 }

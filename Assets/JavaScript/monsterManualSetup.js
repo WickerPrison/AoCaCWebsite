@@ -74,7 +74,14 @@ function createMonster(name, monster){
 
         attackElm.querySelector(".attack-name").innerHTML = attackArray[i].bold();
         attackElm.querySelector(".attack-skill").innerHTML = "<strong>Skill:</strong> " + attack.Skill;
-        attackElm.querySelector(".damage").innerHTML = "<strong>Damage:</strong> " + attack.Damage;
+        
+        var damageElm = attackElm.querySelector(".damage");
+        damageElm.attack = attack;
+        damageElm.monster = monster;
+        damageElm.showCalc = false;
+        attackDamage(damageElm);
+        damageElm.addEventListener("click", toggleDamageDisplay);
+        
         attackElm.querySelector(".range").innerHTML = "<strong>Range:</strong> " + attack.Range;
         attackElm.querySelector(".crit").innerHTML = "<strong>Crit:</strong> " + attack.Crit;
         attackElm.querySelector(".properties").innerHTML = "<strong>Properties:</strong> " + attack.Properties;
@@ -84,3 +91,36 @@ function createMonster(name, monster){
 
     monsterList.appendChild(newMonster);
 }
+
+function attackDamage(damageElm){
+    if(damageElm.showCalc){
+        var displayString = damageElm.attack.Damage + " + " + damageElm.attack.Attribute;
+        damageElm.innerHTML = "<strong>Damage:</Strong> " + displayString;
+    }
+    else{
+        var damageNum = Number(damageElm.attack.Damage);
+        switch (damageElm.attack.Attribute){
+            case "None":
+                break;
+            case "Brawn/Agility":
+                if(damageElm.monster.Brawn > damageElm.monster.Agility){
+                    damageNum += Number(damageElm.monster.Brawn);
+                }
+                else{
+                    damageNum += Number(damageElm.monster.Agility);
+                }
+                break;
+            default:
+                damageNum += Number(damageElm.monster[damageElm.attack.Attribute]);
+                break;
+        }
+
+        damageElm.innerHTML = "<strong>Damage:</Strong> " + damageNum;
+    }
+}
+
+function toggleDamageDisplay(event){
+    event.currentTarget.showCalc = !event.currentTarget.showCalc;
+    attackDamage(event.currentTarget);
+}
+
