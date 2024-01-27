@@ -2,13 +2,32 @@ var monsterList = document.getElementById("monster-list");
 var monsterTemplate = document.getElementById("monster-template");
 var attackTemplate = document.getElementById("attack-template");
 
+var inputElm = document.getElementById("dice-roll");
+var closeBtn = document.getElementById("close-button");
+var rollBtn = document.getElementById("roll-button");
+var proficiencyInput = document.getElementById("proficiency");
+var abilityInput = document.getElementById("ability");
+var boostInput = document.getElementById("boost");
+var challengeInput = document.getElementById("challenge");
+var difficultyInput = document.getElementById("difficulty");
+var penaltyInput = document.getElementById("penalty");
+var upgrDifficultyInput = document.getElementById("upgr-difficulty");
+var upgrAbilityInput = document.getElementById("upgr-ability");
+var autoSuccessInput = document.getElementById("auto-success");
+
+var conquestOutput = document.getElementById("conquests");
+var calamitiesOutput = document.getElementById("calamities");
+var successesOutput = document.getElementById("successes");
+var advantageOutput = document.getElementById("advantage");
+
 var monsterDict = window.monsters;
 var monsterKeys = Object.keys(window.monsters);
+
+var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 
 for(var i = 0; i < monsterKeys.length; i++){
     createMonster( monsterKeys[i], monsterDict[monsterKeys[i]]);
 }
-
 
 function createMonster(name, monster){
     var newMonster = monsterTemplate.cloneNode(true);
@@ -31,12 +50,18 @@ function createMonster(name, monster){
 
     newMonster.querySelector(".sil").innerText = monster["Silhouette"];
     newMonster.querySelector(".move-pts").innerText = monster["Speed"];
-    newMonster.querySelector(".agility").innerText = monster["Agility"];
-    newMonster.querySelector(".brawn").innerText = monster["Brawn"];
-    newMonster.querySelector(".cunning").innerText = monster["Cunning"];
-    newMonster.querySelector(".intellect").innerText = monster["Intellect"];
-    newMonster.querySelector(".presence").innerText = monster["Presence"];
-    newMonster.querySelector(".willpower").innerText = monster["Willpower"];
+
+    for(var i = 0; i < attributesList.length; i++){
+        var attributeNumberElm = newMonster.querySelector("." + attributesList[i]);
+        attributeNumberElm.innerText = monster[attributesList[i]];
+        attributeNumberElm.attribute = attributesList[i];
+        attributeNumberElm.monster = monster;
+        attributeNumberElm.addEventListener("click", rollAttribute);
+        var attributeLabelElm = newMonster.querySelector("." + attributesList[i] + "-label");
+        attributeLabelElm.attribute = attributesList[i];
+        attributeLabelElm.monster = monster;
+        attributeLabelElm.addEventListener("click", rollAttribute);
+    }
 
     var immunitiesString = "";
     if(monster["Immunities"] != ""){
@@ -124,3 +149,48 @@ function toggleDamageDisplay(event){
     attackDamage(event.currentTarget);
 }
 
+function rollAttribute(event){
+    var monster = event.currentTarget.monster;
+    var attribute = event.currentTarget.attribute;
+    var rollInput = new RollData();
+    rollInput.ability = monster[attribute];
+    inputElm.style.display = "block";
+    setInput(rollInput);
+}
+
+function setInput(rollInput){
+    proficiencyInput.value = rollInput.proficiency;
+    abilityInput.value = rollInput.ability;
+    boostInput.value = rollInput.boost;
+    challengeInput.value = rollInput.challenge;
+    difficultyInput.value = rollInput.difficulty;
+    penaltyInput.value = rollInput.penalty;
+    upgrDifficultyInput.value = rollInput.upgradeDifficulty;
+    upgrAbilityInput.value = rollInput.upgradeAbility;
+    autoSuccessInput.value = rollInput.autoSuccess;
+}
+
+function makeCheck(){
+    var rollData = new RollData();
+    rollData.proficiency = proficiencyInput.value;
+    rollData.ability = abilityInput.value;
+    rollData.boost = boostInput.value;
+    rollData.challenge = challengeInput.value;
+    rollData.difficulty = difficultyInput.value;
+    rollData.penalty = penaltyInput.value;
+    rollData.upgradeDifficulty = upgrDifficultyInput.value;
+    rollData.upgradeAbility = upgrAbilityInput.value;
+    rollData.autoSuccess = autoSuccessInput.value;
+
+    var resultsData = window.rollDice(rollData);
+    conquestOutput.innerText = resultsData.conquests;
+    calamitiesOutput.innerText = resultsData.calamities;
+    successesOutput.innerText = resultsData.successes;
+    advantageOutput.innerText = resultsData.advantage;
+}
+
+closeBtn.addEventListener("click", function(){
+    setInput(new RollData());
+    inputElm.style.display = "none";
+})
+rollBtn.addEventListener("click", makeCheck);
