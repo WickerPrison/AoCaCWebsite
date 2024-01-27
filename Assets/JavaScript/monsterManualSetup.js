@@ -1,6 +1,7 @@
 var monsterList = document.getElementById("monster-list");
 var monsterTemplate = document.getElementById("monster-template");
 var attackTemplate = document.getElementById("attack-template");
+var skillTemplate = document.getElementById("skill-template");
 
 var inputElm = document.getElementById("dice-roll");
 var closeBtn = document.getElementById("close-button");
@@ -76,7 +77,7 @@ function createMonster(name, monster){
     var immunitiesElm = newMonster.querySelector(".immunities");
     immunitiesElm.innerHTML = immunitiesString;
 
-    newMonster.querySelector(".skills").innerHTML = "<strong>Skills:</strong> " + monster["Skills"];
+    setupSkills(monster, newMonster.querySelector(".skills"));
     
     if(monster["Talents/Abilities"] != ""){
         newMonster.querySelector(".talents-abilities").innerHTML = "<strong>Talents/Abilities:</strong> " + monster["Talents/Abilities"];
@@ -117,6 +118,33 @@ function createMonster(name, monster){
     monsterList.appendChild(newMonster);
 }
 
+function setupSkills(monster, skillsElm){
+    var skillsArray = monster.Skills.split(", ");
+    var skillsObject = {};
+    for(var i = 0; i < skillsArray.length; i++){
+        var skill = skillsArray[i].split(" ");
+        if(skill.length == 3){
+            skill[0] = skill[0] + " " + skill[1];
+            skill.splice(1, 1);
+        }
+        var skillName = String(skill[0]);
+        skillsObject[skillName] = skill[1];
+
+        var newSkillElm = skillTemplate.cloneNode(true);
+        newSkillElm.id = monster.name + "-skill-" + i;
+        newSkillElm.innerText = skillName + " " + skill[1];
+        if(i < skillsArray.length - 1) newSkillElm.innerText += ", ";
+
+        newSkillElm.monster = monster;
+        newSkillElm.skill = skillName;
+        newSkillElm.addEventListener("click", rollSkillCheck)
+
+        skillsElm.appendChild(newSkillElm);
+
+    }
+    monster.Skills = skillsObject;
+}
+
 function attackDamage(damageElm){
     if(damageElm.showCalc){
         var displayString = damageElm.attack.Damage + " + " + damageElm.attack.Attribute;
@@ -154,6 +182,32 @@ function rollAttribute(event){
     var attribute = event.currentTarget.attribute;
     var rollInput = new RollData();
     rollInput.ability = monster[attribute];
+    inputElm.style.display = "block";
+    setInput(rollInput);
+}
+
+function rollSkillCheck(event){
+    var monster = event.currentTarget.monster;
+    var skill = event.currentTarget.skill;
+    var attribute = window.skillsDict[skill];
+    if(typeof attribute == "object"){
+        if(monster[attribute[0]] > monster[attribute[1]]){
+            attribute = attribute[0];
+        }
+        else{
+            attribute = attribute[1];
+        }
+    }
+
+    var rollInput = new RollData();
+    if(monster[attribute] > monster.Skills[skill]){
+        rollInput.ability = monster[attribute];
+        rollInput.upgradeAbility = monster.Skills[skill];
+    }
+    else{
+        rollInput.ability = monster.Skills[skill];
+        rollInput.upgradeAbility = monster[attribute];
+    }
     inputElm.style.display = "block";
     setInput(rollInput);
 }

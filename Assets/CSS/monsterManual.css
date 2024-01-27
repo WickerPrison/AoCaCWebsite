@@ -65,6 +65,10 @@
     margin: 0.4em 0;
 }
 
+.skills div{
+    display: inline;
+}
+
 .talents-abilities{
     width: 100%;
     text-align: left;
@@ -126,6 +130,10 @@
 }
 
 #monster-template{
+    display: none;
+}
+
+#skill-template{
     display: none;
 }
 
