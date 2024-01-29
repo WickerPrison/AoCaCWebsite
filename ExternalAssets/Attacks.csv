@@ -1,5 +1,5 @@
-Name|Skill|Damage|Attribute|Range|Crit|Properties
-Grip of Fear|Brawl|2|Brawn/Agility|Extended|3|Finesse, Grapple, Light, Vicious 1, Has Vicious 3 and Damage +3 against creatures that have the Frightened condition 
-Eat Fear|Coercion |4|Willpower|Short|5|Gain temporary hit points equal to damage dealt
-Knife|Brawl|2|Brawn/Agility|Engaged|4|Finesse, Grapple, Nimble
-Heavy Crossbow|Ranged|6|None|Long|3|Accurate 1, Cumbersome 2, Limited Ammo 1
+Name|Skill|Damage|Attribute|Range|Crit|Accurate|Properties
+Grip of Fear|Brawl|2|Brawn/Agility|Extended|3|0|Finesse, Grapple, Light, Vicious 1, Has Vicious 3 and Damage +3 against creatures that have the Frightened condition 
+Eat Fear|Coercion|4|Willpower|Short|5|0|Gain temporary hit points equal to damage dealt
+Knife|Brawl|2|Brawn/Agility|Engaged|4|0|Finesse, Grapple, Nimble
+Heavy Crossbow|Ranged|6|None|Long|3|1|Accurate 1, Cumbersome 2, Limited Ammo 1

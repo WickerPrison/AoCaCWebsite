@@ -99,6 +99,10 @@ function createMonster(name, monster){
         var attack = attackDict[attackArray[i]];
 
         attackElm.querySelector(".attack-name").innerHTML = attackArray[i].bold();
+        attackElm.monster = monster;
+        attackElm.attack = attack;
+        attackElm.addEventListener("click", attackRoll);
+
         attackElm.querySelector(".attack-skill").innerHTML = "<strong>Skill:</strong> " + attack.Skill;
         
         var damageElm = attackElm.querySelector(".damage");
@@ -173,6 +177,7 @@ function attackDamage(damageElm){
 }
 
 function toggleDamageDisplay(event){
+    event.stopPropagation();
     event.currentTarget.showCalc = !event.currentTarget.showCalc;
     attackDamage(event.currentTarget);
 }
@@ -208,6 +213,54 @@ function rollSkillCheck(event){
         rollInput.ability = monster.Skills[skill];
         rollInput.upgradeAbility = monster[attribute];
     }
+    inputElm.style.display = "block";
+    setInput(rollInput);
+}
+
+function attackRoll(event){
+    var monster = event.currentTarget.monster;
+    var attack = event.currentTarget.attack;
+    var skill = attack.Skill;
+    
+    var attribute;
+    switch (attack.Attribute){
+        case "None":
+            attribute = window.skillsDict[skill];
+            if(typeof attribute == "object"){
+                if(monster[attribute[0]] > monster[attribute[1]]){
+                    attribute = attribute[0];
+                }
+                else{
+                    attribute = attribute[1];
+                }
+            }
+            break;
+        case "Brawn/Agility":
+            if(monster.Brawn > monster.Agility){
+                attribute = "Brawn";
+            }
+            else{
+                attribute = "Agility";
+            }
+            break;
+        default:
+            attribute = attack.Attribute;
+            break;
+    }
+
+    var rollInput = new RollData();
+    if(monster.Skills[skill] == null){
+        rollInput.ability = monster[attribute];
+    }
+    else if(monster[attribute] > monster.Skills[skill]){
+        rollInput.ability = monster[attribute];
+        rollInput.upgradeAbility = monster.Skills[skill];
+    }
+    else{
+        rollInput.ability = monster.Skills[skill];
+        rollInput.upgradeAbility = monster[attribute];
+    }
+    rollInput.boost = attack.Accurate;
     inputElm.style.display = "block";
     setInput(rollInput);
 }

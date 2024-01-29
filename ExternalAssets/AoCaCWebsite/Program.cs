@@ -3,4 +3,4 @@ using AoCaCWebsite;
 
 ParseCSV parseCSV = new ParseCSV();
 
-parseCSV.Parse("Monsters", "monsters");
+parseCSV.Parse("Attacks", "attacks");
