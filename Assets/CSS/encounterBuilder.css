@@ -1,0 +1,60 @@
+.small-button{
+    width: 20em;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    padding: 0.6em;
+}
+
+.small-button h4{
+    margin: 0.4em 0 0;
+    font-size: var(--baseTextSize);
+}
+
+.small-button h4:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
+.small-button input{
+    background-color: var(--green);
+    outline: white dashed 1px;
+    border: none;
+    border-radius: 0.3em;
+    font-size: var(--baseTextSize);
+    min-width: 80%;
+    color: white;
+}
+
+.stat-field[type="number"]{
+    display: inline;
+    font-size: var(--baseTextSize);
+    background-color: var(--green2);
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    outline: white dashed 1px;
+    font-family: var(--bodyFont);
+    vertical-align: 0;
+    padding: 0;
+}
+
+.stat-max{
+    display: inline;
+}
+
+.monster-column{
+    flex-basis: 20%;
+}
+
+.monster-column div{
+    margin-top: 0.2em;
+}
+
+.labels{
+    flex-basis: 30%;
+}
+
+.labels div{
+    margin-top: 0.2em;
+}
