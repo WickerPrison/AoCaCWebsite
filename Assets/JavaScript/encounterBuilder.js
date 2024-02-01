@@ -41,11 +41,15 @@ function createNewMonster(){
     if(!monsterKeys.includes(newMonsterInput.value)) return;
 
     var name = newMonsterInput.value;
-    var monster = monsterDict[name];
+    var monster = structuredClone(monsterDict[name]);
 
     var newMonster = monsterTemplate.cloneNode(true);
     newMonster.id = "monster-" + monsterIDnum;
     monsterIDnum++;
+
+    var closeMonsterBtn = newMonster.querySelector(".close-monster");
+    closeMonsterBtn.parent = newMonster;
+    closeMonsterBtn.addEventListener("click", closeMonster);
 
     newMonster.querySelector(".box-header").innerText = name;
 
@@ -309,6 +313,10 @@ function makeCheck(){
     calamitiesOutput.innerText = resultsData.calamities;
     successesOutput.innerText = resultsData.successes;
     advantageOutput.innerText = resultsData.advantage;
+}
+
+function closeMonster(event){
+    event.currentTarget.parent.remove();
 }
 
 closeBtn.addEventListener("click", function(){

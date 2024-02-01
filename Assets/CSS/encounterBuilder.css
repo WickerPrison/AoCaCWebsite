@@ -36,11 +36,31 @@
     outline: white dashed 1px;
     font-family: var(--bodyFont);
     vertical-align: 0;
-    padding: 0;
+    padding: 0 0 0 0.2em;
 }
 
 .stat-max{
     display: inline;
+}
+
+.monster-card{
+    position: relative;
+}
+
+.close-monster{
+    position: absolute;
+    top: 0.8em;
+    left: 1em;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.6em;
+    box-shadow: 0 0 5px 0.2px black;
+    font-family: sans-serif;
+}
+
+.close-monster:hover{
+    color:black;
+    cursor: pointer;
 }
 
 .monster-column{
@@ -48,7 +68,7 @@
 }
 
 .monster-column div{
-    margin-top: 0.2em;
+    margin-top: 0.3em;
 }
 
 .labels{
@@ -56,5 +76,5 @@
 }
 
 .labels div{
-    margin-top: 0.2em;
+    margin-top: 0.3em;
 }
