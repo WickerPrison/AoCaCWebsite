@@ -113,7 +113,6 @@ function createMonster(monster){
         attacksHeading.style.display = "none";
     }
 
-    console.log(attackArray.length);
     for(var i = 0; i < attackArray.length; i++){
 
         var attackElm = attackTemplate.cloneNode(true);

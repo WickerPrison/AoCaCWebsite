@@ -129,8 +129,13 @@ function createNewMonster(){
     }
 
     var attackArray = monster["Attacks"].split(", ");
-
     var attacksHolder = newMonster.querySelector(".attacks");
+
+    if(attackArray.length == 1 && attackArray[0] == ""){
+        attackArray = [];
+        var attacksHeading = newMonster.querySelector(".attacks-heading");
+        attacksHeading.style.display = "none";
+    }
 
     for(var i = 0; i < attackArray.length; i++){
         var attackElm = attackTemplate.cloneNode(true);
