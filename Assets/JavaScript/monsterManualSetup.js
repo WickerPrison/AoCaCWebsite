@@ -21,17 +21,34 @@ var calamitiesOutput = document.getElementById("calamities");
 var successesOutput = document.getElementById("successes");
 var advantageOutput = document.getElementById("advantage");
 
-var monsterDict = window.monsters;
-var monsterKeys = Object.keys(window.monsters);
 
 var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
+var monsterDict;
+var attackDict;
 
-for(var i = 0; i < monsterKeys.length; i++){
-    createMonster( monsterKeys[i], monsterDict[monsterKeys[i]]);
-}
+fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Monsters")
+.then(function (response){
+	return response.json();
+})
+.then(function(data){
+    monsterDict = data;
 
-function createMonster(name, monster){
+    fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Attacks")
+    .then(function (response){
+        return response.json();
+    })
+    .then(function(data){
+        attackDict = data;
+        for(var i = 0; i < monsterDict.length; i++){
+            createMonster(monsterDict[i]);
+        }
+    })
+})
+
+
+function createMonster(monster){
     var newMonster = monsterTemplate.cloneNode(true);
+    var name = monster.Name;
     newMonster.id = "monster " + name;
 
     newMonster.querySelector(".box-header").innerText = name;
@@ -88,7 +105,6 @@ function createMonster(name, monster){
     }
 
     var attackArray = monster["Attacks"].split(", ");
-    var attackDict = window.attacks;
 
     var attacksHolder = newMonster.querySelector(".attacks");
 
@@ -96,7 +112,9 @@ function createMonster(name, monster){
         var attackElm = attackTemplate.cloneNode(true);
         attackElm.id = name + "-" + attackArray[i];
 
-        var attack = attackDict[attackArray[i]];
+        var attack = attackDict.find(function(attackObject){
+          return attackObject.Name == attackArray[i];  
+        })
 
         attackElm.querySelector(".attack-name").innerHTML = attackArray[i].bold();
         attackElm.monster = monster;
@@ -261,6 +279,7 @@ function attackRoll(event){
         rollInput.upgradeAbility = monster[attribute];
     }
     rollInput.boost = attack.Accurate;
+    rollInput.difficulty = 2;
     inputElm.style.display = "block";
     setInput(rollInput);
 }

@@ -24,24 +24,46 @@ var calamitiesOutput = document.getElementById("calamities");
 var successesOutput = document.getElementById("successes");
 var advantageOutput = document.getElementById("advantage");
 
-var monsterDict = window.monsters;
-var monsterKeys = Object.keys(monsterDict);
 
 var monsterIDnum = 0;
 var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
+var monsterDict;
+var monsterNames = [];
+var attackDict;
+
+fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Monsters")
+.then(function (response){
+	return response.json();
+})
+.then(function(data){
+    monsterDict = data;
+
+    fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Attacks")
+    .then(function (response){
+        return response.json();
+    })
+    .then(function(data){
+        attackDict = data;
+        for(var i = 0; i < monsterDict.length; i++){
+            var autocompleteOption = document.createElement("option");
+            autocompleteOption.value = monsterDict[i].Name;
+            monsterAutocomplete.appendChild(autocompleteOption);
+            monsterNames.push(monsterDict[i].Name);
+        }
+    })
+})
 
 
-for(var i = 0; i < monsterKeys.length; i++){
-    var autocompleteOption = document.createElement("option");
-    autocompleteOption.value = monsterKeys[i];
-    monsterAutocomplete.appendChild(autocompleteOption);
-}
+
 
 function createNewMonster(){
-    if(!monsterKeys.includes(newMonsterInput.value)) return;
+    if(!monsterNames.includes(newMonsterInput.value)) return;
 
     var name = newMonsterInput.value;
-    var monster = structuredClone(monsterDict[name]);
+    var monster = structuredClone(monsterDict.find(function(monsterObject){
+            return monsterObject.Name == name;
+        }
+    ));
 
     var newMonster = monsterTemplate.cloneNode(true);
     newMonster.id = "monster-" + monsterIDnum;
@@ -107,7 +129,6 @@ function createNewMonster(){
     }
 
     var attackArray = monster["Attacks"].split(", ");
-    var attackDict = window.attacks;
 
     var attacksHolder = newMonster.querySelector(".attacks");
 
@@ -115,7 +136,9 @@ function createNewMonster(){
         var attackElm = attackTemplate.cloneNode(true);
         attackElm.id = name + "-" + attackArray[i];
 
-        var attack = attackDict[attackArray[i]];
+        var attack = attackDict.find(function(attackObject){
+            return attackObject.Name == attackArray[i];  
+        })
 
         attackElm.querySelector(".attack-name").innerHTML = attackArray[i].bold();
         attackElm.monster = monster;
@@ -247,6 +270,7 @@ function attackRoll(event){
         rollInput.upgradeAbility = monster[attribute];
     }
     rollInput.boost = attack.Accurate;
+    rollInput.difficulty = 2;
     inputElm.style.display = "block";
     setInput(rollInput);
 }
