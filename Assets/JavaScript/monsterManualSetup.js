@@ -26,14 +26,15 @@ var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "W
 var monsterDict;
 var attackDict;
 
-fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Monsters")
+fetch("https://sheet.best/api/sheets/799bc33a-f57f-45ae-a384-64de1100a4cc/tabs/Monsters")
 .then(function (response){
 	return response.json();
 })
 .then(function(data){
+    console.log(data);
     monsterDict = data;
 
-    fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Attacks")
+    fetch("https://sheet.best/api/sheets/799bc33a-f57f-45ae-a384-64de1100a4cc/tabs/Attacks")
     .then(function (response){
         return response.json();
     })
