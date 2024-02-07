@@ -26,20 +26,17 @@ var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "W
 var monsterDict;
 var attackDict;
 
-fetch("https://sheet.best/api/sheets/799bc33a-f57f-45ae-a384-64de1100a4cc/tabs/Monsters")
-.then(function (response){
-	return response.json();
-})
-.then(function(data){
-    console.log(data);
-    monsterDict = data;
 
-    fetch("https://sheet.best/api/sheets/799bc33a-f57f-45ae-a384-64de1100a4cc/tabs/Attacks")
-    .then(function (response){
-        return response.json();
-    })
-    .then(function(data){
-        attackDict = data;
+fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Monsters")
+.then(response => response.text())
+.then(data =>{
+    monsterDict = parseSheets(data);
+    console.log(monsterDict);
+
+    fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Attacks")
+    .then(response => response.text())
+    .then(data =>{
+        attackDict = parseSheets(data);
         for(var i = 0; i < monsterDict.length; i++){
             createMonster(monsterDict[i]);
         }

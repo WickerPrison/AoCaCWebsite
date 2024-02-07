@@ -31,19 +31,16 @@ var monsterDict;
 var monsterNames = [];
 var attackDict;
 
-fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Monsters")
-.then(function (response){
-	return response.json();
-})
-.then(function(data){
-    monsterDict = data;
+fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Monsters")
+.then(response => response.text())
+.then(data =>{
+    monsterDict = parseSheets(data);
+    console.log(monsterDict);
 
-    fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Attacks")
-    .then(function (response){
-        return response.json();
-    })
-    .then(function(data){
-        attackDict = data;
+    fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Attacks")
+    .then(response => response.text())
+    .then(data =>{
+        attackDict = parseSheets(data);
         for(var i = 0; i < monsterDict.length; i++){
             var autocompleteOption = document.createElement("option");
             autocompleteOption.value = monsterDict[i].Name;
@@ -52,8 +49,6 @@ fetch("https://sheetdb.io/api/v1/bwzvsxdg2uih7?sheet=Monsters")
         }
     })
 })
-
-
 
 
 function createNewMonster(){
