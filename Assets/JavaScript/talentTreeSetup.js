@@ -24,21 +24,29 @@ if(nameElement != null){
     nameElement.innerHTML = className;
 }
 
+var talentList;
 
-for(var i = 0; i < 20; i++){
-    var talentName = window.skillTrees[className][i];
-    talents[i].innerHTML = talentName;
-    var description = getTalentDescription(talentName);
-    talents[i].dataset.content = description;
-    tableTalets[i+1].innerHTML = talentName;
-    tableDescriptions[i+1].innerHTML = description;
-}
+fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Talents")
+.then(response => response.text())
+.then(data =>{
+    talentList = parseSheets(data);
+    for(var i = 0; i < 20; i++){
+        var talentName = skillTrees[className][i];
+        talents[i].innerHTML = talentName;
+        var description = getTalentDescription(talentName);
+        talents[i].dataset.content = description;
+        tableTalets[i+1].innerHTML = talentName;
+        tableDescriptions[i+1].innerHTML = description;
+    }
+})
+
+
 
 var innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];
 if(innateClasses.includes(className)){
-    var spellKeys = Object.keys(window.innateSpells);
+    var spellKeys = Object.keys(innateSpells);
     for(var i = 0; i < spellKeys.length; i++){
-        if(window.innateSpells[spellKeys[i]].Classes.includes(className)){
+        if(innateSpells[spellKeys[i]].Classes.includes(className)){
             createSpellCard(spellKeys[i]);
         }
     }
@@ -53,10 +61,10 @@ else if(className == "Fundamentalist"){
     developedTitle.innerText = "Theories";
     masteredTitle.innerText = "Hypothesis";
 
-    var spellKeys = Object.keys(window.fundamentalistSpells);
+    var spellKeys = Object.keys(fundamentalistSpells);
     for(var i = 0; i < spellKeys.length; i++){
-        var newCard = window.createFundamentalistCard(spellKeys[i]);
-        TierDict[window.fundamentalistSpells[spellKeys[i]].Tier].appendChild(newCard);
+        var newCard = createFundamentalistCard(spellKeys[i]);
+        TierDict[fundamentalistSpells[spellKeys[i]].Tier].appendChild(newCard);
     }
 }
 else{
@@ -78,23 +86,23 @@ function createSpellCard(spellName){
     cardElm.appendChild(nameElm);
 
     var tierElm = document.createElement("h4");
-    tierElm.innerText = "Tier: " + window.innateSpells[spellName].Tier;
+    tierElm.innerText = "Tier: " + innateSpells[spellName].Tier;
     tierElm.classList.add("card-element");
     cardElm.appendChild(tierElm);
 
     var stamElm = document.createElement("h4");
-    stamElm.innerText = "Stamina Cost: " + window.innateSpells[spellName].Stamina;
+    stamElm.innerText = "Stamina Cost: " + innateSpells[spellName].Stamina;
     stamElm.classList.add("card-element");
     cardElm.appendChild(stamElm);
 
     createLine(cardElm);
 
     var descriptionElm = document.createElement("h4");
-    descriptionElm.innerText = window.innateSpells[spellName].Description;
+    descriptionElm.innerText = innateSpells[spellName].Description;
     descriptionElm.classList.add("card-element");
     cardElm.appendChild(descriptionElm);
 
-    TierDict[window.innateSpells[spellName].Tier].appendChild(cardElm);
+    TierDict[innateSpells[spellName].Tier].appendChild(cardElm);
 }
 
 function createLine(cardElm){
@@ -115,6 +123,9 @@ function getTalentDescription(talentName){
         talentName = "Mastered Spell: ___"
     }
 
-    return window.talentList[talentName].Description;
+    var talent = talentList.find(function(talentEntry){
+        return talentEntry.Name == talentName;
+    })
+    return talent.Description;
 }
 
