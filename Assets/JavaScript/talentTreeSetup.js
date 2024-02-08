@@ -25,6 +25,7 @@ if(nameElement != null){
 }
 
 var talentList;
+var innateSpells;
 
 fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Talents")
 .then(response => response.text())
@@ -38,43 +39,54 @@ fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB
         tableTalets[i+1].innerHTML = talentName;
         tableDescriptions[i+1].innerHTML = description;
     }
+    setupInnateSpells();
 })
 
 
+function setupInnateSpells(){
+    var innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];
+    if(innateClasses.includes(className)){
+        fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=InnateSpells")
+        .then(response => response.text())
+        .then(data =>{
+            innateSpells = parseSheets(data);
+            for(var i = 0; i < innateSpells.length; i++){
+                if(innateSpells[i].Classes.includes(className)){
+                    createSpellCard(innateSpells[i]);
+                }
+            }
+        
+            if(className == "Shapeshifter"){
+                masteredSpell.style.display = "none";
+                masteredTitle.style.display = "none";
+            }
+        })
+    }
+    else if(className == "Fundamentalist"){
+        naturalTitle.innerText = "Laws";
+        developedTitle.innerText = "Theories";
+        masteredTitle.innerText = "Hypothesis";
 
-var innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];
-if(innateClasses.includes(className)){
-    var spellKeys = Object.keys(innateSpells);
-    for(var i = 0; i < spellKeys.length; i++){
-        if(innateSpells[spellKeys[i]].Classes.includes(className)){
-            createSpellCard(spellKeys[i]);
+        fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Fundamentalist")
+        .then(response => response.text())
+        .then(data =>{
+            innateSpells = parseSheets(data);
+            for(var i = 0; i < innateSpells.length; i++){
+                var newCard = createFundamentalistCard(innateSpells[i]);
+                TierDict[innateSpells[i].Tier].appendChild(newCard);
+            }
+        })
+    }
+    else{
+        var innateElements = document.getElementsByClassName("innate");
+        for(var i = 0; i < innateElements.length; i++){
+            innateElements[i].style.display = "none";
         }
     }
-
-    if(className == "Shapeshifter"){
-        masteredSpell.style.display = "none";
-        masteredTitle.style.display = "none";
-    }
-}
-else if(className == "Fundamentalist"){
-    naturalTitle.innerText = "Laws";
-    developedTitle.innerText = "Theories";
-    masteredTitle.innerText = "Hypothesis";
-
-    var spellKeys = Object.keys(fundamentalistSpells);
-    for(var i = 0; i < spellKeys.length; i++){
-        var newCard = createFundamentalistCard(spellKeys[i]);
-        TierDict[fundamentalistSpells[spellKeys[i]].Tier].appendChild(newCard);
-    }
-}
-else{
-    var innateElements = document.getElementsByClassName("innate");
-    for(var i = 0; i < innateElements.length; i++){
-        innateElements[i].style.display = "none";
-    }
 }
 
-function createSpellCard(spellName){
+
+function createSpellCard(spell){
     var cardElm = document.createElement("div");
     cardElm.classList.add("spell-card");
     // cardElm.classList.add("box");
@@ -82,27 +94,27 @@ function createSpellCard(spellName){
     var nameElm = document.createElement("h4");
     nameElm.classList.add("spell-name");
     nameElm.classList.add("card-element");
-    nameElm.innerText = spellName;
+    nameElm.innerText = spell.Name;
     cardElm.appendChild(nameElm);
 
     var tierElm = document.createElement("h4");
-    tierElm.innerText = "Tier: " + innateSpells[spellName].Tier;
+    tierElm.innerText = "Tier: " + spell.Tier;
     tierElm.classList.add("card-element");
     cardElm.appendChild(tierElm);
 
     var stamElm = document.createElement("h4");
-    stamElm.innerText = "Stamina Cost: " + innateSpells[spellName].Stamina;
+    stamElm.innerText = "Stamina Cost: " + spell.Stamina;
     stamElm.classList.add("card-element");
     cardElm.appendChild(stamElm);
 
     createLine(cardElm);
 
     var descriptionElm = document.createElement("h4");
-    descriptionElm.innerText = innateSpells[spellName].Description;
+    descriptionElm.innerText = spell.Description;
     descriptionElm.classList.add("card-element");
     cardElm.appendChild(descriptionElm);
 
-    TierDict[innateSpells[spellName].Tier].appendChild(cardElm);
+    TierDict[spell.Tier].appendChild(cardElm);
 }
 
 function createLine(cardElm){
@@ -129,3 +141,52 @@ function getTalentDescription(talentName){
     return talent.Description;
 }
 
+function createFundamentalistCard(spell){
+	var cardElm = document.createElement("div");
+	cardElm.classList.add("spell-card");
+
+	var nameElm = document.createElement("h4");
+	nameElm.classList.add("spell-name");
+	nameElm.classList.add("card-element");
+	nameElm.innerText = spell.Name;
+	cardElm.appendChild(nameElm);
+
+	var tierElm = document.createElement("h4");
+    tierElm.innerText = "Tier: " + spell.Tier;
+	tierElm.classList.add("card-element");
+    cardElm.appendChild(tierElm);
+
+	var stamElm = document.createElement("h4");
+    stamElm.innerText = "Stamina Cost: " + spell.Stamina;
+	stamElm.classList.add("card-element");
+    cardElm.appendChild(stamElm);
+
+	var polarizationElm = document.createElement("h4");
+	polarizationElm.innerText = "Polarization: +/- " + spell.Polarization;
+	polarizationElm.classList.add("card-element");
+	cardElm.appendChild(polarizationElm);
+
+	var positiveLabelElm = document.createElement("h4");
+	positiveLabelElm.classList.add("spell-name");
+	positiveLabelElm.classList.add("card-element");
+	positiveLabelElm.innerText = "Positive Version";
+	cardElm.appendChild(positiveLabelElm);
+
+	var posDescriptionElm = document.createElement("h4");
+	posDescriptionElm.innerText = spell.Positive;
+	posDescriptionElm.classList.add("card-element");
+	cardElm.appendChild(posDescriptionElm);
+
+	var negativeLabelElm = document.createElement("h4");
+	negativeLabelElm.classList.add("spell-name");
+	negativeLabelElm.classList.add("card-element");
+	negativeLabelElm.innerText = "Negative Version";
+	cardElm.appendChild(negativeLabelElm);
+
+	var negDescriptionElm = document.createElement("h4");
+	negDescriptionElm.innerText = spell.Negative;
+	negDescriptionElm.classList.add("card-element");
+	cardElm.appendChild(negDescriptionElm);
+
+	return cardElm;
+}
