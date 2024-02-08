@@ -1,19 +1,24 @@
 var table = document.getElementById("effects-table");
 var currentTier = "Metamagic";
+var spellEffects;
 
-createSectionHeading(currentTier + "s");
-var keys = Object.keys(window.spellEffects);
-for(var i = 0; i < keys.length; i++){
-    if(window.spellEffects[keys[i]].Tier != currentTier){
-        currentTier = window.spellEffects[keys[i]].Tier;
-        createSectionHeading(currentTier + " Spell Effects");
+fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=ScholarlySpells")
+.then(response => response.text())
+.then(data =>{
+    spellEffects = parseSheets(data);
+
+    createSectionHeading(currentTier + "s");
+    for(var i = 0; i < spellEffects.length; i++){
+        if(spellEffects[i].Tier != currentTier){
+            currentTier = spellEffects[i].Tier;
+            createSectionHeading(currentTier + " Spell Effects");
+        }
+        
+        spellCard(spellEffects[i]);
     }
-    
-    spellCard(keys[i]);
-}
+})
 
-
-function spellCard(spellName){
+function spellCard(effect){
     var card = document.createElement("div");
     table.appendChild(card);
     card.classList.add("spell-card");
@@ -21,29 +26,29 @@ function spellCard(spellName){
     var nameElement = document.createElement("div");
     createCardElement(card, nameElement);
     nameElement.classList.add("spell-name");
-    nameElement.innerText = spellName;
+    nameElement.innerText = effect.Name;
 
     var tier = document.createElement("div");
     createCardElement(card, tier);
     tier.classList.add("tier");
-    tier.innerText = "Tier: " + window.spellEffects[spellName].Tier;
+    tier.innerText = "Tier: " + effect.Tier;
 
     var duration = document.createElement("div");
     createCardElement(card, duration);
     duration.classList.add("duration");
-    duration.innerText = "Duration: " + window.spellEffects[spellName].Duration;
+    duration.innerText = "Duration: " + effect.Duration;
     
     var modifier = document.createElement("div");
     createCardElement(card, modifier);
     modifier.classList.add("modifier");
-    modifier.innerText = "Difficulty Modifier: " + window.spellEffects[spellName].Modifier;
+    modifier.innerText = "Difficulty Modifier: " + effect.Modifier;
 
     createLine(card);
 
     var description = document.createElement("div");
     createCardElement(card, description);
     description.classList.add("description");
-    description.innerText = window.spellEffects[spellName].Description;
+    description.innerText = effect.Description;
 }
 
 function createCardElement(card, element){

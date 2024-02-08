@@ -77,7 +77,15 @@ var target = TargetingType.single;
 
 var currentEffects = [];
 
-setupEffectMenu();
+var spellEffects;
+
+fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=ScholarlySpells")
+.then(response => response.text())
+.then(data =>{
+    spellEffects = parseSheets(data);
+    setupEffectMenu();
+})
+
 
 function assembleDicePool(){
     upgrades = 0;
@@ -104,15 +112,13 @@ function assembleDicePool(){
     //modifiers from spell effects
     double = false;
     for(var i = 0; i < currentEffects.length; i++){
-        var name = currentEffects[i].name;
-        applyNodes(name, i);
+        applyNodes(currentEffects[i].effect, i);
     }
 
     if(double){
         for(var i = 0; i < currentEffects.length; i++){
-            var name = currentEffects[i].name;
-            if(window.spellEffects[name].Duration != "Instantaneous"){
-                applyNodes(name, i);
+            if(currentEffects[i].Duration != "Instantaneous"){
+                applyNodes(currentEffects[i].effect, i);
             }
         }
     }
@@ -169,7 +175,7 @@ function spellCheck(){
     data.penalty = penalties;
     data.autoSuccess = autoSuccess;
 
-    var results = window.rollDice(data);
+    var results = rollDice(data);
 
     conquestsDisplay.innerText = results.conquests;
     calamityDisplay.innerText = results.calamities;
@@ -189,13 +195,13 @@ function clearCustomModifiers(){
     autoSucInpt.value = 0;
 }
 
-function applyNodes(name, i){
+function applyNodes(effect, i){
     for(var j = 0; j < currentEffects[i].nodes; j++){
-        difficulty += Number(window.spellEffects[name].Difficulty);
-        upgrades += Number(window.spellEffects[name].Upgrades);
-        penalties += Number(window.spellEffects[name].Penalty);
-        if(window.spellEffects[name].SpecialModifier != ""){
-            specialModifier(window.spellEffects[name].SpecialModifier, i);
+        difficulty += Number(effect.Difficulty);
+        upgrades += Number(effect.Upgrades);
+        penalties += Number(effect.Penalty);
+        if(effect.SpecialModifier != ""){
+            specialModifier(effect.SpecialModifier, i);
         }
     }
 }
@@ -242,14 +248,13 @@ function clearAllEffects(){
 }
 
 function selectMenuOption(evt){
-    createNewEffect(evt.currentTarget.name);
+    createNewEffect(evt.currentTarget.effect);
     addEffect.style.display = "block";
     effectMenu.style.display = "none";
 }
 
-function createNewEffect(effectName){
+function createNewEffect(effect){
     var currentEffect = new SpellEffect;
-    var effectDict = window.spellEffects[effectName];
 
     var effectElm = document.createElement("div");
     effectElm.classList.add("spell-card");
@@ -258,7 +263,7 @@ function createNewEffect(effectName){
     var nameElm = document.createElement("h4");
     nameElm.classList.add("spell-name");
     nameElm.classList.add("card-element");
-    nameElm.innerText = effectName;
+    nameElm.innerText = effect.Name;
     effectElm.appendChild(nameElm);
 
     var buttonElm = document.createElement("button");
@@ -280,32 +285,32 @@ function createNewEffect(effectName){
     nodesElm.appendChild(inputElm);
     
     var tierElm = document.createElement("h4");
-    tierElm.innerText = "Tier: " + effectDict.Tier;
+    tierElm.innerText = "Tier: " + effect.Tier;
     tierElm.classList.add("card-element");
     effectElm.appendChild(tierElm);
 
     var durationElm = document.createElement("h4");
-    durationElm.innerText = "Duration: " + effectDict.Duration;
+    durationElm.innerText = "Duration: " + effect.Duration;
     durationElm.classList.add("card-element");
     effectElm.appendChild(durationElm);
 
     var modElm = document.createElement("h4");
-    modElm.innerText = "Difficulty Modifier: " + effectDict.Modifier;
+    modElm.innerText = "Difficulty Modifier: " + effect.Modifier;
     modElm.classList.add("card-element");
     effectElm.appendChild(modElm);
 
-    edgeCaseElements(effectDict, effectElm, currentEffect);
+    edgeCaseElements(effect, effectElm, currentEffect);
 
     createLine(effectElm);
 
     var descriptionElm = document.createElement("h4");
-    descriptionElm.innerText = effectDict.Description;
+    descriptionElm.innerText = effect.Description;
     descriptionElm.classList.add("description");
     descriptionElm.classList.add("card-element");
     effectElm.appendChild(descriptionElm);
 
     currentEffect.element = effectElm;
-    currentEffect.name = effectName;
+    currentEffect.effect = effect;
     currentEffect.nodeInput = inputElm;
     currentEffect.nodes = inputElm.value;
 
@@ -353,10 +358,10 @@ function createLine(effectElm){
     effectElm.appendChild(lineElm);
 }
 
-function edgeCaseElements(effectDict, effectElm, currentEffect){
-    if(effectDict.SpecialModifier == "") return;
+function edgeCaseElements(effect, effectElm, currentEffect){
+    if(effect.SpecialModifier == "") return;
 
-    switch(effectDict.SpecialModifier){
+    switch(effect.SpecialModifier){
         case "lock":
             var labelText = "Difficulty of Lock: ";
             createEdgeCaseLabel(effectElm, currentEffect, labelText);
@@ -442,12 +447,11 @@ function changeSpecial(evt){
 function setupEffectMenu(){
     var currentTier = "Metamagic";
     var currentChild = 0;
-    var keys = Object.keys(window.spellEffects);
-    for(var i = 0; i < keys.length; i++){
-        var currentEffect = window.spellEffects[keys[i]];
+    for(var i = 0; i < spellEffects.length; i++){
+        var currentEffect = spellEffects[i];
         var option = document.createElement("li");
-        option.name = keys[i];
-        option.innerText = option.name;
+        option.effect = currentEffect;
+        option.innerText = currentEffect.Name;
         if(currentEffect.Tier != currentTier){
             currentTier = currentEffect.Tier;
             currentChild++;
