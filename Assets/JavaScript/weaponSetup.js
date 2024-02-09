@@ -41,7 +41,12 @@ function createNewWeapon(weapon){
     var damage = weaponElm.querySelector(".damage");
     damage.innerHTML = "<strong>Damage: </strong>" + weapon.Damage;
     if(weapon.Attribute != "None"){
-        damage.innerHTML += " + " + weapon.Attribute
+        if(weapon.Attribute == "Brawn/Agility"){
+            damage.innerHTML += " + Brawn";
+        }
+        else{
+            damage.innerHTML += " + " + weapon.Attribute
+        }
     }
 
     var modSlots = weaponElm.querySelector(".mod-slots");

@@ -1,8 +1,8 @@
 .weapons-table{
-    width: 80%;
+    width: 85%;
     background-color: var(--green2);
     border-radius: 2em;
-    margin: 0 auto;
+    margin: 2em auto;
 }
 
 .table-header{
@@ -10,23 +10,47 @@
     margin: 0;
     border-top-left-radius: 0.8em;
     border-top-right-radius: 0.8em;
+    border-bottom: 2px solid black;
 }
 
 .weapon{
     display: flex;
     color: white;
-    border-top: 0.2em solid black;
-    border-bottom: 0.2em solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-size: var(--baseTextSize);
 }
 
+
 .weapon div{
-    flex-basis: 25%;
+    padding: 0.7em;
+    flex-basis: 20%;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.weapon .weapon-name{
+    flex-basis: 15%;
+    margin: auto 0;
+    font-size: var(--baseTextSize);
+    display: block;
+    text-align: center;
+}
+
+
+.weapon .Properties{
+    flex-basis: 45%;
+    display: block;
 }
 
 .weapon div p{
     flex-basis: 100%;
+    margin: 0;
+}
+
+.weapon:last-of-type{
+    border-bottom: none;
 }
 
 #weapon-table-template{
@@ -35,4 +59,33 @@
 
 #weapon-template{
     display: none;
+}
+
+@media screen and (max-width: 768px){
+    .weapons-table{
+        width: 95%;
+    }
+
+    .weapon{
+        flex-wrap: wrap;
+    }
+
+    .weapon div{
+        padding: 0.7em;
+        flex-basis: 50%;
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .weapon .weapon-name{
+        flex-basis: 100%;
+        width: 100%;
+        font-size: var(--size2);
+    }
+
+    .weapon .Properties{
+        flex-basis: 100%;
+    }
+
 }
