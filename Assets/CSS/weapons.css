@@ -26,5 +26,13 @@
 }
 
 .weapon div p{
-    flex-basis: 50%;
+    flex-basis: 100%;
+}
+
+#weapon-table-template{
+    display: none;
+}
+
+#weapon-template{
+    display: none;
 }
