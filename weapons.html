@@ -12,7 +12,14 @@
 </head>
 <body>
     <header>
+        <button id="nav-hide">></button>
         <h1><a id="HomeButton" href="index.html">Age of Conquest and Calamity</a></h1>
+        <a class="nav-bar hidden" href="#Brawl Table">Brawl Weapons</a>
+        <a class="nav-bar hidden" href="#Light Weapons Table">Light Weapons</a>
+        <a class="nav-bar hidden" href="#Heavy Weapons Table">Heavy Weapons</a>
+        <a class="nav-bar hidden" href="#Ranged Table">Ranged Weapons</a>
+        <a class="nav-bar hidden" href="#properties-table">Properties</a>
+        <div id="nav-spacer"></div>
     </header> 
     <main>
         <h2 id="page-heading">Weapons</h2>
@@ -29,8 +36,14 @@
 
         </section>
 
+        <section class="table" id="properties-table">
+            <h3 class="table-header">Weapon Properties</h3>
+
+        </section>
+
     </main>
-    <section class="weapons-table" id="weapon-table-template">
+
+    <section class="weapons-table table" id="weapon-table-template">
         <h3 class="table-header">Brawl Weapons</h3>
         <div class="weapon" id="weapon-template">
             <div class="weapon-name">Weapon Name</div>
@@ -50,6 +63,13 @@
             <div class="Properties">Properties</div>
         </div>
     </section>
+
+    <div class="property-entry" id="property-template">
+        <div class="property-name">Property Name</div>
+        <div class="property-description">Property Description</div>
+    </div>
+
+    <script src="./Assets/JavaScript/navBar.js"></script>
     <script src="./Assets/JavaScript/parseSheetsOutput.js"></script>
     <script src="./Assets/JavaScript/weaponSetup.js"></script>   
 </body>

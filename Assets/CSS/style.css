@@ -74,7 +74,17 @@ header{
     flex: none;
     position: absolute;
     left: 5%;
+    padding: 0.2em 0.5em;
     top: calc(var(--baseTextSize) * 1.3);
+    background-color: var(--green2);
+    border-radius: 0.9em;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#nav-hide:hover{
+    color: black;
+    cursor: pointer;
 }
 
 .hidden{

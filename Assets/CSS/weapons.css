@@ -1,8 +1,9 @@
-.weapons-table{
+.table{
     width: 85%;
     background-color: var(--green2);
     border-radius: 2em;
     margin: 2em auto;
+    font-size: var(--baseTextSize);
 }
 
 .table-header{
@@ -18,7 +19,6 @@
     color: white;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    font-size: var(--baseTextSize);
 }
 
 
@@ -53,6 +53,32 @@
     border-bottom: none;
 }
 
+.property-entry{
+    color: white;
+    display: flex;
+    box-sizing: border-box;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 0.7em 0;
+}
+
+.property-entry:last-of-type{
+    border-bottom: none;
+}
+
+.property-entry div{
+    padding: 0 1em;
+}
+
+.property-name{
+    flex-basis: 15%;
+    margin-left: 2em;
+}
+
+.property-description{
+    flex-basis: 85%;
+}
+
 #weapon-table-template{
     display: none;
 }
@@ -61,8 +87,12 @@
     display: none;
 }
 
+#property-template{
+    display: none;
+}
+
 @media screen and (max-width: 768px){
-    .weapons-table{
+    .table{
         width: 95%;
     }
 
@@ -88,4 +118,13 @@
         flex-basis: 100%;
     }
 
+    .property-entry{
+        flex-direction: column;
+    }
+
+    .property-name{
+        margin: 0;
+        text-align: center;
+        font-size: var(--size2);
+    }
 }
