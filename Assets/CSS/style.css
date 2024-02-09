@@ -151,6 +151,13 @@ h3{
     padding: 1% 0;
 }
 
+h3{
+    font-size: var(--size3);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
+}
+
 .heading-band{
     margin-bottom: 0;
     margin-left: 0;

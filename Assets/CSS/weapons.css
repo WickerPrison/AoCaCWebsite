@@ -1,19 +1,30 @@
-.weapon{
-    display: flex;
-    width: 90%;
+.weapons-table{
+    width: 80%;
+    background-color: var(--green2);
+    border-radius: 2em;
     margin: 0 auto;
 }
 
+.table-header{
+    background-color: var(--green);
+    margin: 0;
+    border-top-left-radius: 0.8em;
+    border-top-right-radius: 0.8em;
+}
+
+.weapon{
+    display: flex;
+    color: white;
+    border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;
+}
+
 .weapon div{
-    padding: 3px;
-    flex: 1;
-    border: black solid 2px;
+    flex-basis: 25%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.weapon .properties{
-    flex: 5;
-}
-
-#top-spacer{
-    margin-top: 150px;
+.weapon div p{
+    flex-basis: 50%;
 }

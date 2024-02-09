@@ -8,6 +8,18 @@ header{
     width: calc(100% - 1.17em);
 }
 
+h3{
+    font-size: var(--size2);
+    font-family: var(--headerFont);
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: var(--leftMargin);
+    width: 100%;
+    background-color: var(--green);
+    color: white;
+    padding: 1% 0;
+}
+
 #clear-effects{
     margin-top: 1em;
 }
