@@ -1,3 +1,5 @@
+var sheetUrl = "https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet="
+
 function parseSheets(data){
     data = JSON.parse(data.substring(47).slice(0, -2));
     var output = [];

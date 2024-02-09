@@ -5,26 +5,28 @@ var propertyTable = document.getElementById("properties-table");
 var propertyTemplate = document.getElementById("property-template");
 
 var weapons;
+var properties;
+var weaponMods;
+
 var currentTable;
 
-var properties;
 
-fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Weapons")
-.then(response => response.text())
-.then(data =>{
-    weapons = parseSheets(data);
+Promise.all([
+fetch(sheetUrl + "Weapons"),
+fetch(sheetUrl + "WeaponProperties"),
+fetch(sheetUrl + "WeaponModifications")
+])
+.then(responses => Promise.all(responses.map(response => response.text())))
+.then(data => {
+    weapons = parseSheets(data[0]);
+    properties = parseSheets(data[1]);
+    weaponMods = parseSheets(data[2]);
+
     setupWeaponsTables();
-
-    fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=WeaponProperties")
-    .then(response=> response.text())
-    .then(data => {
-        properties = parseSheets(data);
-
-        for(var i = 0; i < properties.length; i++){
-            createNewProperty(properties[i]);
-        }
-    })
-})
+    for(var i = 0; i < properties.length; i++){
+        createNewProperty(properties[i]);
+    }
+});
 
 function setupWeaponsTables(){
     var currentSkill;
