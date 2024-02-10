@@ -84,6 +84,28 @@
     padding: 0 2em;
 }
 
+.mod-header,
+.mod-part{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2em;
+    margin: 0.5em 0;
+}
+
+.mod-header > div:first-child,
+.part-label{
+    flex-basis: 25%;
+    text-align: center;
+    margin: auto 0;
+}
+
+.mod-header > div:nth-child(2),
+.mod-descriptions{
+    flex-basis: 75%;
+}
+
 #modifications-table .table-header{
     border: none;
 }
@@ -97,6 +119,10 @@
 }
 
 #property-template{
+    display: none;
+}
+
+#mod-part-template{
     display: none;
 }
 

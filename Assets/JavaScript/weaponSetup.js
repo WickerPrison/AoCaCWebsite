@@ -4,10 +4,13 @@ var tables = document.getElementById("weapon-tables");
 var propertyTable = document.getElementById("properties-table");
 var propertyTemplate = document.getElementById("property-template");
 var main = document.querySelector("main");
+var modTable = document.getElementById("modifications-table");
+var modTemplate = document.getElementById("mod-part-template");
 
 var weapons;
 var properties;
-var weaponMods;
+var weaponMods = [];
+var masterworks = [];
 
 var currentTable;
 
@@ -23,12 +26,21 @@ fetch(sheetUrl + "WeaponModifications")
     main.style.display = "block"
     weapons = parseSheets(data[0]);
     properties = parseSheets(data[1]);
-    weaponMods = parseSheets(data[2]);
+    var modData = parseSheets(data[2]);
+    for(var i = 0; i < modData.length; i++){
+        if(modData[i].Name == ""){
+            weaponMods.push(modData[i]);
+        }
+        else{
+            masterworks.push(modData[i]);
+        }
+    }
 
     setupWeaponsTables();
     for(var i = 0; i < properties.length; i++){
         createNewProperty(properties[i]);
     }
+    setUpMods();
 });
 
 function setupWeaponsTables(){
@@ -87,4 +99,21 @@ function createNewProperty(property){
     propertyElm.querySelector(".property-description").innerText = property.Description;
 
     propertyTable.appendChild(propertyElm);
+}
+
+function setUpMods(){
+    var allParts = ["Blade", "Boss", "Dart", "Frame", "Grip", "Head", "Point"];
+
+    for(var i = 0; i < allParts.length; i++){
+        var modPartElm = modTemplate.cloneNode(true);
+        modPartElm.id = allParts[i];
+
+        modPartElm.querySelector(".part-label").innerText = allParts[i];
+
+        modTable.appendChild(modPartElm);
+    }
+
+    for(var i = 0; i < weaponMods.length; i++){
+        var modDescription = document.createElement()
+    }
 }

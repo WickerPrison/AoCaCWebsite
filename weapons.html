@@ -34,48 +34,57 @@
         </section>
 
         <section id="weapon-tables">
-
+            <section class="weapons-table table" id="weapon-table-template">
+                <h3 class="table-header">Brawl Weapons</h3>
+                <div class="weapon" id="weapon-template">
+                    <div class="weapon-name">Weapon Name</div>
+                    <div>
+                        <p class="Skill">Skill</p>
+                        <p class="damage">Damage</p>
+                        <p class="Range">Range</p>
+                        <p class="Critical">Critical</p>
+                    </div>
+                    <div>
+                        <p class="Parts">Modification Slots</p>
+                        <p class="Encumbrance">Encumbrance</p>
+                        <p class="Material">Material</p>
+                        <p class="Price">Price</p>
+                        <p class="Rarity">Rarity</p>
+                    </div>
+                    <div class="Properties">Properties</div>
+                </div>
+            </section>
         </section>
 
         <section class="table" id="properties-table">
             <h3 class="table-header">Weapon Properties</h3>
 
+            <div class="property-entry" id="property-template">
+                <div class="property-name">Property Name</div>
+                <div class="property-description">Property Description</div>
+            </div>
         </section>
 
         <section id="modifications-table" class="table">
             <h3 class="table-header">Weapon Modifications</h3>
             <p>Adding a weapon attachment to a weapon costs 30 gold. A weapon can have one attachment for each customization part. Modifications on this table can be added to weapons with the Fabrication skill.</p>
-            <div>Blade</div>
-            <div>Boss</div>
+            <div class="mod-header">
+                <div>Customization Parts</div>
+                <div>Customization Options</div>
+            </div>
+            <div id="mod-part-template" class="mod-part">
+                <div class="part-label">Part</div>
+                <div class="mod-descriptions">
+                    <div class="mod-desc">Option 1</div>
+                    <div class="mod-desc">Option 2</div>
+                    <div class="mod-desc">Option 3</div>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <section class="weapons-table table" id="weapon-table-template">
-        <h3 class="table-header">Brawl Weapons</h3>
-        <div class="weapon" id="weapon-template">
-            <div class="weapon-name">Weapon Name</div>
-            <div>
-                <p class="Skill">Skill</p>
-                <p class="damage">Damage</p>
-                <p class="Range">Range</p>
-                <p class="Critical">Critical</p>
-            </div>
-            <div>
-                <p class="Parts">Modification Slots</p>
-                <p class="Encumbrance">Encumbrance</p>
-                <p class="Material">Material</p>
-                <p class="Price">Price</p>
-                <p class="Rarity">Rarity</p>
-            </div>
-            <div class="Properties">Properties</div>
-        </div>
-    </section>
 
-    <div class="property-entry" id="property-template">
-        <div class="property-name">Property Name</div>
-        <div class="property-description">Property Description</div>
-    </div>
 
     <script src="./Assets/JavaScript/navBar.js"></script>
     <script src="./Assets/JavaScript/parseSheetsOutput.js"></script>
