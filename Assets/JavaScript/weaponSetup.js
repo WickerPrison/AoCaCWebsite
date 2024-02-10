@@ -114,6 +114,17 @@ function setUpMods(){
     }
 
     for(var i = 0; i < weaponMods.length; i++){
-        var modDescription = document.createElement()
+
+        var parts = weaponMods[i].Parts.split(" ");
+        for(var j = 0; j < parts.length; j++){
+            var modDescription = document.createElement("div");
+            modDescription.classList.add("mod-desc");
+
+            console.log(weaponMods[i].Description);
+
+            modDescription.innerText = weaponMods[i].Description;
+    
+            document.getElementById(parts[j]).querySelector(".mod-descriptions").appendChild(modDescription);
+        }
     }
 }
