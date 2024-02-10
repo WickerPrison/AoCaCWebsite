@@ -6,6 +6,8 @@ var propertyTemplate = document.getElementById("property-template");
 var main = document.querySelector("main");
 var modTable = document.getElementById("modifications-table");
 var modTemplate = document.getElementById("mod-part-template");
+var masterworkTable = document.getElementById("masterwork-table");
+var masterworkTemplate = document.getElementById("masterwork-template");
 
 var weapons;
 var properties;
@@ -41,6 +43,7 @@ fetch(sheetUrl + "WeaponModifications")
         createNewProperty(properties[i]);
     }
     setUpMods();
+    setUpMasterworks();
 });
 
 function setupWeaponsTables(){
@@ -120,11 +123,22 @@ function setUpMods(){
             var modDescription = document.createElement("div");
             modDescription.classList.add("mod-desc");
 
-            console.log(weaponMods[i].Description);
-
             modDescription.innerText = weaponMods[i].Description;
     
             document.getElementById(parts[j]).querySelector(".mod-descriptions").appendChild(modDescription);
         }
+    }
+}
+
+function setUpMasterworks(){
+    for(var i = 0; i < masterworks.length; i++){
+        var masterwork = masterworkTemplate.cloneNode(true);
+        masterwork.id = masterworks[i];
+    
+        masterwork.querySelector(".masterwork-name").innerText = masterworks[i].Name;
+        masterwork.querySelector(".masterwork-parts").innerText = masterworks[i].Parts;
+        masterwork.querySelector(".masterwork-description").innerText = masterworks[i].Description;
+
+        masterworkTable.appendChild(masterwork);
     }
 }
