@@ -4,6 +4,7 @@
     border-radius: 2em;
     margin: 2em auto;
     font-size: var(--baseTextSize);
+    color: white;
 }
 
 .table-header{
@@ -77,6 +78,14 @@
 
 .property-description{
     flex-basis: 85%;
+}
+
+#modifications-table p{
+    padding: 0 2em;
+}
+
+#modifications-table .table-header{
+    border: none;
 }
 
 #weapon-table-template{

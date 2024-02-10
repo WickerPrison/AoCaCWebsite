@@ -3,6 +3,7 @@ var weaponTemplate = document.getElementById("weapon-template");
 var tables = document.getElementById("weapon-tables");
 var propertyTable = document.getElementById("properties-table");
 var propertyTemplate = document.getElementById("property-template");
+var main = document.querySelector("main");
 
 var weapons;
 var properties;
@@ -10,6 +11,7 @@ var weaponMods;
 
 var currentTable;
 
+main.style.display = "none";
 
 Promise.all([
 fetch(sheetUrl + "Weapons"),
@@ -18,6 +20,7 @@ fetch(sheetUrl + "WeaponModifications")
 ])
 .then(responses => Promise.all(responses.map(response => response.text())))
 .then(data => {
+    main.style.display = "block"
     weapons = parseSheets(data[0]);
     properties = parseSheets(data[1]);
     weaponMods = parseSheets(data[2]);
@@ -65,11 +68,7 @@ function createNewWeapon(weapon){
         }
     }
 
-    var modSlots = weaponElm.querySelector(".mod-slots");
-    modSlots.innerHTML = "<strong>Mod Slots: </strong>" + weapon.Slots;
-
-
-    var array = ["Skill", "Range", "Critical", "Encumbrance", "Material", "Price", "Rarity", "Properties"];
+    var array = ["Skill", "Range", "Critical", "Parts", "Encumbrance", "Material", "Price", "Rarity", "Properties"];
 
     for(var i = 0; i < array.length; i++){
         var entry = weaponElm.querySelector("." + array[i]);
