@@ -1,0 +1,76 @@
+/* This is the template for the table that this stylesheet is designed to be used for */
+/* <section class="table" id="table-template">
+    <h3 class="table-header">Table Title</h3>
+
+</section>
+<div class="table-entry" id="table-entry-template">
+    <div class="table-label">Table Label</div>
+    <div class="column-1">
+        
+    </div>
+    <div class="column-2">
+
+    </div>
+    <div class="table-description">Description</div>
+</div>*/
+
+
+.table{
+    width: 85%;
+    background-color: var(--green2);
+    border-radius: 2em;
+    margin: 2em auto;
+    font-size: var(--baseTextSize);
+    color: white;
+    padding-bottom: 1em;
+}
+
+.table-header{
+    background-color: var(--green);
+    margin: 0;
+    border-top-left-radius: 0.8em;
+    border-top-right-radius: 0.8em;
+    border-bottom: 2px solid black;
+}
+
+.table-entry{
+    display: flex;
+    color: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.table-entry div{
+    padding: 0.7em;
+    flex-basis: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.table-entry div p{
+    flex-basis: 100%;
+    margin: 0;
+}
+
+.table-entry:last-of-type{
+    border-bottom: none;
+}
+
+.table-entry .table-label{
+    flex-basis: 15%;
+    margin: auto 0;
+    font-size: var(--baseTextSize);
+    display: block;
+    text-align: center;
+}
+
+.table-entry .table-description{
+    flex-basis: 45%;
+    display: block;
+}
+
+#table-entry-template,
+#table-template{
+    display: none;
+}
