@@ -1,6 +1,7 @@
 /* This is the template for the table that this stylesheet is designed to be used for */
 /* <section class="table" id="table-template">
     <h3 class="table-header">Table Title</h3>
+    <p class="table-explanation">Table Explanation</p>
 
 </section>
 <div class="table-entry" id="table-entry-template">
@@ -54,6 +55,10 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
+}
+
+.column-2{
+    flex-shrink: 1;
 }
 
 .table-entry div p{

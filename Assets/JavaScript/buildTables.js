@@ -1,5 +1,5 @@
-let tableTemplate = document.getElementById("table-template");
-let tableEntryTemplate = document.getElementById("table-entry-template");
+const tableTemplate = document.getElementById("table-template");
+const tableEntryTemplate = document.getElementById("table-entry-template");
 
 function TableData(){
     this.tableTitle;
@@ -9,6 +9,7 @@ function TableData(){
     this.column2 = null;
     this.description = "Description";
     this.explanation = null;
+    this.column2HalfSize = false;
     this.id = null
 }
 
@@ -19,7 +20,7 @@ function createTable(tableData){
     table.querySelector(".table-header").innerHTML = tableData.tableTitle;
 
     if(tableData.explanation != null){
-        let explanation = table.querySelector(".table-explanation");
+        const explanation = table.querySelector(".table-explanation");
         explanation.innerHTML = tableData.explanation;
         explanation.style.display = "block";
     }
@@ -45,6 +46,9 @@ function createTable(tableData){
                 columnEntry.innerHTML = "<strong>" + tableData.column2[j] + ": </strong>"
                 columnEntry.innerHTML += tableData.fullArray[i][tableData.column2[j]];
                 column2Elm.appendChild(columnEntry);
+            }
+            if(tableData.column2HalfSize){
+                column2Elm.style.flexBasis = "10%";
             }
         }
         else{
