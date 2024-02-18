@@ -9,7 +9,7 @@ var modTemplate = document.getElementById("mod-part-template");
 var masterworkTable = document.getElementById("masterwork-table");
 var masterworkTemplate = document.getElementById("masterwork-template");
 
-var weapons;
+let weapons;
 var properties;
 var weaponMods = [];
 var masterworks = [];

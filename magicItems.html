@@ -12,16 +12,7 @@
 </head>
 <body>
     <header>
-        <button id="nav-hide">></button>
         <h1><a id="HomeButton" href="index.html">Age of Conquest and Calamity</a></h1>
-        <a class="nav-bar hidden" href="#Brawl Table">Brawl Weapons</a>
-        <a class="nav-bar hidden" href="#Light Weapons Table">Light Weapons</a>
-        <a class="nav-bar hidden" href="#Heavy Weapons Table">Heavy Weapons</a>
-        <a class="nav-bar hidden" href="#Ranged Table">Ranged Weapons</a>
-        <a class="nav-bar hidden" href="#properties-table">Properties</a>
-        <a class="nav-bar hidden" href="#modifications-table">Modifications</a>
-        <a class="nav-bar hidden" href="#masterwork-table">Masterwork</a>
-        <div id="nav-spacer"></div>
     </header> 
     <main>
         <h2 id="page-heading">Magic Items</h2>
@@ -36,8 +27,11 @@
 
         <section id="wondrous-items-table"></section>
 
+        <section id="enchanting-effects-table"></section>
+
         <section class="table" id="table-template">
             <h3 class="table-header">Table Title</h3>
+            <p class="table-explanation">Table Explanation</p>
 
         </section>
         <div class="table-entry" id="table-entry-template">
@@ -53,7 +47,6 @@
 
     </main>
 
-    <script src="./Assets/JavaScript/navBar.js"></script>
     <script src="./Assets/JavaScript/parseSheetsOutput.js"></script>
     <script src="./Assets/JavaScript/buildTables.js"></script>
     <script src="./Assets/JavaScript/magicItemsSetup.js"></script>

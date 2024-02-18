@@ -33,6 +33,14 @@
     border-bottom: 2px solid black;
 }
 
+.table-explanation{
+    display: none;
+    padding: 1em;
+    margin: 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
 .table-entry{
     display: flex;
     color: white;
@@ -67,6 +75,7 @@
 
 .table-entry .table-description{
     flex-basis: 45%;
+    flex-grow: 1;
     display: block;
 }
 
