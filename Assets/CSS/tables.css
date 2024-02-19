@@ -44,6 +44,7 @@
 
 .table-entry{
     display: flex;
+    flex-wrap: wrap;
     color: white;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
@@ -51,7 +52,7 @@
 
 .table-entry div{
     padding: 0.7em;
-    flex-basis: 20%;
+    flex-basis: 15%;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -88,3 +89,19 @@
 #table-template{
     display: none;
 }
+
+
+@media screen and (max-width: 768px){
+    .table{
+        width: 95%;
+    }
+
+    .table-entry .table-label{
+        flex-basis: 100%;
+    }
+
+    .table-entry div{
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+} 

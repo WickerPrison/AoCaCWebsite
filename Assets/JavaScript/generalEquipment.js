@@ -15,7 +15,7 @@ fetch(sheetUrl + "GeneralEquipment"),
     tableData.column1 = ["Material", "Encumbrance"];
     tableData.column2 = ["Price", "Rarity"];
     tableData.id = "general-equipment";
-    tableData.column2HalfSize = true;
+    tableData.column2FlexBasis = "10%";
     generalEquipmentTable.appendChild(createTable(tableData));
 
 });

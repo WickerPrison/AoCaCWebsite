@@ -9,7 +9,7 @@ function TableData(){
     this.column2 = null;
     this.description = "Description";
     this.explanation = null;
-    this.column2HalfSize = false;
+    this.column2FlexBasis = "15%";
     this.id = null
 }
 
@@ -45,10 +45,8 @@ function createTable(tableData){
                 let columnEntry = document.createElement("p");
                 columnEntry.innerHTML = "<strong>" + tableData.column2[j] + ": </strong>"
                 columnEntry.innerHTML += tableData.fullArray[i][tableData.column2[j]];
+                column2Elm.style.flexBasis = tableData.column2FlexBasis;
                 column2Elm.appendChild(columnEntry);
-            }
-            if(tableData.column2HalfSize){
-                column2Elm.style.flexBasis = "10%";
             }
         }
         else{

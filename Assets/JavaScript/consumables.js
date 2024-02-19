@@ -26,7 +26,7 @@ fetch(sheetUrl + "Consumables"),
     tableData.column1 = ["Material", "Encumbrance"];
     tableData.column2 = ["Price", "Rarity"];
     tableData.id = "bombs";
-    tableData.column2HalfSize = true;
+    tableData.column2FlexBasis = "10%";
     bombsTable.appendChild(createTable(tableData));
 
     tableData.tableTitle = "Medical Items";
