@@ -57,10 +57,30 @@ Promise.all([
             localStorage.setItem("monsterIDnum", 0);
         }
 
+        currentMonsters = JSON.parse(localStorage.getItem("currentMonsters"));
+        if(currentMonsters == null){
+            currentMonsters = [];
+        }
+        else{
+            for(let i = 0; i < currentMonsters.length; i++){
+                newMonsterInput.value = currentMonsters[i].monsterName;
+                createNewMonster();
+            }
+        }
+
     });
 
 
+function createMonsterFromClick(){
+    let currentMonster = createNewMonster();
+    if(currentMonster != null){
+        currentMonsters.push(currentMonster);
+        localStorage.setItem("currentMonsters", JSON.stringify(currentMonsters));
+    }
+}
+
 function createNewMonster(){
+    console.log(newMonsterInput.value);
     if(!monsterNames.includes(newMonsterInput.value)) return;
 
     var name = newMonsterInput.value;
@@ -73,10 +93,6 @@ function createNewMonster(){
     let idNum = Number(localStorage.getItem("monsterIDnum"));
     newMonster.id = "monster-" + idNum;
     localStorage.setItem("monsterIDnum", idNum + 1);
-
-    let thisMonster = new Monster();
-    thisMonster.monsterName = name;
-    thisMonster.id = newMonster.id;
     
     var closeMonsterBtn = newMonster.querySelector(".close-monster");
     closeMonsterBtn.parent = newMonster;
@@ -176,6 +192,12 @@ function createNewMonster(){
     }
 
     monsterList.appendChild(newMonster);
+
+    // creates the object that will be saved to local storage
+    let currentMonster = new Monster();
+    currentMonster.monsterName = name;
+    currentMonster.id = idNum;
+    return currentMonster;
 }
 
 function rollAttribute(event){
@@ -362,4 +384,4 @@ closeBtn.addEventListener("click", function(){
     inputElm.style.display = "none";
 })
 rollBtn.addEventListener("click", makeCheck);
-addMonsterBtn.addEventListener("click", createNewMonster);
+addMonsterBtn.addEventListener("click", createMonsterFromClick);
