@@ -31,24 +31,21 @@ var monsterDict;
 var monsterNames = [];
 var attackDict;
 
-fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Monsters")
-.then(response => response.text())
-.then(data =>{
-    monsterDict = parseSheets(data);
-    console.log(monsterDict);
-
-    fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Attacks")
-    .then(response => response.text())
-    .then(data =>{
-        attackDict = parseSheets(data);
+Promise.all([
+    fetch(sheetUrl + "Monsters"),
+    fetch(sheetUrl + "Attacks"),
+    ])
+    .then(responses => Promise.all(responses.map(response => response.text())))
+    .then(data => {
+        monsterDict = parseSheets(data[0]);
+        attackDict = parseSheets(data[1]);
         for(var i = 0; i < monsterDict.length; i++){
             var autocompleteOption = document.createElement("option");
             autocompleteOption.value = monsterDict[i].Name;
             monsterAutocomplete.appendChild(autocompleteOption);
             monsterNames.push(monsterDict[i].Name);
         }
-    })
-})
+    });
 
 
 function createNewMonster(){
