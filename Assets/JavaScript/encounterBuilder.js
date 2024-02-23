@@ -25,11 +25,18 @@ var successesOutput = document.getElementById("successes");
 var advantageOutput = document.getElementById("advantage");
 
 
-var monsterIDnum = 0;
 var attributesList = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 var monsterDict;
 var monsterNames = [];
 var attackDict;
+
+let currentMonsters;
+function Monster(){
+    this.id;
+    this.monsterName;
+    this.hp;
+    this.stamina;
+}
 
 Promise.all([
     fetch(sheetUrl + "Monsters"),
@@ -45,6 +52,11 @@ Promise.all([
             monsterAutocomplete.appendChild(autocompleteOption);
             monsterNames.push(monsterDict[i].Name);
         }
+
+        if(localStorage.getItem("monsterIDnum") == null){
+            localStorage.setItem("monsterIDnum", 0);
+        }
+
     });
 
 
@@ -53,14 +65,19 @@ function createNewMonster(){
 
     var name = newMonsterInput.value;
     var monster = structuredClone(monsterDict.find(function(monsterObject){
-            return monsterObject.Name == name;
-        }
+        return monsterObject.Name == name;
+    }
     ));
-
+    
     var newMonster = monsterTemplate.cloneNode(true);
-    newMonster.id = "monster-" + monsterIDnum;
-    monsterIDnum++;
+    let idNum = Number(localStorage.getItem("monsterIDnum"));
+    newMonster.id = "monster-" + idNum;
+    localStorage.setItem("monsterIDnum", idNum + 1);
 
+    let thisMonster = new Monster();
+    thisMonster.monsterName = name;
+    thisMonster.id = newMonster.id;
+    
     var closeMonsterBtn = newMonster.querySelector(".close-monster");
     closeMonsterBtn.parent = newMonster;
     closeMonsterBtn.addEventListener("click", closeMonster);
