@@ -64,7 +64,7 @@ Promise.all([
         else{
             for(let i = 0; i < currentMonsters.length; i++){
                 newMonsterInput.value = currentMonsters[i].monsterName;
-                createNewMonster();
+                createNewMonster(currentMonsters[i].id);
             }
         }
 
@@ -72,15 +72,16 @@ Promise.all([
 
 
 function createMonsterFromClick(){
-    let currentMonster = createNewMonster();
+    let idNum = Number(localStorage.getItem("monsterIDnum"));
+    localStorage.setItem("monsterIDnum", idNum + 1);
+    let currentMonster = createNewMonster(idNum);
     if(currentMonster != null){
         currentMonsters.push(currentMonster);
         localStorage.setItem("currentMonsters", JSON.stringify(currentMonsters));
     }
 }
 
-function createNewMonster(){
-    console.log(newMonsterInput.value);
+function createNewMonster(idNum){
     if(!monsterNames.includes(newMonsterInput.value)) return;
 
     var name = newMonsterInput.value;
@@ -90,9 +91,8 @@ function createNewMonster(){
     ));
     
     var newMonster = monsterTemplate.cloneNode(true);
-    let idNum = Number(localStorage.getItem("monsterIDnum"));
-    newMonster.id = "monster-" + idNum;
-    localStorage.setItem("monsterIDnum", idNum + 1);
+
+    newMonster.id = idNum;
     
     var closeMonsterBtn = newMonster.querySelector(".close-monster");
     closeMonsterBtn.parent = newMonster;
@@ -107,9 +107,18 @@ function createNewMonster(){
     tierElm.innerHTML = "<strong>Tier:</strong> " + monster["Tier"];
 
     newMonster.querySelector(".hp").querySelector(".stat-max").innerText = "/" + monster["HP"];
-    newMonster.querySelector(".hp").querySelector(".stat-field").value = monster["HP"];
+    const hpInput = newMonster.querySelector(".hp").querySelector(".stat-field");
+    hpInput.value = monster["HP"];
+    hpInput.addEventListener("input", () => {
+        updateMonsterStat(idNum, "hp", hpInput.value);
+    });
+
     newMonster.querySelector(".stamina").querySelector(".stat-max").innerText = "/" + monster["Stamina"];
-    newMonster.querySelector(".stamina").querySelector(".stat-field").value = monster["Stamina"];
+    const staminaInput = newMonster.querySelector(".stamina").querySelector(".stat-field");
+    staminaInput.value = monster["Stamina"];
+    staminaInput.addEventListener("input", () =>{
+        updateMonsterStat(idNum, "stamina", staminaInput.value);
+    })
     newMonster.querySelector(".damage-reduction").innerText = monster["Damage Reduction"];
 
     var defenseElm = newMonster.querySelector(".defense");
@@ -193,10 +202,22 @@ function createNewMonster(){
 
     monsterList.appendChild(newMonster);
 
+
+    let monsterBlock = currentMonsters.find((monster) => {
+        return monster.id == idNum;
+    });
+    if(monsterBlock != null){
+        hpInput.value = monsterBlock.hp;
+        staminaInput.value = monsterBlock.stamina;
+        return monsterBlock;
+    }
+
     // creates the object that will be saved to local storage
     let currentMonster = new Monster();
     currentMonster.monsterName = name;
     currentMonster.id = idNum;
+    currentMonster.hp = monster["HP"];
+    currentMonster.stamina = monster["Stamina"];
     return currentMonster;
 }
 
@@ -376,7 +397,23 @@ function makeCheck(){
 }
 
 function closeMonster(event){
+    for(let i = 0; i < currentMonsters.length; i++){
+        if(currentMonsters[i].id == event.currentTarget.parent.id){
+            currentMonsters.splice(i, 1);
+            break;
+        }
+    }
+    localStorage.setItem("currentMonsters", JSON.stringify(currentMonsters));
     event.currentTarget.parent.remove();
+}
+
+function updateMonsterStat(id, stat, number){
+    let monsterBlock = currentMonsters.find((monster) => {
+        return monster.id == id;
+    });
+    monsterBlock[stat] = number;
+    console.log("test");
+    localStorage.setItem("currentMonsters", JSON.stringify(currentMonsters));
 }
 
 closeBtn.addEventListener("click", function(){
