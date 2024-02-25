@@ -2,12 +2,14 @@
     --outputDice: 4em;
 }
 
-#new-roll{
+#new-roll,
+#clear-all{
     display: block;
     font-size: var(--baseTextSize);
     padding: 0.6em;
     padding-right: 1em;
     margin: 0 auto;
+    margin-bottom: 2em;
 }
 
 #new-roll:hover{

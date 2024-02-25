@@ -1,6 +1,8 @@
-var newRollButton = document.getElementById("new-roll");
-var rollTemplate = document.getElementById("roll-template");
-var rollsHolder = document.getElementById("rolls-holder");
+const clearAllButton = document.getElementById("clear-all");
+clearAllButton.style.display = "none";
+const newRollButton = document.getElementById("new-roll");
+const rollTemplate = document.getElementById("roll-template");
+const rollsHolder = document.getElementById("rolls-holder");
 
 var rolls = [];
 
@@ -39,7 +41,7 @@ function createRollFromButton(){
     localStorage.setItem("rolls", JSON.stringify(storageRolls));
 }
 
-function createNewRoll(idNum){
+function createNewRoll(){
     var newRollElm = rollTemplate.cloneNode(true);
     newRollElm.id = localStorage.getItem("rollIDnum");
     localStorage.setItem("rollIDnum", Number(localStorage.getItem("rollIDnum")) + 1);
@@ -96,6 +98,8 @@ function createNewRoll(idNum){
             updateStorage(newRollElm);
         });
     }
+
+    clearAllButton.style.display = "block";
 
     return newRollElm;
 }
@@ -161,6 +165,16 @@ function applyUpgrades(evt){
     }
 }
 
+function removeAllRolls(){
+    for(let i = 0; i < rolls.length; i++){
+        rolls[i].remove();
+    }
+    rolls = [];
+    storageRolls = [];
+    localStorage.setItem("rolls", storageRolls);
+    localStorage.setItem("rollIDnum", 0);
+}
+
 function removeRoll(evt){
     let oldRoll = evt.currentTarget.parent;
     for(let i = 0; i < storageRolls.length; i++){
@@ -169,9 +183,13 @@ function removeRoll(evt){
         }
     }
     localStorage.setItem("rolls", JSON.stringify(storageRolls));
-    if(storageRolls.length == 0) localStorage.setItem("rollIDnum", 0);
+    if(storageRolls.length == 0){
+        clearAllButton.style.display = "none";
+        localStorage.setItem("rollIDnum", 0);
+    } 
     rolls.splice(rolls.indexOf(oldRoll), 1);
     oldRoll.remove();
 }
 
+clearAllButton.addEventListener("click", removeAllRolls)
 newRollButton.addEventListener("click", createRollFromButton);
