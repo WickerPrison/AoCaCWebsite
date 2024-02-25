@@ -1,20 +1,57 @@
-var newRollButton = document.getElementById("new-roll");
-var rollTemplate = document.getElementById("roll-template");
-var rollsHolder = document.getElementById("rolls-holder");
+const clearAllButton = document.getElementById("clear-all");
+clearAllButton.style.display = "none";
+const newRollButton = document.getElementById("new-roll");
+const rollTemplate = document.getElementById("roll-template");
+const rollsHolder = document.getElementById("rolls-holder");
 
 var rolls = [];
-var rollCounter = 0;
+
+function RollStorage(){
+    this.id = 0;
+    this.name = "";
+    this.rollData = null;
+}
+
+if(localStorage.getItem("rollIDnum") == null){
+    localStorage.setItem("rollIDnum", 0);
+}
+
+let storageRolls = localStorage.getItem("rolls");
+if(storageRolls == null || storageRolls.length == 0){
+    storageRolls = [];
+}
+else{
+    storageRolls = JSON.parse(storageRolls);
+    for(let i = 0; i < storageRolls.length; i++){
+        let elm = createNewRoll();
+        elm.id = storageRolls[i].id;
+        elm.querySelector(".roll-title").value = storageRolls[i].name;
+        for(const property in elm.input){
+            elm.input[property].value = storageRolls[i].rollData[property];
+        }
+    }
+}
+
+function createRollFromButton(){
+    let elm = createNewRoll();
+    let rollStorage = new RollStorage();
+    rollStorage.id = elm.id;
+    rollStorage.name = elm.querySelector(".roll-title").value;
+    rollStorage.rollData = elm.data;
+    storageRolls.push(rollStorage);
+    localStorage.setItem("rolls", JSON.stringify(storageRolls));
+}
 
 function createNewRoll(){
     var newRollElm = rollTemplate.cloneNode(true);
-    newRollElm.id = "roll" + rollCounter;
-    rollCounter++;
+    newRollElm.id = localStorage.getItem("rollIDnum");
+    localStorage.setItem("rollIDnum", Number(localStorage.getItem("rollIDnum")) + 1);
     rolls.push(newRollElm);
     newRollElm.classList.add("roll-box");
     rollsHolder.appendChild(newRollElm);
 
     var title = newRollElm.querySelector(".roll-title");
-    title.value = "New Roll " + rollCounter;
+    title.value = "New Roll " + localStorage.getItem("rollIDnum");
 
     var newRollData = new RollData();
     newRollElm.data = newRollData;
@@ -55,6 +92,28 @@ function createNewRoll(){
     var removeBtn = newRollElm.querySelector(".remove-button");
     removeBtn.parent = newRollElm;
     removeBtn.addEventListener("click", removeRoll);
+
+    let allInputs = newRollElm.querySelectorAll("input");
+    for(let i = 0; i < allInputs.length; i++){
+        allInputs[i].addEventListener("input", () => {
+            updateStorage(newRollElm);
+        });
+    }
+
+    clearAllButton.style.display = "block";
+
+    return newRollElm;
+}
+
+function updateStorage(rollElm){
+    let storage = storageRolls.find((roll) => {
+        return roll.id == rollElm.id;
+    });
+    storage.name = rollElm.querySelector(".roll-title").value;
+    for(const property in rollElm.input){
+        storage.rollData[property] = rollElm.input[property].value;
+    }
+    localStorage.setItem("rolls", JSON.stringify(storageRolls));
 }
 
 function callDiceRoll(evt){
@@ -66,7 +125,7 @@ function callDiceRoll(evt){
         rollData[property] = input[property].value;
     }
 
-    var results = window.rollDice(rollData);
+    var results = rollDice(rollData);
 
     for(const property in output){
         output[property].innerText = results[property];
@@ -107,10 +166,32 @@ function applyUpgrades(evt){
     }
 }
 
+function removeAllRolls(){
+    for(let i = 0; i < rolls.length; i++){
+        rolls[i].remove();
+    }
+    rolls = [];
+    storageRolls = [];
+    localStorage.setItem("rolls", storageRolls);
+    localStorage.setItem("rollIDnum", 0);
+    clearAllButton.style.display = "none";
+}
+
 function removeRoll(evt){
-    var oldRoll = evt.currentTarget.parent;
+    let oldRoll = evt.currentTarget.parent;
+    for(let i = 0; i < storageRolls.length; i++){
+        if(storageRolls[i].id == evt.currentTarget.parent.id){
+            storageRolls.splice(i, 1);
+        }
+    }
+    localStorage.setItem("rolls", JSON.stringify(storageRolls));
+    if(storageRolls.length == 0){
+        clearAllButton.style.display = "none";
+        localStorage.setItem("rollIDnum", 0);
+    } 
     rolls.splice(rolls.indexOf(oldRoll), 1);
     oldRoll.remove();
 }
 
-newRollButton.addEventListener("click", createNewRoll);
+clearAllButton.addEventListener("click", removeAllRolls)
+newRollButton.addEventListener("click", createRollFromButton);
