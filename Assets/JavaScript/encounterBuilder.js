@@ -1,3 +1,5 @@
+const clearAllButton = document.getElementById("clear-all");
+clearAllButton.style.display = "none";
 const monsterAutocomplete = document.getElementById("monster-autocomplete");
 const monsterTemplate = document.getElementById("monster-template");
 const skillTemplate = document.getElementById("skill-template");
@@ -57,11 +59,12 @@ Promise.all([
             localStorage.setItem("monsterIDnum", 0);
         }
 
-        currentMonsters = JSON.parse(localStorage.getItem("currentMonsters"));
-        if(currentMonsters == null){
+        currentMonsters = localStorage.getItem("currentMonsters");
+        if(currentMonsters == null || currentMonsters.length == 0){
             currentMonsters = [];
         }
         else{
+            currentMonsters = JSON.parse(currentMonsters);
             for(let i = 0; i < currentMonsters.length; i++){
                 newMonsterInput.value = currentMonsters[i].monsterName;
                 createNewMonster(currentMonsters[i].id);
@@ -202,6 +205,7 @@ function createNewMonster(idNum){
 
     monsterList.appendChild(newMonster);
 
+    clearAllButton.style.display = "block";
 
     let monsterBlock = currentMonsters.find((monster) => {
         return monster.id == idNum;
@@ -396,12 +400,24 @@ function makeCheck(){
     advantageOutput.innerText = resultsData.advantage;
 }
 
+function closeAllMonsters(){
+    monsterList.innerHTML = "";
+    currentMonsters = [];
+    localStorage.setItem("currentMonsters", currentMonsters);
+    localStorage.setItem("monsterIDnum", 0);
+    clearAllButton.style.display = "none";
+}
+
 function closeMonster(event){
     for(let i = 0; i < currentMonsters.length; i++){
         if(currentMonsters[i].id == event.currentTarget.parent.id){
             currentMonsters.splice(i, 1);
             break;
         }
+    }
+    if(currentMonsters.length == 0){
+        clearAllButton.style.display = "none";
+        localStorage.setItem("monsterIDnum", 0);
     }
     localStorage.setItem("currentMonsters", JSON.stringify(currentMonsters));
     event.currentTarget.parent.remove();
@@ -421,4 +437,5 @@ closeBtn.addEventListener("click", function(){
     inputElm.style.display = "none";
 })
 rollBtn.addEventListener("click", makeCheck);
+clearAllButton.addEventListener("click", closeAllMonsters);
 addMonsterBtn.addEventListener("click", createMonsterFromClick);

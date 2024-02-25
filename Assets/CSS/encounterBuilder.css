@@ -26,6 +26,15 @@
     color: white;
 }
 
+#clear-all{
+    display: block;
+    font-size: var(--baseTextSize);
+    padding: 0.6em;
+    padding-right: 1em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
 .stat-field[type="number"]{
     display: inline;
     font-size: var(--baseTextSize);

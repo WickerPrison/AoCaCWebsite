@@ -16,11 +16,12 @@ if(localStorage.getItem("rollIDnum") == null){
     localStorage.setItem("rollIDnum", 0);
 }
 
-let storageRolls = JSON.parse(localStorage.getItem("rolls"));
-if(storageRolls == null){
+let storageRolls = localStorage.getItem("rolls");
+if(storageRolls == null || storageRolls.length == 0){
     storageRolls = [];
 }
 else{
+    storageRolls = JSON.parse(storageRolls);
     for(let i = 0; i < storageRolls.length; i++){
         let elm = createNewRoll();
         elm.id = storageRolls[i].id;
@@ -173,6 +174,7 @@ function removeAllRolls(){
     storageRolls = [];
     localStorage.setItem("rolls", storageRolls);
     localStorage.setItem("rollIDnum", 0);
+    clearAllButton.style.display = "none";
 }
 
 function removeRoll(evt){
