@@ -1,14 +1,20 @@
 :root{
-    --green2: #2f578e;
     --silver: #C0C5C1;
     --grey: #8B94A3;
 
     --brown: #AB4D36;
+    --sage: #C7CB85;
     --lightGreen: #7EA172;
     --green: #053B06;
     --green2: #0A710C;
     --green3: #43EF46;
-    --sage: #C7CB85;
+    --blue: #39A9F9;
+    --purple:#5A2768;
+    --purple2: #9A43B1;
+    --red: #660A00;
+    --red2: #A31000;
+    --yellow: #D7BF1D;
+    --yellow2: #7E6F11;
     /* --silver: #C7CB85; */
 
     --headerFont: 'Quintessential', serif;

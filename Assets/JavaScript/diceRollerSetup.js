@@ -117,9 +117,10 @@ function updateStorage(rollElm){
 }
 
 function callDiceRoll(evt){
-    var input = evt.currentTarget.parent.input;
-    var output = evt.currentTarget.parent.output;
-    var rollData = evt.currentTarget.parent.data;
+    let input = evt.currentTarget.parent.input;
+    let output = evt.currentTarget.parent.output;
+    let rollData = evt.currentTarget.parent.data;
+    let resultsHolder = evt.currentTarget.parent.querySelector(".results-holder");
 
     for(const property in input){
         rollData[property] = input[property].value;
@@ -129,6 +130,11 @@ function callDiceRoll(evt){
 
     for(const property in output){
         output[property].innerText = results[property];
+    }
+
+    resultsHolder.innerHTML = "";
+    for(let i = 0; i < results.resultDice.length; i++){
+        resultsHolder.innerHTML += results.resultDice[i];
     }
 }
 
