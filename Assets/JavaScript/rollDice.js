@@ -21,7 +21,7 @@ function ResultData(){
         if(isSquareDie){
             squareDie = `class="square-die"`;
         }
-        let outputString = `<img ${squareDie} src="AoCaCWebsite/Assets/Images/Dice/${dieName}.png">`;
+        let outputString = `<img ${squareDie} src="./Assets/Images/Dice/${dieName}.png">`;
         this.resultDice.push(outputString);
     };
 }
