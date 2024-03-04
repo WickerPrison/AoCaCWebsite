@@ -21,6 +21,7 @@ const upgrDifficultyInput = document.getElementById("upgr-difficulty");
 const upgrAbilityInput = document.getElementById("upgr-ability");
 const autoSuccessInput = document.getElementById("auto-success");
 
+const resultsHolder = document.getElementById("results-holder");
 const conquestOutput = document.getElementById("conquests");
 const calamitiesOutput = document.getElementById("calamities");
 const successesOutput = document.getElementById("successes");
@@ -393,11 +394,16 @@ function makeCheck(){
     rollData.upgradeAbility = upgrAbilityInput.value;
     rollData.autoSuccess = autoSuccessInput.value;
 
-    let resultsData = window.rollDice(rollData);
+    let resultsData = rollDice(rollData);
     conquestOutput.innerText = resultsData.conquests;
     calamitiesOutput.innerText = resultsData.calamities;
     successesOutput.innerText = resultsData.successes;
     advantageOutput.innerText = resultsData.advantage;
+
+    resultsHolder.innerHTML = "";
+    for(let i = 0; i < resultsData.resultDice.length; i++){
+        resultsHolder.innerHTML += resultsData.resultDice[i];
+    }
 }
 
 function closeAllMonsters(){

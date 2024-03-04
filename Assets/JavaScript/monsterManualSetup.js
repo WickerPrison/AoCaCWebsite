@@ -16,6 +16,7 @@ var upgrDifficultyInput = document.getElementById("upgr-difficulty");
 var upgrAbilityInput = document.getElementById("upgr-ability");
 var autoSuccessInput = document.getElementById("auto-success");
 
+const resultsHolder = document.getElementById("results-holder");
 var conquestOutput = document.getElementById("conquests");
 var calamitiesOutput = document.getElementById("calamities");
 var successesOutput = document.getElementById("successes");
@@ -313,6 +314,11 @@ function makeCheck(){
     calamitiesOutput.innerText = resultsData.calamities;
     successesOutput.innerText = resultsData.successes;
     advantageOutput.innerText = resultsData.advantage;
+
+    resultsHolder.innerHTML = "";
+    for(let i = 0; i < resultsData.resultDice.length; i++){
+        resultsHolder.innerHTML += resultsData.resultDice[i];
+    }
 }
 
 closeBtn.addEventListener("click", function(){
