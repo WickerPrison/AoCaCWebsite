@@ -50,6 +50,7 @@ var boostOut = document.getElementById("boost-out");
 var autoSucOut = document.getElementById("auto-success-out");
 
 var rollDiceBtn = document.getElementById("roll-dice");
+const resultsHolder = document.getElementById("results-holder");
 var conquestsDisplay = document.getElementById("conquests");
 var calamityDisplay = document.getElementById("calamities");
 var successDisplay = document.getElementById("successes");
@@ -181,6 +182,11 @@ function spellCheck(){
     calamityDisplay.innerText = results.calamities;
     successDisplay.innerText = results.successes;
     advantageDisplay.innerText = results.advantage;
+
+    resultsHolder.innerHTML = "";
+    for(let i = 0; i < results.resultDice.length; i++){
+        resultsHolder.innerHTML += results.resultDice[i];
+    }
 }
 
 function clearCustomModifiers(){

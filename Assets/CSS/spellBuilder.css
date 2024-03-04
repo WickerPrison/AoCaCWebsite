@@ -161,6 +161,25 @@ main > p{
     margin-top: 1em;
 }
 
+#results-holder{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 6em;
+    background-color: var(--grey);
+    margin: -0.6em -0.2em 0;
+}
+
+#results-holder .square-die{
+    height: 4em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#results-holder img{
+    height: 5em;
+    margin: 0.4em 0.7em;
+}
+
 #roll-results{
     margin-top: 1.2em;
     width: 80%;
@@ -202,5 +221,18 @@ main > p{
         font-size: calc(var(--baseTextSize) * .7);
         top: 1em;
         left: 1.5em;
+    }
+
+    #results-holder{
+        min-height: 4em;
+    }
+    
+    #results-holder .square-die{
+        height: 3em;
+    }
+    
+    #results-holder img{
+        height: 4em;
+        margin: 0 0.4em;
     }
 }
