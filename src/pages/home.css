@@ -1,21 +1,4 @@
-header{
-    position: absolute;
-    display: block;
-    text-align: center;
-}
-
-main{
-    width:100%;
-}
-
-h3{
-    font-size: var(--size3);
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1em;
-}
-
-main > section{
+#home > section{
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -24,14 +7,14 @@ main > section{
     padding: 0;
 }
 
-ul{
+#home .page-button{
     text-align: center;
     padding: 0;
     margin-left: 1.66%;
     width: 18%;
 }
 
-ul h4{
+#home .page-button h4{
     background-color: var(--green);
     color: white;
     padding: 0.5em;
@@ -44,7 +27,7 @@ ul h4{
     width: calc(100% - 1em);
 }
 
-li{
+#home li{
     position: relative;
     background-color: var(--green2);
     padding: 0.5em;
@@ -53,31 +36,35 @@ li{
     text-align: center;
 }
 
-li:nth-child(1){
+#home li a{
+    display: inline;
+}
+
+#home li:nth-child(1){
     border-radius: 2em 2em 0 0;
     padding: 0;
     padding-bottom: 0.5em;
     width: 100%;
 }
 
-li:last-child{
+#home li:last-child{
     border-radius: 0 0 var(--cardCorner) var(--cardCorner); 
     padding-bottom: 1em;
 }
 
-a{
+#home a{
     color: white;
     font-size: var(--baseTextSize);
     width: 100%;
     display: block;
 }
 
-a:hover, a h4:hover{
+#home a:hover, #home a h4:hover{
     color:var(--green3);
 }
 
 @media screen and (max-width: 768px){
-    ul{
+    #home ul{
         width: 45%;
         margin: 0 auto;
     }
