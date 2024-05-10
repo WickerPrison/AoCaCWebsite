@@ -101,6 +101,7 @@ body{
     width: 100%;
     background-color: var(--silver);
     font-family: var(--bodyFont);
+    margin: 0;
 }
 
 main{

@@ -18,3 +18,5 @@ function parseSheets(data){
 
     return output;
 }
+
+export default parseSheets;

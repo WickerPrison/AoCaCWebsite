@@ -1,4 +1,4 @@
-:root{
+#talent-tree{
     --borderSize: 4px;
     --paddingSize: 10px;
     --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
@@ -7,18 +7,18 @@
     --minScreenWidth: 510px;
 }
 
-h3{
+#talent-tree h3{
     text-align: center;
     font-size: var(--size3);
     margin-left: 0;
 }
 
-h3::after{
+#talent-tree h3::after{
     width: 40%;
     left: 30%;
 }
 
-#class-name{
+#talent-tree #class-name{
     /* margin: calc(var(--talentSize) *2) auto 0 auto; */
     text-align: center;
     font-size: var(--size4);
@@ -26,12 +26,12 @@ h3::after{
     margin-bottom: 2.5%;
 }
 
-#tree-holder{
+#talent-tree #tree-holder{
     display: block;
     margin: 0 auto;
 }
 
-#talent-tree{
+#talent-tree #tree{
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
     grid-gap: 3% 1%;
@@ -47,7 +47,7 @@ h3::after{
     justify-content: center;
 }
 
-.talent{
+#talent-tree .talent{
     display: inline-grid;
     background-color: var(--green);
     color: white;
@@ -57,7 +57,7 @@ h3::after{
     border-color: black;
     border-radius: var(--roundedCorners);
     padding: var(--paddingSize);  
-    font-size: var(--baseTextSize);
+    font-size: calc(var(--baseTextSize) * 1.2);
     font-weight: normal;
     text-wrap: wrap;
     word-wrap: break-word;
@@ -68,11 +68,11 @@ h3::after{
     height: var(--talentSize);
 }
 
-.talent:focus, .talent:hover{
+#talent-tree .talent:focus, #talent-tree .talent:hover{
     box-shadow: 0 0px 5px 0.05px black;
 }
 
-.talent:focus::after, .talent:hover::after{
+#talent-tree .talent:focus::after, #talent-tree .talent:hover::after{
     content: attr(data-content);
     display: inline;
     position: absolute;
@@ -90,65 +90,60 @@ h3::after{
 }
 
 
-#talent-grid{
-    display: grid;
+#talent-tree #talent-grid{
+    display: flex;
+    flex-direction: column;
     width: 90%;
     margin: calc(1em + 1%) auto 0 auto;
-    grid-template-columns: 30% auto;
     border: 1px solid var(--tableBorder);
     border-radius: 12px;
+    overflow: hidden;
 }
 
-#talent-grid div{
-    background-color: var(--green2);
+#talent-tree #talent-grid .table-label{
+    display: flex;
+    background-color: var(--green);
     color: white;
-    padding: 10px;
-    font-size: var(--baseTextSize);
+    font-size: calc(var(--size2) * 1.2);
     word-wrap: break-word;
     word-break: break-word;
 }
 
-#talent-grid :nth-child(1){
-    border-radius: var(--roundedCorners) 0 0 0;
-    background-color: var(--green);
-    font-size: var(--size2);
+#talent-tree #talent-grid .talent-table-entry{
+    display: flex;
+    background-color: var(--green2);
+    color: white;
+    font-size: var(--baseTextSize);
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: calc(var(--baseTextSize) * 1.2);
 }
 
-#talent-grid :nth-child(2){
-    border-radius: 0 var(--roundedCorners) 0 0;
-    background-color: var(--green);
-    font-size: var(--size2);
-}
-
-#talent-grid :nth-child(41){
-    border-radius: 0 0 0 var(--roundedCorners);
-}
-
-#talent-grid :nth-child(42){
-    border-radius: 0 0 var(--roundedCorners) 0;
-}
-
-.table-talent{
+#talent-tree .table-talent{
     border: 1px solid var(--tableBorder);
     text-wrap: wrap;
+    width:25%;
+    padding: 10px;
 }
 
-.table-description{
+#talent-tree .table-description{
     border: 1px solid var(--tableBorder);
+    width: 75%;
+    padding: 10px;
 }
 
 @media screen and (max-width: 768px){
-    .talent{
-        font-size: calc(var(--baseTextSize) * 0.7) ;
+    #talent-tree .talent{
+        font-size: calc(var(--baseTextSize)) ;
     }
 
-    .talent:focus::after, .talent:hover::after{
-        font-size: calc(var(--baseTextSize) * 0.7);
+    #talent-tree .talent:focus::after, #talent-tree .talent:hover::after{
+        font-size: calc(var(--baseTextSize));
         padding: 6%;
         left: -6%;
     }
 
-    #talent-grid div{
-        font-size: calc(var(--baseTextSize) * 0.7) ;
+    #talent-tree #talent-grid div{
+        font-size: calc(var(--baseTextSize)) ;
     }
 }

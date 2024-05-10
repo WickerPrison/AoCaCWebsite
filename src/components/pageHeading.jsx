@@ -1,8 +1,8 @@
 
-export default function PageHeading() {
+export default function PageHeading({title}) {
     return (
         <div>
-            <h2 id="page-heading">Age of Conquest and Calamity</h2>
+            <h2 id="page-heading">{title}</h2>
             <section id="page-title">
                 <img className="square-die" src="/SVG/Boost.svg"/>
                 <img src="/SVG/Ability.svg"/>

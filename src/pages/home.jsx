@@ -107,7 +107,7 @@ export default function Home() {
             <header>
                 <h1>Age of Conquest and Calamity</h1>
             </header>
-            <PageHeading/>
+            <PageHeading title="Age of Conquest and Calamity"/>
             <h3 className="heading-band">Resources</h3>
             <HomePageSection data={resources}/>
             <h3 className="heading-band">Classes</h3>

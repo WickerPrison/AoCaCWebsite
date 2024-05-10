@@ -36,3 +36,5 @@ var skillsDict = {
     "Stealth":"Agility",
     "Streetwise":"Cunning"
 }
+
+export default skillsDict;

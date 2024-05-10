@@ -579,3 +579,5 @@ var skillTrees = {
         "Distraction (Improved)"
     ]
 }
+
+export default skillTrees;
