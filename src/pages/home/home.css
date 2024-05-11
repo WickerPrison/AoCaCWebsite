@@ -69,7 +69,7 @@ header{
 }
 
 @media screen and (max-width: 768px){
-    #home ul{
+    #home .page-button{
         width: 45%;
         margin: 0 auto;
     }

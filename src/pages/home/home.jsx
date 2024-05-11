@@ -1,6 +1,6 @@
 import ClassList from './classList';
 import HomePageSection from './homePageSection';
-import PageHeading from '../components/pageHeading';
+import PageHeading from '../../components/pageHeading';
 import './home.css';
 
 const resources = [
@@ -92,7 +92,7 @@ const equipment = [
 
 const scholarly = [
     {
-        link: "spellEffects.html",
+        link: "/SpellEffects",
         label: "Spell Effects"
     },
     {

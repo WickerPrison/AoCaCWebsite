@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { singleFetch } from "../js/getData";
+import { singleFetch } from "../../js/getData";
 import InnateSpellCard from './innateSpellCard';
 import FundamentalistSpellCard from './fundamentalistSpellCard';
 

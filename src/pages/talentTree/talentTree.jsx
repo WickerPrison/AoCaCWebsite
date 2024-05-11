@@ -1,8 +1,8 @@
 import './talentTree.css';
-import StaticHeader from '../components/staticHeader.jsx';
-import PageHeading from '../components/pageHeading.jsx';
+import StaticHeader from '../../components/staticHeader.jsx';
+import PageHeading from '../../components/pageHeading.jsx';
 import skillTrees from './talentTrees.js';
-import {singleFetch} from '../js/getData.js';
+import {singleFetch} from '../../js/getData.js';
 import { useEffect, useState } from 'react';
 import InnateSpells from './innateSpells.jsx';
 

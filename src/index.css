@@ -186,7 +186,7 @@ h4{
 }
 
 #page-heading{
-    min-width: var(--minScreenWidth);
+    /* min-width: var(--minScreenWidth); */
     /* margin: calc(var(--baseTextSize) * 4 + 28px ) auto 0 auto; */
     text-align: center;
     font-size: var(--size4);
@@ -420,7 +420,7 @@ footer{
 @media screen and (max-width: 768px){
     :root{
         --baseTextSize: 12px;
-        --diceSize: 8vh;
+        --diceSize: 7vh;
         --outputDice: 3.5em;
     }
 
@@ -430,6 +430,7 @@ footer{
 
     header{
         flex-direction: column;
+        top: -70px;
     }
 
     .nav-bar{

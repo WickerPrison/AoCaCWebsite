@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import './tables.css';
 import App from './App.jsx';
-import Home from './home/home.jsx';
-import TalentTree from './talentTree/talentTree.jsx';
+import Home from './pages/home/home.jsx';
+import TalentTree from './pages/talentTree/talentTree.jsx';
+import SpellEffects from './pages/spellEffects/spellEffects.jsx';
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path:'/TalentTree',
         element: <TalentTree/>
+      },
+      {
+        path:"/SpellEffects",
+        element: <SpellEffects/>
       }
     ],
   },

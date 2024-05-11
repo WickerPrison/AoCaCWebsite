@@ -1,10 +1,10 @@
-#effects-table{
+#spell-effects #effects-table{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
 
-.tier-heading{
+#spell-effects .tier-heading{
     min-width: var(--minScreenWidth);
     margin: var(--baseTextSize) auto var(--baseTextSize) auto;
     text-align: center;
