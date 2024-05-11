@@ -5,7 +5,7 @@ export default function InnateSpellCard({spell}){
             <h4 className="card-element">Tier: {spell.Tier}</h4>
             <h4 className="card-element">Stamina: {spell.Stamina}</h4>
             <div className="card-line card-element"></div>
-            <h4 className="card-element">Description: {spell.Description}</h4>
+            <h4 className="card-element">{spell.Description}</h4>
         </div>
     )
 }

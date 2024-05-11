@@ -287,7 +287,8 @@ button:hover{
     margin-top: 5px;
     background-color: var(--green2);
     color: white;
-    font-size: var(--baseTextSize);
+    /* font-size: var(--baseTextSize); */
+    font-size: 15px;
     font-weight: normal;
 }
 
