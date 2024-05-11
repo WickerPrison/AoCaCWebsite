@@ -2,8 +2,9 @@ import './talentTree.css';
 import StaticHeader from '../components/staticHeader';
 import PageHeading from '../components/pageHeading';
 import skillTrees from '../js/talentTrees.js';
-import parseSheets from '../js/parseSheetsOutput.js';
+import {singleFetch} from '../js/getData.js';
 import { useEffect, useState } from 'react';
+import InnateSpells from '../components/innateSpells.jsx';
 
 
 export default function TalentTree() {
@@ -29,12 +30,10 @@ export default function TalentTree() {
     }
     
     useEffect(() => {
-        async function fetchData(){
-            let data = await fetch("https://docs.google.com/spreadsheets/d/1-kaFQQ1eBHRN_aLlpHn72A2dG97wl7nLB4MKmKny_tM/gviz/tq?sheet=Talents");
-            data = await data.text();
-            setTalentList(parseSheets(data));
+        async function getData(){
+            setTalentList(await singleFetch("Talents"));
         }
-        fetchData();
+        getData();
     }, [])
 
     if(talentList.length === 0){
@@ -58,6 +57,7 @@ export default function TalentTree() {
                         })}
                     </section>
                 </div>
+                <InnateSpells currentClass={currentClass}/>
                 <h3>Talent Table</h3>
                 <section id="talent-grid">
                     <div className="table-label">

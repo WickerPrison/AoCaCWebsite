@@ -19,4 +19,15 @@ function parseSheets(data){
     return output;
 }
 
-export default parseSheets;
+const singleFetch = async (sheet) => {
+    try{
+        let data = await fetch(sheetUrl + sheet);
+        data = await data.text();
+        return parseSheets(data);
+    }
+    catch(err){
+        console.error(err);
+    }
+}
+
+export {parseSheets, singleFetch};
