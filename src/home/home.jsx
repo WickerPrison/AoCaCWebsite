@@ -1,5 +1,5 @@
-import ClassList from '../components/classList';
-import HomePageSection from '../components/homePageSection';
+import ClassList from './classList';
+import HomePageSection from './homePageSection';
 import PageHeading from '../components/pageHeading';
 import './home.css';
 

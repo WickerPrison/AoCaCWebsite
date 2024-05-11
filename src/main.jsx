@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import './tables.css';
 import App from './App.jsx';
-import Home from './pages/home.jsx';
-import TalentTree from './pages/talentTree.jsx';
+import Home from './home/home.jsx';
+import TalentTree from './talentTree/talentTree.jsx';
 
 
 const router = createBrowserRouter([

@@ -1,10 +1,10 @@
 import './talentTree.css';
-import StaticHeader from '../components/staticHeader';
-import PageHeading from '../components/pageHeading';
-import skillTrees from '../js/talentTrees.js';
+import StaticHeader from '../components/staticHeader.jsx';
+import PageHeading from '../components/pageHeading.jsx';
+import skillTrees from './talentTrees.js';
 import {singleFetch} from '../js/getData.js';
 import { useEffect, useState } from 'react';
-import InnateSpells from '../components/innateSpells.jsx';
+import InnateSpells from './innateSpells.jsx';
 
 
 export default function TalentTree() {
