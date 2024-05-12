@@ -28,7 +28,7 @@ export default function Roll({roll, update}){
 
     return (
         <div className="box roll-box">
-            <button className="remove-button">X</button>
+            <button className="remove-button" onClick={e =>update.removeRoll(roll.id)}>X</button>
             <div className="box-header">
                 <input className="roll-title" type="text" defaultValue={roll.name} onChange={e => update.updateName(roll.id, e.target.value)}></input>
             </div>  

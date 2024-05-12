@@ -57,6 +57,12 @@ export default function DiceRoller() {
                 }
             });
             setRolls(updatedRolls);
+        },
+        removeRoll(id){
+            const updatedRolls = rolls.filter((roll) => {
+                return roll.id !== id
+            })
+            setRolls(updatedRolls);
         }
     }
 
@@ -66,7 +72,7 @@ export default function DiceRoller() {
             <PageHeading title="Dice Roller"/>
 
             {(rolls.length > 0) 
-            ? <button id="clear-all" className="small-button">Clear All</button>
+            ? <button id="clear-all" className="small-button" onClick={() => setRolls([])}>Clear All</button>
             :null}
 
             <section id="rolls-holder" className="box-holder">
