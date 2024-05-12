@@ -21,7 +21,7 @@ function ResultData(){
         if(isSquareDie){
             squareDie = `class="square-die"`;
         }
-        let outputString = `<img ${squareDie} src="./Assets/Images/Dice/${dieName}.png">`;
+        let outputString = `<img ${squareDie} src="/Dice/${dieName}.png">`;
         this.resultDice.push(outputString);
     };
 }
@@ -281,4 +281,4 @@ function upgradeRoll(rollData){
     return rollData;
 }
 
-export {RollData, ResultData, rollDice}
+export {RollData, ResultData, upgradeRoll, rollDice}

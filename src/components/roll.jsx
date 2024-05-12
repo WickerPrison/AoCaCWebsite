@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RollData } from '../js/rollDice';
+import { ResultData, RollData, rollDice } from '../js/rollDice';
 
 export default function Roll({roll, update}){
     let [proficiency, setProficiency] = useState(0);
@@ -12,7 +12,9 @@ export default function Roll({roll, update}){
     let [upgradeDifficulty, setUpgradeDifficulty] = useState(0);
     let [autoSuccess, setAutoSuccess] = useState(0);
 
-    useEffect(() => {
+    let [results, setResults] = useState(new ResultData());
+
+    function getRollData(){
         let rollData = new RollData();
         rollData.proficiency = proficiency;
         rollData.ability = ability;
@@ -23,8 +25,21 @@ export default function Roll({roll, update}){
         rollData.upgradeAbility = upgradeAbility;
         rollData.upgradeDifficulty = upgradeDifficulty;
         rollData.autoSuccess = autoSuccess;
-        update.updateRolls(roll.id, rollData);
+        return rollData;
+    }
+
+    useEffect(() => {
+        console.log(results);
+    })
+
+    useEffect(() => {
+        update.updateRolls(roll.id, getRollData());
     },[proficiency, ability, boost, challenge, difficulty, penalty, upgradeAbility, upgradeDifficulty, autoSuccess])
+
+    function performRoll(){
+        let rollData = getRollData();
+        setResults(rollDice(rollData));
+    }
 
     return (
         <div className="box roll-box">
@@ -52,7 +67,7 @@ export default function Roll({roll, update}){
             <div className="button-box">
                 <button className="dice-button can-point clear">Clear</button>
                 <button className="dice-button apply-upgrades">Apply Upgrades</button>
-                <button className="dice-button roll-dice">Roll Dice</button>
+                <button className="dice-button roll-dice" onClick={performRoll}>Roll Dice</button>
             </div>
             <h4 className="card-banner">Results</h4>
             <div className="results-holder">
@@ -64,28 +79,28 @@ export default function Roll({roll, update}){
                     <h4>Conquests: </h4>
                     <div className="dice-holder">
                         <img src="/SVG/d12.svg"/>
-                        <h4 className="conquests">0</h4>
+                        <h4 className="conquests">{results.conquests}</h4>
                     </div>
                 </div>
                 <div className = "output-element">
                     <h4>Calamities: </h4>
                     <div className="dice-holder">
                         <img src="/SVG/d12.svg"/>
-                        <h4 className="calamities">0</h4>
+                        <h4 className="calamities">{results.calamities}</h4>
                     </div>
                 </div>
                 <div className = "output-element">
                     <h4>Successes: </h4>
                     <div className="dice-holder">
                         <img src="/SVG/d12.svg"/>
-                        <h4 className="successes">0</h4>
+                        <h4 className="successes">{results.successes}</h4>
                     </div>
                 </div>
                 <div className ="output-element">
                     <h4>Advantage: </h4>
                     <div className="dice-holder">
                         <img src="/SVG/d12.svg"/>
-                        <h4 className="advantage">0</h4>
+                        <h4 className="advantage">{results.advantage}</h4>
                     </div>
                 </div>
             </div>

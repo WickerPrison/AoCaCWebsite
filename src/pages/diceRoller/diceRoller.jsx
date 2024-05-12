@@ -22,6 +22,9 @@ export default function DiceRoller() {
 
     useEffect(() => {
         localStorage.setItem("rolls", JSON.stringify(rolls));
+        if(rolls.length == 0){
+            localStorage.setItem("rollIDnum", 0);
+        }
     }, [rolls])
 
     function createRollFromButton(){
@@ -86,18 +89,18 @@ export default function DiceRoller() {
 }
 
 const setup = () => {
-    // if(localStorage.getItem("rollIDnum") == null){
-    //     localStorage.setItem("rollIDnum", 0);
-    // }
+    if(localStorage.getItem("rollIDnum") == null){
+        localStorage.setItem("rollIDnum", 0);
+    }
     
-    // storageRolls = localStorage.getItem("rolls");
-    // if(storageRolls == null || storageRolls.length == 0){
-    //     storageRolls = [];
-    // }
-    // else{
-    //     storageRolls = JSON.parse(storageRolls);
-    //     for(let i = 0; i < storageRolls.length; i++){
+    storageRolls = localStorage.getItem("rolls");
+    if(storageRolls == null || storageRolls.length == 0){
+        storageRolls = [];
+    }
+    else{
+        storageRolls = JSON.parse(storageRolls);
+        for(let i = 0; i < storageRolls.length; i++){
 
-    //     }
-    // }
+        }
+    }
 }
