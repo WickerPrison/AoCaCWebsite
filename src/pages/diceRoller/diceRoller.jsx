@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import FixedHeader from '../../components/fixedHeader';
 import PageHeading from '../../components/pageHeading';
 import Roll from '../../components/roll';
+import {RollData} from '../../js/rollDice';
 
 function RollStorage(){
     this.id = 0;
@@ -10,13 +11,54 @@ function RollStorage(){
     this.rollData = null;
 }
 
+let storageRolls = [];
+
 export default function DiceRoller() {
     let [rolls, setRolls] = useState([]);
 
     useEffect(() => {
         setup();
-    })
+    }, [])
 
+    useEffect(() => {
+        localStorage.setItem("rolls", JSON.stringify(rolls));
+    }, [rolls])
+
+    function createRollFromButton(){
+        let newRoll = new RollStorage();
+        newRoll.id = localStorage.getItem("rollIDnum");
+        localStorage.setItem("rollIDnum", Number(localStorage.getItem("rollIDnum")) + 1);
+        newRoll.name = "New Roll " + localStorage.getItem("rollIDnum");
+        newRoll.rollData = new RollData();
+        setRolls([...rolls, newRoll]);
+    }
+
+    const updateMethods = {
+        updateRolls(id, roll){
+            const updatedRolls = rolls.map((r) => {
+                if(r.id == id){
+                    r.rollData = roll;
+                    return r;
+                }
+                else{
+                    return r;
+                }
+            });
+            setRolls(updatedRolls);
+        },
+        updateName(id, name){
+            const updatedRolls = rolls.map((r) => {
+                if(r.id == id){
+                    r.name = name;
+                    return r;
+                }
+                else{
+                    return r;
+                }
+            });
+            setRolls(updatedRolls);
+        }
+    }
 
     return (
         <main id="dice-roller">
@@ -28,31 +70,28 @@ export default function DiceRoller() {
             :null}
 
             <section id="rolls-holder" className="box-holder">
-                <Roll/>
+                {rolls.map((roller) => {
+                    return <Roll roll={roller} update={updateMethods} key={roller.id}/>
+                })}
             </section>
-            <button id="new-roll" className="small-button">+ New Roll</button>
+            <button id="new-roll" className="small-button" onClick={createRollFromButton}>+ New Roll</button>
         </main>
     );
-  }
+}
 
 const setup = () => {
     // if(localStorage.getItem("rollIDnum") == null){
     //     localStorage.setItem("rollIDnum", 0);
     // }
     
-    // let storageRolls = localStorage.getItem("rolls");
+    // storageRolls = localStorage.getItem("rolls");
     // if(storageRolls == null || storageRolls.length == 0){
     //     storageRolls = [];
     // }
     // else{
     //     storageRolls = JSON.parse(storageRolls);
     //     for(let i = 0; i < storageRolls.length; i++){
-    //         let elm = createNewRoll();
-    //         elm.id = storageRolls[i].id;
-    //         elm.querySelector(".roll-title").value = storageRolls[i].name;
-    //         for(const property in elm.input){
-    //             elm.input[property].value = storageRolls[i].rollData[property];
-    //         }
+
     //     }
     // }
 }

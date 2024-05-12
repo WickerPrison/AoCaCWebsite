@@ -280,3 +280,5 @@ function upgradeRoll(rollData){
     }
     return rollData;
 }
+
+export {RollData, ResultData, rollDice}
