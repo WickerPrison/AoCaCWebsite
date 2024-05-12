@@ -5,7 +5,7 @@ import './home.css';
 
 const resources = [
     {
-        link: "diceRoller.html",
+        link: "/DiceRoller",
         label: "Dice Roller"
     },
     {

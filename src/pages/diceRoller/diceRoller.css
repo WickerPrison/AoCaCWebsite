@@ -1,9 +1,9 @@
-:root{
+#dice-roller :root{
     --outputDice: 4em;
 }
 
-#new-roll,
-#clear-all{
+#dice-roller #new-roll,
+#dice-roller #clear-all{
     display: block;
     font-size: var(--baseTextSize);
     padding: 0.6em;
@@ -12,22 +12,22 @@
     margin-bottom: 2em;
 }
 
-#new-roll:hover{
+#dice-roller #new-roll:hover{
     color: var(--green3);
     cursor: pointer;
 }
 
-.box-holder{
+#dice-roller .box-holder{
     padding: 0;
 }
 
-.box{
+#dice-roller .box{
     position: relative;
     width: 90%;
     max-width: 90%; 
 }
 
-input[type='text']{
+#dice-roller input[type='text']{
     font-size: calc(var(--size2));
     width: 50%;
     text-align: center;
@@ -39,11 +39,11 @@ input[type='text']{
     border: 0;
 }
 
-input[type="text"]:focus-visible, input[type="text"]:hover{
+#dice-roller input[type="text"]:focus-visible, #dice-roller input[type="text"]:hover{
     outline: white dashed 1px;
 }
 
-.remove-button{
+#dice-roller .remove-button{
     color: white;
     font-family: sans-serif;
     background-color: var(--green2);
@@ -56,51 +56,51 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
     top: 1em;
 }
 
-.remove-button:hover{
+#dice-roller .remove-button:hover{
     color: black;
     cursor: pointer;
 }
 
-.input-box{
+#dice-roller .input-box{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.input-box input{
+#dice-roller .input-box input{
     pointer-events: all;
 }
 
-.input-column{
+#dice-roller .input-column{
     text-align: right;
 }
 
-.button-box{
+#dice-roller .button-box{
     display: flex;
     justify-content: space-around;
     width: 60%;
     margin: 1em auto 1.5em;
 }
 
-.dice-button{
+#dice-roller .dice-button{
     width: 20%;
     background-color: var(--green);
     border-radius: var(--cardCorner);
     padding: 0.6em;
-    box-shadow: 0 0 5px .2px black;
+    box-shadow: 0 0 5px .2px b#dice-roller lack;
 }
 
-.dice-button:hover{
+#dice-roller .dice-button:hover{
     color: var(--green3);
     cursor: pointer;
 }
 
-.apply-upgrades{
+#dice-roller .apply-upgrades{
     width: 35%;
 }
 
-.card-banner{
+#dice-roller .card-banner{
     background-color: var(--green);
     width: 110%;
     position: relative;
@@ -110,7 +110,7 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
     margin: 0.3em;
 }
 
-.results-holder{
+#dice-roller .results-holder{
     display: flex;
     flex-wrap: wrap;
     min-height: 5em;
@@ -118,27 +118,27 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
     margin: -0.5em -0.2em;
 }
 
-.results-holder .square-die{
+#dice-roller .results-holder .square-die{
     height: 4em;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.results-holder img{
+#dice-roller .results-holder img{
     height: 5em;
     margin: 0.4em 0.7em;
 }
 
-.roll-box{
+#dice-roller .roll-box{
     display: block;
     margin-bottom: 2em;
 }
 
-#roll-template{
+#dice-roller #roll-template{
     display: none;
 }
 
-.output-box{
+#dice-roller .output-box{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -147,7 +147,7 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
     min-height: var(--outputDice);
 }
 
-.output-element{
+#dice-roller .output-element{
     padding: calc(var(--outputDice)/2 - 1em) 0;
     flex-basis: 25%;
     position: relative;
@@ -155,28 +155,28 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
     justify-content: center;
 }
 
-.output-element h4{
+#dice-roller .output-element h4{
     position: relative;
     display: inline;
     vertical-align: middle ;
     z-index: 3;
 }
 
-.dice-holder{
+#dice-roller .dice-holder{
     display: inline-block;
     position: relative;
     height: 100%;
     width: var(--outputDice);
 }
 
-.dice-holder img{
+#dice-roller .dice-holder img{
     position: absolute;
     height: var(--outputDice);
     right: 0;
     z-index: 2;
 }
 
-.dice-holder h4{
+#dice-roller .dice-holder h4{
     position: absolute;
     text-align: center;
     line-height: 2.5em;
@@ -189,41 +189,41 @@ input[type="text"]:focus-visible, input[type="text"]:hover{
 }
 
 @media screen and (max-width: 768px){
-    :root{
+    #dice-roller :root{
         --outputDice: 3.5em;
     }
     
-    .button-box{
+    #dice-roller .button-box{
         width: 90%;
     }
 
-    .output-element{
+    #dice-roller .output-element{
         flex-basis: 50%;
     }
 
-    .remove-button{
+    #dice-roller .remove-button{
         left: 0.6em;
         top: 0.6em;
     }
 
-    input[type='text']{
+    #dice-roller input[type='text']{
         width: 50%;
         margin-left: 0.9em;
     }
 
-    .dice-holder h4{
+    #dice-roller .dice-holder h4{
         line-height: 2.1em;
     }
 
-    .results-holder{
+    #dice-roller .results-holder{
         min-height: 4em;
     }
     
-    .results-holder .square-die{
+    #dice-roller .results-holder .square-die{
         height: 3em;
     }
     
-    .results-holder img{
+    #dice-roller .results-holder img{
         height: 4em;
         margin: 0 0.4em;
     }
