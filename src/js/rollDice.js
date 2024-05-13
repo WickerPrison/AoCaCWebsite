@@ -267,7 +267,7 @@ function upgradeRoll(rollData){
         }
         rollData.upgradeDifficulty--;
     }
-
+    
     while(rollData.upgradeAbility > 0){
         if(rollData.ability > 0){
             rollData.ability--;
