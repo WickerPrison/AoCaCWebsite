@@ -11,13 +11,23 @@ function RollStorage(){
     this.rollData = null;
 }
 
-let storageRolls = [];
 
 export default function DiceRoller() {
     let [rolls, setRolls] = useState([]);
 
     useEffect(() => {
-        setup();
+        if(localStorage.getItem("rollIDnum") == null){
+            localStorage.setItem("rollIDnum", 0);
+        }
+        
+        let storageRolls = localStorage.getItem("rolls");
+        if(storageRolls == null || storageRolls.length == 0){
+            storageRolls = [];
+        }
+        else{
+            storageRolls = JSON.parse(storageRolls);
+            setRolls(storageRolls);
+        }
     }, [])
 
     useEffect(() => {
@@ -86,21 +96,4 @@ export default function DiceRoller() {
             <button id="new-roll" className="small-button" onClick={createRollFromButton}>+ New Roll</button>
         </main>
     );
-}
-
-const setup = () => {
-    if(localStorage.getItem("rollIDnum") == null){
-        localStorage.setItem("rollIDnum", 0);
-    }
-    
-    storageRolls = localStorage.getItem("rolls");
-    if(storageRolls == null || storageRolls.length == 0){
-        storageRolls = [];
-    }
-    else{
-        storageRolls = JSON.parse(storageRolls);
-        for(let i = 0; i < storageRolls.length; i++){
-
-        }
-    }
 }
