@@ -21,7 +21,7 @@ export default function SpellEffects() {
             setSpellList(await singleFetch("ScholarlySpells"));
         }
         getData();
-    })
+    }, [])
     
     return (
         <main id="spell-effects">

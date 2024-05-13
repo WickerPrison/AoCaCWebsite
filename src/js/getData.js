@@ -30,4 +30,22 @@ const singleFetch = async (sheet) => {
     }
 }
 
-export {parseSheets, singleFetch};
+const multipleFetch = async (sheets) => {
+    try{
+        let data = await Promise.all(sheets.map((sheet) => {
+            return fetch(sheetUrl + sheet)
+        }))
+    
+        for(let i = 0; i < sheets.length; i++){
+            data[i] = await data[i].text();
+            data[i] = parseSheets(data[i]);
+        }
+    
+        return data;
+    }
+    catch(err){
+        console.error(err);
+    }
+}
+
+export {parseSheets, singleFetch, multipleFetch};

@@ -1,10 +1,10 @@
-#monster-list{
+.monster-manual #monster-list{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.monster-card{
+.monster-manual .monster-card{
     display: block;
     width: 80%;
     max-width: 80%;
@@ -13,34 +13,34 @@
     padding: 0 2em 1em;
 }
 
-.monster-row{
+.monster-manual .monster-row{
     display: flex;
     justify-content: left;
     text-align: left;
     margin: 0.6em 0;
 }
 
-.monster-row div{
+.monster-manual .monster-row div{
     margin-right: 2em;
 }
 
-.stat-block-section{
+.monster-manual .stat-block-section{
     display: flex;
     margin: 0.6em 0;
 }
 
-.stat-numbers{
+.monster-manual .stat-numbers{
     flex-basis: 40%;
     display: flex;
 }
 
-.stat-text{
+.monster-manual .stat-text{
     flex-basis: 60%;
     display: block;
     text-align: left;
 }
 
-.monster-column{
+.monster-manual .monster-column{
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -49,7 +49,7 @@
     flex-basis: 16.6%;
 }
 
-.labels{
+.monster-manual .labels{
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -59,30 +59,30 @@
     font-weight: bold;
 }
 
-.skills{
+.monster-manual .skills{
     width: 100%;
     text-align: left;
     margin: 0.4em 0;
 }
 
-.skills div{
+.monster-manual .skills div{
     display: inline;
 }
 
-.talents-abilities{
+.monster-manual .talents-abilities{
     width: 100%;
     text-align: left;
     margin: 0.4em 0;
 }
 
-.special-features{
+.monster-manual .special-features{
     width: 100%;
     text-align: left;
     margin: 0.4em 0;
 }
 
 
-.attacks-heading{
+.monster-manual .attacks-heading{
     width: 120%;
     position: relative;
     left: -10%;
@@ -91,62 +91,62 @@
     padding: 0.3em;
 }
 
-.attacks{
+.monster-manual .attacks{
     display: flex;
     flex-direction: column;
     margin: 0.6em 0;
 }
 
-.attack-profile{
+.monster-manual .attack-profile{
     display: flex;
     flex-wrap: wrap;
     text-align: left;
     margin: 0.4em 0;
 }
 
-.attack-name{
+.monster-manual .attack-name{
     flex-basis: 100%;
     text-align: left;
 }
 
-.monster-line{
+.monster-manual .monster-line{
     width: 100%;
     border-bottom: 0.15em solid var(--green);
     margin: 0.3em 0;
 }
 
-.attack-stats{
+.monster-manual .attack-stats{
     flex-basis: 35%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.attack-stats div{
+.monster-manual .attack-stats div{
     flex-basis: 50%;
 }
 
-.properties{
+.monster-manual .properties{
     flex-basis: 65%;
 }
 
-#monster-template{
+.monster-manual #monster-template{
     display: none;
 }
 
-#skill-template{
+.monster-manual #skill-template{
     display: none;
 }
 
-#attack-template{
+.monster-manual #attack-template{
     display: none;
 }
 
-.clickable-text:hover{
+.monster-manual .clickable-text:hover{
     cursor: pointer;
     color: black;
 }
 
-#dice-roll{
+.monster-manual #dice-roll{
     display: none;
     position: fixed;
     left: 5%;
@@ -157,7 +157,7 @@
     max-width: 90%;
 }
 
-#close-button{
+.monster-manual #close-button{
     position: fixed;
     left: 6%;
     top: 13%;
@@ -168,39 +168,39 @@
     border-radius: var(--cardCorner);
 }
 
-#close-button:hover{
+.monster-manual #close-button:hover{
     color: black;
     cursor: pointer;
 }
 
-#input-box{
+.monster-manual #input-box{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 1.5em 0 2em;
 }
 
-.input-column{
+.monster-manual .input-column{
     text-align: right;
 }
 
-.stat-numbers:has(.Agility-label:hover) .Agility,
-.stat-numbers:has(.Brawn-label:hover) .Brawn,
-.stat-numbers:has(.Cunning-label:hover) .Cunning,
-.stat-numbers:has(.Intellect-label:hover) .Intellect,
-.stat-numbers:has(.Presence-label:hover) .Presence,
-.stat-numbers:has(.Willpower-label:hover) .Willpower,
-.stat-numbers:has(.Agility:hover) .Agility-label,
-.stat-numbers:has(.Brawn:hover) .Brawn-label,
-.stat-numbers:has(.Cunning:hover) .Cunning-label,
-.stat-numbers:has(.Intellect:hover) .Intellect-label,
-.stat-numbers:has(.Presence:hover) .Presence-label,
-.stat-numbers:has(.Willpower:hover) .Willpower-label{
+.monster-manual .stat-numbers:has(.Agility-label:hover) .Agility,
+.monster-manual .stat-numbers:has(.Brawn-label:hover) .Brawn,
+.monster-manual .stat-numbers:has(.Cunning-label:hover) .Cunning,
+.monster-manual .stat-numbers:has(.Intellect-label:hover) .Intellect,
+.monster-manual .stat-numbers:has(.Presence-label:hover) .Presence,
+.monster-manual .stat-numbers:has(.Willpower-label:hover) .Willpower,
+.monster-manual .stat-numbers:has(.Agility:hover) .Agility-label,
+.monster-manual .stat-numbers:has(.Brawn:hover) .Brawn-label,
+.monster-manual .stat-numbers:has(.Cunning:hover) .Cunning-label,
+.monster-manual .stat-numbers:has(.Intellect:hover) .Intellect-label,
+.monster-manual .stat-numbers:has(.Presence:hover) .Presence-label,
+.monster-manual .stat-numbers:has(.Willpower:hover) .Willpower-label{
     color: black;
     cursor: pointer;
 }
 
-.card-banner{
+.monster-manual .card-banner{
     background-color: var(--green);
     width: 110%;
     position: relative;
@@ -210,7 +210,7 @@
     margin: 0.4em;
 }
 
-#results-holder{
+.monster-manual #results-holder{
     display: flex;
     flex-wrap: wrap;
     min-height: 6em;
@@ -218,46 +218,46 @@
     margin: -0.6em -0.2em 0;
 }
 
-#results-holder .square-die{
+.monster-manual #results-holder .square-die{
     height: 4em;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-#results-holder img{
+.monster-manual #results-holder img{
     height: 5em;
     margin: 0.4em 0.7em;
 }
 
 @media screen and (max-width: 768px){
-    .stat-block-section{
+    .monster-manual .stat-block-section{
         flex-direction: column;
     }
 
-    .attack-stats{
+    .monster-manual .attack-stats{
         flex-basis: 100%;
     }
 
-    .properties{
+    .monster-manual .properties{
         margin-top: 0.2em;
         flex-basis: 100%;
     }
 
-    .phone-line{
+    .monster-manual .phone-line{
         width: 100%;
         border-bottom: 0.15em solid black;
         margin: 0.3em 0;
     }
     
-    #results-holder{
+    .monster-manual #results-holder{
         min-height: 4em;
     }
     
-    #results-holder .square-die{
+    .monster-manual #results-holder .square-die{
         height: 3em;
     }
     
-    #results-holder img{
+    .monster-manual #results-holder img{
         height: 4em;
         margin: 0 0.4em;
     }

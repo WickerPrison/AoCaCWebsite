@@ -7,6 +7,7 @@ import Home from './pages/home/home.jsx';
 import TalentTree from './pages/talentTree/talentTree.jsx';
 import SpellEffects from './pages/spellEffects/spellEffects.jsx';
 import DiceRoller from './pages/diceRoller/diceRoller.jsx';
+import MonsterManual from './pages/monsterManual/monsterManual.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path:"/DiceRoller",
         element: <DiceRoller/>
+      },
+      {
+        path: "/MonsterManual",
+        element: <MonsterManual/>
       }
     ],
   },

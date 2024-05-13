@@ -9,7 +9,7 @@ const resources = [
         label: "Dice Roller"
     },
     {
-        link: "monsterManual.html",
+        link: "MonsterManual",
         label: "Monster Manual"
     },
     {
