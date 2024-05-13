@@ -88,7 +88,7 @@
     background-color: var(--green);
     border-radius: var(--cardCorner);
     padding: 0.6em;
-    box-shadow: 0 0 5px .2px b#dice-roller lack;
+    box-shadow: 0 0 5px .2px black;
 }
 
 #dice-roller .dice-button:hover{

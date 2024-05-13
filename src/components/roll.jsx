@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ResultData, RollData, rollDice, upgradeRoll } from '../js/rollDice';
+import ResultDie from './resultDie';
 
 export default function Roll({roll, update}){
     let [proficiency, setProficiency] = useState(0);
@@ -73,7 +74,9 @@ export default function Roll({roll, update}){
             </div>
             <h4 className="card-banner">Results</h4>
             <div className="results-holder">
-
+                {results.resultDice.map((output, index) => {
+                    return <ResultDie squareDie={output.squareDie} dieName={output.dieName} key={index}/>
+                })}
             </div>
             <h4 className="card-banner">Totals</h4>
             <div className="output-box">

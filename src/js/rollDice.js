@@ -16,13 +16,8 @@ function ResultData(){
     this.successes = 0;
     this.advantage = 0;
     this.resultDice = [];
-    this.addResultDie = function(dieName, isSquareDie = false){
-        let squareDie = "";
-        if(isSquareDie){
-            squareDie = `class="square-die"`;
-        }
-        let outputString = `<img ${squareDie} src="/Dice/${dieName}.png">`;
-        this.resultDice.push(outputString);
+    this.addResultDie = function(dieName, squareDie = false){
+        this.resultDice.push({dieName, squareDie});
     };
 }
 
