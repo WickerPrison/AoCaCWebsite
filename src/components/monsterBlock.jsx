@@ -71,7 +71,7 @@ export default function MonsterBlock({monster, allAttacks}){
             <div className="attacks-heading">Attacks</div>
             <div className="attacks">
                 {attacks.map((attack, index) => {
-                    return <MonsterAttack key={index} attack={attack}/>
+                    return <MonsterAttack key={index} attack={attack} monster={monster}/>
                 })}
             </div>
         </section>
