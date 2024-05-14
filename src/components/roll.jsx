@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ResultData, RollData, rollDice, upgradeRoll } from '../js/rollDice';
 import ResultDie from './resultDie';
 
 export default function Roll({roll, update}){
-    let [proficiency, setProficiency] = useState(0);
-    let [ability, setAbility] = useState(0);
-    let [boost, setBoost] = useState(0);
-    let [challenge, setChallenge] = useState(0);
-    let [difficulty, setDifficulty] = useState(0);
-    let [penalty, setPenalty] = useState(0);
-    let [upgradeAbility, setUpgradeAbility] = useState(0);
-    let [upgradeDifficulty, setUpgradeDifficulty] = useState(0);
-    let [autoSuccess, setAutoSuccess] = useState(0);
+    let [proficiency, setProficiency] = useState(roll.rollData.proficiency);
+    let [ability, setAbility] = useState(roll.rollData.ability);
+    let [boost, setBoost] = useState(roll.rollData.boost);
+    let [challenge, setChallenge] = useState(roll.rollData.challenge);
+    let [difficulty, setDifficulty] = useState(roll.rollData.difficulty);
+    let [penalty, setPenalty] = useState(roll.rollData.penalty);
+    let [upgradeAbility, setUpgradeAbility] = useState(roll.rollData.upgradeAbility);
+    let [upgradeDifficulty, setUpgradeDifficulty] = useState(roll.rollData.upgradeDifficulty);
+    let [autoSuccess, setAutoSuccess] = useState(roll.rollData.autoSuccess);
 
     let [results, setResults] = useState(new ResultData());
+
+    let hasLoaded = useRef(false);
 
     function getRollData(){
         let rollData = new RollData();
@@ -30,7 +32,12 @@ export default function Roll({roll, update}){
     }
 
     useEffect(() => {
-        update.updateRolls(roll.id, getRollData());
+        if(hasLoaded.current){
+            update.updateRolls(roll.id, getRollData());
+        }
+        else{
+            hasLoaded.current = true;
+        }
     },[proficiency, ability, boost, challenge, difficulty, penalty, upgradeAbility, upgradeDifficulty, autoSuccess])
 
     function performRoll(){

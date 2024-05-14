@@ -11,12 +11,11 @@ function RollStorage(){
     this.rollData = null;
 }
 
-
 export default function DiceRoller() {
     let [rolls, setRolls] = useState([]);
 
     useEffect(() => {
-        if(localStorage.getItem("rollIDnum") == null){
+        if(!localStorage.getItem("rollIDnum")){
             localStorage.setItem("rollIDnum", 0);
         }
         
@@ -69,7 +68,7 @@ export default function DiceRoller() {
                     return r;
                 }
             });
-            setRolls(updatedRolls);
+           setRolls(updatedRolls);
         },
         removeRoll(id){
             const updatedRolls = rolls.filter((roll) => {
