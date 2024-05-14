@@ -1,8 +1,11 @@
+import './roll.css';
 import { useEffect, useState, useRef } from 'react';
 import { ResultData, RollData, rollDice, upgradeRoll } from '../js/rollDice';
 import ResultDie from './resultDie';
+import RollerResult from './rollerResult';
 
-export default function Roll({roll, update}){
+
+export default function Roll({roll, update, fixedCard=false}){
     let [proficiency, setProficiency] = useState(roll.rollData.proficiency);
     let [ability, setAbility] = useState(roll.rollData.ability);
     let [boost, setBoost] = useState(roll.rollData.boost);
@@ -13,9 +16,30 @@ export default function Roll({roll, update}){
     let [upgradeDifficulty, setUpgradeDifficulty] = useState(roll.rollData.upgradeDifficulty);
     let [autoSuccess, setAutoSuccess] = useState(roll.rollData.autoSuccess);
 
+
+
     let [results, setResults] = useState(new ResultData());
 
     let hasLoaded = useRef(false);
+
+    let styles;
+    if(fixedCard){
+        styles={
+            fixedCard:{
+                display: roll.display,
+                position: "fixed",
+                left: "5%",
+                top: "12%",
+                zIndex: 5,
+                boxShadow: "0 0 10px 5px black",
+                width: "90%",
+                maxWidth: "90%"
+            }
+        }
+    }
+    else{
+        styles={fixedCard:{}};
+    }
 
     function getRollData(){
         let rollData = new RollData();
@@ -51,8 +75,12 @@ export default function Roll({roll, update}){
         update.updateRolls(roll.id, newRoll);
     }
 
+    useEffect(() => {
+        console.log("child");
+    },[roll])
+
     return (
-        <div className="box roll-box">
+        <div id="dice-roller" className="box roll-box" style={styles.fixedCard}>
             <button className="remove-button" onClick={e =>update.removeRoll(roll.id)}>X</button>
             <div className="box-header">
                 <input className="roll-title" type="text" value={roll.name} onChange={e => update.updateName(roll.id, e.target.value)}></input>
@@ -87,34 +115,10 @@ export default function Roll({roll, update}){
             </div>
             <h4 className="card-banner">Totals</h4>
             <div className="output-box">
-                <div className = "output-element">
-                    <h4>Conquests: </h4>
-                    <div className="dice-holder">
-                        <img src="/SVG/d12.svg"/>
-                        <h4 className="conquests">{results.conquests}</h4>
-                    </div>
-                </div>
-                <div className = "output-element">
-                    <h4>Calamities: </h4>
-                    <div className="dice-holder">
-                        <img src="/SVG/d12.svg"/>
-                        <h4 className="calamities">{results.calamities}</h4>
-                    </div>
-                </div>
-                <div className = "output-element">
-                    <h4>Successes: </h4>
-                    <div className="dice-holder">
-                        <img src="/SVG/d12.svg"/>
-                        <h4 className="successes">{results.successes}</h4>
-                    </div>
-                </div>
-                <div className ="output-element">
-                    <h4>Advantage: </h4>
-                    <div className="dice-holder">
-                        <img src="/SVG/d12.svg"/>
-                        <h4 className="advantage">{results.advantage}</h4>
-                    </div>
-                </div>
+                <RollerResult result={results.conquests} label="Conquests: "/>
+                <RollerResult result={results.calamities} label="Calamities: "/>
+                <RollerResult result={results.successes} label="Successes: "/>
+                <RollerResult result={results.advantage} label="Advantage: "/>
             </div>
         </div>
     )

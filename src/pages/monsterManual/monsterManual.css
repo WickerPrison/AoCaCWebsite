@@ -129,18 +129,6 @@
     flex-basis: 65%;
 }
 
-.monster-manual #monster-template{
-    display: none;
-}
-
-.monster-manual #skill-template{
-    display: none;
-}
-
-.monster-manual #attack-template{
-    display: none;
-}
-
 .monster-manual .clickable-text:hover{
     cursor: pointer;
     color: black;

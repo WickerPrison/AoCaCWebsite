@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import MonsterAttack from "./monsterAttack"
+import MonsterAttack from "./monsterAttack";
+import { RollStorage, RollData } from "../js/rollDice";
 
-export default function MonsterBlock({monster, allAttacks}){
+export default function MonsterBlock({monster, allAttacks, setRoll}){
     let [attacks, setAttacks] = useState([]);
 
     useEffect(() => {
@@ -11,6 +12,15 @@ export default function MonsterBlock({monster, allAttacks}){
         }))
     }, [])
     
+    const rollAttribute = (attributeValue, attributeName) => {
+        let newRoll = new RollStorage();
+        newRoll.rollData = new RollData();
+        newRoll.rollData.ability = attributeValue;
+        newRoll.display = "block";
+        newRoll.name = monster.Name + " " + attributeName;
+        setRoll(newRoll);
+    }
+
     return (
         <section className="box monster-card">
                     <div className="box-header">{monster.Name}</div>
@@ -38,7 +48,7 @@ export default function MonsterBlock({monster, allAttacks}){
                     <div className="move-pts">{monster.Speed}</div>
                 </div>
                 <div className="labels">
-                    <div className="Agility-label clickable-text">Agility: </div>
+                    <div className="Agility-label clickable-text" onClick={() => rollAttribute(monster.Agility, "Agility")}>Agility: </div>
                     <div className="Brawn-label clickable-text">Brawn:</div>
                     <div className="Cunning-label clickable-text">Cunning:</div>
                     <div className="Intellect-label clickable-text">Intellect: </div>

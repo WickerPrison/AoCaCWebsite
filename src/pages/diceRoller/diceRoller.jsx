@@ -3,13 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import FixedHeader from '../../components/fixedHeader';
 import PageHeading from '../../components/pageHeading';
 import Roll from '../../components/roll';
-import {RollData} from '../../js/rollDice';
-
-function RollStorage(){
-    this.id = 0;
-    this.name = "";
-    this.rollData = null;
-}
+import {RollStorage, RollData} from '../../js/rollDice';
 
 export default function DiceRoller() {
     let [rolls, setRolls] = useState([]);
@@ -22,8 +16,8 @@ export default function DiceRoller() {
         }
         
         let storageRolls = localStorage.getItem("rolls");
-        if(storageRolls == null || storageRolls.length == 0){
-            storageRolls = [];
+        if(!storageRolls){
+            localStorage.setItem("rolls", []);
         }
         else{
             storageRolls = JSON.parse(storageRolls);
@@ -41,7 +35,8 @@ export default function DiceRoller() {
         else{
             hasLoaded.current = true;
         }
-    }, [rolls])
+    },[rolls])
+
 
     function createRollFromButton(){
         let newRoll = new RollStorage();
@@ -86,7 +81,7 @@ export default function DiceRoller() {
     }
 
     return (
-        <main id="dice-roller">
+        <main id="roller-page">
             <FixedHeader entries={[]}/>
             <PageHeading title="Dice Roller"/>
 
