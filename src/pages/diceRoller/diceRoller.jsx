@@ -1,5 +1,5 @@
 import './diceRoller.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import FixedHeader from '../../components/fixedHeader';
 import PageHeading from '../../components/pageHeading';
 import Roll from '../../components/roll';
@@ -13,6 +13,8 @@ function RollStorage(){
 
 export default function DiceRoller() {
     let [rolls, setRolls] = useState([]);
+
+    let hasLoaded = useRef(false);
 
     useEffect(() => {
         if(!localStorage.getItem("rollIDnum")){
@@ -30,9 +32,14 @@ export default function DiceRoller() {
     }, [])
 
     useEffect(() => {
-        localStorage.setItem("rolls", JSON.stringify(rolls));
-        if(rolls.length == 0){
-            localStorage.setItem("rollIDnum", 0);
+        if(hasLoaded.current){
+            localStorage.setItem("rolls", JSON.stringify(rolls));
+            if(rolls.length == 0){
+                localStorage.setItem("rollIDnum", 0);
+            }
+        }
+        else{
+            hasLoaded.current = true;
         }
     }, [rolls])
 
