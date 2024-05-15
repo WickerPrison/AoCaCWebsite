@@ -3,6 +3,7 @@ import MonsterAttack from "./monsterAttack";
 import { RollStorage, RollData } from "../js/rollDice";
 
 export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}){
+    const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
     let [attacks, setAttacks] = useState([]);
 
     useEffect(() => {
@@ -48,20 +49,17 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
                     <div className="move-pts">{monster.Speed}</div>
                 </div>
                 <div className="labels">
-                    <div className="Agility-label clickable-text" onClick={() => rollAttribute(monster.Agility, "Agility")}>Agility: </div>
-                    <div className="Brawn-label clickable-text">Brawn:</div>
-                    <div className="Cunning-label clickable-text">Cunning:</div>
-                    <div className="Intellect-label clickable-text">Intellect: </div>
-                    <div className="Presence-label clickable-text">Presence:</div>
-                    <div className="Willpower-label clickable-text">Willpower:</div>
+
+                    {attributes.map((attribute) => {
+                        let classes = attribute + "-label clickable-text";
+                        return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute], attribute)}>{attribute}: </div>
+                    })}
                 </div>
                 <div className="monster-column">
-                    <div className="Agility clickable-text">{monster.Agility}</div>
-                    <div className="Brawn clickable-text">{monster.Brawn}</div>
-                    <div className="Cunning clickable-text">{monster.Cunning}</div>
-                    <div className="Intellect clickable-text">{monster.Intellect}</div>
-                    <div className="Presence clickable-text">{monster.Presence}</div>
-                    <div className="Willpower clickable-text">{monster.Willpower}</div>
+                    {attributes.map((attribute) => {
+                        let classes = attribute + " clickable-text";
+                        return <div key={attribute} className={classes}>{monster[attribute]}</div>
+                    })}
                 </div>
             </div>
             <div className="phone-line"></div>
