@@ -4,7 +4,7 @@ import FixedHeader from "../../components/fixedHeader";
 import PageHeading from "../../components/pageHeading";
 import MonsterBlock from '../monsterManual/monsterBlock';
 import Roll from "../../components/roll";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { multipleFetch, singleFetch } from '../../js/getData';
 import { RollStorage, RollData } from '../../js/rollDice';
 
@@ -29,20 +29,48 @@ export default function EncounterBuilder(){
     let [monsterDict, setMonsterDict] = useState([]);
     let [attackDict, setAttackDict] = useState([]);
 
+    let hasLoaded = useRef(false);
+
     let currentMonster;
 
     useEffect(() => {
+        if(!localStorage.getItem("monsterId")){
+            localStorage.setItem("monsterId", 0);
+        }
+
         async function getData(){
             let data = await multipleFetch(["Monsters", "Attacks"]);
             setMonsterDict(data[0]);
             setAttackDict(data[1]);
+
+            let storageMonsters = localStorage.getItem("monsters");
+            if(!storageMonsters || storageMonsters.length == 0){
+                localStorage.setItem("monsters", []);
+            }
+            else{
+                storageMonsters = JSON.parse(storageMonsters);
+                setMonsters(storageMonsters);
+            }
         }
         getData();
     }, [])
 
+    useEffect(() => {
+        if(hasLoaded.current){
+            localStorage.setItem("monsters", JSON.stringify(monsters))
+            if(monsters.length == 0){
+                localStorage.setItem("monsterId", 0);
+            }
+        }
+        else{
+            hasLoaded.current = true;
+        }
+    }, [monsters])
+
     const updateMethods = {
         setRoll,
-        setShowRoll
+        setShowRoll,
+        setMonsters
 
     }
 
@@ -65,6 +93,8 @@ export default function EncounterBuilder(){
         } 
 
         let newMonster = new MonsterData();
+        newMonster.id = localStorage.getItem("monsterId");
+        localStorage.setItem("monsterId", Number(localStorage.getItem("monsterId")) + 1);
         newMonster.monsterName = monster.Name;
         newMonster.hp = monster.HP;
         newMonster.stamina = monster.Stamina;
@@ -85,7 +115,7 @@ export default function EncounterBuilder(){
             
             <section id="monster-list">
                 {monsters.map((monsterData) => {
-                        return <MonsterBlock key={monsterData.monsterName} monster={getMonster(monsterData.monsterName)} allAttacks={attackDict} updateMethods={updateMethods} monsterData={monsterData}/>
+                        return <MonsterBlock key={monsterData.id} monster={getMonster(monsterData.monsterName)} allAttacks={attackDict} updateMethods={updateMethods} monsterData={monsterData}/>
                     })}
             </section>
 
