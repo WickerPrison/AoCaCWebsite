@@ -48,10 +48,10 @@ export default function DiceRoller() {
     }
 
     const updateMethods = {
-        updateRolls(id, roll){
+        updateRoll(roll){
             const updatedRolls = rolls.map((r) => {
-                if(r.id == id){
-                    r.rollData = roll;
+                if(r.id == roll.id){
+                    r = roll;
                     return r;
                 }
                 else{

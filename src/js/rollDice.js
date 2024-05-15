@@ -1,5 +1,4 @@
 function RollStorage(){
-    this.display = "block"
     this.id = 0;
     this.name = "";
     this.rollData = null;

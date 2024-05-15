@@ -18,6 +18,7 @@ export default function MonsterManual(){
     let [monsters, setMonsters] = useState([]);
     let [attacks, setAttacks] = useState([]);
     let [roll, setRoll] = useState(newRollStorage());
+    let [showRoll, setShowRoll] = useState(false);
 
     useEffect(() => {
         async function getData(){
@@ -29,20 +30,13 @@ export default function MonsterManual(){
     }, [])
 
     const updateMethods = {
-        updateRolls(rollId, newRollData){
-            let tempRoll = roll;
-            tempRoll.rollData = newRollData;
-            setRoll(tempRoll);
-            console.log(tempRoll);
+        updateRoll(newRoll){
+            setRoll(newRoll);
         },
         removeRoll(){
-            setRoll(newRollStorage());
+            setShowRoll(false);
         }
     }
-    
-    useEffect(() => {
-        console.log("parent");
-    },[roll])
 
     return (
         <main className='monster-manual'>
@@ -50,10 +44,10 @@ export default function MonsterManual(){
             <PageHeading title="Monster Manual"/>
             <section id="monster-list">
                 {monsters.map((monster) => {
-                    return <MonsterBlock key={monster.Name} monster={monster} allAttacks={attacks} setRoll={setRoll}/>
+                    return <MonsterBlock key={monster.Name} monster={monster} allAttacks={attacks} setRoll={setRoll} setShowRoll={setShowRoll}/>
                 })}
             </section>
-            <Roll roll={roll} fixedCard={true} update={updateMethods}/>
+            {showRoll ? <Roll roll={roll} fixedCard={true} update={updateMethods}/>:null}
         </main>
     )
 }

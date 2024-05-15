@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
 import { RollStorage, RollData } from "../js/rollDice";
 
-export default function MonsterBlock({monster, allAttacks, setRoll}){
+export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}){
     let [attacks, setAttacks] = useState([]);
 
     useEffect(() => {
@@ -16,9 +16,9 @@ export default function MonsterBlock({monster, allAttacks, setRoll}){
         let newRoll = new RollStorage();
         newRoll.rollData = new RollData();
         newRoll.rollData.ability = attributeValue;
-        newRoll.display = "block";
         newRoll.name = monster.Name + " " + attributeName;
         setRoll(newRoll);
+        setShowRoll(true);
     }
 
     return (
