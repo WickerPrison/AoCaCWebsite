@@ -22,6 +22,20 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
         setShowRoll(true);
     }
 
+    function setResistances(){
+        let outputString = "";
+        if(monster.Immunities){
+            outputString += "<strong>Immunities:</strong> " + monster.Immunities + " ";
+        }
+        if(monster.Resistances){
+            outputString += "<strong>Resistances:</strong> " + monster.Resistances + " ";
+        }
+        if(monster.Weaknesses){
+            outputString += "<strong>Weaknesses:</strong> " + monster.Weaknesses + " ";
+        }
+        return outputString;
+    }
+
     return (
         <section className="box monster-card">
                     <div className="box-header">{monster.Name}</div>
@@ -64,7 +78,7 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
             </div>
             <div className="phone-line"></div>
             <div className="stat-text">
-                <div className="immunities"></div>
+                <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
                 <div className="skills"><strong>Skills: </strong>{monster.Skills}</div>
                 {monster["Talents/Abilities"].length > 0 ? 
                 (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
