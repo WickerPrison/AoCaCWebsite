@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
 import { RollStorage, RollData } from "../js/rollDice";
+import skillsDict from "../js/skills";
 
 export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -20,6 +21,38 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
         newRoll.name = monster.Name + " " + attributeName;
         setRoll(newRoll);
         setShowRoll(true);
+    }
+
+    function rollSkillCheck(skillName, skillRanks){
+        let attribute = skillsDict[skillName].reduce(
+            (largest, current) => monster[current] > monster[largest] ? current:largest
+            , skillsDict[skillName][0]);
+        let newRoll = new RollStorage();
+        newRoll.name = monster.Name + " " + skillName;
+        newRoll.rollData = new RollData();
+        if(skillRanks > monster[attribute]){
+            newRoll.rollData.ability = skillRanks;
+            newRoll.rollData.upgradeAbility = monster[attribute];
+        }
+        else{
+            newRoll.rollData.ability = monster[attribute];
+            newRoll.rollData.upgradeAbility = skillRanks;
+        }
+        setRoll(newRoll);
+        setShowRoll(true);
+    }
+    
+    function setupSkill(skill, index){
+        skill = skill.split(" ");
+        if(skill.length == 3){
+            skill[0] = skill[0] + " " + skill[1];
+            skill.splice(1, 1);
+        }
+        let skillString = skill[0] + " " + skill[1];
+        if(index < monster.Skills.split(", ").length - 1){
+            skillString += ", "
+        }
+        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill[0], skill[1])}>{skillString}</div>);
     }
 
     function setResistances(){
@@ -79,7 +112,11 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
             <div className="phone-line"></div>
             <div className="stat-text">
                 <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
-                <div className="skills"><strong>Skills: </strong>{monster.Skills}</div>
+                <div className="skills"><strong>Skills: </strong>
+                    {monster.Skills.split(", ").map((skill, index) => {
+                        return setupSkill(skill, index);
+                    })}
+                </div>
                 {monster["Talents/Abilities"].length > 0 ? 
                 (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
                 :(null)}
@@ -93,7 +130,7 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
             <div className="attacks-heading">Attacks</div>
             <div className="attacks">
                 {attacks.map((attack, index) => {
-                    return <MonsterAttack key={index} attack={attack} monster={monster}/>
+                    return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={setRoll} setShowRoll={setShowRoll}/>
                 })}
             </div>
         </section>
