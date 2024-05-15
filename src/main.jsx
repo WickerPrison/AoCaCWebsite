@@ -8,6 +8,7 @@ import TalentTree from './pages/talentTree/talentTree.jsx';
 import SpellEffects from './pages/spellEffects/spellEffects.jsx';
 import DiceRoller from './pages/diceRoller/diceRoller.jsx';
 import MonsterManual from './pages/monsterManual/monsterManual.jsx';
+import EncounterBuilder from './pages/encounterBuilder/encounterBuilder.jsx';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/MonsterManual",
         element: <MonsterManual/>
+      },
+      {
+        path: "/EncounterBuilder",
+        element: <EncounterBuilder/>
       }
     ],
   },

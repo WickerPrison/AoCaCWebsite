@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { RollData, RollStorage } from '../js/rollDice';
+import { RollData, RollStorage } from '../../js/rollDice';
 
 export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
     let [damageDisplay, setDamageDisplay] = useState(false);

@@ -1,4 +1,4 @@
-.small-button{
+.encounter-builder .small-button{
     width: 20em;
     margin: 0 auto;
     color: white;
@@ -6,17 +6,17 @@
     padding: 0.6em;
 }
 
-.small-button h4{
+.encounter-builder .small-button h4{
     margin: 0.4em 0 0;
     font-size: var(--baseTextSize);
 }
 
-.small-button h4:hover{
+.encounter-builder .small-button h4:hover{
     color: var(--green3);
     cursor: pointer;
 }
 
-.small-button input{
+.encounter-builder .small-button input{
     background-color: var(--green);
     outline: white dashed 1px;
     border: none;
@@ -26,7 +26,7 @@
     color: white;
 }
 
-#clear-all{
+.encounter-builder #clear-all{
     display: block;
     font-size: var(--baseTextSize);
     padding: 0.6em;
@@ -34,7 +34,7 @@
     margin: 0 auto;
 }
 
-.stat-field[type="number"]{
+.encounter-builder .stat-field[type="number"]{
     display: inline;
     font-size: var(--baseTextSize);
     background-color: var(--green2);
@@ -47,15 +47,15 @@
     padding: 0 0 0 0.2em;
 }
 
-.stat-max{
+.encounter-builder .stat-max{
     display: inline;
 }
 
-.monster-card{
+.encounter-builder .monster-card{
     position: relative;
 }
 
-.close-monster{
+.encounter-builder .close-monster{
     position: absolute;
     top: 0.8em;
     left: 1em;
@@ -66,23 +66,23 @@
     font-family: sans-serif;
 }
 
-.close-monster:hover{
+.encounter-builder .close-monster:hover{
     color:black;
     cursor: pointer;
 }
 
-.monster-column{
+.encounter-builder .monster-column{
     flex-basis: 20%;
 }
 
-.monster-column div{
+.encounter-builder .monster-column div{
     margin-top: 0.3em;
 }
 
-.labels{
+.encounter-builder .labels{
     flex-basis: 30%;
 }
 
-.labels div{
+.encounter-builder .labels div{
     margin-top: 0.3em;
 }

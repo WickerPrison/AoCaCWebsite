@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
-import { RollStorage, RollData } from "../js/rollDice";
-import skillsDict from "../js/skills";
+import { RollStorage, RollData } from "../../js/rollDice";
+import skillsDict from "../../js/skills";
 
-export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}){
+export default function MonsterBlock({monster, allAttacks, updateMethods, monsterData}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
     let [attacks, setAttacks] = useState([]);
 
@@ -19,8 +19,8 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
         newRoll.rollData = new RollData();
         newRoll.rollData.ability = attributeValue;
         newRoll.name = monster.Name + " " + attributeName;
-        setRoll(newRoll);
-        setShowRoll(true);
+        updateMethods.setRoll(newRoll);
+        updateMethods.setShowRoll(true);
     }
 
     function rollSkillCheck(skillName, skillRanks){
@@ -38,8 +38,8 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
             newRoll.rollData.ability = monster[attribute];
             newRoll.rollData.upgradeAbility = skillRanks;
         }
-        setRoll(newRoll);
-        setShowRoll(true);
+        updateMethods.setRoll(newRoll);
+        updateMethods.setShowRoll(true);
     }
     
     function setupSkill(skill, index){
@@ -130,7 +130,7 @@ export default function MonsterBlock({monster, allAttacks, setRoll, setShowRoll}
             <div className="attacks-heading">Attacks</div>
             <div className="attacks">
                 {attacks.map((attack, index) => {
-                    return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={setRoll} setShowRoll={setShowRoll}/>
+                    return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll}/>
                 })}
             </div>
         </section>

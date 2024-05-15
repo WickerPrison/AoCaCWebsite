@@ -9,11 +9,11 @@ const resources = [
         label: "Dice Roller"
     },
     {
-        link: "MonsterManual",
+        link: "/MonsterManual",
         label: "Monster Manual"
     },
     {
-        link: "encounterBuilder.html",
+        link: "/EncounterBuilder",
         label: "Encounter Builder"
     }
 ];
