@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import { RollData, RollStorage } from '../../js/rollDice';
+import skillsDict from "../../js/skills";
 
 export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
     let [damageDisplay, setDamageDisplay] = useState(false);
 
     function getAttribute(){
+        if(attack.Attribute == "None") return 0;
         let attackAttributes = attack.Attribute.split("/");
         let attribute = attackAttributes.reduce(
             (largest, current) => monster[current] > monster[largest] ? current:largest
@@ -13,8 +15,10 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
     }
 
     function attackRoll(){
-        let attribute = getAttribute();
         let skills = monster.Skills.split(', ');
+        let attribute = skillsDict[attack.Skill].reduce(
+            (largest, current) => monster[current] > monster[largest] ? current:largest
+            , skillsDict[attack.Skill][0]);
         let skillRanks = 0;
         for(let i = 0; i < skills.length; i++){
             let skill = skills[i].split(" ");
@@ -31,12 +35,12 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
         let newRoll = new RollStorage();
         newRoll.name = monster.Name + " " + attack.Name;
         newRoll.rollData = new RollData();
-        if(skillRanks > attribute){
+        if(skillRanks > monster[attribute]){
             newRoll.rollData.ability = skillRanks;
-            newRoll.rollData.upgradeAbility = attribute;
+            newRoll.rollData.upgradeAbility = monster[attribute];
         }
         else{
-            newRoll.rollData.ability = attribute;
+            newRoll.rollData.ability = monster[attribute];
             newRoll.rollData.upgradeAbility = skillRanks;
         }
         setRoll(newRoll);
