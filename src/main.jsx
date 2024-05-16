@@ -8,7 +8,8 @@ import SpellEffects from './pages/spellEffects/spellEffects.jsx';
 import DiceRoller from './pages/diceRoller/diceRoller.jsx';
 import MonsterManual from './pages/monsterManual/monsterManual.jsx';
 import EncounterBuilder from './pages/encounterBuilder/encounterBuilder.jsx';
-import GeneralEquipment from './pages/generalEquipment/generalEquipment.jsx';
+import GeneralEquipment from './pages/generalEquipment.jsx';
+import ConsumableItems from './pages/consumableItems.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "GeneralEquipment",
         element: <GeneralEquipment/>
+      },
+      {
+        path: "ConsumableItems",
+        element: <ConsumableItems/>
       }
     ],
   },

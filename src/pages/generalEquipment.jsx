@@ -1,8 +1,8 @@
-import FixedHeader from "../../components/fixedHeader";
-import PageHeading from "../../components/pageHeading";
-import Table from "../../components/table";
+import FixedHeader from "../components/fixedHeader";
+import PageHeading from "../components/pageHeading";
+import Table from "../components/table";
 import { useEffect, useState } from 'react';
-import { singleFetch } from '../../js/getData';
+import { singleFetch } from '../js/getData';
 
 const tableData = {
     title:"General Equipment",
