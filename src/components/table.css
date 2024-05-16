@@ -34,8 +34,7 @@
     border-bottom: 2px solid black;
 }
 
-.table-explanation{
-    display: none;
+.table .table-explanation{
     padding: 1em;
     margin: 0;
     border-top: 2px solid black;

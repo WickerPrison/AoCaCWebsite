@@ -5,9 +5,9 @@ export default function Table({tableData, contentData, title}){
     return (
     <section className="table">
         <h3 className="table-header">{title? title : tableData.title}</h3>
-        {tableData.explanation ? <p class="table-explanation">{tableData.explanation}</p> : null}
-        {contentData.map((entry) => {
-            return <TableEntry key={entry.Name} tableData={tableData} content={entry}/>
+        {tableData.explanation ? <p className="table-explanation">{tableData.explanation}</p> : null}
+        {contentData.map((entry, index) => {
+            return <TableEntry key={index} tableData={tableData} content={entry}/>
         })}
     </section>
     )
