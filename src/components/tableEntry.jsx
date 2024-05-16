@@ -14,7 +14,7 @@ export default function TableEntry({tableData, content}){
             })}
         </div>
         ): null}
-        <div className="table-description">{content.Description}</div>
+        <div className="table-description">{tableData.description ? content[tableData.description] : content.Description}</div>
     </div>
     )
 }

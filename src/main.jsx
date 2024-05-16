@@ -11,6 +11,7 @@ import EncounterBuilder from './pages/encounterBuilder/encounterBuilder.jsx';
 import GeneralEquipment from './pages/generalEquipment.jsx';
 import ConsumableItems from './pages/consumableItems.jsx';
 import MagicItems from './pages/magicItems.jsx';
+import Weapons from './pages/weapons/weapons.jsx';
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:"MagicItems",
         element: <MagicItems/>
+      },
+      {
+        path:"Weapons",
+        element: <Weapons/>
       }
     ],
   },
