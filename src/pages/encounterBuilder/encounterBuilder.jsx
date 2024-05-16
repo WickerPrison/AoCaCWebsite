@@ -70,8 +70,22 @@ export default function EncounterBuilder(){
     const updateMethods = {
         setRoll,
         setShowRoll,
-        setMonsters
-
+        updateMonster(newMonster){
+            const updatedMonsters = monsters.map(m => {
+                if(m.id == newMonster.id){
+                    m = newMonster;
+                    console.log(m);
+                }
+                return m;
+            });
+            setMonsters(updatedMonsters);
+        },
+        removeMonster(id){
+            const updatedMonsters = monsters.filter(monster => {
+                return monster.id !== id
+            })
+            setMonsters(updatedMonsters);
+        }
     }
 
     const updateRollMethods ={
@@ -111,7 +125,7 @@ export default function EncounterBuilder(){
         <main className='monster-manual encounter-builder'>
             <FixedHeader entries={[]}/>
             <PageHeading title="Encounter Builder"/>
-            {monsters.length > 0 ? <button id="clear-all" className="small-button">Clear All</button>: null }
+            {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
             
             <section id="monster-list">
                 {monsters.map((monsterData) => {

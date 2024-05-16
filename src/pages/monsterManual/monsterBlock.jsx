@@ -69,63 +69,78 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
         return outputString;
     }
 
+    function updateMonsterStat(stat, value){
+        monsterData[stat] = value;
+        updateMethods.updateMonster(monsterData);
+    }
+
     return (
         <section className="box monster-card">
-                    <div className="box-header">{monster.Name}</div>
-        <div className="monster-row">
-            <div className="creature-types">Creature Types: {monster["Creature Types"]}</div>
-            <div className="monster-tier">Tier: {monster.Tier}</div>
-        </div>
-        <div className="monster-line"></div>
-        <div className="stat-block-section">
-            <div className="stat-numbers">
-                <div className="labels">
-                    <div>HP: </div>
-                    <div>Stamina:</div>
-                    <div>DR:</div>
-                    <div>Def (M|R):</div>
-                    <div>Silhouette:</div>
-                    <div>Move. Pts.:</div>
-                </div>
-                <div className="monster-column">
-                    <div className="hp">{monster.HP}</div>
-                    <div className="stamina">{monster.Stamina}</div>
-                    <div className="damage-reduction">{monster["Damage Reduction"]}</div>
-                    <div className="defense">{monster["Melee Defense"]}|{monster["Ranged Defense"]}</div>
-                    <div className="sil">{monster.Silhouette}</div>
-                    <div className="move-pts">{monster.Speed}</div>
-                </div>
-                <div className="labels">
-
-                    {attributes.map((attribute) => {
-                        let classes = attribute + "-label clickable-text";
-                        return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute], attribute)}>{attribute}: </div>
-                    })}
-                </div>
-                <div className="monster-column">
-                    {attributes.map((attribute) => {
-                        let classes = attribute + " clickable-text";
-                        return <div key={attribute} className={classes}>{monster[attribute]}</div>
-                    })}
-                </div>
+            <div className="box-header">{monster.Name}</div>
+            {monsterData ? <div className="close-monster" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
+            <div className="monster-row">
+                <div className="creature-types">Creature Types: {monster["Creature Types"]}</div>
+                <div className="monster-tier">Tier: {monster.Tier}</div>
             </div>
-            <div className="phone-line"></div>
-            <div className="stat-text">
-                <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
-                <div className="skills"><strong>Skills: </strong>
-                    {monster.Skills.split(", ").map((skill, index) => {
-                        return setupSkill(skill, index);
-                    })}
-                </div>
-                {monster["Talents/Abilities"].length > 0 ? 
-                (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
-                :(null)}
-                {monster["Special Features"].length > 0 ? 
-                (<div className="talents-abilities"><strong>Special Features: </strong>{monster["Special Features"]}</div>)
-                :(null)}
-                <div className="special-features"></div>
-            </div>
+            <div className="monster-line"></div>
+            <div className="stat-block-section">
+                <div className="stat-numbers">
+                    <div className="labels">
+                        <div>HP: </div>
+                        <div>Stamina:</div>
+                        <div>DR:</div>
+                        <div>Def (M|R):</div>
+                        <div>Silhouette:</div>
+                        <div>Move. Pts.:</div>
+                    </div>
+                    <div className="monster-column">
+                        {monsterData ? 
+                        (<div className="hp">
+                            <input className="stat-field" type="number" value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
+                            <div className="stat-max">/{monster.HP}</div>
+                        </div>)
+                        :<div className="hp">{monster.HP}</div>}
+                        {monsterData ?
+                        (<div className="stamina">
+                            <input className="stat-field" type="number" value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
+                        <div className="stat-max">/{monster.Stamina}</div>
+                    </div>)
+                        :<div className="stamina">{monster.Stamina}</div>}
+                        <div className="damage-reduction">{monster["Damage Reduction"]}</div>
+                        <div className="defense">{monster["Melee Defense"]}|{monster["Ranged Defense"]}</div>
+                        <div className="sil">{monster.Silhouette}</div>
+                        <div className="move-pts">{monster.Speed}</div>
+                    </div>
+                    <div className="labels">
 
+                        {attributes.map((attribute) => {
+                            let classes = attribute + "-label clickable-text";
+                            return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute], attribute)}>{attribute}: </div>
+                        })}
+                    </div>
+                    <div className="monster-column">
+                        {attributes.map((attribute) => {
+                            let classes = attribute + " clickable-text";
+                            return <div key={attribute} className={classes}>{monster[attribute]}</div>
+                        })}
+                    </div>
+                </div>
+                <div className="phone-line"></div>
+                <div className="stat-text">
+                    <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
+                    <div className="skills"><strong>Skills: </strong>
+                        {monster.Skills.split(", ").map((skill, index) => {
+                            return setupSkill(skill, index);
+                        })}
+                    </div>
+                    {monster["Talents/Abilities"].length > 0 ? 
+                    (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
+                    :(null)}
+                    {monster["Special Features"].length > 0 ? 
+                    (<div className="talents-abilities"><strong>Special Features: </strong>{monster["Special Features"]}</div>)
+                    :(null)}
+                    <div className="special-features"></div>
+                </div>
             </div>
             <div className="attacks-heading">Attacks</div>
             <div className="attacks">
