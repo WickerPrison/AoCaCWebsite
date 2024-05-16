@@ -10,6 +10,7 @@ import MonsterManual from './pages/monsterManual/monsterManual.jsx';
 import EncounterBuilder from './pages/encounterBuilder/encounterBuilder.jsx';
 import GeneralEquipment from './pages/generalEquipment.jsx';
 import ConsumableItems from './pages/consumableItems.jsx';
+import MagicItems from './pages/magicItems.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "ConsumableItems",
         element: <ConsumableItems/>
+      },
+      {
+        path:"MagicItems",
+        element: <MagicItems/>
       }
     ],
   },

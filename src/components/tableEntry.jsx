@@ -7,11 +7,13 @@ export default function TableEntry({tableData, content}){
                 return <p key={index}><strong>{property}: </strong>{content[property]}</p>
             })}
         </div>
+        {tableData.column2 ?(
         <div className="column-2">
         {tableData.column2.map((property, index) => {
                 return <p key={index}><strong>{property}: </strong>{content[property]}</p>
             })}
         </div>
+        ): null}
         <div className="table-description">{content.Description}</div>
     </div>
     )
