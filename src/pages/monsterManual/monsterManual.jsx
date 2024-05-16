@@ -40,7 +40,7 @@ export default function MonsterManual(){
 
     return (
         <main className='monster-manual'>
-            <FixedHeader entries={[]}/>
+            <FixedHeader/>
             <PageHeading title="Monster Manual"/>
             <section id="monster-list">
                 {monsters.map((monster) => {

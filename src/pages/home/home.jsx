@@ -73,19 +73,19 @@ const classes = [
 
 const equipment = [
     {
-        link: "generalEquipment.html",
+        link: "GeneralEquipment",
         label: "General"
     },
     {
-        link: "consumableItems.html",
+        link: "ConsumableItems",
         label: "Consumables"
     },
     {
-        link: "weapons.html",
+        link: "Weapons",
         label: "Weapons"
     },
     {
-        link: "magicItems.html",
+        link: "MagicItems",
         label: "Magic Items"
     }
 ];
@@ -96,7 +96,7 @@ const scholarly = [
         label: "Spell Effects"
     },
     {
-        link: "spellBuilder.html",
+        link: "SpellBuilder",
         label: "Spell Builder"
     }
 ];

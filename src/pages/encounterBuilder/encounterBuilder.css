@@ -6,6 +6,10 @@
     padding: 0.6em;
 }
 
+.encounter-builder .small-button:hover{
+    color: var(--green3);
+}
+
 .encounter-builder .small-button h4{
     margin: 0.4em 0 0;
     font-size: var(--baseTextSize);

@@ -74,7 +74,6 @@ export default function EncounterBuilder(){
             const updatedMonsters = monsters.map(m => {
                 if(m.id == newMonster.id){
                     m = newMonster;
-                    console.log(m);
                 }
                 return m;
             });
@@ -123,7 +122,7 @@ export default function EncounterBuilder(){
 
     return (
         <main className='monster-manual encounter-builder'>
-            <FixedHeader entries={[]}/>
+            <FixedHeader/>
             <PageHeading title="Encounter Builder"/>
             {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
             

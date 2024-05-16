@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import './tables.css';
 import App from './App.jsx';
 import Home from './pages/home/home.jsx';
 import TalentTree from './pages/talentTree/talentTree.jsx';
@@ -9,6 +8,7 @@ import SpellEffects from './pages/spellEffects/spellEffects.jsx';
 import DiceRoller from './pages/diceRoller/diceRoller.jsx';
 import MonsterManual from './pages/monsterManual/monsterManual.jsx';
 import EncounterBuilder from './pages/encounterBuilder/encounterBuilder.jsx';
+import GeneralEquipment from './pages/generalEquipment/generalEquipment.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/EncounterBuilder",
         element: <EncounterBuilder/>
+      },
+      {
+        path: "GeneralEquipment",
+        element: <GeneralEquipment/>
       }
     ],
   },

@@ -82,7 +82,7 @@ export default function DiceRoller() {
 
     return (
         <main id="roller-page">
-            <FixedHeader entries={[]}/>
+            <FixedHeader/>
             <PageHeading title="Dice Roller"/>
 
             {(rolls.length > 0) 
