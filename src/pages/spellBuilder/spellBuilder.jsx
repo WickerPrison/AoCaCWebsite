@@ -3,13 +3,15 @@ import StaticHeader from "../../components/staticHeader";
 import PageHeading from "../../components/pageHeading";
 import {useState, useEffect} from 'react';
 import { singleFetch } from '../../js/getData';
-import {RollData} from '../../js/rollDice';
+import {RollData, ResultData, rollDice} from '../../js/rollDice';
 import RangeSelector from './rangeSelector';
 import TargetTypeBox from './targetTypeBox';
 import SpellEffectList from './spellEffectList';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import CustomModsBox from './customModsBox';
 import {assembleDicePool, Ranges, TargetTypes} from './buildSpell';
+import RollerResult from '../../components/rollerResult';
+import ResultDie from '../../components/resultDie';
 
 function SpellData(){
     this.range = Ranges.ENGAGED;
@@ -24,6 +26,7 @@ export default function SpellBuilder(){
     let [spellList, setSpellList] = useState([]);
     let [choosingSpell, setChoosingSpell] = useState(false);
     let [finalDicePool, setFinalDicePool] = useState(new RollData);
+    let [results, setResults] = useState(new ResultData);
 
     useEffect(() => {
         async function getData(){
@@ -57,6 +60,11 @@ export default function SpellBuilder(){
             temp.currentEffects.splice(index, 1);
             setSpellData(temp);
         }
+    }
+
+    function performRoll(){
+        let dicePool = assembleDicePool(spellData);
+        setResults(rollDice(dicePool));
     }
 
     return (
@@ -116,57 +124,36 @@ export default function SpellBuilder(){
                 </div>
             </section>
 
-            {/* <h3 className="heading-band">Step 5. Spend Stamina</h3>
+            <h3 className="heading-band">Step 5. Spend Stamina</h3>
             <section className="box-holder">
                 <p>Casting a scholarly spell costs 1 Stamina.</p>
-            </section> */}
+            </section>
 
-            {/* <h3 className="heading-band">Step 6. Make Scholarly Magic Skill Check</h3>
+            <h3 className="heading-band">Step 6. Make Scholarly Magic Skill Check</h3>
             <section className="box-holder">
                 <p>Make the skill check. If you fail the check you still lose the Stamina and your Action, but the effects of the spell do not occur. If you succeed, proceed to Step 7.</p>
-                <button id="roll-dice" className="box small-button">Roll Dice</button>
+                <button className="box small-button" onClick={performRoll}>Roll Dice</button>
                 <div className="box" id="roll-results">
                     <h4 className="box-header">Results</h4>
                     <div id="results-holder">
-
+                    {results.resultDice.map((output, index) => {
+                        return <ResultDie squareDie={output.squareDie} dieName={output.dieName} key={index}/>
+                    })}
                     </div>
                     <h4 className="box-header">Total</h4>
                     <div className="output-box">
-                        <div className = "output-element">
-                            <h4>Conquests: </h4>
-                            <div className="dice-holder">
-                                <img src="./Assets/SVG/d12.svg"/>
-                                <h4 id="conquests">0</h4>
-                            </div>
-                        </div>
-                        <div className = "output-element">
-                            <h4>Calamities: </h4>
-                            <div className="dice-holder">
-                                <img src="./Assets/SVG/d12.svg"/>
-                                <h4 id="calamities">0</h4>
-                            </div>
-                        </div>
-                        <div className = "output-element">
-                            <h4>Successes: </h4>
-                            <div className="dice-holder">
-                                <img src="./Assets/SVG/d12.svg"/>
-                                <h4 id="successes">0</h4>
-                            </div>
-                        </div>
-                        <div className = "output-element">
-                            <h4>Advantage: </h4>
-                            <div className="dice-holder">
-                                <img src="./Assets/SVG/d12.svg"/>
-                                <h4 id="advantage">0</h4>
-                            </div>
-                        </div>
+                        <RollerResult result={results.conquests} label="Conquests: "/>
+                        <RollerResult result={results.calamities} label="Calamities: "/>
+                        <RollerResult result={results.successes} label="Successes: "/>
+                        <RollerResult result={results.advantage} label="Advantage: "/>
                     </div>
                 </div>
             </section>
+
             <h3 className="heading-band">Step 7. Resolve Spell Roll and Effects of Spell</h3>
             <section className="box-holder">
                 <p>Each spell effect will affect each valid target in the area of the spell. The caster decides the order that the spell effects resolve when interacting with targets, but the effect order must be the same for all targets affected.</p>
-            </section> */}
+            </section>
         </main>
     )
 }
