@@ -3,10 +3,12 @@ import StaticHeader from "../../components/staticHeader";
 import PageHeading from "../../components/pageHeading";
 import {useState, useEffect} from 'react';
 import { singleFetch } from '../../js/getData';
+import {RollData} from '../../js/rollDice';
 import RangeSelector from './rangeSelector';
 import TargetTypeBox from './targetTypeBox';
 import SpellEffectList from './spellEffectList';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
+import CustomModsBox from './customModsBox';
 
 const Ranges ={
     ENGAGED: "ENGAGED",
@@ -28,6 +30,7 @@ function SpellData(){
     this.targetType = TargetTypes.SINGLE;
     this.targetNum = 2;
     this.currentEffects = [];
+    this.customMods = new RollData();
 }
 
 export default function SpellBuilder(){
@@ -45,10 +48,9 @@ export default function SpellBuilder(){
     function updateSpellData(property, value){
         let temp = {...spellData};
         temp[property] = value;
-        console.log(temp);
         setSpellData(temp);
     }
-
+    
     function addSpellEffect(effect){
         effect.nodes = 1;
         let temp = {...spellData};
@@ -100,33 +102,14 @@ export default function SpellBuilder(){
                 <button id="clear-effects" className="box small-button" onClick={() => updateSpellData("currentEffects", [])}>Clear All Effects</button>
             </section>
 
-            {/* <h3 className="heading-band">Step 4. Assemble the Dice Pool</h3>
+            <h3 className="heading-band">Step 4. Assemble the Dice Pool</h3>
             <section className="box-holder">
                 <p>Assemble all the dice for your Scholarly Magic skill check, including your Intellect and Magic Scholarly skill ranks, dice from Steps 1-3, and from other factors (environment, gear, talents, etc.).</p>
-                <div className="box" id="custom-modifiers">
-                    <h4 className="box-header">Custom Modifiers</h4>
-                    <div id="pool-box">
-                        <div className="pool-column">
-                            <h4>Proficiency: <input id="proficiency" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Ability: <input id="ability" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Boost: <input id="boost" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                        </div>
-                        <div className="pool-column">
-                            <h4>Challenge: <input id="challenge" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Difficulty: <input id="difficulty" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Penalty: <input id="penalty" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                        </div>
-                        <div className="pool-column">
-                            <h4>Upgrade Difficulty: <input id="upgrade-diff" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Upgrade Ability: <input id="upgrade-abil" type="number" value="0" min="0" oninput="validity.valid||(value='');"/></h4>
-                            <h4>Automatic Successes: <input id="auto-success" type="number" value="0"/></h4>
-                        </div>
-                    </div>
-                    <button id="clear-custom" className="box can-point">
-                        <h4>Clear Custom Modifiers</h4>
-                    </button>
-                </div>
+                
+                <CustomModsBox spellData={spellData} setSpellData={setSpellData}/>
+
                 <button id="assemble-pool" className="box small-button">Assemble Dice Pool</button>
+                
                 <div className="box" id="output">
                     <h4 className="box-header">Final Dice Pool</h4>
                     <div id="pool-box">
@@ -143,7 +126,7 @@ export default function SpellBuilder(){
                         <h4 id="auto-success-out">Automatic Successes: 0</h4>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             {/* <h3 className="heading-band">Step 5. Spend Stamina</h3>
             <section className="box-holder">
