@@ -1,72 +1,67 @@
-header{
-    position: absolute;
-}
-
-.heading-band{
+#spell-builder .heading-band{
     font-weight: normal;
     padding-left: 1.17em;
     width: calc(100% - 1.17em);
 }
 
-h3{
+#spell-builder h3{
     font-size: var(--size2);
     font-family: var(--headerFont);
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: var(--leftMargin);
     width: 100%;
     background-color: var(--green);
     color: white;
     padding: 1% 0;
 }
 
-#clear-effects{
+#spell-builder #clear-effects{
     margin-top: 1em;
 }
 
-.selected{
+#spell-builder .selected{
     background-color: var(--green);
     /* border-color: var(--green2); */
     box-shadow: 0 0 5px 0.2px black;
 }
 
-main > p{
+#spell-builder > p{
     margin: 1em 2.17em;
     font-size: var(--baseTextSize);
 }
 
-#targeting-box{
+#spell-builder #targeting-box{
     flex-direction: row;
 }
 
-#targeting-box button{
+#spell-builder #targeting-box button{
     padding: 1em;
 }
 
-#targeting-box button h4{
+#spell-builder #targeting-box button h4{
     margin: 0.1em;
 }
 
-#add-effect{
+#spell-builder #add-effect{
     display: block;
 }
 
-#spell-selection{
+#spell-builder #spell-selection{
     display: none;
     width: 90%;
     max-width: 90%;
     justify-content: space-between;
 }
 
-#spell-selection *{
+#spell-builder #spell-selection *{
     font-weight: normal;
 }
 
-#spell-selection ul{
+#spell-builder #spell-selection ul{
     padding: 0.2em;
 }
 
-#spell-selection ul h3{
+#spell-builder #spell-selection ul h3{
     border-bottom: .1em var(--green) solid;
     font-size: var(--baseTextSize);
     background-color: var(--green2);
@@ -75,29 +70,29 @@ main > p{
     width: 100%;
 }
 
-#spell-selection ul h3::after{
+#spell-builder #spell-selection ul h3::after{
     width: 0%;
 }
 
-.list-spacer{
+#spell-builder .list-spacer{
     display: none;
 }
 
-.menu-option{
+#spell-builder .menu-option{
     font-size: calc(var(--baseTextSize) * 0.7);
 }
 
-.menu-option:hover{
+#spell-builder .menu-option:hover{
     cursor: pointer;
     color: var(--green3);
 }
 
-.effect-name{
+#spell-builder .effect-name{
     font-size: var(--size2);
     text-align: center;
 }
 
-.remove-effect{
+#spell-builder .remove-effect{
     position: absolute;
     top: 0.8em;
     left: 1em;
@@ -108,52 +103,52 @@ main > p{
     font-family: sans-serif;
 }
 
-.remove-effect:hover{
+#spell-builder .remove-effect:hover{
     color: black;
 }
 
-.description{
+#spell-builder .description{
     font-size: var(--baseTextSize);
 }
 
-#custom-modifiers{
+#spell-builder #custom-modifiers{
     width: 80%;
     max-width: 80%;
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
 
-#pool-box{
+#spell-builder #pool-box{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-#pool-box input{
+#spell-builder #pool-box input{
     pointer-events: all;
 }
 
-.pool-column{
+#spell-builder .pool-column{
     text-align: right;
 }
 
-#clear-custom{
+#spell-builder #clear-custom{
     margin-top: 0.5em;
     padding: 0.8em;
     background-color: var(--green);
     box-shadow: 0 0 5px 0.2px black;
 }
 
-#clear-custom h4{
+#spell-builder #clear-custom h4{
     margin: 0;
 }
 
-#assemble-pool{
+#spell-builder #assemble-pool{
     font-size: var(--size2);
 }
 
-#output{
+#spell-builder #output{
     width: 80%;
     max-width: 80%;
     padding: 0;
@@ -161,7 +156,7 @@ main > p{
     margin-top: 1em;
 }
 
-#results-holder{
+#spell-builder #results-holder{
     display: flex;
     flex-wrap: wrap;
     min-height: 6em;
@@ -169,18 +164,18 @@ main > p{
     margin: -0.6em -0.2em 0;
 }
 
-#results-holder .square-die{
+#spell-builder #results-holder .square-die{
     height: 4em;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-#results-holder img{
+#spell-builder #results-holder img{
     height: 5em;
     margin: 0.4em 0.7em;
 }
 
-#roll-results{
+#spell-builder #roll-results{
     margin-top: 1.2em;
     width: 80%;
     max-width: 80%;
@@ -188,50 +183,50 @@ main > p{
 
 @media screen and (max-width: 768px){
 
-    .box{
+    #spell-builder .box{
         max-width: 90%;
     }
 
-    #targeting-box{
+    #spell-builder #targeting-box{
         flex-direction: column;
     }
 
-    #targeting-box .box{
+    #spell-builder #targeting-box .box{
         margin: 0.3em auto;
     }
 
-    #single-target{
+    #spell-builder #single-target{
         width: 90%;
     }
 
-    #spell-selection{
+    #spell-builder #spell-selection{
         flex-direction: column;
     }
 
-    #spell-selection ul li{
+    #spell-builder #spell-selection ul li{
         display: inline;
     }
 
-    .list-spacer{
+    #spell-builder .list-spacer{
         display: inline;
         margin: 0 0.1em;
     }
 
-    .remove-effect{
+    #spell-builder .remove-effect{
         font-size: calc(var(--baseTextSize) * .7);
         top: 1em;
         left: 1.5em;
     }
 
-    #results-holder{
+    #spell-builder #results-holder{
         min-height: 4em;
     }
     
-    #results-holder .square-die{
+    #spell-builder #results-holder .square-die{
         height: 3em;
     }
     
-    #results-holder img{
+    #spell-builder #results-holder img{
         height: 4em;
         margin: 0 0.4em;
     }

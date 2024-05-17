@@ -12,6 +12,7 @@ import GeneralEquipment from './pages/generalEquipment.jsx';
 import ConsumableItems from './pages/consumableItems.jsx';
 import MagicItems from './pages/magicItems.jsx';
 import Weapons from './pages/weapons/weapons.jsx';
+import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path:"Weapons",
         element: <Weapons/>
+      },
+      {
+        path:"SpellBuilder",
+        element: <SpellBuilder/>
       }
     ],
   },
