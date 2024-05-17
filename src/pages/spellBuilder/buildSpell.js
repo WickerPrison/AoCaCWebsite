@@ -100,6 +100,9 @@ function specialModifier(pool, spellData, i){
         case "boost":
             pool.boost += Number(spellData.currentEffects[i].nodes);
             return pool;
+        case "success":
+            pool.autoSuccess += Number(spellData.currentEffects[i].nodes);
+            return pool;
         default:
             return pool;
     }
