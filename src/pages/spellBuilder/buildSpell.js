@@ -44,6 +44,9 @@ function assembleDicePool(spellData){
         pool.difficulty += Number(spellData.currentEffects[i].Difficulty) * spellData.currentEffects[i].nodes;
         pool.upgradeDifficulty += Number(spellData.currentEffects[i].Upgrades) * spellData.currentEffects[i].nodes;
         pool.penalty += Number(spellData.currentEffects[i].Penalty) * spellData.currentEffects[i].nodes;
+        if(spellData.currentEffects[i].SpecialModifier != ""){
+            pool = specialModifier(pool, spellData, i);
+        }
     }
     
     // add custom modifiers
@@ -71,8 +74,16 @@ function assembleDicePool(spellData){
             pool.difficulty++;
         }
     }
-    
+
     return pool;
+}
+
+function specialModifier(pool, spellData, i){
+    switch(spellData.currentEffects[i].SpecialModifier){
+        case "boost":
+            pool.boost += Number(spellData.currentEffects[i].nodes);
+            return pool;
+    }
 }
 
 export {assembleDicePool, Ranges, TargetTypes}
