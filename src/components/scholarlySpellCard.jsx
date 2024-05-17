@@ -1,14 +1,26 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 export default function ScholarlySpellCard({spell, index, updateMethods}){
+
+    useEffect(() =>{
+        switch(spell.SpecialModifier){
+            case "lock":
+                updateMethods.updateEffect(index, "special", 1);
+                break;
+            default:
+                break;
+        }
+    }, [])
 
     function edgeCaseElements(){
         switch(spell.SpecialModifier){
             case "lock":
                 return (
-                    <h4 className="card-element">Difficulty of Lock: 
-                        <input type="number" min="0" value={lockDifficulty} />
-                    </h4>
+                    <h4 className="card-element">Difficulty of Lock: <input 
+                    type="number" 
+                    min="0" 
+                    value={spell.special} 
+                    onChange={ e => updateMethods.updateEffect(index, "special", e.target.value)}/></h4>
                 )
         }
     }
@@ -25,7 +37,7 @@ export default function ScholarlySpellCard({spell, index, updateMethods}){
             <h4 className="card-element">Tier: {spell.Tier}</h4>
             <h4 className="card-element">Duration: {spell.Duration}</h4>
             <h4 className="card-element">Difficulty Modifier: {spell.Modifier}</h4>
-            {/* {spell.SpecialModifier !== "" ? edgeCaseElements():null} */}
+            {spell.SpecialModifier !== "" ? edgeCaseElements():null}
             <div className="card-line card-element"></div>
             <h4 className="card-element">{spell.Description}</h4>
         </div>

@@ -43,6 +43,7 @@ export default function SpellBuilder(){
     
     function addSpellEffect(effect){
         effect.nodes = 1;
+        effect.special = 0;
         let temp = {...spellData};
         temp.currentEffects.push(effect);
         setSpellData(temp);

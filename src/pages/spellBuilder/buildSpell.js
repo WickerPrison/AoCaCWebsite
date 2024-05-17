@@ -103,6 +103,8 @@ function specialModifier(pool, spellData, i){
         case "success":
             pool.autoSuccess += Number(spellData.currentEffects[i].nodes);
             return pool;
+        case "lock":
+            pool.difficulty += Number(spellData.currentEffects[i].special);
         default:
             return pool;
     }
