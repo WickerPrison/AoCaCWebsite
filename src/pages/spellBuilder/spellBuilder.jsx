@@ -9,21 +9,7 @@ import TargetTypeBox from './targetTypeBox';
 import SpellEffectList from './spellEffectList';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import CustomModsBox from './customModsBox';
-
-const Ranges ={
-    ENGAGED: "ENGAGED",
-    EXTENDED: "EXTENDED",
-    SHORT: "SHORT",
-    MEDIUM: "MEDIUM", 
-    LONG: "LONG",
-    EXTREME: "EXTREME"
-}
-
-const TargetTypes = {
-    SINGLE: "SINGLE",
-    MULTI: "MULTI",
-    AREA: "AREA"
-}
+import {assembleDicePool, Ranges, TargetTypes} from './buildSpell';
 
 function SpellData(){
     this.range = Ranges.ENGAGED;
@@ -37,6 +23,7 @@ export default function SpellBuilder(){
     let [spellData, setSpellData] = useState(new SpellData);
     let [spellList, setSpellList] = useState([]);
     let [choosingSpell, setChoosingSpell] = useState(false);
+    let [finalDicePool, setFinalDicePool] = useState(new RollData);
 
     useEffect(() => {
         async function getData(){
@@ -71,7 +58,7 @@ export default function SpellBuilder(){
             setSpellData(temp);
         }
     }
-    
+
     return (
         <main id="spell-builder">
             <StaticHeader/>
@@ -98,8 +85,9 @@ export default function SpellBuilder(){
                 ):(
                     <button id="add-effect" className="box small-button" onClick={() => setChoosingSpell(true)}>+ Add Spell Effect</button>
                 )}
-                
-                <button id="clear-effects" className="box small-button" onClick={() => updateSpellData("currentEffects", [])}>Clear All Effects</button>
+                {spellData.currentEffects.length > 0 ? (
+                    <button id="clear-effects" className="box small-button" onClick={() => updateSpellData("currentEffects", [])}>Clear All Effects</button>
+                ):null}
             </section>
 
             <h3 className="heading-band">Step 4. Assemble the Dice Pool</h3>
@@ -108,22 +96,22 @@ export default function SpellBuilder(){
                 
                 <CustomModsBox spellData={spellData} setSpellData={setSpellData}/>
 
-                <button id="assemble-pool" className="box small-button">Assemble Dice Pool</button>
+                <button id="assemble-pool" className="box small-button" onClick={() => setFinalDicePool(assembleDicePool(spellData))}>Assemble Dice Pool</button>
                 
                 <div className="box" id="output">
                     <h4 className="box-header">Final Dice Pool</h4>
                     <div id="pool-box">
                         <div className="pool-column">
-                            <h4 id="proficiency-out">Proficiency: 0</h4>
-                            <h4 id="ability-out">Ability: 0</h4>
-                            <h4 id="boost-out">Boost: 0</h4>
+                            <h4 id="proficiency-out">Proficiency: {finalDicePool.proficiency}</h4>
+                            <h4 id="ability-out">Ability: {finalDicePool.ability}</h4>
+                            <h4 id="boost-out">Boost: {finalDicePool.boost}</h4>
                         </div>
                         <div className="pool-column">
-                            <h4 id="challenge-out">Challenge: 0</h4>
-                            <h4 id="difficulty-out">Difficulty: 0</h4>
-                            <h4 id="penalty-out">Penalty: 0</h4>
+                            <h4 id="challenge-out">Challenge: {finalDicePool.challenge}</h4>
+                            <h4 id="difficulty-out">Difficulty: {finalDicePool.difficulty}</h4>
+                            <h4 id="penalty-out">Penalty: {finalDicePool.penalty}</h4>
                         </div>
-                        <h4 id="auto-success-out">Automatic Successes: 0</h4>
+                        <h4 id="auto-success-out">Automatic Successes: {finalDicePool.autoSuccess}</h4>
                     </div>
                 </div>
             </section>
