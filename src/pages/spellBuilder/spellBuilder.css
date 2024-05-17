@@ -47,7 +47,7 @@
 }
 
 #spell-builder #spell-selection{
-    display: none;
+    display:flex;
     width: 90%;
     max-width: 90%;
     justify-content: space-between;

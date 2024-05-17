@@ -2,6 +2,11 @@ import './spellBuilder.css';
 import StaticHeader from "../../components/staticHeader";
 import PageHeading from "../../components/pageHeading";
 import {useState, useEffect} from 'react';
+import { singleFetch } from '../../js/getData';
+import RangeSelector from './rangeSelector';
+import TargetTypeBox from './targetTypeBox';
+import SpellEffectList from './spellEffectList';
+import ScholarlySpellCard from '../../components/scholarlySpellCard';
 
 const Ranges ={
     ENGAGED: "ENGAGED",
@@ -22,10 +27,20 @@ function SpellData(){
     this.range = Ranges.ENGAGED;
     this.targetType = TargetTypes.SINGLE;
     this.targetNum = 2;
+    this.currentEffects = [];
 }
 
 export default function SpellBuilder(){
     let [spellData, setSpellData] = useState(new SpellData);
+    let [spellList, setSpellList] = useState([]);
+    let [choosingSpell, setChoosingSpell] = useState(false);
+
+    useEffect(() => {
+        async function getData(){
+            setSpellList(await singleFetch("ScholarlySpells"));
+        }
+        getData();
+    }, [])
 
     function updateSpellData(property, value){
         let temp = {...spellData};
@@ -34,66 +49,55 @@ export default function SpellBuilder(){
         setSpellData(temp);
     }
 
+    function addSpellEffect(effect){
+        effect.nodes = 1;
+        let temp = {...spellData};
+        temp.currentEffects.push(effect);
+        setSpellData(temp);
+        setChoosingSpell(false);
+    }
+
+    const updateEffectMethods={
+        updateEffect(index, property, value){
+            let temp = {...spellData};
+            temp.currentEffects[index][property] = value;
+            setSpellData(temp);
+        },
+        removeEffect(index){
+            let temp = {...spellData};
+            temp.currentEffects.splice(index, 1);
+            setSpellData(temp);
+        }
+    }
+    
     return (
         <main id="spell-builder">
             <StaticHeader/>
             <PageHeading title="Spell Builder"/>
             <p>Each time you cast a scholarly spell, you must make a Scholarly Magic skill check. The Difficulty of this skill check will depend on various factors. When you cast a scholarly spell, follow the steps listed below to determine the Difficulty of the Scholarly Magic skill check.</p>
             <h3 className="heading-band">Step 1. Choose the Maximum Range Band</h3>
-            <section className="box-holder">
-                <p>Choose a range band up to Extreme Range. Only creatures within your chosen range band can be selected as a target of the spell. Targeting yourself or anything in Extended Range is a Difficulty 0 base check, and the Difficulty of the skill check increases by 1 for each range band past Extended up to Extreme (Difficulty 4).</p>
-                <div className="box small-button">
-                    <label id="range-dropdown" >Range Band: </label>
-                    <select name="ranges" id="ranges" value={spellData.range} onChange={(e) => {updateSpellData("range", e.target.value)}}>
-                        <option value={Ranges.ENGAGED}>Engaged (5cm)</option>
-                        <option value={Ranges.EXTENDED}>Extended (8cm)</option>
-                        <option value={Ranges.SHORT}>Short (15cm)</option>
-                        <option value={Ranges.MEDIUM}>Medium (30cm)</option>
-                        <option value={Ranges.LONG}>Long (70cm)</option>
-                        <option value={Ranges.EXTREME}>Extreme (120cm)</option>
-                    </select>
-                </div>
-            </section>
+            <RangeSelector spellData={spellData} Ranges={Ranges} updateSpellData={updateSpellData}/>
 
             <h3 className="heading-band">Step 2. Choose a Targeting Type</h3>
             <section className="box-holder" id="targeting-box">
-                <div className={`box ${spellData.targetType == TargetTypes.SINGLE ? "selected":null}`} onClick={() => updateSpellData("targetType", TargetTypes.SINGLE)}>
-                    <h4>Single Target</h4>
-                    <p>Choose a single target. Does not affect the Difficulty of the spell check.</p>
-                </div>
-                <div className={`box ${spellData.targetType == TargetTypes.MULTI ? "selected":null}`} onClick={() => updateSpellData("targetType", TargetTypes.MULTI)}>
-                    <h4>Multi-Target</h4>
-                    <h4>Number of Targets: <input className="can-point" type="number" value={spellData.targetNum} min="2" onChange={e => updateSpellData("targetNum", e.target.value)}/></h4>
-                    <p>Choose 2 or more targets within your chosen range band. Increase the Difficulty of the spell check 1 time for each target chosen.</p>
-                </div>
-                <div className={`box ${spellData.targetType == TargetTypes.AREA ? "selected":null}`} onClick={() => updateSpellData("targetType", TargetTypes.AREA)}>
-                    <h4>Area Target</h4>
-                    <p>Choose a point within your chosen range band, all creatures within Engaged Range of this point are targeted by the spell. Upgrade the Difficulty of the spell check 3 times.</p>
-                </div>
+                <TargetTypeBox spellData={spellData} updateSpellData={updateSpellData} myType={TargetTypes.SINGLE}/>
+                <TargetTypeBox spellData={spellData} updateSpellData={updateSpellData} myType={TargetTypes.MULTI}/>
+                <TargetTypeBox spellData={spellData} updateSpellData={updateSpellData} myType={TargetTypes.AREA}/>
             </section>
 
             <h3 className="heading-band">Step 3. Choose Spell Effects</h3>
             <section className="box-holder" id="spell-effects-box">
                 <p>Choose which Spell Effects to include in the spell. You may add the same Spell Effect multiple times. Each instance of a Spell Effect is referred to as a node. The total number of nodes included in a spell must be equal to or less than your Intellect.  For each node added to the spell, modify the skill check roll by the Casting Modifier</p>
-                <button id="add-effect" className="box small-button">+ Add Spell Effect</button>
-                <div className="box" id="spell-selection">
-                    <ul>
-                        <h3><li>Metamagic</li></h3>
-                    </ul>
-                    <ul>
-                        <h3><li>Initiate</li></h3>
-                    </ul>
-                    <ul>
-                        <h3><li>Adept</li></h3>
-                    </ul>
-                    <ul>
-                        <h3><li>Magister</li></h3>
-                    </ul>
-                    <ul>
-                        <h3><li>Arcanist</li></h3>
-                    </ul>
-                </div>
-                <button id="clear-effects" className="box small-button">Clear All Effects</button>
+                {spellData.currentEffects.map((effect, index) => {
+                    return <ScholarlySpellCard key={index} spell={effect} updateMethods={updateEffectMethods} index={index}/>
+                })}
+                {choosingSpell ? (
+                    <SpellEffectList spellList={spellList} addSpellEffect={addSpellEffect}/>
+                ):(
+                    <button id="add-effect" className="box small-button" onClick={() => setChoosingSpell(true)}>+ Add Spell Effect</button>
+                )}
+                
+                <button id="clear-effects" className="box small-button" onClick={() => updateSpellData("currentEffects", [])}>Clear All Effects</button>
             </section>
 
             {/* <h3 className="heading-band">Step 4. Assemble the Dice Pool</h3>
