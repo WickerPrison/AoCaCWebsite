@@ -1,0 +1,95 @@
+.encounter-builder .small-button{
+    width: 20em;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    padding: 0.6em;
+}
+
+.encounter-builder .small-button:hover{
+    color: var(--green3);
+}
+
+.encounter-builder .small-button h4{
+    margin: 0.4em 0 0;
+    font-size: var(--baseTextSize);
+}
+
+.encounter-builder .small-button h4:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
+.encounter-builder .small-button input{
+    background-color: var(--green);
+    outline: white dashed 1px;
+    border: none;
+    border-radius: 0.3em;
+    font-size: var(--baseTextSize);
+    min-width: 80%;
+    color: white;
+}
+
+.encounter-builder #clear-all{
+    display: block;
+    font-size: var(--baseTextSize);
+    padding: 0.6em;
+    padding-right: 1em;
+    margin: 0 auto;
+}
+
+.encounter-builder .stat-field[type="number"]{
+    margin-right: 0.2em;
+}
+
+.encounter-builder .stat-max{
+    display: inline;
+}
+
+.encounter-builder .monster-card{
+    position: relative;
+}
+
+.encounter-builder .close-monster{
+    position: absolute;
+    font-size: calc(var(--baseTextSize) * 0.8);
+    top: 0.8em;
+    left: 1em;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.6em;
+    box-shadow: 0 0 5px 0.2px black;
+    font-family: sans-serif;
+}
+
+.encounter-builder .close-monster:hover{
+    color:black;
+    cursor: pointer;
+}
+
+.encounter-builder .monster-column1{
+    flex-basis: 26%;
+}
+
+.encounter-builder .monster-column2{
+    flex-basis: 14%;
+}
+
+.encounter-builder .monster-column1 div,
+.encounter-builder .monster-column2 div{
+    margin-top: 0.3em;
+}
+
+.encounter-builder .labels{
+    flex-basis: 30%;
+}
+
+.encounter-builder .labels div{
+    margin-top: 0.3em;
+}
+
+@media screen and (max-width: 768px){
+    .encounter-builder .close-monster{
+        font-size: var(--baseTextSize);
+    }
+}

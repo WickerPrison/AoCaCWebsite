@@ -1,0 +1,149 @@
+#talent-tree{
+    --borderSize: 4px;
+    --paddingSize: 10px;
+    --talentSize: calc(var(--baseTextSize) * 2 + var(--borderSize) + var(--paddingSize));
+    --roundedCorners: 10px;
+    --tableBorder: black;
+    --minScreenWidth: 510px;
+}
+
+#talent-tree h3{
+    text-align: center;
+    font-size: var(--size3);
+    margin-left: 0;
+}
+
+#talent-tree h3::after{
+    width: 40%;
+    left: 30%;
+}
+
+#talent-tree #class-name{
+    /* margin: calc(var(--talentSize) *2) auto 0 auto; */
+    text-align: center;
+    font-size: var(--size4);
+    font-family: 'Quintessential', serif;
+    margin-bottom: 2.5%;
+}
+
+#talent-tree #tree-holder{
+    display: block;
+    margin: 0 auto;
+}
+
+#talent-tree #tree{
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: 3% 1%;
+    width: 100%;
+    height: calc(var(--talentSize) * 10);
+    /* flex-direction: column; */
+    /* margin: calc(var(--talentSize)/2) 0; */
+    margin-top: 0;
+    margin-bottom: calc(var(--talentSize) * 1);
+    padding-top: 2.5%;
+    padding-bottom: 1%;
+    background-color: var(--green2);
+    justify-content: center;
+}
+
+#talent-tree .talent{
+    display: inline-grid;
+    background-color: var(--green);
+    color: white;
+
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: var(--roundedCorners);
+    padding: var(--paddingSize);  
+    font-size: var(--baseTextSize);
+    font-weight: normal;
+    text-wrap: wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    height: var(--talentSize);
+}
+
+#talent-tree .talent:focus, #talent-tree .talent:hover{
+    box-shadow: 0 0px 5px 0.05px black;
+}
+
+#talent-tree .talent:focus::after, #talent-tree .talent:hover::after{
+    content: attr(data-content);
+    display: inline;
+    position: absolute;
+    top: 85%;
+    /* left: calc(var(--borderSize) * -1); */
+    font-size: var(--baseTextSize);
+    background-color: var(--silver);
+    color: black;
+    width: 100%;
+    left: -4%;
+    z-index: 2;
+    padding: 4%;
+    border-radius: var(--roundedCorners);
+    box-shadow: 0 0px 5px 0.05px black;
+}
+
+
+#talent-tree #talent-grid{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: calc(1em + 1%) auto 0 auto;
+    border: 1px solid var(--tableBorder);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#talent-tree #talent-grid .table-label{
+    display: flex;
+    background-color: var(--green);
+    color: white;
+    font-size: var(--size2);
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+#talent-tree #talent-grid .talent-table-entry{
+    display: flex;
+    background-color: var(--green2);
+    color: white;
+    font-size: var(--baseTextSize);
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: var(--baseTextSize);
+}
+
+#talent-tree .table-talent{
+    border: 1px solid var(--tableBorder);
+    text-wrap: wrap;
+    width:25%;
+    padding: 10px;
+}
+
+#talent-tree .table-description{
+    border: 1px solid var(--tableBorder);
+    width: 75%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 768px){
+    #talent-tree .talent{
+        font-size: calc(var(--baseTextSize) * 0.9) ;
+    }
+
+    #talent-tree .talent:focus::after, #talent-tree .talent:hover::after{
+        font-size: calc(var(--baseTextSize)) * 0.9;
+        padding: 6%;
+        left: -6%;
+    }
+
+    #talent-tree #talent-grid div{
+        font-size: calc(var(--baseTextSize) * 0.9) ;
+    }
+}

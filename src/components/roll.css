@@ -1,0 +1,161 @@
+#dice-roller{
+    --outputDice: 3em;
+}
+
+#dice-roller .box-holder{
+    padding: 0;
+}
+
+#dice-roller{
+    position: relative;
+    width: 90%;
+    max-width: 90%; 
+}
+
+#dice-roller input[type='text']{
+    font-size: calc(var(--size2));
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--green);
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+#dice-roller input[type="text"]:focus-visible, #dice-roller input[type="text"]:hover{
+    outline: white dashed 1px;
+}
+
+#dice-roller .remove-button{
+    color: white;
+    font-size: calc(var(--baseTextSize) * 0.8);
+    font-family: sans-serif;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.9em;
+    box-shadow: 0 0 5px .2px black;
+    position: absolute;
+    z-index: 3;
+    left: 1em;
+    top: 0.7em;
+}
+
+#dice-roller .remove-button:hover{
+    color: black;
+    cursor: pointer;
+}
+
+#dice-roller .input-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#dice-roller .input-box input{
+    pointer-events: all;
+}
+
+#dice-roller .input-column{
+    text-align: right;
+}
+
+#dice-roller .button-box{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 1em auto 1.5em;
+}
+
+#dice-roller .dice-button{
+    width: 20%;
+    font-size: var(--baseTextSize);
+    background-color: var(--green);
+    border-radius: var(--cardCorner);
+    padding: 0.4em;
+    box-shadow: 0 0 5px .2px black;
+}
+
+#dice-roller .dice-button:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
+#dice-roller .apply-upgrades{
+    width: 35%;
+}
+
+#dice-roller .card-banner{
+    background-color: var(--green);
+    width: 110%;
+    position: relative;
+    left: -5%;
+    font-size: var(--size2);
+    padding: 0.3em 0;
+    margin: 0.3em;
+}
+
+#dice-roller .results-holder{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 5em;
+    background-color: var(--grey);
+    margin: -0.5em -0.2em;
+}
+
+#dice-roller .results-holder .square-die{
+    height: 3.2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#dice-roller .results-holder img{
+    height: 4em;
+    margin: 0.5em 0.4em;
+}
+
+#dice-roller{
+    display: block;
+    margin-bottom: 2em;
+}
+
+#dice-roller .output-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 95%;
+    margin: 0.5em auto;
+    min-height: var(--outputDice);
+}
+
+@media screen and (max-width: 768px){
+    
+    #dice-roller .button-box{
+        width: 90%;
+    }
+
+    #dice-roller .remove-button{
+        left: 0.6em;
+        top: 0.6em;
+        font-size: var(--baseTextSize);
+    }
+
+    #dice-roller input[type='text']{
+        width: 50%;
+        margin-left: 0.9em;
+    }
+
+    #dice-roller .results-holder{
+        min-height: 4em;
+    }
+    
+    #dice-roller .results-holder .square-die{
+        height: 3em;
+    }
+    
+    #dice-roller .results-holder img{
+        height: 4em;
+        margin: 0 0.4em;
+    }
+}

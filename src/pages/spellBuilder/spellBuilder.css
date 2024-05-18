@@ -1,0 +1,247 @@
+#spell-builder{
+    --outputDice: 3em;
+}
+
+#spell-builder .heading-band{
+    font-weight: normal;
+    padding-left: 1.17em;
+    width: calc(100% - 1.17em);
+}
+
+#spell-builder h3{
+    font-size: var(--size2);
+    font-family: var(--headerFont);
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    background-color: var(--green);
+    color: white;
+    padding: 1% 0;
+}
+
+#spell-builder #clear-effects{
+    margin-top: 1em;
+}
+
+#spell-builder .selected{
+    background-color: var(--green);
+    /* border-color: var(--green2); */
+    box-shadow: 0 0 5px 0.2px black;
+}
+
+#spell-builder > p{
+    margin: 1em 2.17em;
+    font-size: var(--baseTextSize);
+}
+
+#spell-builder #targeting-box{
+    flex-direction: row;
+}
+
+#spell-builder #targeting-box button{
+    padding: 1em;
+}
+
+#spell-builder #targeting-box button h4{
+    margin: 0.1em;
+}
+
+#spell-builder #add-effect{
+    display: block;
+}
+
+#spell-builder #spell-selection{
+    display:flex;
+    width: 90%;
+    max-width: 90%;
+    justify-content: space-between;
+}
+
+#spell-builder #spell-selection *{
+    font-weight: normal;
+}
+
+#spell-builder #spell-selection ul{
+    padding: 0.2em;
+}
+
+#spell-builder #spell-selection ul h3{
+    border-bottom: .1em var(--green) solid;
+    font-size: var(--baseTextSize);
+    background-color: var(--green2);
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+#spell-builder #spell-selection ul h3::after{
+    width: 0%;
+}
+
+#spell-builder .list-spacer{
+    display: none;
+}
+
+#spell-builder .menu-option{
+    font-size: calc(var(--baseTextSize) * 0.7);
+}
+
+#spell-builder .menu-option:hover{
+    cursor: pointer;
+    color: var(--green3);
+}
+
+#spell-builder .effect-name{
+    font-size: var(--size2);
+    text-align: center;
+}
+
+#spell-builder .remove-effect{
+    position: absolute;
+    top: 0.8em;
+    left: 1em;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.6em;
+    box-shadow: 0 0 5px 0.2px black;
+    font-family: sans-serif;
+}
+
+#spell-builder .remove-effect:hover{
+    color: black;
+}
+
+#spell-builder .description{
+    font-size: var(--baseTextSize);
+}
+
+#spell-builder #custom-modifiers{
+    width: 80%;
+    max-width: 80%;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+#spell-builder #pool-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#spell-builder #pool-box input{
+    pointer-events: all;
+}
+
+#spell-builder .pool-column{
+    text-align: right;
+}
+
+#spell-builder #clear-custom{
+    margin-top: 0.5em;
+    padding: 0.8em;
+    background-color: var(--green);
+    box-shadow: 0 0 5px 0.2px black;
+}
+
+#spell-builder #clear-custom h4{
+    margin: 0;
+}
+
+#spell-builder #assemble-pool{
+    font-size: var(--size2);
+    padding: 0.6em;
+}
+
+#spell-builder #output{
+    width: 80%;
+    max-width: 80%;
+    padding: 0;
+    padding-bottom: 1em;
+    margin-top: 1em;
+}
+
+#spell-builder #results-holder{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 6em;
+    background-color: var(--grey);
+    margin: -0.6em -0.2em 0;
+}
+
+#spell-builder #results-holder .square-die{
+    height: 4em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#spell-builder #results-holder img{
+    height: 5em;
+    margin: 0.4em 0.7em;
+}
+
+#spell-builder #roll-results{
+    margin-top: 1.2em;
+    width: 80%;
+    max-width: 80%;
+}
+
+#spell-builder .output-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 95%;
+    margin: 0.5em auto;
+    min-height: var(--outputDice);
+}
+
+@media screen and (max-width: 768px){
+
+    #spell-builder .box{
+        max-width: 90%;
+    }
+
+    #spell-builder #targeting-box{
+        flex-direction: column;
+    }
+
+    #spell-builder #targeting-box .box{
+        margin: 0.3em auto;
+    }
+
+    #spell-builder #single-target{
+        width: 90%;
+    }
+
+    #spell-builder #spell-selection{
+        flex-direction: column;
+    }
+
+    #spell-builder #spell-selection ul li{
+        display: inline;
+    }
+
+    #spell-builder .list-spacer{
+        display: inline;
+        margin: 0 0.1em;
+    }
+
+    #spell-builder .remove-effect{
+        font-size: calc(var(--baseTextSize) * .7);
+        top: 1em;
+        left: 1.5em;
+    }
+
+    #spell-builder #results-holder{
+        min-height: 4em;
+    }
+    
+    #spell-builder #results-holder .square-die{
+        height: 3em;
+    }
+    
+    #spell-builder #results-holder img{
+        height: 4em;
+        margin: 0 0.4em;
+    }
+}

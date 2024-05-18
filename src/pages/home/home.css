@@ -1,0 +1,76 @@
+header{
+    position: absolute;
+    text-align: center;
+}
+
+#home > section{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+#home .page-button{
+    text-align: center;
+    padding: 0;
+    margin-left: 1.66%;
+    width: 18%;
+}
+
+#home .page-button h4{
+    background-color: var(--green);
+    color: white;
+    padding: 0.5em;
+    border-radius: var(--cardCorner);
+    font-size: var(--size2);
+    box-shadow: 0 0 5px 0.2px black;
+    margin-bottom: 0;
+    z-index: 3;
+    position: relative;
+    width: calc(100% - 1em);
+}
+
+#home li{
+    position: relative;
+    background-color: var(--green2);
+    padding: 0.5em;
+    width: calc(100% - 1em);
+    display: block;
+    text-align: center;
+}
+
+#home li a{
+    display: inline;
+}
+
+#home li:nth-child(1){
+    border-radius: 2em 2em 0 0;
+    padding: 0;
+    padding-bottom: 0.5em;
+    width: 100%;
+}
+
+#home li:last-child{
+    border-radius: 0 0 var(--cardCorner) var(--cardCorner); 
+    padding-bottom: 1em;
+}
+
+#home a{
+    color: white;
+    font-size: var(--baseTextSize);
+    width: 100%;
+    display: block;
+}
+
+#home a:hover, #home a h4:hover{
+    color:var(--green3);
+}
+
+@media screen and (max-width: 768px){
+    #home .page-button{
+        width: 45%;
+        margin: 0 auto;
+    }
+}

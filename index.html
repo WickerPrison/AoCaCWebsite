@@ -1,105 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgeOfConquestAndCalamity</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Age of Conquest and Calamity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charm&family=Playball&family=Quintessential&display=swap" rel="stylesheet">
-    <script src="./Assets/JavaScript/classList"></script>
-    <link rel="stylesheet" href="./Assets/CSS/style.css">
-    <link rel="stylesheet" href="./Assets/CSS/main.css">
-</head>
-
-<body>
-    <header>
-        <h1>Age of Conquest and Calamity</h1>
-    </header>
-    <main>
-        <h2 id="page-heading">Age of Conquest and Calamity</h2>
-        <section id="page-title">
-            <img class="square-die" src="./Assets/SVG/Boost.svg">
-            <img src="./Assets/SVG/Ability.svg">
-            <img src="./Assets/SVG/Proficiency.svg">
-            <img src="./Assets/SVG/Challenge.svg">
-            <img src="./Assets/SVG/Difficulty.svg">
-            <img class="square-die" src="./Assets/SVG/Penalty.svg">
-        </section>
-
-        <h3 class="heading-band">Resources</h3>
-        <section>
-            <ul><a href="diceRoller.html"><h4>Dice Roller</h4></a></ul>
-            <ul><a href="monsterManual.html"><h4>Monster Manual</h4></a></ul>
-            <ul><a href="encounterBuilder.html"><h4>Encounter Builder</h4></a></ul>
-        </section>
-        <h3 class="heading-band">Classes</h3>
-        <section id="classes">
-            <ul>
-                <li><h4>Combat</h4></li>
-                <li class="class-link" onclick="getClassName('Archer')"><a href="classTalentTree.html">Archer</a></li>
-                <li class="class-link" onclick="getClassName('Assassin')"><a href="classTalentTree.html">Assassin</a></li>
-                <li class="class-link" onclick="getClassName('Barbarian')"><a href="classTalentTree.html">Barbarian</a></li>
-                <li class="class-link" onclick="getClassName('Duelist')"><a href="classTalentTree.html">Duelist</a></li>
-                <li class="class-link" onclick="getClassName('Soldier')"><a href="classTalentTree.html">Soldier</a></li>
-            </ul>
-            <ul>
-                <li><h4>Utility</h4></li>
-                <li class="class-link" onclick="getClassName('Beastmaster')"><a href="classTalentTree.html">Beastmaster</a></li>
-                <li class="class-link" onclick="getClassName('Field Medic')"><a href="classTalentTree.html">Field Medic</a></li>
-                <li class="class-link" onclick="getClassName('Inquisitor')"><a href="classTalentTree.html">Inquisitor</a></li>
-                <li class="class-link" onclick="getClassName('Monster Hunter')"><a href="classTalentTree.html">Monster Hunter</a></li>
-                <li class="class-link" onclick="getClassName('Ranger')"><a href="classTalentTree.html">Ranger</a></li>
-            </ul>    
-            <ul>
-                <li><h4>Innate</h4></li>
-                <li class="class-link" onclick="getClassName('Channeler')"><a href="classTalentTree.html">Channeler</a></li>
-                <li class="class-link" onclick="getClassName('Druid')"><a href="classTalentTree.html">Druid</a></li>
-                <li class="class-link" onclick="getClassName('Sage')"><a href="classTalentTree.html">Sage</a></li>
-                <li class="class-link" onclick="getClassName('Shapeshifter')"><a href="classTalentTree.html">Shapeshifter</a></li>
-                <li class="class-link" onclick="getClassName('Fundamentalist')"><a href="classTalentTree.html">Fundamentalist</a></li>
-            </ul>   
-            <ul>
-                <li><h4>Scholarly</h4></li>
-                <li class="class-link" onclick="getClassName('Bard')"><a href="classTalentTree.html">Bard</a></li>
-                <li class="class-link" onclick="getClassName('Battlemage')"><a href="classTalentTree.html">Battlemage</a></li>
-                <li class="class-link" onclick="getClassName('Necromancer')"><a href="classTalentTree.html">Necromancer</a></li>
-                <li class="class-link" onclick="getClassName('Researcher')"><a href="classTalentTree.html">Researcher</a></li>
-                <li class="class-link" onclick="getClassName('Wizard')"><a href="classTalentTree.html">Wizard</a></li>
-            </ul>   
-            <ul>
-                <li><h4>Speech</h4></li>
-                <li class="class-link" onclick="getClassName('Charlatan')"><a href="classTalentTree.html">Charlatan</a></li>
-                <li class="class-link" onclick="getClassName('Commander')"><a href="classTalentTree.html">Commander</a></li>
-                <li class="class-link" onclick="getClassName('Drunken Master')"><a href="classTalentTree.html">Drunken Master</a></li>
-                <li class="class-link" onclick="getClassName('Merchant')"><a href="classTalentTree.html">Merchant</a></li>
-                <li class="class-link" onclick="getClassName('Performer')"><a href="classTalentTree.html">Performer</a></li>
-            </ul>
-        </section>
-        <h3 class="heading-band">Equipment</h3>
-        <section id="equipment">
-            <ul><a href="generalEquipment.html"><h4>General</h4></a></ul>
-            <ul><a href="consumableItems.html"><h4>Consumables</h4></a></ul>
-            <ul><a href="weapons.html"><h4>Weapons</h4></a></ul>
-            <ul><a href="magicItems.html"><h4>Magic Items</h4></a></ul>
-        </section>
-        <h3 class="heading-band">Scholarly Magic</h3>
-        <section id="scholarly">
-            <ul><a href="spellEffects.html"><h4>Spell Effects</h4></a></ul>
-            <ul><a href="spellBuilder.html"><h4>Spell Builder</h4></a></ul>
-        </section>
-        <!-- <h2>Equipment</h2>
-        <section id="equipment">
-            <ul>
-                <li><h3>Weapons</h3></li>
-                <li><h4><a href="weapons.html">Brawl</a></h4></li>
-                <li><h4><a href="weapons.html">Light Weapons</a></h4></li>
-                <li><h4><a href="weapons.html">Heavy Weapons</a></h4></li>
-                <li><h4><a href="weapons.html">Ranged</a></h4></li>
-
-            </ul>
-        </section> -->
-        <footer></footer>
-    </main>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

@@ -1,0 +1,260 @@
+.monster-manual #monster-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.monster-manual .monster-card{
+    display: block;
+    width: 80%;
+    max-width: 80%;
+    margin: 1.5em auto;
+    background-color: var(--green2);
+    padding: 0 2em 1em;
+}
+
+.monster-manual .monster-row{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    margin: 0.6em 0;
+}
+
+.monster-manual .monster-row div{
+    margin-right: 2em;
+}
+
+.monster-manual .stat-block-section{
+    display: flex;
+    margin: 0.6em 0;
+}
+
+.monster-manual .stat-numbers{
+    flex-basis: 40%;
+    display: flex;
+}
+
+.monster-manual .stat-text{
+    flex-basis: 60%;
+    flex-shrink: 1;
+    display: block;
+    text-align: left;
+    padding: 0.2em;
+}
+
+.monster-manual .monster-column1,
+.monster-manual .monster-column2{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    margin: 0.4em 0;
+    flex-basis: 16.6%;
+}
+
+.monster-manual .monster-column1 div{
+    text-wrap: nowrap;
+}
+
+.monster-manual .labels{
+    display: flex;
+    text-wrap: nowrap;
+    flex-direction: column;
+    justify-content: left;
+    text-align: right;
+    margin: 0.4em 0.3em 0.4em 0;
+    flex-basis: 33%;
+    font-weight: bold;
+}
+
+.monster-manual .skills{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.monster-manual .skills div{
+    display: inline;
+}
+
+.monster-manual .talents-abilities{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.monster-manual .special-features{
+    width: 100%;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+
+.monster-manual .attacks-heading{
+    width: 120%;
+    position: relative;
+    left: -10%;
+    background-color: var(--green);
+    font-size: var(--size2);
+    padding: 0.3em;
+}
+
+.monster-manual .attacks{
+    display: flex;
+    flex-direction: column;
+    margin: 0.6em 0;
+}
+
+.monster-manual .attack-profile{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    margin: 0.4em 0;
+}
+
+.monster-manual .attack-name{
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.monster-manual .monster-line{
+    width: 100%;
+    border-bottom: 0.15em solid var(--green);
+    margin: 0.3em 0;
+}
+
+.monster-manual .attack-stats{
+    flex-basis: 35%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.monster-manual .attack-stats div{
+    flex-basis: 50%;
+}
+
+.monster-manual .properties{
+    flex-basis: 65%;
+}
+
+.monster-manual .clickable-text:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.monster-manual #dice-roll{
+    display: none;
+    position: fixed;
+    left: 5%;
+    top: 12%;
+    z-index: 5;
+    box-shadow: 0 0 10px 5px black;
+    width: 90%;
+    max-width: 90%;
+}
+
+/* .monster-manual #close-button{
+    position: fixed;
+    left: 6%;
+    top: 13%;
+    z-index: 6;
+    font-family: sans-serif;
+    background-color: var(--green2);
+    padding: 0.3em 0.5em;
+    border-radius: var(--cardCorner);
+}
+
+.monster-manual #close-button:hover{
+    color: black;
+    cursor: pointer;
+} */
+
+.monster-manual #input-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1.5em 0 2em;
+}
+
+.monster-manual .input-column{
+    text-align: right;
+}
+
+.monster-manual .stat-numbers:has(.Agility-label:hover) .Agility,
+.monster-manual .stat-numbers:has(.Brawn-label:hover) .Brawn,
+.monster-manual .stat-numbers:has(.Cunning-label:hover) .Cunning,
+.monster-manual .stat-numbers:has(.Intellect-label:hover) .Intellect,
+.monster-manual .stat-numbers:has(.Presence-label:hover) .Presence,
+.monster-manual .stat-numbers:has(.Willpower-label:hover) .Willpower,
+.monster-manual .stat-numbers:has(.Agility:hover) .Agility-label,
+.monster-manual .stat-numbers:has(.Brawn:hover) .Brawn-label,
+.monster-manual .stat-numbers:has(.Cunning:hover) .Cunning-label,
+.monster-manual .stat-numbers:has(.Intellect:hover) .Intellect-label,
+.monster-manual .stat-numbers:has(.Presence:hover) .Presence-label,
+.monster-manual .stat-numbers:has(.Willpower:hover) .Willpower-label{
+    color: black;
+    cursor: pointer;
+}
+
+.monster-manual .card-banner{
+    background-color: var(--green);
+    width: 110%;
+    position: relative;
+    left: -5%;
+    font-size: var(--size2);
+    padding: 0.3em 0;
+    margin: 0.4em;
+}
+
+.monster-manual #results-holder{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 6em;
+    background-color: var(--grey);
+    margin: -0.6em -0.2em 0;
+}
+
+.monster-manual #results-holder .square-die{
+    height: 4em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.monster-manual #results-holder img{
+    height: 5em;
+    margin: 0.4em 0.7em;
+}
+
+@media screen and (max-width: 768px){
+    .monster-manual .stat-block-section{
+        flex-direction: column;
+    }
+
+    .monster-manual .attack-stats{
+        flex-basis: 100%;
+    }
+
+    .monster-manual .properties{
+        margin-top: 0.2em;
+        flex-basis: 100%;
+    }
+
+    .monster-manual .phone-line{
+        width: 100%;
+        border-bottom: 0.15em solid black;
+        margin: 0.3em 0;
+    }
+    
+    .monster-manual #results-holder{
+        min-height: 4em;
+    }
+    
+    .monster-manual #results-holder .square-die{
+        height: 3em;
+    }
+    
+    .monster-manual #results-holder img{
+        height: 4em;
+        margin: 0 0.4em;
+    }
+}

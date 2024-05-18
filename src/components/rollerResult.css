@@ -1,0 +1,55 @@
+.output-element{
+    /* padding: calc(var(--outputDice)/2 - 1em) 0; */
+    flex-basis: 25%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.output-element h4{
+    position: relative;
+    display: inline;
+    vertical-align: middle ;
+    z-index: 3;
+    margin: calc(var(--baseTextSize) * 1) 0;
+}
+
+.output-element .dice-holder{
+    display: block;
+    position: relative;
+    height: 100%;
+    width: var(--outputDice);
+}
+
+.output-element .dice-holder img{
+    position: absolute;
+    height: var(--outputDice);
+    right: 0;
+    z-index: 2;
+}
+
+.output-element .dice-holder h4{
+    position: absolute;
+    text-align: center;
+    line-height: 3.5rem;
+    height: 50%;
+    width: 100%;
+    right: 0;
+    top: 0;
+    margin: 0;
+    font-size: var(--size2);
+}
+
+@media screen and (max-width: 768px){
+    .output-element :root{
+        --outputDice: 3.5rem;
+    }
+    
+    .output-element .output-element{
+        flex-basis: 50%;
+    }
+
+    .output-element .dice-holder h4{
+        line-height: 2.1rem;
+    }
+}

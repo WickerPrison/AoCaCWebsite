@@ -1,0 +1,13 @@
+#spell-effects #effects-table{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#spell-effects .tier-heading{
+    min-width: var(--minScreenWidth);
+    margin: var(--baseTextSize) auto var(--baseTextSize) auto;
+    text-align: center;
+    font-size: var(--size3);
+    font-family: 'Quintessential', serif;
+}
