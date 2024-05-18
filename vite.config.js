@@ -7,5 +7,6 @@ export default defineConfig({
   server: {
     port: 3500,
     open: true
-  }
+  },
+  base: "https://wickerprison.github.io/AoCaCWebsite/"
 })
