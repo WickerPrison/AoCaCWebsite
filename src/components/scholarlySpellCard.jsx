@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 export default function ScholarlySpellCard({spell, index, updateMethods}){
 
     useEffect(() =>{
+        if(!updateMethods) return;
         switch(spell.SpecialModifier){
             case "lock":
                 updateMethods.updateEffect(index, "special", 1);
@@ -16,6 +17,7 @@ export default function ScholarlySpellCard({spell, index, updateMethods}){
     }, [])
 
     function edgeCaseElements(){
+        if(!updateMethods) return;
         switch(spell.SpecialModifier){
             case "lock":
                 return (
