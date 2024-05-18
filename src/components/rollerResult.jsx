@@ -1,3 +1,5 @@
+import './rollerResult.css';
+
 export default function RollerResult({result, label}){
     return(
         <div className = "output-element">

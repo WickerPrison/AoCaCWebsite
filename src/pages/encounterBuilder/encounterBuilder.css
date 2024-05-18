@@ -52,7 +52,7 @@
 
 .encounter-builder .close-monster{
     position: absolute;
-    font-size: var(--baseTextSize);
+    font-size: calc(var(--baseTextSize) * 0.8);
     top: 0.8em;
     left: 1em;
     background-color: var(--green2);
@@ -86,4 +86,10 @@
 
 .encounter-builder .labels div{
     margin-top: 0.3em;
+}
+
+@media screen and (max-width: 768px){
+    .encounter-builder .close-monster{
+        font-size: var(--baseTextSize);
+    }
 }

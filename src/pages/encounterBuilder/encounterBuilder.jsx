@@ -28,10 +28,9 @@ export default function EncounterBuilder(){
     let [showRoll, setShowRoll] = useState(false);
     let [monsterDict, setMonsterDict] = useState([]);
     let [attackDict, setAttackDict] = useState([]);
+    let [currentMonster, setCurrentMonster] = useState([]);
 
     let hasLoaded = useRef(false);
-
-    let currentMonster;
 
     useEffect(() => {
         if(!localStorage.getItem("monsterId")){
@@ -133,7 +132,7 @@ export default function EncounterBuilder(){
             </section>
 
             <div id="new-monster" className="small-button">
-                <input id="new-monster-input" list="monster-autocomplete" type="text" onChange={(e) => currentMonster = e.target.value}/>
+                <input id="new-monster-input" list="monster-autocomplete" type="text" value={currentMonster} onChange={(e) => setCurrentMonster(e.target.value)}/>
                 <datalist id="monster-autocomplete">
                     {monsterDict.map((monster) => {
                         return <option key={monster.Name} value={monster.Name}/>

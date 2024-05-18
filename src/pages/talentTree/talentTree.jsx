@@ -1,5 +1,5 @@
 import './talentTree.css';
-import StaticHeader from '../../components/staticHeader.jsx';
+import FixedHeader from '../../components/fixedHeader.jsx';
 import PageHeading from '../../components/pageHeading.jsx';
 import skillTrees from './talentTrees.js';
 import {singleFetch} from '../../js/getData.js';
@@ -39,7 +39,7 @@ export default function TalentTree() {
     if(talentList.length === 0){
         return (
             <main id="talent-tree">
-                <StaticHeader/>
+                <FixedHeader/>
                 <PageHeading title={currentClass}/>
             </main>
         )
@@ -47,7 +47,7 @@ export default function TalentTree() {
     else{
         return (
             <main id="talent-tree">
-                <StaticHeader/>
+                <FixedHeader/>
                 <PageHeading title={currentClass}/>
                 <h3>Talent Tree</h3>
                 <div id="tree-holder">

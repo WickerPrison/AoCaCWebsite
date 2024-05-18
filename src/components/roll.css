@@ -1,5 +1,5 @@
-#dice-roller :root{
-    --outputDice: 4em;
+#dice-roller{
+    --outputDice: 3em;
 }
 
 #dice-roller .box-holder{
@@ -29,7 +29,7 @@
 
 #dice-roller .remove-button{
     color: white;
-    font-size: var(--baseTextSize);
+    font-size: calc(var(--baseTextSize) * 0.8);
     font-family: sans-serif;
     background-color: var(--green2);
     border-radius: var(--cardCorner);
@@ -37,7 +37,7 @@
     box-shadow: 0 0 5px .2px black;
     position: absolute;
     z-index: 3;
-    left: 2em;
+    left: 1em;
     top: 0.7em;
 }
 
@@ -129,72 +129,24 @@
     min-height: var(--outputDice);
 }
 
-#dice-roller .output-element{
-    padding: calc(var(--outputDice)/2 - 1em) 0;
-    flex-basis: 25%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-#dice-roller .output-element h4{
-    position: relative;
-    display: inline;
-    vertical-align: middle ;
-    z-index: 3;
-}
-
-#dice-roller .dice-holder{
-    display: inline-block;
-    position: relative;
-    height: 100%;
-    width: var(--outputDice);
-}
-
-#dice-roller .dice-holder img{
-    position: absolute;
-    height: var(--outputDice);
-    right: 0;
-    z-index: 2;
-}
-
-#dice-roller .dice-holder h4{
-    position: absolute;
-    text-align: center;
-    line-height: 2.5em;
-    height: 50%;
-    width: 100%;
-    right: 0;
-    top: 0;
-    margin: 0;
-    font-size: var(--size2);
-}
-
 @media screen and (max-width: 768px){
     #dice-roller :root{
-        --outputDice: 3.5em;
+        --outputDice: 3.5rem;
     }
     
     #dice-roller .button-box{
         width: 90%;
     }
 
-    #dice-roller .output-element{
-        flex-basis: 50%;
-    }
-
     #dice-roller .remove-button{
         left: 0.6em;
         top: 0.6em;
+        font-size: var(--baseTextSize);
     }
 
     #dice-roller input[type='text']{
         width: 50%;
         margin-left: 0.9em;
-    }
-
-    #dice-roller .dice-holder h4{
-        line-height: 2.1em;
     }
 
     #dice-roller .results-holder{
