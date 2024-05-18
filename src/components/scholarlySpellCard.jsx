@@ -7,6 +7,9 @@ export default function ScholarlySpellCard({spell, index, updateMethods}){
             case "lock":
                 updateMethods.updateEffect(index, "special", 1);
                 break;
+            case "languages":
+                updateMethods.updateEffect(index, "special", 2);
+                break;
             default:
                 break;
         }
@@ -21,6 +24,16 @@ export default function ScholarlySpellCard({spell, index, updateMethods}){
                     min="0" 
                     value={spell.special} 
                     onChange={ e => updateMethods.updateEffect(index, "special", e.target.value)}/></h4>
+                )
+            case "languages":
+                return (
+                    <>
+                    <label className="card-element">Language Rarity: </label>
+                    <select value={spell.special} onChange={ e => updateMethods.updateEffect(index, "special", e.target.value)}>  
+                        <option value={2}>Common</option>
+                        <option value={4}>Rare</option>
+                    </select>
+                    </>
                 )
         }
     }

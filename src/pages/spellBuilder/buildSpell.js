@@ -104,7 +104,9 @@ function specialModifier(pool, spellData, i){
             pool.autoSuccess += Number(spellData.currentEffects[i].nodes);
             return pool;
         case "lock":
+        case "languages":
             pool.difficulty += Number(spellData.currentEffects[i].special);
+            return pool;
         default:
             return pool;
     }
