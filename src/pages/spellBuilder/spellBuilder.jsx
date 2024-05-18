@@ -1,5 +1,5 @@
 import './spellBuilder.css';
-import StaticHeader from "../../components/staticHeader";
+import FixedHeader from "../../components/fixedHeader";
 import PageHeading from "../../components/pageHeading";
 import {useState, useEffect} from 'react';
 import { singleFetch } from '../../js/getData';
@@ -70,7 +70,7 @@ export default function SpellBuilder(){
 
     return (
         <main id="spell-builder">
-            <StaticHeader/>
+            <FixedHeader/>
             <PageHeading title="Spell Builder"/>
             <p>Each time you cast a scholarly spell, you must make a Scholarly Magic skill check. The Difficulty of this skill check will depend on various factors. When you cast a scholarly spell, follow the steps listed below to determine the Difficulty of the Scholarly Magic skill check.</p>
             <h3 className="heading-band">Step 1. Choose the Maximum Range Band</h3>
