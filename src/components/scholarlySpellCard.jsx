@@ -35,6 +35,25 @@ export default function ScholarlySpellCard({spell, index, updateMethods}){
                     </select>
                     </>
                 )
+            case "enemyType":
+                return (
+                    <>
+                    <label className="card-element">Enemy Type: </label>
+                    <select value={spell.special} onChange={ e => updateMethods.updateEffect(index, "special", e.target.value)}>  
+                        <option value={0}>Minion</option>
+                        <option value={2}>Rival</option>
+                        <option value={4}>Nemesis</option>
+                    </select>
+                    </>
+                )
+            case "unwillingTarget":
+                return (
+                    <h4 className="card-element">Unwilling Targets: <input 
+                    type="number" 
+                    min="0" 
+                    value={spell.special} 
+                    onChange={ e => updateMethods.updateEffect(index, "special", e.target.value)}/></h4>
+                )
         }
     }
     

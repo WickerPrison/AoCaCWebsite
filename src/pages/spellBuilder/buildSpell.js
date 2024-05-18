@@ -107,6 +107,12 @@ function specialModifier(pool, spellData, i){
         case "languages":
             pool.difficulty += Number(spellData.currentEffects[i].special);
             return pool;
+        case "enemyType":
+            pool.penalty +=Number(spellData.currentEffects[i].special);
+            return pool;
+        case "unwillingTarget":
+            pool.upgradeDifficulty += Number(spellData.currentEffects[i].special);
+            return pool;
         default:
             return pool;
     }
