@@ -93,7 +93,7 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                         <div>Silhouette:</div>
                         <div>Move. Pts.:</div>
                     </div>
-                    <div className="monster-column">
+                    <div className="monster-column1">
                         {monsterData ? 
                         (<div className="hp">
                             <input className="stat-field" type="number" value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
@@ -102,9 +102,9 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                         :<div className="hp">{monster.HP}</div>}
                         {monsterData ?
                         (<div className="stamina">
-                            <input className="stat-field" type="number" value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
-                        <div className="stat-max">/{monster.Stamina}</div>
-                    </div>)
+                                <input className="stat-field" type="number" value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
+                            <div className="stat-max">/{monster.Stamina}</div>
+                        </div>)
                         :<div className="stamina">{monster.Stamina}</div>}
                         <div className="damage-reduction">{monster["Damage Reduction"]}</div>
                         <div className="defense">{monster["Melee Defense"]}|{monster["Ranged Defense"]}</div>
@@ -118,7 +118,7 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                             return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute], attribute)}>{attribute}: </div>
                         })}
                     </div>
-                    <div className="monster-column">
+                    <div className="monster-column2">
                         {attributes.map((attribute) => {
                             let classes = attribute + " clickable-text";
                             return <div key={attribute} className={classes}>{monster[attribute]}</div>

@@ -146,6 +146,7 @@
 
 #spell-builder #assemble-pool{
     font-size: var(--size2);
+    padding: 0.6em;
 }
 
 #spell-builder #output{

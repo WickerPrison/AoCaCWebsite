@@ -39,16 +39,7 @@
 }
 
 .encounter-builder .stat-field[type="number"]{
-    display: inline;
-    font-size: var(--baseTextSize);
-    background-color: var(--green2);
-    color: white;
-    border: none;
-    border-radius: 0.3em;
-    outline: white dashed 1px;
-    font-family: var(--bodyFont);
-    vertical-align: 0;
-    padding: 0 0 0 0.2em;
+    margin-right: 0.2em;
 }
 
 .encounter-builder .stat-max{
@@ -61,6 +52,7 @@
 
 .encounter-builder .close-monster{
     position: absolute;
+    font-size: var(--baseTextSize);
     top: 0.8em;
     left: 1em;
     background-color: var(--green2);
@@ -75,11 +67,16 @@
     cursor: pointer;
 }
 
-.encounter-builder .monster-column{
-    flex-basis: 20%;
+.encounter-builder .monster-column1{
+    flex-basis: 26%;
 }
 
-.encounter-builder .monster-column div{
+.encounter-builder .monster-column2{
+    flex-basis: 14%;
+}
+
+.encounter-builder .monster-column1 div,
+.encounter-builder .monster-column2 div{
     margin-top: 0.3em;
 }
 

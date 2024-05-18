@@ -57,7 +57,7 @@
     border-color: black;
     border-radius: var(--roundedCorners);
     padding: var(--paddingSize);  
-    font-size: calc(var(--baseTextSize) * 1.2);
+    font-size: var(--baseTextSize);
     font-weight: normal;
     text-wrap: wrap;
     word-wrap: break-word;
@@ -104,7 +104,7 @@
     display: flex;
     background-color: var(--green);
     color: white;
-    font-size: calc(var(--size2) * 1.2);
+    font-size: var(--size2);
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -116,7 +116,7 @@
     font-size: var(--baseTextSize);
     word-wrap: break-word;
     word-break: break-word;
-    font-size: calc(var(--baseTextSize) * 1.2);
+    font-size: var(--baseTextSize);
 }
 
 #talent-tree .table-talent{
@@ -134,16 +134,16 @@
 
 @media screen and (max-width: 768px){
     #talent-tree .talent{
-        font-size: calc(var(--baseTextSize)) ;
+        font-size: calc(var(--baseTextSize) * 0.9) ;
     }
 
     #talent-tree .talent:focus::after, #talent-tree .talent:hover::after{
-        font-size: calc(var(--baseTextSize));
+        font-size: calc(var(--baseTextSize)) * 0.9;
         padding: 6%;
         left: -6%;
     }
 
     #talent-tree #talent-grid div{
-        font-size: calc(var(--baseTextSize)) ;
+        font-size: calc(var(--baseTextSize) * 0.9) ;
     }
 }

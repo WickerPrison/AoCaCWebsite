@@ -19,8 +19,8 @@
 
     --headerFont: 'Quintessential', serif;
     --bodyFont: 'Merriweather', serif;
-    --baseTextSize: 15px;
-    --size2: calc(var(--baseTextSize) * 1.62);
+    --baseTextSize: 1.2rem;
+    --size2: calc(1rem * 1.62);
     --size3: calc(var(--size2) * 1.62);
     --size4: calc(var(--size3) * 1.62);
     --smallFont: calc(var(--baseTextSize) / 1.62);
@@ -141,7 +141,7 @@ h3{
 }
 
 h4{
-    font-size: var(--baseTextSize);
+    font-size: calc(var(--baseTextSize));
 }
 
 #page-heading{
@@ -156,7 +156,7 @@ h4{
     display: inline-block;
     background-color: var(--green2);
     border: none;
-    padding: 0.2em;
+    padding: 0.3em;
     padding-top: 0;
     color: white;
     border-radius: 12px;
@@ -246,8 +246,7 @@ button:hover{
     margin-top: 5px;
     background-color: var(--green2);
     color: white;
-    /* font-size: var(--baseTextSize); */
-    font-size: 15px;
+    font-size: var(--baseTextSize);
     font-weight: normal;
 }
 
@@ -342,13 +341,27 @@ a:hover{
     color: var(--green);
 }
 
+select{
+    font-size: var(--baseTextSize);
+}
+
 input{
-    width: calc(var(--baseTextSize) * 2);
+    width: calc(var(--baseTextSize) * 2.5);
     vertical-align: 2px;
 }
 
-input[type='text']{
-    font-size: calc(var(--baseTextSize) * 0.6);
+input[type='text'],
+input[type="number"]{
+    display: inline;
+    font-size: var(--baseTextSize);
+    background-color: var(--green2);
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    outline: white dashed 1px;
+    font-family: var(--bodyFont);
+    vertical-align: 0;
+    padding: 0 0 0 0.4em;
 }
 
 .can-point{
@@ -378,8 +391,9 @@ footer{
 
 @media screen and (max-width: 768px){
     :root{
-        --baseTextSize: 12px;
-        --diceSize: 7vh;
+        --baseTextSize: .7rem;
+        --size2: calc(0.7rem * 1.62);
+        --diceSize: 6vh;
         --outputDice: 3.5em;
     }
 

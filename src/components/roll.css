@@ -16,12 +16,11 @@
     font-size: calc(var(--size2));
     width: 50%;
     text-align: center;
-    font-family: var(--bodyFont);
     font-weight: bold;
-    color: white;
     background-color: var(--green);
     margin: 0;
-    border: 0;
+    border: none;
+    outline: none;
 }
 
 #dice-roller input[type="text"]:focus-visible, #dice-roller input[type="text"]:hover{
@@ -30,6 +29,7 @@
 
 #dice-roller .remove-button{
     color: white;
+    font-size: var(--baseTextSize);
     font-family: sans-serif;
     background-color: var(--green2);
     border-radius: var(--cardCorner);
@@ -38,7 +38,7 @@
     position: absolute;
     z-index: 3;
     left: 2em;
-    top: 1em;
+    top: 0.7em;
 }
 
 #dice-roller .remove-button:hover{
@@ -70,9 +70,10 @@
 
 #dice-roller .dice-button{
     width: 20%;
+    font-size: var(--baseTextSize);
     background-color: var(--green);
     border-radius: var(--cardCorner);
-    padding: 0.6em;
+    padding: 0.4em;
     box-shadow: 0 0 5px .2px black;
 }
 
@@ -104,14 +105,14 @@
 }
 
 #dice-roller .results-holder .square-die{
-    height: 4em;
+    height: 3.2em;
     margin-top: auto;
     margin-bottom: auto;
 }
 
 #dice-roller .results-holder img{
-    height: 5em;
-    margin: 0.4em 0.7em;
+    height: 4em;
+    margin: 0.5em 0.4em;
 }
 
 #dice-roller{

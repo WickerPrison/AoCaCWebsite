@@ -40,7 +40,8 @@
     text-align: left;
 }
 
-.monster-manual .monster-column{
+.monster-manual .monster-column1,
+.monster-manual .monster-column2{
     display: flex;
     flex-direction: column;
     justify-content: left;
