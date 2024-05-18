@@ -1,9 +1,0 @@
-var buttons = document.getElementsByClassName("class-link");
-
-for(var i = 0; i < buttons.length; i++){
-    buttons[i].addEventListener("click", getClassName);
-}
-
-function getClassName(getClassName){
-    sessionStorage.setItem('className', getClassName);    
-}
