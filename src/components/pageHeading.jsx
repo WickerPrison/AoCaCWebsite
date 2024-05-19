@@ -6,7 +6,7 @@ export default function PageHeading({title}) {
             <section id="page-title">
                 <img className="square-die" src="/SVG/Boost.svg"/>
                 <img src={window.location.origin + "/SVG/Ability.svg"}/>
-                <img src="/SVG/Proficiency.svg"/>
+                <img src="./SVG/Proficiency.svg"/>
                 <img src="/SVG/Challenge.svg"/>
                 <img src="/SVG/Difficulty.svg"/>
                 <img className="square-die" src="/SVG/Penalty.svg"/>
