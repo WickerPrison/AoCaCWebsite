@@ -5,15 +5,15 @@ import './home.css';
 
 const resources = [
     {
-        link: "/AoCaCWebsite/DiceRoller",
+        link: "DiceRoller",
         label: "Dice Roller"
     },
     {
-        link: "/AoCaCWebsite/MonsterManual",
+        link: "MonsterManual",
         label: "Monster Manual"
     },
     {
-        link: "/AoCaCWebsite/EncounterBuilder",
+        link: "EncounterBuilder",
         label: "Encounter Builder"
     }
 ];
@@ -73,30 +73,30 @@ const classes = [
 
 const equipment = [
     {
-        link: "/AoCaCWebsite/GeneralEquipment",
+        link: "GeneralEquipment",
         label: "General"
     },
     {
-        link: "/AoCaCWebsite/ConsumableItems",
+        link: "ConsumableItems",
         label: "Consumables"
     },
     {
-        link: "/AoCaCWebsite/Weapons",
+        link: "Weapons",
         label: "Weapons"
     },
     {
-        link: "/AoCaCWebsite/MagicItems",
+        link: "MagicItems",
         label: "Magic Items"
     }
 ];
 
 const scholarly = [
     {
-        link: "/AoCaCWebsite/SpellEffects",
+        link: "SpellEffects",
         label: "Spell Effects"
     },
     {
-        link: "/AoCaCWebsite/SpellBuilder",
+        link: "SpellBuilder",
         label: "Spell Builder"
     }
 ];
