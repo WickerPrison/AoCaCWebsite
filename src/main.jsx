@@ -17,7 +17,7 @@ import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 
 const router = createBrowserRouter([
   {
-    path:'/AoCaCWebsite',
+    path:'/',
     element: <App/>,
     errorElement: <Error/>,
     children: [
@@ -26,43 +26,43 @@ const router = createBrowserRouter([
         element: <Home/>,
       },
       {
-        path:'TalentTree',
+        path:'/TalentTree',
         element: <TalentTree/>
       },
       {
-        path:"SpellEffects",
+        path:"/SpellEffects",
         element: <SpellEffects/>
       },
       {
-        path:"DiceRoller",
+        path:"/DiceRoller",
         element: <DiceRoller/>
       },
       {
-        path: "MonsterManual",
+        path: "/MonsterManual",
         element: <MonsterManual/>
       },
       {
-        path: "EncounterBuilder",
+        path: "/EncounterBuilder",
         element: <EncounterBuilder/>
       },
       {
-        path: "GeneralEquipment",
+        path: "/GeneralEquipment",
         element: <GeneralEquipment/>
       },
       {
-        path: "ConsumableItems",
+        path: "/ConsumableItems",
         element: <ConsumableItems/>
       },
       {
-        path:"MagicItems",
+        path:"/MagicItems",
         element: <MagicItems/>
       },
       {
-        path:"Weapons",
+        path:"/Weapons",
         element: <Weapons/>
       },
       {
-        path:"SpellBuilder",
+        path:"/SpellBuilder",
         element: <SpellBuilder/>
       }
     ],
