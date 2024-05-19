@@ -8,5 +8,6 @@ export default defineConfig({
     port: 3500,
     open: true
   },
+  publicDir: 'public',
   base: '/AoCaCWebsite/'
 })
