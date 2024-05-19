@@ -17,14 +17,13 @@ import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 
 const router = createBrowserRouter([
   {
-    //basename: "/AoCaCWebsite",
     path:'/AoCaCWebsite',
-    element: <App />,
-    errorElement: <Error />,
+    element: <App/>,
+    errorElement: <Error/>,
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home/>,
       },
       {
         path:'TalentTree',
