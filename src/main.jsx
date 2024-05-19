@@ -17,7 +17,8 @@ import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    //basename: "/AoCaCWebsite",
+    path:'/AoCaCWebsite',
     element: <App />,
     errorElement: <Error />,
     children: [
@@ -26,23 +27,23 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path:'/TalentTree',
+        path:'TalentTree',
         element: <TalentTree/>
       },
       {
-        path:"/SpellEffects",
+        path:"SpellEffects",
         element: <SpellEffects/>
       },
       {
-        path:"/DiceRoller",
+        path:"DiceRoller",
         element: <DiceRoller/>
       },
       {
-        path: "/MonsterManual",
+        path: "MonsterManual",
         element: <MonsterManual/>
       },
       {
-        path: "/EncounterBuilder",
+        path: "EncounterBuilder",
         element: <EncounterBuilder/>
       },
       {

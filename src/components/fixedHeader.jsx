@@ -27,7 +27,7 @@ export default function FixedHeader(props){
     return(
         <header id="fixed-header" style={styles.fixedHeader}>
             {props.entries ? <button id="nav-hide" onClick={toggleLinks}>{showLinks ? "v":">"}</button>: null}
-            <h1><Link id="HomeButton" to="/">Age of Conquest and Calamity</Link></h1>
+            <h1><Link id="HomeButton" to="/AoCaCWebsite">Age of Conquest and Calamity</Link></h1>
             {props.entries ? (props.entries.map((result) => {
                 return <a key={result.label} className={`nav-bar ${showLinks ? "hide-links":""}`} href={result.link}>{result.label}</a>
             })): null}
