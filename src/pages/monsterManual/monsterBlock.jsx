@@ -43,6 +43,7 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
     }
     
     function setupSkill(skill, index){
+        if(monster.Tier == "Swarm") return swarmSkill(skill, index);
         skill = skill.split(" ");
         if(skill.length == 3){
             skill[0] = skill[0] + " " + skill[1];
@@ -53,6 +54,16 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
             skillString += ", "
         }
         return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill[0], skill[1])}>{skillString}</div>);
+    }
+
+    function swarmSkill(skill, index){
+        let skillString = skill + " ";
+        monsterData ? skillString += monsterData.hp: skillString += monster.HP;
+
+        if(index < monster.Skills.split(", ").length - 1){
+            skillString += ", "
+        }
+        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill, monsterData ? monsterData.hp : monster.HP)}>{skillString}</div>)
     }
 
     function setResistances(){
@@ -128,26 +139,35 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                 <div className="phone-line"></div>
                 <div className="stat-text">
                     <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
-                    <div className="skills"><strong>Skills: </strong>
+
+                    {monster.Skills.length > 0 
+                    ?<div className="skills"><strong>Skills: </strong>
                         {monster.Skills.split(", ").map((skill, index) => {
                             return setupSkill(skill, index);
                         })}
                     </div>
-                    {monster["Talents/Abilities"].length > 0 ? 
-                    (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
+                    :null}
+
+                    {monster["Talents/Abilities"].length > 0 
+                    ? (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
                     :(null)}
-                    {monster["Special Features"].length > 0 ? 
-                    (<div className="talents-abilities"><strong>Special Features: </strong>{monster["Special Features"]}</div>)
+
+                    {monster["Special Features"].length > 0 
+                    ? (<div className="talents-abilities"><strong>Special Features: </strong>{monster["Special Features"]}</div>)
                     :(null)}
-                    <div className="special-features"></div>
                 </div>
             </div>
-            <div className="attacks-heading">Attacks</div>
-            <div className="attacks">
-                {attacks.map((attack, index) => {
-                    return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll}/>
-                })}
-            </div>
+            {attacks.length > 0 
+            ?(<>
+                <div className="attacks-heading">Attacks</div>
+                <div className="attacks">
+                    {attacks.map((attack, index) => {
+                        return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll}/>
+                    })}
+                </div>
+            </>)
+            :null}
+
         </section>
     )
 }
