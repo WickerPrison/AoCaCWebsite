@@ -3,6 +3,7 @@ import PageHeading from "../components/pageHeading";
 import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import { multipleFetch } from '../js/getData';
+import Loading from "../components/loading";
 
 const wondrousItemsData = {
     title:"Wondrous Items",
@@ -33,7 +34,7 @@ export default function MagicItems(){
         <main>
             <FixedHeader/>
             <PageHeading title="Magic Items"/>
-            {wondrousItems.length > 0 ? <Table tableData={wondrousItemsData} contentData={wondrousItems}/> : null}
+            {wondrousItems.length > 0 ? <Table tableData={wondrousItemsData} contentData={wondrousItems}/> : <Loading/>}
             {enchantingEffects.length > 0 ? <Table tableData={enchantingEffectsData} contentData={enchantingEffects}/> : null}
         </main>
     )

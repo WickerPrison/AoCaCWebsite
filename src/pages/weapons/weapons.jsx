@@ -5,6 +5,7 @@ import Table from '../../components/table';
 import { useEffect, useState } from 'react';
 import { multipleFetch } from '../../js/getData';
 import ModTable from './modTable';
+import Loading from '../../components/loading';
 
 const headerEntries = [
     { link: "#brawl", label: "Brawl"},
@@ -55,24 +56,36 @@ export default function Weapons(){
         getData();
     }, [])
     
-    return(
-        <main>
-            <FixedHeader entries={headerEntries}/>
-            <PageHeading title="Weapons"/>
-            <div id="brawl"></div>
-            {brawl.length > 0 ? <Table title="Brawl" tableData={weaponData} contentData={brawl}/> : null}
-            <div id="lightWeapons"></div>
-            {lightWeapons.length > 0 ? <Table title="Light Weapons" tableData={weaponData} contentData={lightWeapons}/> : null}
-            <div id="heavyWeapons"></div>
-            {heavyWeapons.length > 0 ? <Table title="Heavy Weapons" tableData={weaponData} contentData={heavyWeapons}/> : null}
-            <div id="ranged"></div>
-            {ranged.length > 0 ? <Table id="ranged" title="Ranged" tableData={weaponData} contentData={ranged}/> : null}
-            <div id="properties"></div>
-            {weaponProperties.length > 0 ? <Table tableData={propertiesData} contentData={weaponProperties}/> : null}
-            <div id="mods"></div>
-            {weaponMods.length > 0 ? <ModTable mods={weaponMods}/> : null}
-            <div id="masterwork"></div>
-            {masterwork.length > 0 ? <Table tableData={masterworkData} contentData={masterwork}/> : null}
-        </main>
-    )
+
+    if(brawl.length <= 0){
+        return(
+            <main>
+                <FixedHeader entries={headerEntries}/>
+                <PageHeading title="Weapons"/>
+                <Loading/>
+            </main>
+        )
+    }
+    else{
+        return(
+            <main>
+                <FixedHeader entries={headerEntries}/>
+                <PageHeading title="Weapons"/>
+                <div id="brawl"></div>
+                {brawl.length > 0 ? <Table title="Brawl" tableData={weaponData} contentData={brawl}/> : null}
+                <div id="lightWeapons"></div>
+                {lightWeapons.length > 0 ? <Table title="Light Weapons" tableData={weaponData} contentData={lightWeapons}/> : null}
+                <div id="heavyWeapons"></div>
+                {heavyWeapons.length > 0 ? <Table title="Heavy Weapons" tableData={weaponData} contentData={heavyWeapons}/> : null}
+                <div id="ranged"></div>
+                {ranged.length > 0 ? <Table id="ranged" title="Ranged" tableData={weaponData} contentData={ranged}/> : null}
+                <div id="properties"></div>
+                {weaponProperties.length > 0 ? <Table tableData={propertiesData} contentData={weaponProperties}/> : null}
+                <div id="mods"></div>
+                {weaponMods.length > 0 ? <ModTable mods={weaponMods}/> : null}
+                <div id="masterwork"></div>
+                {masterwork.length > 0 ? <Table tableData={masterworkData} contentData={masterwork}/> : null}
+            </main>
+        )
+    }
 }

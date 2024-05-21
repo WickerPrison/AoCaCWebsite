@@ -5,6 +5,7 @@ import skillTrees from './talentTrees.js';
 import {singleFetch} from '../../js/getData.js';
 import { useEffect, useState } from 'react';
 import InnateSpells from './innateSpells.jsx';
+import Loading from '../../components/loading.jsx';
 
 
 export default function TalentTree() {
@@ -41,6 +42,7 @@ export default function TalentTree() {
             <main id="talent-tree">
                 <FixedHeader/>
                 <PageHeading title={currentClass}/>
+                <Loading/>
             </main>
         )
     }
@@ -49,6 +51,7 @@ export default function TalentTree() {
             <main id="talent-tree">
                 <FixedHeader/>
                 <PageHeading title={currentClass}/>
+                {talentList.length > 0}
                 <h3>Talent Tree</h3>
                 <div id="tree-holder">
                     <section id="tree">

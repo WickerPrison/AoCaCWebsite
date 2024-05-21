@@ -3,6 +3,7 @@ import PageHeading from "../components/pageHeading";
 import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import { singleFetch } from '../js/getData';
+import Loading from "../components/loading";
 
 const bombsData = {
     title:"Bombs",
@@ -45,14 +46,25 @@ export default function ConsumableItems(){
         getData();
     }, [])
 
-    return (
-        <main>
-            <FixedHeader/>
-            <PageHeading title="Consumable Items"/>
-            {bombs.length > 0 ? <Table tableData={bombsData} contentData={bombs}/> : null}
-            {medicalItems.length > 0 ? <Table tableData={medicalItemsData} contentData={medicalItems}/> : null}
-            {potions.length > 0 ? <Table tableData={potionsData} contentData={potions}/> : null}
-            {misc.length > 0 ? <Table tableData={miscData} contentData={misc}/> : null}
-        </main>
-    )
+    if(bombs.length <= 0){
+        return(
+            <main>
+                <FixedHeader/>
+                <PageHeading title="Consumable Items"/>
+                <Loading/>
+            </main>
+        )
+    }
+    else{
+        return (
+            <main>
+                <FixedHeader/>
+                <PageHeading title="Consumable Items"/>
+                {bombs.length > 0 ? <Table tableData={bombsData} contentData={bombs}/> : null}
+                {medicalItems.length > 0 ? <Table tableData={medicalItemsData} contentData={medicalItems}/> : null}
+                {potions.length > 0 ? <Table tableData={potionsData} contentData={potions}/> : null}
+                {misc.length > 0 ? <Table tableData={miscData} contentData={misc}/> : null}
+            </main>
+        )
+    }
 }

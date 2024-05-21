@@ -6,6 +6,7 @@ import Roll from "../../components/roll";
 import { useEffect, useState } from 'react';
 import { multipleFetch, singleFetch } from '../../js/getData';
 import { RollStorage, RollData } from '../../js/rollDice';
+import Loading from '../../components/loading';
 
 const newRollStorage =() => {
     let newStorage = new RollStorage();
@@ -38,16 +39,27 @@ export default function MonsterManual(){
         }
     }
 
-    return (
-        <main className='monster-manual'>
-            <FixedHeader/>
-            <PageHeading title="Monster Manual"/>
-            <section id="monster-list">
-                {monsters.map((monster) => {
-                    return <MonsterBlock key={monster.Name} monster={monster} allAttacks={attacks} updateMethods={{setRoll, setShowRoll}}/>
-                })}
-            </section>
-            {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods}/>:null}
-        </main>
-    )
+    if(monsters.length <= 0){
+        return (
+            <main className='monster-manual'>
+                <FixedHeader/>
+                <PageHeading title="Monster Manual"/>
+                <Loading/>
+            </main>
+        )
+    }
+    else{
+        return (
+            <main className='monster-manual'>
+                <FixedHeader/>
+                <PageHeading title="Monster Manual"/>
+                <section id="monster-list">
+                    {monsters.map((monster) => {
+                        return <MonsterBlock key={monster.Name} monster={monster} allAttacks={attacks} updateMethods={{setRoll, setShowRoll}}/>
+                    })}
+                </section>
+                {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods}/>:null}
+            </main>
+        )
+    }
 }
