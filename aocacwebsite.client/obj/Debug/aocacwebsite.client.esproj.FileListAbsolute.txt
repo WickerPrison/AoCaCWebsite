@@ -1,0 +1,2 @@
+C:\Users\cobyl\bootcamp\aocacwebsite.client\obj\Debug\aocacwebsite.client.esproj.CoreCompileInputs.cache
+C:\Users\cobyl\Desktop\Games\AgeOfKings\AoCaCWebsite\aocacwebsite.client\obj\Debug\aocacwebsite.client.esproj.CoreCompileInputs.cache

@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "d1LXEA03tKgjeUeqLFwG/aH/9kpGYs/PpF+3tpXUDtk=",
+  "Source": "AoCaCWebsite.Server",
+  "BasePath": "_content/AoCaCWebsite.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\aocacwebsite.client.esproj",
+      "Version": 2,
+      "Source": "aocacwebsite.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
