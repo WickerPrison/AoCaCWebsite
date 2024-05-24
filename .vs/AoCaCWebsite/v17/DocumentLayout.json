@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.server\\models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|solutionrelative:aocacwebsite.server\\models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|solutionrelative:aocacwebsite.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|solutionrelative:aocacwebsite.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|solutionrelative:aocacwebsite.server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7E3B8F80-AAEA-40A3-B1E4-A366DA11B6A0}|AoCaCWebsite.Server\\AoCaCWebsite.Server.csproj|solutionrelative:aocacwebsite.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE16E1C7-D72B-4751-9713-D9BDF5C1C29A}|aocacwebsite.client\\aocacwebsite.client.esproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\aocacwebsite.client\\.eslintrc.cjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{AE16E1C7-D72B-4751-9713-D9BDF5C1C29A}|aocacwebsite.client\\aocacwebsite.client.esproj|solutionrelative:aocacwebsite.client\\.eslintrc.cjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -42,11 +66,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\appsettings.json",
+              "RelativeToolTip": "AoCaCWebsite.Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-24T15:18:11.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20240524011933_testing.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs",
+              "RelativeToolTip": "AoCaCWebsite.Server\\Migrations\\20240524011933_testing.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T01:19:33.654Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserContext.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Models\\UserContext.cs",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\Models\\UserContext.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Models\\UserContext.cs",
+              "RelativeToolTip": "AoCaCWebsite.Server\\Models\\UserContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T21:42:34.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Program.cs",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Program.cs",
+              "RelativeToolTip": "AoCaCWebsite.Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAADpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T21:24:55.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Models\\User.cs",
+              "RelativeToolTip": "AoCaCWebsite.Server\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T21:40:26.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AoCaCWebsite.Server\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\AoCaCWebsite.Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AoCaCWebsite.Server\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T21:21:16.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": ".eslintrc.cjs",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\.eslintrc.cjs",
               "RelativeDocumentMoniker": "aocacwebsite.client\\.eslintrc.cjs",
@@ -59,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "vite.config.js",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\vite.config.js",
               "RelativeDocumentMoniker": "aocacwebsite.client\\vite.config.js",
@@ -67,11 +167,12 @@
               "RelativeToolTip": "aocacwebsite.client\\vite.config.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-23T19:04:14.637Z"
+              "WhenOpened": "2024-05-23T19:04:14.637Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\.gitignore",
               "RelativeDocumentMoniker": "aocacwebsite.client\\.gitignore",
@@ -79,11 +180,12 @@
               "RelativeToolTip": "aocacwebsite.client\\.gitignore",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-23T19:03:35.98Z"
+              "WhenOpened": "2024-05-23T19:03:35.98Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\index.html",
               "RelativeDocumentMoniker": "aocacwebsite.client\\index.html",
@@ -91,11 +193,12 @@
               "RelativeToolTip": "aocacwebsite.client\\index.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-23T19:01:50.885Z"
+              "WhenOpened": "2024-05-23T19:01:50.885Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "main.jsx",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\src\\main.jsx",
               "RelativeDocumentMoniker": "aocacwebsite.client\\src\\main.jsx",
@@ -103,11 +206,12 @@
               "RelativeToolTip": "aocacwebsite.client\\src\\main.jsx",
               "ViewState": "AQIAAAQAAAAAAAAAAAAiwBgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-05-23T18:58:27.875Z"
+              "WhenOpened": "2024-05-23T18:58:27.875Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "package.json",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\package.json",
               "RelativeDocumentMoniker": "aocacwebsite.client\\package.json",
@@ -115,11 +219,12 @@
               "RelativeToolTip": "aocacwebsite.client\\package.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-23T18:51:06.663Z"
+              "WhenOpened": "2024-05-23T18:51:06.663Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "App.jsx",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\src\\App.jsx",
               "RelativeDocumentMoniker": "aocacwebsite.client\\src\\App.jsx",
@@ -127,11 +232,12 @@
               "RelativeToolTip": "aocacwebsite.client\\src\\App.jsx",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-05-23T18:49:14.557Z"
+              "WhenOpened": "2024-05-23T18:49:14.557Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\aocacwebsite.client\\src\\index.css",
               "RelativeDocumentMoniker": "aocacwebsite.client\\src\\index.css",
@@ -139,7 +245,8 @@
               "RelativeToolTip": "aocacwebsite.client\\src\\index.css",
               "ViewState": "AQIAACABAAAAAAAAAAAgwC4BAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-23T18:48:29.663Z"
+              "WhenOpened": "2024-05-23T18:48:29.663Z",
+              "EditorCaption": ""
             }
           ]
         }
