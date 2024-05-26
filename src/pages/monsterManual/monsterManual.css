@@ -5,9 +5,10 @@
 }
 
 .monster-manual .monster-card{
+    box-sizing: border-box;
     display: block;
-    width: 80%;
-    max-width: 80%;
+    width: 90%;
+    max-width: 90%;
     margin: 1.5em auto;
     background-color: var(--green2);
     padding: 0 2em 1em;

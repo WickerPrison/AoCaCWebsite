@@ -1,0 +1,57 @@
+.filters{
+    width: 90%;
+    display: block;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.filters select{
+    display: inline;
+    font-size: var(--baseTextSize);
+    background-color: var(--green2);
+    color: white;
+    border: none;
+    border-radius: 0.3em;
+    outline: white dashed 1px;
+    font-family: var(--bodyFont);
+    vertical-align: 0;
+    padding: 0 0 0 0.4em;
+}
+
+.filters .options-holder{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    padding: 0 1rem;
+}
+
+.filters .options-label{
+    margin: 0.3rem;
+    font-size: var(--size2);
+}
+
+.filters .option{
+    background-color: var(--green2);
+    padding: 0.3rem 0.7rem;
+    margin: 0.3rem;
+    border-radius: 15px;
+}
+
+.filters .option:hover{
+    cursor: pointer;
+    color: var(--green3);
+}
+
+.filters .selected{
+    background-color: var(--green);
+}
+
+.filters .sort-options{
+    float: left;
+    padding: 0.3rem 0.7rem;
+    margin: 0.3rem;
+}
+
+.filters .sort-options select{
+    margin: 0.3rem 0.4rem;
+}

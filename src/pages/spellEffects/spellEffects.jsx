@@ -5,21 +5,32 @@ import { useEffect, useState } from 'react';
 import { singleFetch } from '../../js/getData';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import Loading from '../../components/loading';
+import Filters from '../../components/filters';
+
+const filterArray = [
+    {
+        category: "Tier",
+        options: ["Metamagic", "Initiate", "Adept","Magister", "Arcanist"]
+    }
+]
 
 const headerEntries = [
-    { link: "#metamagics", label: "Metamagic"},
-    { link: "#initiate", label: "Initiate"},
-    { link: "#adept", label: "Adept"},
-    { link: "#magister", label: "Magister"},
-    { link: "#arcanist", label: "Arcanist"}
+    { link: "#Metamagic", label: "Metamagic"},
+    { link: "#Initiate", label: "Initiate"},
+    { link: "#Adept", label: "Adept"},
+    { link: "#Magister", label: "Magister"},
+    { link: "#Arcanist", label: "Arcanist"}
 ];
 
 export default function SpellEffects() {
     let [spellList, setSpellList] = useState([]);
+    let [spellDisplay, setSpellDisplay] = useState([]);
 
     useEffect(() => {
         async function getData(){
-            setSpellList(await singleFetch("ScholarlySpells"));
+            let data = await singleFetch("ScholarlySpells");
+            setSpellList(data);
+            setSpellDisplay(data);
         }
         getData();
     }, [])
@@ -39,27 +50,46 @@ export default function SpellEffects() {
             <main id="spell-effects">
                 <FixedHeader entries={headerEntries}/>
                 <PageHeading title="Spell Effect List"/>
+                <Filters input={spellList} setOutput={setSpellDisplay} filterArray={filterArray} title="Filter"/>
                 <section id="effects-table">
-                        <h3 className="tier-heading" id="metamagics">Metamagics</h3>
-                        {spellList.filter((spell) => {return spell.Tier == "Metamagic"}).map((spell) => {
+                    {spellDisplay.map((spell, index) => {
+                        if(index == 0){
+                            return (<div key={index} id={spell.Tier}>
+                                <h3 className="tier-heading">{spell.Tier}</h3>
+                                <ScholarlySpellCard key={spell.Name} spell={spell}/>
+                            </div>)
+                        }
+
+                        if(spell.Tier != spellDisplay[index - 1].Tier){
+                            return (<div key={index} id={spell.Tier}>
+                                <h3 className="tier-heading">{spell.Tier}</h3>
+                                <ScholarlySpellCard key={spell.Name} spell={spell}/>
+                            </div>)
+                        }
+
+                        return <ScholarlySpellCard key={spell.Name} spell={spell}/>
+                    })}
+
+                        {/* <h3 className="tier-heading" id="metamagics">Metamagics</h3>
+                        {spellDisplay.filter((spell) => {return spell.Tier == "Metamagic"}).map((spell) => {
                             return <ScholarlySpellCard key={spell.Name} spell={spell}/>
                         })}
                         <h3 className="tier-heading" id="initiate">Initiate</h3>
-                        {spellList.filter((spell) => {return spell.Tier == "Initiate"}).map((spell) => {
+                        {spellDisplay.filter((spell) => {return spell.Tier == "Initiate"}).map((spell) => {
                             return <ScholarlySpellCard key={spell.Name} spell={spell}/>
                         })}
                         <h3 className="tier-heading" id="adept">Adept</h3>
-                        {spellList.filter((spell) => {return spell.Tier == "Adept"}).map((spell) => {
+                        {spellDisplay.filter((spell) => {return spell.Tier == "Adept"}).map((spell) => {
                             return <ScholarlySpellCard key={spell.Name} spell={spell}/>
                         })}
                         <h3 className="tier-heading" id="magister">Magister</h3>
-                        {spellList.filter((spell) => {return spell.Tier == "Magister"}).map((spell) => {
+                        {spellDisplay.filter((spell) => {return spell.Tier == "Magister"}).map((spell) => {
                             return <ScholarlySpellCard key={spell.Name} spell={spell}/>
                         })}
                         <h3 className="tier-heading" id="arcanist">Arcanist</h3>
-                        {spellList.filter((spell) => {return spell.Tier == "Arcanist"}).map((spell) => {
+                        {spellDisplay.filter((spell) => {return spell.Tier == "Arcanist"}).map((spell) => {
                             return <ScholarlySpellCard key={spell.Name} spell={spell}/>
-                        })}
+                        })} */}
                 </section>
             </main>
         );

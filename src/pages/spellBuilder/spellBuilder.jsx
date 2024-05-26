@@ -13,6 +13,7 @@ import {assembleDicePool, Ranges, TargetTypes} from './buildSpell';
 import RollerResult from '../../components/rollerResult';
 import ResultDie from '../../components/resultDie';
 
+
 function SpellData(){
     this.range = Ranges.ENGAGED;
     this.targetType = TargetTypes.SINGLE;

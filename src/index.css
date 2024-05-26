@@ -230,7 +230,8 @@ button:hover{
 
 .spell-card{
     background-color: var(--green2);
-    width: 80%;
+    box-sizing: border-box;
+    width: 90%;
     margin: 1% auto;
     padding: 1%;
     padding-top: 0;
