@@ -9,6 +9,7 @@
     grid-template-rows: 1rem repeat(auto-fill, 0);
     padding: 1rem;
     overflow: hidden;
+    border-radius: 0.9rem;
 }
 
 #talent-list .talent-header{

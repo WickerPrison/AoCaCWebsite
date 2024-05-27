@@ -3,6 +3,11 @@ import './filters.css';
 import {useState, useEffect} from 'react';
 import SortOptions from './sortOptions';
 
+export const FilterTypes = {
+    NUMBER_ARRAY: "NUMBER_ARRAY",
+    STRING: "STRING"
+}
+
 export default function Filters({filterArray, setOutput, input, sortArray, title="Filters and Sorting"}){
     const [sortOptions, setSortOptions] = useState(sortArray? {parameter: sortArray[0].parameter, direction: 1, type: sortArray[0].type} : null); 
     const [filterOptions, setFilterOptions] = useState(() => {
@@ -10,6 +15,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         for(let i = 0; i < filterArray.length; i++){
             startState.push({
                 category: filterArray[i].category,
+                type: filterArray[i].type,
                 options: ["All"],
             });
         }
@@ -20,8 +26,14 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         let tempArray = input.slice();
         tempArray = tempArray.filter((entry) => {
             for(let i = 0; i < filterOptions.length; i++){
-                if(!filterOptions[i].options.includes("All") && !filterOptions[i].options.includes(entry[filterOptions[i].category])){
-                    return false
+                switch(filterOptions[i].type){
+                    case FilterTypes.NUMBER_ARRAY:
+                        if(filterByNumberArray(entry, i) == false) return false;
+                        break;
+                    case FilterTypes.STRING:
+                    default:
+                        if(filterByString(entry, i) == false) return false;
+                        break;
                 }
             }
             return true;
@@ -43,6 +55,27 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
 
         setOutput(tempArray);
     }, [filterOptions, sortOptions])
+
+    function filterByString(entry, i){
+        let containsOption = false;
+        for(let j = 0; j < filterOptions[i].options.length; j++){
+            if(entry[filterOptions[i].category].includes(filterOptions[i].options[j])){
+                containsOption = true;
+            }
+        }
+
+        if(!filterOptions[i].options.includes("All") && !containsOption){
+            return false
+        }
+    }
+
+    function filterByNumberArray(entry, i){
+        let intersection = filterOptions[i].options.filter(num => entry["XP Cost"].includes(num));
+
+        if(!filterOptions[i].options.includes("All") && intersection.length == 0){
+            return false
+        }
+    }
 
     return(
         <section className="filters box">
