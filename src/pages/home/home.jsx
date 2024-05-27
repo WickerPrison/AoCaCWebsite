@@ -15,6 +15,10 @@ const resources = [
     {
         link: "EncounterBuilder",
         label: "Encounter Builder"
+    },
+    {
+        link:"TalentList",
+        label: "Talent List"
     }
 ];
 
