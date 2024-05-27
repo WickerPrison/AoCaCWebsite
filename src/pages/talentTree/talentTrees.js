@@ -149,17 +149,17 @@ var skillTrees = {
         "Medical Kit Expert",
         "Medical Kit Expert",
         "Skill Mastery: Medicine",
-        "Bodyguard",
+        "Lethal Blows",
         "Medicinal Stimulants",
         "Medicinal Stimulants (Improved)",
         "Dodge",
         "Natural Medic",
         "It's Not That Bad",
         "Homeopathy",
-        "Intense Focus",
+        "Surgical Precision",
         "Dedication",
         "Surgeon",
-        "Superior Reflexes"
+        "Intense Focus"
     ],
 
     "Inquisitor":[
