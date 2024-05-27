@@ -80,14 +80,15 @@ export default function TalentList(){
                         <div className='header-element'>Talent Name</div>
                         <div className='header-element'>XP Cost</div>
                         <div className='header-element'>Stacks</div>
-                        <div className='header-element'>Description</div>
+                        <div className='description-header header-element'>Description</div>
                     </div>
                     {displayList.map((talent, index) => {
                         return <div className='table-row' key={index}>
-                                <div>{talent.Name}</div>
-                                <div className='center-text'>{getXPcost(talent)}</div>
-                                <div className='center-text'>{talent.Stacks}</div>
-                                <div>{talent.Description}</div>
+                                <div className="entry">{talent.Name}</div>
+                                <div className='entry center-text'>{getXPcost(talent)}</div>
+                                <div className='entry center-text'>{talent.Stacks}</div>
+                                <div className="talent-description">{talent.Description}</div>
+                                <div className="line"></div>
                             </div>
                     })}
                     

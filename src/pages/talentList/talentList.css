@@ -4,12 +4,13 @@
     box-sizing: border-box;
     display: grid;
     column-gap: 1rem;
-    row-gap: 0.5rem;
-    grid-template-columns: 20% max-content max-content auto;
-    grid-template-rows: 1rem repeat(auto-fill, 0);
-    padding: 1rem;
+    row-gap: 1rem;
+    grid-template-columns: 22% 6rem 4rem auto;
+    grid-template-rows: 3rem;
+    padding: 1rem 2rem;
     overflow: hidden;
     border-radius: 0.9rem;
+    background-color: var(--green2);
 }
 
 #talent-list .talent-header{
@@ -24,9 +25,7 @@
 }
 
 #talent-list .header-element{
-    background-color: var(--green);
     z-index: 2;
-    grid-row: 1 / span 5;
 }
 
 .band{
@@ -40,4 +39,46 @@
 
 #talent-list .center-text{
     text-align: center;
+}
+
+#talent-list .line{
+    grid-column: 1 / 5;
+}
+
+#talent-list .entry{
+    margin: auto 0;
+}
+
+@media screen and (max-width: 768px){
+    #talent-list .table{
+        grid-template-columns: 46% 25% 25%;
+        grid-template-rows: 1.5rem;
+        column-gap: 2%;
+    }
+
+    .band{
+        position: absolute;
+        background-color: var(--green);
+        width: 100%;
+        height: 3rem;
+        z-index: 1;
+        top: 0;
+    }
+
+    #talent-list .talent-description{
+        grid-column: 1/4;
+    }
+
+    #talent-list .description-header{
+        display: none;
+    }
+
+    #talent-list .center-text{
+        text-align: left;
+    }
+
+    #talent-list .line{
+        grid-column: 1 / 4;
+    }
+    
 }
