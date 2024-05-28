@@ -78,7 +78,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
     }
 
     return(
-        <section className="filters box">
+        <section className="filters box card">
             <div className="box-header">{title}</div>
             {filterArray.map((entry, index) => {
                 return (

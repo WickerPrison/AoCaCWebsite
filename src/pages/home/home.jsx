@@ -19,6 +19,10 @@ const resources = [
     {
         link:"TalentList",
         label: "Talent List"
+    },
+    {
+        link:"CriticalInjuries",
+        label:"Critical Injuries"
     }
 ];
 

@@ -224,8 +224,9 @@ button:hover{
 .small-button{
     background-color: var(--green);
     border-radius: var(--cardCorner);
-    padding: 1em;
+    padding: 0.5em 1em;
     box-shadow: 0 0 5px .2px black;
+    font-size: var(--baseTextSize);
 }
 
 .spell-card{
@@ -321,6 +322,13 @@ input[type="number"]{
 footer{
     width: 90%;
     min-height: 100px;
+}
+
+.card{
+    width: 90%;
+    display: block;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
 @media screen and (min-width: 3000px) {

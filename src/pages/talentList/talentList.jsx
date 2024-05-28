@@ -77,7 +77,7 @@ export default function TalentList(){
                 <div className="table">
                     <div className="band"></div>
                     <div className="table-header talent-header">
-                        <div className='header-element'>Talent Name</div>
+                        <div className='header-element'>Talent</div>
                         <div className='header-element'>XP Cost</div>
                         <div className='header-element'>Stacks</div>
                         <div className='description-header header-element'>Description</div>
@@ -88,7 +88,7 @@ export default function TalentList(){
                                 <div className='entry center-text'>{getXPcost(talent)}</div>
                                 <div className='entry center-text'>{talent.Stacks}</div>
                                 <div className="talent-description">{talent.Description}</div>
-                                <div className="line"></div>
+                                {index + 1 < displayList.length? <div className="line"></div> :null}
                             </div>
                     })}
                     

@@ -13,7 +13,8 @@ import ConsumableItems from './pages/consumableItems.jsx';
 import MagicItems from './pages/magicItems.jsx';
 import Weapons from './pages/weapons/weapons.jsx';
 import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
-import TalentList from './pages/talentList/talentList.jsx'
+import TalentList from './pages/talentList/talentList.jsx';
+import CriticalInjuries from './pages/criticalInjuries/criticalInjuries.jsx';
 
 
 const router = createBrowserRouter([
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path:"/TalentList",
         element: <TalentList/>
+      },
+      {
+        path:"/CriticalInjuries",
+        element: <CriticalInjuries/>
       }
     ],
   },
