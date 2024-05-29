@@ -16,9 +16,36 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
 
     function attackRoll(){
         let skills = monster.Skills.split(', ');
-        let attribute = skillsDict[attack.Skill].reduce(
+        let skillAttribute = skillsDict[attack.Skill].reduce(
             (largest, current) => monster[current] > monster[largest] ? current:largest
-            , skillsDict[attack.Skill][0]);
+            , skillsDict[attack.Skill][0]
+        );
+            
+
+        let attribute;
+        switch(attack.Attribute){
+            case "None":
+                attribute = skillAttribute;
+                break;
+            case "Brawn/Agility":
+                if(monster.Brawn > monster.Agility){
+                    attribute = "Brawn";
+                }
+                else{
+                    attribute = "Agility";
+                }
+                break;
+            default:
+                attribute = attack.Attribute;
+        }
+
+        console.log(attribute);
+        if(attack.SpecialAttribute && monster[attack.SpecialAttribute] > monster[attribute]){
+            attribute = attack.SpecialAttribute;
+        }
+        console.log(attribute);
+        
+
         let skillRanks = 0;
         for(let i = 0; i < skills.length; i++){
             let skill = skills[i].split(" ");
