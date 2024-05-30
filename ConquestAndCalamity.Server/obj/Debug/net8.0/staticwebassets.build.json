@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Pwq9VPU8i7TOAM/edewmbOGLpgXmWYJj6hK3F/HNZHk=",
+  "Source": "ConquestAndCalamity.Server",
+  "BasePath": "_content/ConquestAndCalamity.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\conquestandcalamity.client\\conquestandcalamity.client.esproj",
+      "Version": 2,
+      "Source": "conquestandcalamity.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,6 @@
+@ConquestAndCalamity.Server_HostAddress = http://localhost:5210
+
+GET {{ConquestAndCalamity.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
