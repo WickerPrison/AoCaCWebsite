@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConquestAndCalamity.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76ccea0aba17eb89c9917a54668fcdea6ed5d83e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d39f6cdcb65bb1a472dea070557cb91ca8fd5db7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConquestAndCalamity.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConquestAndCalamity.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
