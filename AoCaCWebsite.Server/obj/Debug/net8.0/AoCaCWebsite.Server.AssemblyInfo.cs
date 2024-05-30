@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AoCaCWebsite.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca5d9371366c049b2ed4a8177aae7fc612395f58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+427d6940053a8a801ff05ec94ff87b626eaa4e49")]
 [assembly: System.Reflection.AssemblyProductAttribute("AoCaCWebsite.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AoCaCWebsite.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
