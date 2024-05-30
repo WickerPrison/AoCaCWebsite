@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A5DC857-9218-4E5F-9314-C0CBBE171789}|ConquestAndCalamity.Server\\ConquestAndCalamity.Server.csproj|solutionrelative:conquestandcalamity.server\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EA19E939-A25E-4E3F-9CF6-56E495D4164E}|conquestandcalamity.client\\conquestandcalamity.client.esproj|c:\\users\\cobyl\\desktop\\games\\ageofkings\\aocacwebsite\\conquestandcalamity.client\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -30,24 +42,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240530162750_init.cs",
-              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs",
-              "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs",
-              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs",
-              "RelativeToolTip": "ConquestAndCalamity.Server\\Migrations\\20240530162750_init.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "ConquestAndCalamity.Server\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T16:27:50.895Z",
+              "WhenOpened": "2024-05-30T16:57:40.9Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "20240530195155_init.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs",
+              "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs",
+              "RelativeToolTip": "ConquestAndCalamity.Server\\Migrations\\20240530195155_init.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T19:51:55.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Program.cs",
+              "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Program.cs",
+              "RelativeToolTip": "ConquestAndCalamity.Server\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T18:26:23.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "ConquestAndCalamity.Server\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T18:20:55.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Data\\User.cs",
               "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Data\\User.cs",
@@ -60,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\appsettings.json",
               "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\appsettings.json",
@@ -73,20 +125,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "ConquestAndCalamity.Server\\Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\ConquestAndCalamity.Server\\Data\\AppDbContext.cs",
               "RelativeToolTip": "ConquestAndCalamity.Server\\Data\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T16:18:12.641Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "package.json",
               "DocumentMoniker": "C:\\Users\\cobyl\\Desktop\\Games\\AgeOfKings\\AoCaCWebsite\\conquestandcalamity.client\\package.json",
               "RelativeDocumentMoniker": "conquestandcalamity.client\\package.json",
@@ -94,8 +146,7 @@
               "RelativeToolTip": "conquestandcalamity.client\\package.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-30T16:08:20.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-30T16:08:20.437Z"
             }
           ]
         }
