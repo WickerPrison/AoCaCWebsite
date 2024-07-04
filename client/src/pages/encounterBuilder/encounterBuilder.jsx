@@ -1,5 +1,5 @@
 import '../monsterManual/monsterManual.css';
-import '../encounterBuilder/encounterBuilder.css';
+import './encounterBuilder.css';
 import FixedHeader from "../../components/fixedHeader";
 import PageHeading from "../../components/pageHeading";
 import MonsterBlock from '../monsterManual/monsterBlock';
