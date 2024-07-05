@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User} = require('../../models');
+const { signToken } = require('../../Utils/auth');
 
 router.get('/', async (req, res) => {
         const users = await User.find().catch((err) =>{
@@ -19,7 +20,8 @@ router.post('/', async (req, res) => {
     const user = await User.create(req.body).catch((err) =>{
         res.json(err);
     });
-    res.json(user);
+    const token = signToken(user);
+    res.json(token);
 })
 
 router.put('/:id', async (req, res) => {
