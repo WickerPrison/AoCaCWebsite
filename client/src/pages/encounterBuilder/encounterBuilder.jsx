@@ -1,7 +1,7 @@
 import '../monsterManual/monsterManual.css';
 import './encounterBuilder.css';
-import FixedHeader from "../../components/fixedHeader";
-import PageHeading from "../../components/pageHeading";
+import FixedHeader from "../../components/headerComponents/fixedHeader";
+import PageHeading from "../../components/headerComponents/pageHeading";
 import MonsterBlock from '../monsterManual/monsterBlock';
 import Roll from "../../components/roll";
 import { useEffect, useState, useRef } from 'react';

@@ -1,6 +1,7 @@
 import './fixedHeader.css';
 import {Link} from 'react-router-dom';
 import {useState} from 'react';
+import SignInButton from './signInButton';
 
 let linkDisplay = "none";
 
@@ -33,6 +34,7 @@ export default function FixedHeader(props){
             })): null}
 
             <div id="nav-spacer"></div>
+            <SignInButton></SignInButton>
         </header>
     )
 }

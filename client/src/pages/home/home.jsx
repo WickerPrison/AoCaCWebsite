@@ -1,7 +1,9 @@
 import ClassList from './classList';
 import HomePageSection from './homePageSection';
-import PageHeading from '../../components/pageHeading';
+import PageHeading from '../../components/headerComponents/pageHeading';
 import './home.css';
+import SignInButton from '../../components/headerComponents/signInButton';
+import StaticHeader from '../../components/headerComponents/staticHeader';
 
 const resources = [
     {
@@ -114,6 +116,7 @@ export default function Home() {
         <main id="home">
             <header>
                 <h1>Age of Conquest and Calamity</h1>
+                <SignInButton></SignInButton>
             </header>
             <PageHeading title="Age of Conquest and Calamity"/>
             <h3 className="heading-band">Resources</h3>

@@ -1,6 +1,6 @@
 import './spellEffects.css';
-import FixedHeader from '../../components/fixedHeader';
-import PageHeading from '../../components/pageHeading';
+import FixedHeader from '../../components/headerComponents/fixedHeader';
+import PageHeading from '../../components/headerComponents/pageHeading';
 import { useEffect, useState } from 'react';
 import { singleFetch } from '../../js/getData';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';

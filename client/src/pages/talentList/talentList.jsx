@@ -2,8 +2,8 @@ import '../../components/table.css'
 import './talentList.css'
 import {useState, useEffect} from 'react';
 import { singleFetch } from '../../js/getData';
-import FixedHeader from '../../components/fixedHeader';
-import PageHeading from '../../components/pageHeading';
+import FixedHeader from '../../components/headerComponents/fixedHeader';
+import PageHeading from '../../components/headerComponents/pageHeading';
 import Loading from '../../components/loading';
 import Filters, {FilterTypes} from '../../components/filters';
 

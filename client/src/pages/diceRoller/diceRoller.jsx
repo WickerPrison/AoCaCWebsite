@@ -1,7 +1,7 @@
 import './diceRoller.css';
 import { useEffect, useState, useRef } from 'react';
-import FixedHeader from '../../components/fixedHeader';
-import PageHeading from '../../components/pageHeading';
+import FixedHeader from '../../components/headerComponents/fixedHeader';
+import PageHeading from '../../components/headerComponents/pageHeading';
 import Roll from '../../components/roll';
 import {RollStorage, RollData} from '../../js/rollDice';
 

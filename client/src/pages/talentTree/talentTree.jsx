@@ -1,6 +1,6 @@
 import './talentTree.css';
-import FixedHeader from '../../components/fixedHeader.jsx';
-import PageHeading from '../../components/pageHeading.jsx';
+import FixedHeader from '../../components/headerComponents/fixedHeader.jsx';
+import PageHeading from '../../components/headerComponents/pageHeading.jsx';
 import skillTrees from './talentTrees.js';
 import {singleFetch} from '../../js/getData.js';
 import { useEffect, useState } from 'react';

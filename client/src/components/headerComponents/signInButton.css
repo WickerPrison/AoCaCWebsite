@@ -1,0 +1,11 @@
+#login-button{
+    font-size: var(--baseTextSize);
+    margin-right: 1.2rem;
+    float: right;
+    color: white;
+}
+
+#login-button:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
