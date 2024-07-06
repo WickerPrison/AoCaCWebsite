@@ -6,7 +6,7 @@ export default function SignInButton(){
     
     if(Auth.loggedIn()){
         return (
-            <h1 id="sign-in-button">Log Out</h1>
+            <h1 id="login-button" onClick={Auth.logout}>Log Out</h1>
         )
     }
     else{

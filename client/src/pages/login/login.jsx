@@ -33,6 +33,31 @@ export default function Login(){
                 alert(response.statusText);
             }
         }
+        else{
+            const response = await fetch('http://localhost:3001/api/Users/Login', {
+                method: 'POST',
+                url: 'http://localhost:3001/api/Users/Login',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+
+            if(response.ok){
+                const token = await response.json();
+                console.log(token);
+                if(token == "Auth Error"){
+                    alert("Incorrect username or password");
+                    return;
+                }
+                Auth.login(token);
+            }
+            else{
+                alert(response.statusText);
+            }
+        }
     }
 
     return (
