@@ -27,11 +27,21 @@ export default function SpellEffects() {
     let [spellDisplay, setSpellDisplay] = useState([]);
 
     useEffect(() => {
-        async function getData(){
-            let data = await singleFetch("ScholarlySpells");
-            setSpellList(data);
-            setSpellDisplay(data);
-        }
+        async function getData() {
+            try{
+                const response = await fetch('http://localhost:3001/api/data/spellEffects', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setSpellList(data);
+                setSpellDisplay(data);
+            }
+            catch(err){
+                console.log(err);
+            }
+        };
         getData();
     }, [])
     

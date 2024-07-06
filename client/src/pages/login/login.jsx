@@ -26,7 +26,6 @@ export default function Login(){
 
             const response = await fetch('http://localhost:3001/api/Users', {
                 method: 'POST',
-                url: 'http://localhost:3001/api/Users',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -51,7 +50,6 @@ export default function Login(){
         else{
             const response = await fetch('http://localhost:3001/api/Users/Login', {
                 method: 'POST',
-                url: 'http://localhost:3001/api/Users/Login',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

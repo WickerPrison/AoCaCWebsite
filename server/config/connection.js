@@ -1,5 +1,6 @@
+require('dotenv').config();
 const { connect, connection } = require('mongoose');
 
-connect('mongodb://127.0.0.1:27017/AoCaCDB');
+connect(process.env.DATABASE_URL);
 
 module.exports = connection;
