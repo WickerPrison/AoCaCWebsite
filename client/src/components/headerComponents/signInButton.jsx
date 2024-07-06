@@ -11,7 +11,7 @@ export default function SignInButton(){
     }
     else{
         return(
-            <h1><Link id="login-button" to="/">Login/Sign Up</Link></h1>
+            <h1><Link id="login-button" to="/Login">Login/Sign Up</Link></h1>
         )
     }
 }

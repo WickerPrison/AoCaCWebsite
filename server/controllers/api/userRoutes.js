@@ -20,8 +20,14 @@ router.post('/', async (req, res) => {
     const user = await User.create(req.body).catch((err) =>{
         res.json(err);
     });
-    const token = signToken(user);
-    res.json(token);
+
+    if(user){
+        const token = signToken(user);
+        res.json(token);
+    }
+    else{
+        console.log("No user");
+    }
 })
 
 router.put('/:id', async (req, res) => {

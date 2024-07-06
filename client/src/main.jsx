@@ -15,6 +15,7 @@ import Weapons from './pages/weapons/weapons.jsx';
 import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 import TalentList from './pages/talentList/talentList.jsx';
 import CriticalInjuries from './pages/criticalInjuries/criticalInjuries.jsx';
+import Login from './pages/login/login.jsx';
 
 
 const router = createBrowserRouter([
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path:"/CriticalInjuries",
         element: <CriticalInjuries/>
+      },
+      {
+        path:"/Login",
+        element: <Login></Login>
       }
     ],
   },

@@ -302,7 +302,9 @@ input{
 }
 
 input[type='text'],
-input[type="number"]{
+input[type="number"],
+input[type="password"],
+input[type="email"]{
     display: inline;
     font-size: var(--baseTextSize);
     background-color: var(--green2);

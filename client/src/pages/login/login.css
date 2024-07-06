@@ -1,0 +1,47 @@
+#login .box{
+    width: 60%;
+    min-width: 300px;
+}
+
+#login label{
+    font-size: var(--size2);
+}
+
+#login .login-field{
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+#login .login-field label{
+    flex: 0 0 20%;
+    text-align: right;
+    margin-right: 0.5rem;
+}
+
+#login .login-field input{
+    flex: 0 0 80%;
+    font-size: var(--size2);
+    max-width: 200px;
+}
+
+#login p{
+    margin: 0 0 0.2rem 0;
+    display: inline;
+}
+
+#login .sign-up{
+    pointer-events: all;
+    text-decoration: underline;
+}
+
+#login .sign-up:hover{
+    cursor: pointer;
+    color: black;
+}
+
+#login button{
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.4rem 0.9rem
+}
