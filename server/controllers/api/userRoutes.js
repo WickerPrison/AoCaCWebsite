@@ -17,16 +17,13 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const user = await User.create(req.body).catch((err) =>{
-        res.json(err);
-    });
-
-    if(user){
+    try{
+        const user = await User.create(req.body);
         const token = signToken(user);
         res.json(token);
     }
-    else{
-        console.log("No user");
+    catch{
+        res.json("In use");
     }
 })
 
@@ -35,7 +32,6 @@ router.post('/Login', async (req, res) => {
         res.json(err);
     });
 
-    console.log(user);
     if(!user){
         res.json("Auth Error");
         return;
@@ -47,10 +43,8 @@ router.post('/Login', async (req, res) => {
         return;
     }
 
-    console.log("test");
     const token = signToken(user);
     res.json(token);
-
 })
 
 router.put('/:id', async (req, res) => {

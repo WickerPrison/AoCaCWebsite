@@ -13,6 +13,17 @@ export default function Login(){
         evt.preventDefault();
 
         if(signUp){
+            if(password.length < 5){
+                alert("Password must be at least 5 characters long");
+                return;
+            }
+
+            const emailValidation = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if(!emailValidation.test(email)){
+                alert("Invalid email address");
+                return;
+            }
+
             const response = await fetch('http://localhost:3001/api/Users', {
                 method: 'POST',
                 url: 'http://localhost:3001/api/Users',
@@ -27,6 +38,10 @@ export default function Login(){
 
             if(response.ok){
                 const token = await response.json();
+                if(token == "In use"){
+                    alert("Email or username already in use");
+                    return;
+                }
                 Auth.login(token);
             }
             else{
@@ -47,7 +62,6 @@ export default function Login(){
 
             if(response.ok){
                 const token = await response.json();
-                console.log(token);
                 if(token == "Auth Error"){
                     alert("Incorrect username or password");
                     return;
