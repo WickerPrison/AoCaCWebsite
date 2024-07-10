@@ -3,7 +3,7 @@ import FixedHeader from "../../components/headerComponents/fixedHeader";
 import PageHeading from "../../components/headerComponents/pageHeading";
 import Loading from "../../components/loading";
 import {useState, useEffect} from 'react';
-import { singleFetch } from "../../js/getData";
+import getUrl from '../../utils/getUrl';
 
 export default function CriticalInjuries(){
     let [injuries, setInjuries] = useState([]);
@@ -17,24 +17,34 @@ export default function CriticalInjuries(){
 
     useEffect(() => {
         async function getData(){
-            let data = await singleFetch("CriticalInjuries");
-            for(let i = 0; i < data.length; i++){
-                let string = "";
-                if(data[i].d100min == -1){
-                    string += 1;
+            try{
+                const response = await fetch(getUrl() + '/api/data/crits', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                for(let i = 0; i < data.length; i++){
+                    let string = "";
+                    if(data[i].d100min == -1){
+                        string += 1;
+                    }
+                    else string += data[i].d100min;
+                    
+                    if(data[i].d100max == -1){
+                        string += "+";
+                    }
+                    else{
+                        string += "-" + data[i].d100max;
+                    }
+    
+                    data[i].d100 = string;
                 }
-                else string += data[i].d100min;
-                
-                if(data[i].d100max == -1){
-                    string += "+";
-                }
-                else{
-                    string += "-" + data[i].d100max;
-                }
-
-                data[i].d100 = string;
+                setInjuries(data);
             }
-            setInjuries(data);
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     },[])
@@ -69,16 +79,18 @@ export default function CriticalInjuries(){
 
     function getColor(severity){
         switch(severity){
-            case "3":
+            case 3:
                 return 'var(--yellow)';
-            case "4":
+            case 4:
                 return 'orange';
-            case "5": 
+            case 5: 
                 return 'red';
-            case "6":
+            case 6:
                 return 'var(--red2)';
-            case "-":
+            case null:
                 return 'var(--red)';
+            default:
+                return 'var(--yellow)';
         }
     }
 
@@ -114,7 +126,7 @@ export default function CriticalInjuries(){
                         <div id="rolled-severity">
                             Severity: 
                             <div style={{backgroundColor: getColor(rolledCrit.Severity)}}  className='severity center-text'>
-                                <div className="severity-number">{rolledCrit.Severity}</div>
+                                <div className="severity-number">{rolledCrit.Severity == null ? "-" : rolledCrit.Severity}</div>
                             </div>
                         </div>
                         <div className="rolled-effect">{rolledCrit.Effect}</div>
@@ -135,7 +147,7 @@ export default function CriticalInjuries(){
                                 <div className="entry">{injury.d100}</div>
                                 <div className='entry'>{injury.Name}</div>
                                 <div style={{backgroundColor: getColor(injury.Severity)}} className='severity entry center-text'>
-                                    <div className="severity-number">{injury.Severity}</div>
+                                    <div className="severity-number">{injury.Severity == null ? "-" : injury.Severity}</div>
                                 </div>
                                 <div className="crit-effect">{injury.Effect}</div>
                                 {index + 1 < injuries.length? <div className="line"></div> :null} 

@@ -97,7 +97,7 @@ export default function TalentList(){
                         return <div className='table-row' key={index}>
                                 <div className="entry">{talent.Name}</div>
                                 <div className='entry center-text'>{getXPcost(talent)}</div>
-                                <div className='entry center-text'>{talent.Stacks}</div>
+                                <div className='entry center-text'>{talent.Stacks ? talent.Stacks : "-"}</div>
                                 <div className="talent-description">{talent.Description}</div>
                                 {index + 1 < displayList.length? <div className="line"></div> :null}
                             </div>
