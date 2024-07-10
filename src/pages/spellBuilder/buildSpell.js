@@ -71,6 +71,7 @@ function assembleDicePool(spellData){
             pool.ability++;
         }
     }
+    pool.upgradeAbility = 0;
 
     for(var i = 0; i < pool.upgradeDifficulty;i++){
         if(pool.difficulty > 0){
@@ -81,6 +82,7 @@ function assembleDicePool(spellData){
             pool.difficulty++;
         }
     }
+    pool.upgradeDifficulty = 0;
 
     return pool;
 }
