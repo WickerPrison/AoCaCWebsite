@@ -3,7 +3,6 @@ const {User} = require('../../models');
 const { signToken, AuthenticationError } = require('../../Utils/auth');
 
 router.get('/', async (req, res) => {
-    console.log("find users");
     const users = await User.find().catch((err) =>{
         res.json(err)
     });
@@ -29,7 +28,6 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    console.log("login");
     const user = await User.findOne({username: req.body.username}).catch((err) =>{
         res.json(err);
     });
