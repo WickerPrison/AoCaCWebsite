@@ -2,7 +2,6 @@ import './spellBuilder.css';
 import FixedHeader from "../../components/headerComponents/fixedHeader";
 import PageHeading from "../../components/headerComponents/pageHeading";
 import {useState, useEffect} from 'react';
-import { singleFetch } from '../../js/getData';
 import {RollData, ResultData, rollDice} from '../../js/rollDice';
 import RangeSelector from './rangeSelector';
 import TargetTypeBox from './targetTypeBox';
@@ -12,6 +11,7 @@ import CustomModsBox from './customModsBox';
 import {assembleDicePool, Ranges, TargetTypes} from './buildSpell';
 import RollerResult from '../../components/rollerResult';
 import ResultDie from '../../components/resultDie';
+import getUrl from '../../utils/getUrl';
 
 
 function SpellData(){
@@ -31,7 +31,18 @@ export default function SpellBuilder(){
 
     useEffect(() => {
         async function getData(){
-            setSpellList(await singleFetch("ScholarlySpells"));
+            try{
+                const response = await fetch(getUrl() + '/api/data/spelleffects', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setSpellList(data);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])
