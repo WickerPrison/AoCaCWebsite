@@ -6,6 +6,7 @@ import {singleFetch} from '../../js/getData.js';
 import { useEffect, useState } from 'react';
 import InnateSpells from './innateSpells.jsx';
 import Loading from '../../components/loading.jsx';
+import getUrl from '../../utils/getUrl';
 
 
 export default function TalentTree() {
@@ -32,7 +33,18 @@ export default function TalentTree() {
     
     useEffect(() => {
         async function getData(){
-            setTalentList(await singleFetch("Talents"));
+            try{
+                const response = await fetch(getUrl() + '/api/data/talents', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setTalentList(data);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])
