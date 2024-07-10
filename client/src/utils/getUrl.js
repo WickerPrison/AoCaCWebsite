@@ -3,6 +3,6 @@ export default function getUrl() {
         case 'development':
             return 'http://localhost:3001';
         case 'production':
-            return 'https://conquestandcalamity.up.railway.app';
+            return 'https://conquestandcalamity.up.railway.app:3001';
     }
 }
