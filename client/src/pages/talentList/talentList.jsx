@@ -6,6 +6,7 @@ import FixedHeader from '../../components/headerComponents/fixedHeader';
 import PageHeading from '../../components/headerComponents/pageHeading';
 import Loading from '../../components/loading';
 import Filters, {FilterTypes} from '../../components/filters';
+import getUrl from '../../utils/getUrl';
 
 const filterArray =[
     {
@@ -21,10 +22,20 @@ export default function TalentList(){
 
     useEffect(() => {
         async function getData(){
-            let data = await singleFetch("Talents");
-            data = getCostString(data);
-            setDisplayList(data);
-            setTalentList(data);
+            try{
+                const response = await fetch(getUrl() + '/api/data/talents', {
+                    method: 'GET',
+                    headers:{'Content-Type':'application/json'}
+                })
+
+                let data = await response.json();
+                data = getCostString(data);
+                setDisplayList(data);
+                setTalentList(data);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     },[])
