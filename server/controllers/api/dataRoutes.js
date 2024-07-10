@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const SpellEffect = require('../../models/SpellEffect');
 
-router.get('/spellEffects', async (req, res) => {
+router.get('/spelleffects', async (req, res) => {
+    console.log("spelleffects");
     const spellEffects = await SpellEffect.find().catch((err) =>{
         console.log("error", err);
         res.json(err)

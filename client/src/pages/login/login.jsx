@@ -27,7 +27,7 @@ export default function Login(){
                 return;
             }
 
-            const response = await fetch(getUrl() + '/api/Users', {
+            const response = await fetch(getUrl() + '/api/users', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -51,7 +51,7 @@ export default function Login(){
             }
         }
         else{
-            const response = await fetch(getUrl() + '/api/Users/Login', {
+            const response = await fetch(getUrl() + '/api/users/login', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
