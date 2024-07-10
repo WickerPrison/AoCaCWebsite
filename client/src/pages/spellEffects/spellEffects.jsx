@@ -6,6 +6,7 @@ import { singleFetch } from '../../js/getData';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import Loading from '../../components/loading';
 import Filters from '../../components/filters';
+import getUrl from '../../utils/getUrl';
 
 const filterArray = [
     {
@@ -29,7 +30,7 @@ export default function SpellEffects() {
     useEffect(() => {
         async function getData() {
             try{
-                const response = await fetch('http://localhost:3001/api/data/spellEffects', {
+                const response = await fetch(getUrl() + '/api/data/spellEffects', {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 })

@@ -1,6 +1,7 @@
 import StaticHeader from "../../components/headerComponents/staticHeader";
 import {useState, useEffect} from 'react';
 import Auth from '../../utils/auth';
+import getUrl from "../../utils/getUrl";
 import './login.css';
 
 export default function Login(){
@@ -8,6 +9,8 @@ export default function Login(){
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    console.log(process.env.NODE_ENV);
 
     const Submit = async (evt) => {
         evt.preventDefault();
@@ -24,7 +27,7 @@ export default function Login(){
                 return;
             }
 
-            const response = await fetch('http://localhost:3001/api/Users', {
+            const response = await fetch(getUrl() + '/api/Users', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -48,7 +51,7 @@ export default function Login(){
             }
         }
         else{
-            const response = await fetch('http://localhost:3001/api/Users/Login', {
+            const response = await fetch(getUrl() + '/api/Users/Login', {
                 method: 'POST',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
