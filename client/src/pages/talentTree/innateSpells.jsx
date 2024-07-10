@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { singleFetch } from "../../js/getData";
 import InnateSpellCard from './innateSpellCard';
 import FundamentalistSpellCard from './fundamentalistSpellCard';
+import getUrl from '../../utils/getUrl';
 
 const innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];
 
@@ -10,14 +11,17 @@ export default function InnateSpells({currentClass}) {
 
     useEffect(() => {
         async function getData(){
-            if(innateClasses.includes(currentClass)){
-                let allSpells = await singleFetch("InnateSpells");
-                setSpells(allSpells.filter((spell) =>{
-                    return spell.Classes.includes(currentClass);
-                }));
+            try{
+                const response = await fetch(getUrl() + '/api/data/innatespells/' + currentClass, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setSpells(data);
             }
-            else if(currentClass == "Fundamentalist"){
-                setSpells(await singleFetch("Fundamentalist"));
+            catch(err){
+                console.log(err);
             }
         }
         getData();
