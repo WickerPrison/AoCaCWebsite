@@ -3,10 +3,10 @@ const {User} = require('../../models');
 const { signToken, AuthenticationError } = require('../../Utils/auth');
 
 router.get('/', async (req, res) => {
-        const users = await User.find().catch((err) =>{
-            res.json(err)
-        });
-        res.json(users);
+    const users = await User.find().catch((err) =>{
+        res.json(err)
+    });
+    res.json(users);
 })
 
 router.get('/:id', async (req, res) => {

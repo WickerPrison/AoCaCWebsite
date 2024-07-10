@@ -5,7 +5,7 @@ router.use('/api', apiRoutes);
 
 router.use((req, res) => {
   console.log("wrong route");
-  return res.send('Wrong route!');
+  return res.json('Wrong route!');
 });
 
 module.exports = router;
