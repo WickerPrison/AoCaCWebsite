@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    console.log("login");
     const user = await User.findOne({username: req.body.username}).catch((err) =>{
         res.json(err);
     });
