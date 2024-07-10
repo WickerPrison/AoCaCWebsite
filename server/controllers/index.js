@@ -3,9 +3,13 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
+// router.use((req, res) => {
+//   console.log("wrong route");
+//   return res.json('Wrong route!');
+// });
+
 router.use((req, res) => {
-  console.log("wrong route");
-  return res.json('Wrong route!');
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
 module.exports = router;
