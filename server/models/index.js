@@ -4,7 +4,7 @@ const Talent = require('./Talent');
 const InnateSpell = require('./InnateSpell');
 const Fundamentalist = require('./Fundamentalist');
 const CriticalInjuries = require('./CriticalInjuries');
-const GeneralEquipment = require('./GeneralEquipment');
+const Equipment = require('./Equipment');
 
 module.exports = {
     User, 
@@ -13,5 +13,5 @@ module.exports = {
     InnateSpell, 
     Fundamentalist, 
     CriticalInjuries, 
-    GeneralEquipment
+    Equipment
 };

@@ -2,7 +2,7 @@ import FixedHeader from "../components/headerComponents/fixedHeader";
 import PageHeading from "../components/headerComponents/pageHeading";
 import Table from "../components/table";
 import { useEffect, useState } from 'react';
-import { singleFetch } from '../js/getData';
+import getUrl from "../utils/getUrl";
 import Loading from "../components/loading";
 
 const bombsData = {
@@ -37,11 +37,21 @@ export default function ConsumableItems(){
 
     useEffect(() => {
         async function getData(){
-            let data = await singleFetch("Consumables");
-            setBombs(data.filter(item => item.Category == "Bomb"));
-            setMedicalItems(data.filter(item => item.Category == "Medicinal"));
-            setPotions(data.filter(item => item.Category == "Potion"));
-            setMisc(data.filter(item => item.Category == "Misc"));
+            try{
+                const response = await fetch(getUrl() + '/api/data/consumeables', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setBombs(data.bombs);
+                setMedicalItems(data.medicinal);
+                setPotions(data.potion);
+                setMisc(data.misc);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])

@@ -30,7 +30,7 @@ export default function SpellEffects() {
     useEffect(() => {
         async function getData() {
             try{
-                const response = await fetch(getUrl() + '/api/data/spelleffects', {
+                const response = await fetch(getUrl() + '/api/data/allspelleffects', {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 })

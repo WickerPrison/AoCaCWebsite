@@ -7,6 +7,10 @@ const equipmentSchema = new Schema(
             unique: true,
             required: true
         },
+        Category: {
+            type: String,
+            required: true
+        },
         Material:{
             type: String
         },
@@ -26,6 +30,6 @@ const equipmentSchema = new Schema(
     }
 )
 
-const GeneralEquipment = model('equipment', equipmentSchema, 'equipment');
+const Equipment = model('equipment', equipmentSchema, 'equipment');
 
-module.exports = GeneralEquipment;
+module.exports = Equipment;

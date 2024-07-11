@@ -2,7 +2,6 @@ import FixedHeader from "../components/headerComponents/fixedHeader";
 import PageHeading from "../components/headerComponents/pageHeading";
 import Table from "../components/table";
 import { useEffect, useState } from 'react';
-import { singleFetch } from '../js/getData';
 import Loading from "../components/loading";
 import getUrl from "../utils/getUrl";
 
