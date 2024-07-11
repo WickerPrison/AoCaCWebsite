@@ -2,7 +2,6 @@ import './spellEffects.css';
 import FixedHeader from '../../components/headerComponents/fixedHeader';
 import PageHeading from '../../components/headerComponents/pageHeading';
 import { useEffect, useState } from 'react';
-import { singleFetch } from '../../js/getData';
 import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import Loading from '../../components/loading';
 import Filters from '../../components/filters';
@@ -30,14 +29,17 @@ export default function SpellEffects() {
     useEffect(() => {
         async function getData() {
             try{
-                const response = await fetch(getUrl() + '/api/data/allspelleffects', {
+                const response = await fetch(getUrl() + '/api/data/spelleffects', {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 })
     
                 const data = await response.json();
-                setSpellList(data);
-                setSpellDisplay(data);
+                
+                let list = [...data.metamagic, ...data.initiate, ...data.adept, ...data.magister, ...data.arcanist];
+
+                setSpellList(list);
+                setSpellDisplay(list);
             }
             catch(err){
                 console.log(err);

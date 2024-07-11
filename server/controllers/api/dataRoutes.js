@@ -13,14 +13,14 @@ const {
 } = require('../../models');
 
 router.get('/allspelleffects', async (req, res) => {
-    const spellEffects = await SpellEffect.find().catch((err) =>{
+    const spellEffects = await SpellEffect.find().sort("Tier").catch((err) =>{
         res.json(err)
     });
     res.json(spellEffects);
 });
 
 router.get('/spelleffects', async (req, res) => {
-    const data = await SpellEffect.find().catch((err) => {
+    const data = await SpellEffect.find().sort("Name").catch((err) => {
         res.json(err)
     });
 
@@ -55,7 +55,7 @@ router.get('/spelleffects', async (req, res) => {
 })
 
 router.get('/talents', async (req, res) => {
-    const talents = await Talent.find().catch((err) => {
+    const talents = await Talent.find().sort('Name').catch((err) => {
         res.json(err);
     });
     res.json(talents);
@@ -76,7 +76,7 @@ router.get('/innatespells/:class', async (req, res) => {
         res.json(innateSpells);
     }
     else{
-        const innateSpells = await InnateSpell.find({Classes: req.params.class}).catch((err) => {
+        const innateSpells = await InnateSpell.find({Classes: req.params.class}).sort('Name').catch((err) => {
             res.json(err);
         });
         res.json(innateSpells);
