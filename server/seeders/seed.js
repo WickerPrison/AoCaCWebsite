@@ -8,7 +8,8 @@ const {
   Equipment,
   Weapon,
   WeaponMod,
-  WeaponProp
+  WeaponProp,
+  Enchantment
 } = require('../models');
 const cleanDB = require('./cleanDB');
 const {singleFetch} = require('./getData');
@@ -50,15 +51,15 @@ db.once('open', async () => {
 
     await cleanDB('WeaponMod', 'weaponmods');
     const weaponModData = await singleFetch("WeaponModifications");
-    // for(let i = 0; i < weaponModData.length; i++){
-    //   let stringArray = weaponData[i].Parts.split(" ");
-    //   weaponModData[i].Parts = stringArray;
-    // }
     await WeaponMod.create(weaponModData);
 
     await cleanDB('WeaponProp', 'weaponprops');
     const weaponPropData = await singleFetch("WeaponProperties");
     await WeaponProp.create(weaponPropData);
+
+    await cleanDB('Enchantment', 'enchantments');
+    const enchantmentData = await singleFetch("EnchantingEffects");
+    await Enchantment.create(enchantmentData);
 
   } catch (err) {
     console.error(err);

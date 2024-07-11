@@ -2,8 +2,8 @@ import FixedHeader from "../components/headerComponents/fixedHeader";
 import PageHeading from "../components/headerComponents/pageHeading";
 import Table from "../components/table";
 import { useEffect, useState } from 'react';
-import { multipleFetch } from '../js/getData';
 import Loading from "../components/loading";
+import getUrl from "../utils/getUrl";
 
 const wondrousItemsData = {
     title:"Wondrous Items",
@@ -23,9 +23,19 @@ export default function MagicItems(){
 
     useEffect(() => {
         async function getData(){
-            let data = await multipleFetch(["WondrousItems", "EnchantingEffects"]);
-            setWondrousItems(data[0]);
-            setEnchantingEffects(data[1]);
+            try{
+                const response = await fetch(getUrl() + '/api/data/magicitems', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setWondrousItems(data.wondrous);
+                setEnchantingEffects(data.enchantments);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])

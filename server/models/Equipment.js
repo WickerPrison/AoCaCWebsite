@@ -14,6 +14,9 @@ const equipmentSchema = new Schema(
         Material:{
             type: String
         },
+        BaseItem:{
+            type: String
+        },
         Encumbrance:{
             type: Number
         },

@@ -8,7 +8,8 @@ const {
     Equipment,
     Weapon,
     WeaponMod,
-    WeaponProp
+    WeaponProp,
+    Enchantment
 } = require('../../models');
 
 router.get('/allspelleffects', async (req, res) => {
@@ -97,7 +98,7 @@ router.get('/equipment', async (req, res) => {
 });
 
 router.get('/consumeables', async (req, res) => {
-    const data = await Equipment.find({Category: {$nin: "General"}}).sort('Name').catch((err) => {
+    const data = await Equipment.find({Category: ["Bomb", "Medicinal", "Potion", "Misc"]}).sort('Name').catch((err) => {
         res.json(err);
     });
 
@@ -172,5 +173,20 @@ router.get('/weaponsdata', async (req, res) => {
 
     res.json(data);
 });
+
+router.get('/magicitems', async (req, res) => {
+    let data = {};
+    const wondrousItems = await Equipment.find({Category: "Wondrous"}).sort('Name').catch((err) => {
+        res.json(err);
+    })
+    data.wondrous = wondrousItems;
+
+    const enchantments = await Enchantment.find().sort('Name').catch((err) => {
+        res.json(err);
+    });
+    data.enchantments = enchantments;
+
+    res.json(data);
+})
 
 module.exports = router;

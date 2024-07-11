@@ -8,6 +8,7 @@ const Equipment = require('./Equipment');
 const Weapon = require('./Weapons');
 const WeaponMod = require('./WeaponMods');
 const WeaponProp = require('./WeaponProps');
+const Enchantment = require('./Enchantments');
 
 module.exports = {
     User, 
@@ -19,5 +20,6 @@ module.exports = {
     Equipment,
     Weapon,
     WeaponMod,
-    WeaponProp
+    WeaponProp,
+    Enchantment
 };
