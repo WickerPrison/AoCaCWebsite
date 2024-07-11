@@ -1,5 +1,15 @@
 const router = require('express').Router();
-const { SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries, Equipment } = require('../../models');
+const { 
+    SpellEffect, 
+    Talent, 
+    InnateSpell, 
+    Fundamentalist, 
+    CriticalInjuries, 
+    Equipment,
+    Weapon,
+    WeaponMod,
+    WeaponProp
+} = require('../../models');
 
 router.get('/allspelleffects', async (req, res) => {
     const spellEffects = await SpellEffect.find().catch((err) =>{
@@ -115,6 +125,52 @@ router.get('/consumeables', async (req, res) => {
         }
     }
     res.json(consumeables);
-})
+});
+
+router.get('/weaponsdata', async (req, res) => {
+    let data = {};
+
+    const response = await Weapon.find().sort("Name").catch((err) => {
+        res.json(err);
+    });
+    let weapons = {
+        brawl: [],
+        light: [],
+        heavy: [],
+        ranged: []
+    }
+    for(let i = 0; i < response.length; i++){
+        switch(response[i].Skill){
+            case "Brawl":
+                weapons.brawl.push(response[i]);
+                break;
+            case "Light Weapons":
+                weapons.light.push(response[i]);
+                break;
+            case "Heavy Weapons":
+                weapons.heavy.push(response[i]);
+                break;
+            case "Ranged":
+                weapons.ranged.push(response[i]);
+                break;
+        }
+    }
+    data.weapons = weapons;
+
+    const modResponse = await WeaponMod.find().sort("Name").catch((err) => {
+        res.json(err);
+    });
+    mods = {};
+    mods.regular = modResponse.filter(mod => mod.Name == "");
+    mods.masterwork = modResponse.filter(mod => mod.Name != "");
+    data.mods = mods;
+
+    const propResponse = await WeaponProp.find().sort("Name").catch((err) => {
+        res.json(err);
+    });
+    data.props = propResponse;
+
+    res.json(data);
+});
 
 module.exports = router;

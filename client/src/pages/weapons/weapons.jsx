@@ -3,9 +3,9 @@ import FixedHeader from '../../components/headerComponents/fixedHeader';
 import PageHeading from '../../components/headerComponents/pageHeading';
 import Table from '../../components/table';
 import { useEffect, useState } from 'react';
-import { multipleFetch } from '../../js/getData';
 import ModTable from './modTable';
 import Loading from '../../components/loading';
+import getUrl from '../../utils/getUrl';
 
 const headerEntries = [
     { link: "#brawl", label: "Brawl"},
@@ -44,14 +44,24 @@ export default function Weapons(){
     
     useEffect(() => {
         async function getData(){
-            let data = await multipleFetch(["Weapons", "WeaponModifications", "WeaponProperties"]);
-            setBrawl(data[0].filter(weapon => weapon.Skill == "Brawl"));
-            setLightWeapons(data[0].filter(weapon => weapon.Skill == "Light Weapons"));
-            setHeavyWeapons(data[0].filter(weapon => weapon.Skill == "Heavy Weapons"));
-            setRanged(data[0].filter(weapon => weapon.Skill == "Ranged"));
-            setWeaponMods(data[1].filter(mod => mod.Name == ""));
-            setMasterwork(data[1].filter(mod => mod.Name !== ""));
-            setWeaponProperties(data[2]);
+            try{
+                const response = await fetch(getUrl() + '/api/data/weaponsdata', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setBrawl(data.weapons.brawl);
+                setLightWeapons(data.weapons.light);
+                setHeavyWeapons(data.weapons.heavy);
+                setRanged(data.weapons.ranged);
+                setWeaponMods(data.mods.regular);
+                setMasterwork(data.mods.masterwork);
+                setWeaponProperties(data.props);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])

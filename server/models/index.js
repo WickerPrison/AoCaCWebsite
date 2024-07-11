@@ -5,6 +5,9 @@ const InnateSpell = require('./InnateSpell');
 const Fundamentalist = require('./Fundamentalist');
 const CriticalInjuries = require('./CriticalInjuries');
 const Equipment = require('./Equipment');
+const Weapon = require('./Weapons');
+const WeaponMod = require('./WeaponMods');
+const WeaponProp = require('./WeaponProps');
 
 module.exports = {
     User, 
@@ -13,5 +16,8 @@ module.exports = {
     InnateSpell, 
     Fundamentalist, 
     CriticalInjuries, 
-    Equipment
+    Equipment,
+    Weapon,
+    WeaponMod,
+    WeaponProp
 };

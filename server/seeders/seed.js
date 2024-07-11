@@ -1,5 +1,15 @@
 const db = require('../config/connection');
-const { User, SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries, Equipment } = require('../models');
+const {
+  SpellEffect, 
+  Talent, 
+  InnateSpell, 
+  Fundamentalist, 
+  CriticalInjuries, 
+  Equipment,
+  Weapon,
+  WeaponMod,
+  WeaponProp
+} = require('../models');
 const cleanDB = require('./cleanDB');
 const {singleFetch} = require('./getData');
 
@@ -33,6 +43,22 @@ db.once('open', async () => {
     await cleanDB('Equipment', 'equipment');
     const equipmentData = await singleFetch("Equipment");
     await Equipment.create(equipmentData);
+
+    await cleanDB('Weapon', 'weapons');
+    const weaponData = await singleFetch("Weapons");
+    await Weapon.create(weaponData);
+
+    await cleanDB('WeaponMod', 'weaponmods');
+    const weaponModData = await singleFetch("WeaponModifications");
+    // for(let i = 0; i < weaponModData.length; i++){
+    //   let stringArray = weaponData[i].Parts.split(" ");
+    //   weaponModData[i].Parts = stringArray;
+    // }
+    await WeaponMod.create(weaponModData);
+
+    await cleanDB('WeaponProp', 'weaponprops');
+    const weaponPropData = await singleFetch("WeaponProperties");
+    await WeaponProp.create(weaponPropData);
 
   } catch (err) {
     console.error(err);
