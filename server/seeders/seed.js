@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { User, SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries } = require('../models');
+const { User, SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries, GeneralEquipment } = require('../models');
 const cleanDB = require('./cleanDB');
 const {singleFetch} = require('./getData');
 
@@ -29,6 +29,10 @@ db.once('open', async () => {
     await cleanDB('CriticalInjuries', 'crits');
     const critsData = await singleFetch("CriticalInjuries");
     await CriticalInjuries.create(critsData);
+
+    await cleanDB('GeneralEquipment', 'equipment');
+    const equipmentData = await singleFetch("GeneralEquipment");
+    await GeneralEquipment.create(equipmentData);
 
   } catch (err) {
     console.error(err);

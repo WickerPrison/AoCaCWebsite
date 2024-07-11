@@ -4,6 +4,7 @@ import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import { singleFetch } from '../js/getData';
 import Loading from "../components/loading";
+import getUrl from "../utils/getUrl";
 
 const tableData = {
     title:"General Equipment",
@@ -16,8 +17,18 @@ export default function GeneralEquipment(){
 
     useEffect(() => {
         async function getData(){
-            let data = await singleFetch("GeneralEquipment");
-            setEquipment(data);
+            try{
+                const response = await fetch(getUrl() + '/api/data/equipment', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+    
+                const data = await response.json();
+                setEquipment(data);
+            }
+            catch(err){
+                console.log(err);
+            }
         }
         getData();
     }, [])

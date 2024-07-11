@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries } = require('../../models');
+const { SpellEffect, Talent, InnateSpell, Fundamentalist, CriticalInjuries, GeneralEquipment } = require('../../models');
 
 router.get('/spelleffects', async (req, res) => {
     const spellEffects = await SpellEffect.find().catch((err) =>{
@@ -43,5 +43,12 @@ router.get('/crits', async (req, res) => {
     });
     res.json(crits);
 });
+
+router.get('/equipment', async (req, res) => {
+    const equipment = await GeneralEquipment.find().sort('Name').catch((err) => {
+        res.json(err);
+    });
+    res.json(equipment);
+})
 
 module.exports = router;
