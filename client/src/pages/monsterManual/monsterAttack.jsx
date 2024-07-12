@@ -39,13 +39,10 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
                 attribute = attack.Attribute;
         }
 
-        console.log(attribute);
         if(attack.SpecialAttribute && monster[attack.SpecialAttribute] > monster[attribute]){
             attribute = attack.SpecialAttribute;
         }
-        console.log(attribute);
         
-
         let skillRanks = 0;
         for(let i = 0; i < skills.length; i++){
             let skill = skills[i].split(" ");
@@ -59,16 +56,15 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
             }
         }
 
-        let newRoll = new RollStorage();
+        let newRoll = new RollData();
         newRoll.name = monster.Name + " " + attack.Name;
-        newRoll.rollData = new RollData();
         if(skillRanks > monster[attribute]){
-            newRoll.rollData.ability = skillRanks;
-            newRoll.rollData.upgradeAbility = monster[attribute];
+            newRoll.ability = skillRanks;
+            newRoll.upgradeAbility = monster[attribute];
         }
         else{
-            newRoll.rollData.ability = monster[attribute];
-            newRoll.rollData.upgradeAbility = skillRanks;
+            newRoll.ability = monster[attribute];
+            newRoll.upgradeAbility = skillRanks;
         }
         setRoll(newRoll);
         setShowRoll(true);

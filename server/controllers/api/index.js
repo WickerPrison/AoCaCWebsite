@@ -9,4 +9,7 @@ router.use('/data', dataRoutes);
 const rollRoutes = require('./rollRoutes');
 router.use('/rolls', rollRoutes);
 
+const monsterRoutes = require('./monsterRoutes');
+router.use('/monsters', monsterRoutes);
+
 module.exports = router;

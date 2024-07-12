@@ -24,9 +24,8 @@ const filterArray = [
 const sortOptions = [{parameter: "Name", type: String}, {parameter: "HP", type: Number}, {parameter: "Stamina", type: Number}];
 
 const newRollStorage =() => {
-    let newStorage = new RollStorage();
+    let newStorage = new RollData();
     newStorage.display = "none";
-    newStorage.rollData = new RollData();
     return newStorage;
 }
 

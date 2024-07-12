@@ -15,9 +15,8 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
     }, [])
     
     const rollAttribute = (attributeValue, attributeName) => {
-        let newRoll = new RollStorage();
-        newRoll.rollData = new RollData();
-        newRoll.rollData.ability = attributeValue;
+        let newRoll = new RollData();
+        newRoll.ability = attributeValue;
         newRoll.name = monster.Name + " " + attributeName;
         updateMethods.setRoll(newRoll);
         updateMethods.setShowRoll(true);
@@ -27,16 +26,15 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
         let attribute = skillsDict[skillName].reduce(
             (largest, current) => monster[current] > monster[largest] ? current:largest
             , skillsDict[skillName][0]);
-        let newRoll = new RollStorage();
+        let newRoll = new RollData();
         newRoll.name = monster.Name + " " + skillName;
-        newRoll.rollData = new RollData();
         if(skillRanks > monster[attribute]){
-            newRoll.rollData.ability = skillRanks;
-            newRoll.rollData.upgradeAbility = monster[attribute];
+            newRoll.ability = skillRanks;
+            newRoll.upgradeAbility = monster[attribute];
         }
         else{
-            newRoll.rollData.ability = monster[attribute];
-            newRoll.rollData.upgradeAbility = skillRanks;
+            newRoll.ability = monster[attribute];
+            newRoll.upgradeAbility = skillRanks;
         }
         updateMethods.setRoll(newRoll);
         updateMethods.setShowRoll(true);
