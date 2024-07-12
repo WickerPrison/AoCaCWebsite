@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {User} = require('../../models');
-const { signToken, AuthenticationError } = require('../../Utils/auth');
+const { signToken, authMiddleware } = require('../../Utils/auth');
 
 router.get('/', async (req, res) => {
     const users = await User.find().catch((err) =>{

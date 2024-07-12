@@ -6,4 +6,7 @@ router.use('/users', userRoutes);
 const dataRoutes = require('./dataRoutes');
 router.use('/data', dataRoutes);
 
+const rollRoutes = require('./rollRoutes');
+router.use('/rolls', rollRoutes);
+
 module.exports = router;

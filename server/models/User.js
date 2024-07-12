@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
+const rollSchema = require('./Roll');
 
 const userSchema = new Schema(
     {
@@ -19,6 +20,9 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minLength: 5
+        },
+        rolls:{
+            type: [rollSchema]
         }
     }
 )
