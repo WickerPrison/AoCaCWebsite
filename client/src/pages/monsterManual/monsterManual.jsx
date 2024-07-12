@@ -5,7 +5,7 @@ import MonsterBlock from './monsterBlock';
 import Roll from "../../components/roll";
 import { useEffect, useState } from 'react';
 import { multipleFetch, singleFetch } from '../../js/getData';
-import { RollStorage, RollData } from '../../js/rollDice';
+import { RollData } from '../../js/rollDice';
 import Loading from '../../components/loading';
 import Filters from '../../components/filters';
 

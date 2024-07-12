@@ -19,7 +19,6 @@ router.put('/', authMiddleware, async (req, res) => {
         res.json("Authentication Error");
         return;
     }
-
     const user = await User.findByIdAndUpdate(req.user._id,
         {
             rolls: req.body.rolls
@@ -29,7 +28,7 @@ router.put('/', authMiddleware, async (req, res) => {
             res.json(err);
         }
     );
-    res.json(user);
+    res.json("Rolls Saved");
 });
 
 module.exports = router;

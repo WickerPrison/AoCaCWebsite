@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
-import { RollStorage, RollData } from "../../js/rollDice";
+import { RollData } from "../../js/rollDice";
 import skillsDict from "../../js/skills";
 
 export default function MonsterBlock({monster, allAttacks, updateMethods, monsterData}){

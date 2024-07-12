@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { RollData, RollStorage } from '../../js/rollDice';
+import { RollData} from '../../js/rollDice';
 import skillsDict from "../../js/skills";
 
 export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
