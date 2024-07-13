@@ -1,0 +1,64 @@
+#monster-builder #tabs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#monster-builder .tab{
+    margin: 0 1rem;
+    background-color: var(--green2);
+}
+
+#monster-builder .selected{
+    background-color: var(--green);
+}
+
+#create-monster{
+    margin-top: 1rem;
+}
+
+#create-monster .stats-grid{
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    text-align: right;
+    row-gap: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+}
+
+#create-monster .stats-grid label{
+    margin: auto 0;
+}
+
+#create-monster .stats-grid .grid-section{
+    grid-column: 1 / 7;
+    margin: 0;
+}
+
+#create-monster .stats-grid .full-width-label{
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+#create-monster .stats-grid .full-width-input{
+    grid-column: 2 / 7;
+    text-align: left;
+    width: 95%;
+    margin-left: 1rem;
+}
+
+#create-monster .toggle{
+    text-align: center;
+    padding: 0.2rem 0;
+    margin: 0 0.3rem;
+}
+
+#create-monster .toggle:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
+#create-monster .on{
+    background-color: var(--green);
+    border-radius: 15px;
+}

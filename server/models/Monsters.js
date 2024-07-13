@@ -94,6 +94,10 @@ const monsterSchema = new Schema(
         specialFeatures:{
             type: String
         },
+        public:{
+            type: Boolean,
+            default: true
+        },
         username:{
             type: String
         }

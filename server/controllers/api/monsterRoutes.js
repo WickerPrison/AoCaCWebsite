@@ -15,7 +15,6 @@ router.post('/', async (req, res) => {
         for(let i = 0; i < req.body.attackNames.length; i++){
             let attack = await Attack.findOne({name: req.body.attackNames[i]});
             req.body.attacks.push(attack);
-            console.log(req.body.attacks);
         }
         const monster = await Monster.create(req.body);
         res.json(monster);

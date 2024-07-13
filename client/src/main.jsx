@@ -16,6 +16,7 @@ import SpellBuilder from './pages/spellBuilder/spellBuilder.jsx';
 import TalentList from './pages/talentList/talentList.jsx';
 import CriticalInjuries from './pages/criticalInjuries/criticalInjuries.jsx';
 import Login from './pages/login/login.jsx';
+import MonsterBuilder from './pages/monsterBuilder/monsterBuilder.jsx';
 
 
 const router = createBrowserRouter([
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path:"/Login",
         element: <Login></Login>
+      },
+      {
+        path:"/MonsterBuilder",
+        element:<MonsterBuilder/>
       }
     ],
   },
