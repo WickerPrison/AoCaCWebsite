@@ -1,6 +1,7 @@
 import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
 import CreatureTypeSelector from './creatureTypeSelector';
+import Stats from './stats';
 
 const Tiers={
     MINION: "Minion",
@@ -28,7 +29,9 @@ export default function CreateMonster(){
         intellect: 2,
         presence: 2,
         willpower: 2
-    })
+    });
+    const [talents, setTalents] = useState("");
+    const [specialFeatures, setSpecialFeatures] = useState("");
     
 
     return (
@@ -59,61 +62,13 @@ export default function CreateMonster(){
 
             <h4 className="spell-name card-element">Stats and Features</h4>
             <div className="stats-grid">
-
-                <div>
-                    <label>HP: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Stamina: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>DR: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Melee Def: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Ranged Def: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Move. Pts.: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Agility: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Brawn: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Cunning: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Intellect: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Presence: </label>
-                    <input type="number"></input>
-                </div>
-                <div>
-                    <label>Willpower: </label>
-                    <input type="number"></input>
-                </div>
+                <Stats stats={stats} setStats={setStats}/>
 
                 <label className='full-width-label'>Talents/Abilities: </label>
-                <input className="full-width-input" type="text"></input>
+                <div contentEditable={true} className="full-width-input large-text-input" value={talents} onInput={e => setTalents(e.target.textContent)}></div>
 
                 <label className='full-width-label'>Special Features: </label>
-                <input className="full-width-input" type="text"></input>
+                <div contentEditable={true} className="full-width-input large-text-input" value={specialFeatures} onInput={e => setSpecialFeatures(e.target.textContent)}></div>
             </div>
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
         </form>
