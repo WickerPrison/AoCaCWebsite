@@ -2,6 +2,7 @@ import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
 import CreatureTypeSelector from './creatureTypeSelector';
 import Stats from './stats';
+import Skills from './skills';
 
 const Tiers={
     MINION: "Minion",
@@ -32,6 +33,7 @@ export default function CreateMonster(){
     });
     const [talents, setTalents] = useState("");
     const [specialFeatures, setSpecialFeatures] = useState("");
+    const [skills, setSkills] = useState([]);
     
 
     return (
@@ -70,6 +72,8 @@ export default function CreateMonster(){
                 <label className='full-width-label'>Special Features: </label>
                 <div contentEditable={true} className="full-width-input large-text-input" value={specialFeatures} onInput={e => setSpecialFeatures(e.target.textContent)}></div>
             </div>
+            <h4 className="spell-name card-element">Skill Ranks</h4>
+            <Skills skills={skills} setSkills={setSkills}/>
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
         </form>
     )
