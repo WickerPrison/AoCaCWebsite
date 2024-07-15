@@ -71,6 +71,17 @@
     margin: 0.3rem 0;
 }
 
+#create-monster .flex-grid-entries .immunity{
+    flex-basis: 10rem;
+    align-items: center;
+    justify-items: center;
+    margin: 0.3rem 0;
+}
+
+#create-monster .checkbox{
+    /* vertical-align: -0.2rem; */
+}
+
 #create-monster .toggle{
     text-align: center;
     padding: 0.2rem 0;

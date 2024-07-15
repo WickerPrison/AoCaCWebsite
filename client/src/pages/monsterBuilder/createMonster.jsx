@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import CreatureTypeSelector from './creatureTypeSelector';
 import Stats from './stats';
 import Skills from './skills';
+import ResWeakImm from './resWeakImm';
 
 const Tiers={
     MINION: "Minion",
@@ -16,6 +17,7 @@ export default function CreateMonster(){
     const [name, setName] = useState("");
     const [tier, setTier] = useState(Tiers.MINION);
     const [sil, setSil] = useState(1);
+    const [makePublic, setMakePublic] = useState(true);
     const [creatureTypes, setCreatureTypes] = useState(["Humanoid"]);
     const [stats, setStats] = useState({
         hp: 1,
@@ -34,6 +36,9 @@ export default function CreateMonster(){
     const [talents, setTalents] = useState("");
     const [specialFeatures, setSpecialFeatures] = useState("");
     const [skills, setSkills] = useState([]);
+    const [immunities, setImmunities] = useState([]);
+    const [customImmunities, setCustomImmunities] = useState("");
+    const [weakResist, setWeakResist] = useState([]);
     
 
     return (
@@ -54,10 +59,13 @@ export default function CreateMonster(){
 
                     </select>
                 </div>
-                <div></div>
                 <div>
                     <label>Silhouette: </label>
                     <input type="number" value={sil} onChange={e => setSil(e.target.value)} min="0"></input>
+                </div>
+                <div>
+                    <label>Make Public: </label>
+                    <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
                 </div>
                 <CreatureTypeSelector creatureTypes={creatureTypes} setCreatureTypes={setCreatureTypes}/>
             </div>
@@ -75,6 +83,8 @@ export default function CreateMonster(){
             <h4 className="spell-name card-element">Skill Ranks</h4>
             <Skills skills={skills} setSkills={setSkills}/>
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
+            <ResWeakImm immunities={immunities} setImmunities={setImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
+            <h4 className="spell-name card-element">Attacks</h4>
         </form>
     )
 }

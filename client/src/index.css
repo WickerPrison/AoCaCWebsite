@@ -305,6 +305,7 @@ input[type='text'],
 input[type="number"],
 input[type="password"],
 input[type="email"],
+.checkbox,
 .large-text-input{
     display: inline;
     font-size: var(--baseTextSize);
@@ -316,6 +317,29 @@ input[type="email"],
     font-family: var(--bodyFont);
     vertical-align: 0;
     padding: 0 0 0 0.4em;
+}
+
+.checkbox{
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    align-items: center;
+    font-size: calc(var(--baseTextSize) * 0.7);
+    color: var(--green2);
+}
+
+.show-check{
+    color: white;
+}
+
+.checkbox:hover{
+    outline-color: var(--green3);
+    color: var(--green2);
+}
+
+.show-check:hover{
+    color: white;
 }
 
 .can-point{
