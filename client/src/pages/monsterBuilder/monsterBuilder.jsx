@@ -3,6 +3,7 @@ import StaticHeader from "../../components/headerComponents/staticHeader";
 import CreateMonster from "./createMonster";
 import { useEffect, useState, useRef } from 'react';
 import './monsterBuilder.css';
+import CreateAttack from "./createAttack";
 
 const tabOptions={
     CREATE_MONSTER: "CREATE_MONSTER",
@@ -23,7 +24,7 @@ export default function MonsterBuilder(){
             case tabOptions.CREATE_MONSTER:
                 return <CreateMonster/>
             case tabOptions.CREATE_ATTACK:
-                return <div>create attack</div>
+                return <CreateAttack/>
             case tabOptions.MY_MONSTERS:
                 return <div>my monsters</div>
             case tabOptions.MY_ATTACKS:
