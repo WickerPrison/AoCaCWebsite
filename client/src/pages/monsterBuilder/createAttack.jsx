@@ -1,6 +1,7 @@
 import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
 import skillsDict from "../../js/skills";
+import SubmitAttack from './submitAttack';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -16,6 +17,20 @@ export default function CreateAttack(){
     const [crit, setCrit] = useState(5);
     const [accurate, setAccurate] = useState(0);
     const [properties, setProperties] = useState("");
+    const [makePublic, setMakePublic] = useState(true);
+
+    function resetStates(){
+        setName("");
+        setSkill("Brawl");
+        setSpecialAttribute("None");
+        setDamage(0);
+        setDamageAttribute("None");
+        setRange(ranges[0]);
+        setCrit(5);
+        setAccurate(0);
+        setProperties("");
+        setMakePublic(true);
+    }
 
     return (
         <form id="create-attack" className='card box'>
@@ -84,6 +99,11 @@ export default function CreateAttack(){
             <label className='full-width-label'>Properties: </label>
             <input className="full-width-input" type="text" value={properties} onChange={e => setProperties(e.target.value)}></input>
             </div>
+            <div>
+                <label>Make Public: </label>
+                <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
+            </div>
+            <button className='small-button submit-button' onClick={e => SubmitAttack(e, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
         </form>
     )
 }

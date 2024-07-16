@@ -107,3 +107,7 @@
     background-color: var(--green);
     border-radius: 15px;
 }
+
+#monster-builder .submit-button{
+    margin: 1rem 0;
+}

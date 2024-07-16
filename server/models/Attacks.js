@@ -35,8 +35,7 @@ const attackSchema = new Schema(
             default: 0
         },
         properties:{
-            type: String,
-            required: true
+            type: String
         },
         public:{
             type: Boolean,
