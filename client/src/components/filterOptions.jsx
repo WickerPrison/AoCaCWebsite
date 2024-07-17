@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 export default function FilterOptions({data, index, filterOptions, setFilterOptions}){
-    
+    const [showExpandedOptions, setShowExpandedOptions] = useState(false);
+
+
     function isSelected(option){
         if(filterOptions[index].options.includes("All") || filterOptions[index].options.includes(option)){
             return "selected";
@@ -33,11 +37,22 @@ export default function FilterOptions({data, index, filterOptions, setFilterOpti
     
     return (
         <div className="options-holder">
-            <div className="options-label">{data.category}:</div>
+            <div className="options-label">{data.displayName != null ? data.displayName: data.category}:</div>
             <div onClick={setToAll} className={`option ${isSelected("All")}`}>All</div>
-            {data.options.map((option) => {
-                return <div onClick={() => selectOption(option)} className={`option ${isSelected(option)}`} key={option}>{option}</div>
-            })}
+            {showExpandedOptions
+                ? data.expandedOptions.map((option) => {
+                    return <div onClick={() => selectOption(option)} className={`option ${isSelected(option)}`} key={option}>{option}</div>
+                })
+                :data.options.map((option) => {
+                    return <div onClick={() => selectOption(option)} className={`option ${isSelected(option)}`} key={option}>{option}</div>
+                })
+            }
+
+            {data.expandedOptions != null 
+                ? <div className="more-less" onClick={(e) => setShowExpandedOptions(!showExpandedOptions)}>{showExpandedOptions ? "Show less" : "Show more"}</div>
+                :null
+            }
+            
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
-import skillsDict from "../../js/skills";
+import {skillsDict} from "../../js/skills";
 
 export default function MonsterBlock({monster, allAttacks, updateMethods, monsterData}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];

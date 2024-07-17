@@ -43,6 +43,12 @@ export default function CreateMonster(){
     const [weakResist, setWeakResist] = useState([]);
     const [attacks, setAttacks] = useState([]);
     
+    function getStates(){
+        const data = {
+            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, immunities, customImmunities, weakResist, attacks
+        }
+        return data;
+    }
 
     return (
         <form id="create-monster" className="card box">
@@ -50,6 +56,7 @@ export default function CreateMonster(){
             <div className="stats-grid">
                 <label className='full-width-label'>Name: </label>
                 <input className="full-width-input" type="text" value={name} onChange={e => setName(e.target.value)}></input>
+                <CreatureTypeSelector creatureTypes={creatureTypes} setCreatureTypes={setCreatureTypes}/>
                 <div></div>
                 <div>
                     <label>Tier: </label>
@@ -66,11 +73,6 @@ export default function CreateMonster(){
                     <label>Silhouette: </label>
                     <input type="number" value={sil} onChange={e => setSil(e.target.value)} min="0"></input>
                 </div>
-                <div>
-                    <label>Make Public: </label>
-                    <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
-                </div>
-                <CreatureTypeSelector creatureTypes={creatureTypes} setCreatureTypes={setCreatureTypes}/>
             </div>
 
             <h4 className="spell-name card-element">Stats and Features</h4>
@@ -97,6 +99,12 @@ export default function CreateMonster(){
                 )
             })}
             <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
+            <h4 className="spell-name card-element">Finalize</h4>
+            <div className="make-public">
+                <label>Make Public: </label>
+                <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
+            </div>
+            <button className="small-button button-margin">Submit</button>
         </form>
     )
 }

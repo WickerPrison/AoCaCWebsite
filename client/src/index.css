@@ -371,7 +371,8 @@ select{
     position: absolute;
     z-index: 6;
     top:0;
-    left: 5%;
+    left: 0;
+    width: 100%;
 }
 
 @media screen and (min-width: 3000px) {

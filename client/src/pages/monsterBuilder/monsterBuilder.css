@@ -120,3 +120,7 @@
     width: 100%;
     left: -1rem
 }
+
+#monster-builder .make-public{
+    margin-top: 1rem;
+}

@@ -12,7 +12,8 @@ const attackSchema = new Schema(
             required: true
         },
         specialAttribute:{
-            type: String
+            type: String,
+            required: true
         },
         damage:{
             type: Number,

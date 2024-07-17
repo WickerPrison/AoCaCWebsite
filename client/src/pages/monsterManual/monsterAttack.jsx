@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { RollData} from '../../js/rollDice';
-import skillsDict from "../../js/skills";
+import {skillsDict} from "../../js/skills";
 
 export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
     let [damageDisplay, setDamageDisplay] = useState(false);

@@ -21,7 +21,7 @@ export default function SortOptions({sortArray, sortOptions, setSort}){
             <label className="options-label">Sort By: </label>
             <select value={sortOptions.parameter} onChange={e => updateParameter(e.target.value)}>
                 {sortArray.map((option) => {
-                    return <option key={option.parameter}>{option.parameter}</option>
+                    return <option key={option.parameter} value={option.parameter}>{option.displayName != null ? option.displayName : option.parameter}</option>
                 })}
             </select>
 

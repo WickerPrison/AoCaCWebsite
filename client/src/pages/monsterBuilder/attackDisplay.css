@@ -23,3 +23,7 @@
 #monster-builder .attack-holder .attack-stats-2{
     flex-basis: 10rem;
 }
+
+#monster-builder .attack-display{
+    margin-top: 2rem;
+}

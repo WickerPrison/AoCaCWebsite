@@ -1,6 +1,6 @@
 import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
-import skillsDict from "../../js/skills";
+import {skillsDict} from "../../js/skills";
 import SubmitAttack from './submitAttack';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];

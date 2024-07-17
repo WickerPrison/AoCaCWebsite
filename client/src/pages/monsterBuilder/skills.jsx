@@ -1,62 +1,12 @@
 import { useCallback, useEffect } from "react";
 import "./monsterBuilder.css";
-
-const combatSkills = [
-    ["Brawl", "Br"],
-    ["Heavy Weapons", "Br"],
-    ["Light Weapons", "Br"],
-    ["Ranged", "Ag"]
-];
-
-const generalSkills=[
-    ["Animal Handling", "Ag"],
-    ["Athletics", "Br"],
-    ["Cool", "Pr"],
-    ["Coordination", "Ag"],
-    ["Discipline", "Wi"],
-    ["Medicine", "Cu/In"],
-    ["Perception", "Cu"],
-    ["Resilience", "Br"],
-    ["Sailing", "Cu"],
-    ["Survival", "Cu"],
-    ["Vigilance", "Wi"]
-];
-
-const fabricationSkills=[
-    ["Alchemy", "In"],
-    ["Crafting", "In"],
-    ["Enchanting", "In"],
-    ["Engineering", "In"]
-];
-
-const knowledgeSkills=[
-    ["Arcana", "In"],
-    ["Linguistics", "In"],
-    ["Lore", "In"],
-    ["Nature", "Cu/In"],
-    ["Society", "In"]
-];
-
-const magicSkills=[
-    ["Innate", "Wi"],
-    ["Scholarly", "In"]
-];
-
-const speechSkills=[
-    ["Charm", "Pr"],
-    ["Coercion", "Br/Wi"],
-    ["Deception", "Cu"],
-    ["Insight", "Cu"],
-    ["Leadership", "Pr"],
-    ["Negotiation", "Pr"],
-    ["Performance", "Pr"]
-];
-
-const stealthSkills=[
-    ["Skulduggery", "Cu"],
-    ["Stealth", "Ag"],
-    ["Streetwise", "Cu"]
-];
+import {combatSkills,
+    generalSkills,
+    fabricationSkills,
+    knowledgeSkills,
+    magicSkills, 
+    speechSkills,
+    stealthSkills} from "../../js/skills";
 
 export default function Skills({skills, setSkills}){
 
