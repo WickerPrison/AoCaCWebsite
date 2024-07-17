@@ -4,6 +4,8 @@ import CreatureTypeSelector from './creatureTypeSelector';
 import Stats from './stats';
 import Skills from './skills';
 import ResWeakImm from './resWeakImm';
+import AddAttacks from './addAttacks';
+import AttackDisplay from './attackDisplay';
 
 const Tiers={
     MINION: "Minion",
@@ -39,6 +41,7 @@ export default function CreateMonster(){
     const [immunities, setImmunities] = useState([]);
     const [customImmunities, setCustomImmunities] = useState("");
     const [weakResist, setWeakResist] = useState([]);
+    const [attacks, setAttacks] = useState([]);
     
 
     return (
@@ -85,6 +88,15 @@ export default function CreateMonster(){
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
             <ResWeakImm immunities={immunities} setImmunities={setImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
             <h4 className="spell-name card-element">Attacks</h4>
+            {attacks.map((attack, index) => {
+                return(
+                    <div key={attack.name}>
+                        <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks} showToggle={false}/>
+                        {index < attacks.length - 1 ? <div className="line"></div>:null }
+                    </div>
+                )
+            })}
+            <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
         </form>
     )
 }

@@ -367,6 +367,13 @@ select{
     font-family: var(--bodyFont);
 }
 
+.popup{
+    position: absolute;
+    z-index: 6;
+    top:0;
+    left: 5%;
+}
+
 @media screen and (min-width: 3000px) {
     :root{
         --baseTextSize:1.75em;

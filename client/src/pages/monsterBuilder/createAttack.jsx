@@ -103,7 +103,7 @@ export default function CreateAttack(){
                 <label>Make Public: </label>
                 <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
             </div>
-            <button className='small-button submit-button' onClick={e => SubmitAttack(e, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
+            <button className='small-button button-margin' onClick={e => SubmitAttack(e, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
         </form>
     )
 }
