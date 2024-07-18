@@ -2,7 +2,7 @@ import './monsterBuilder.css';
 import './attackDisplay.css';
 import { useEffect, useState, useRef } from 'react';
 
-export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, showToggle=true}){
+export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, showToggle=true, editButton=false, setEdit}){
 
     function isAdded(){
         return addedAttacks.findIndex(x => x.name == attack.name) >= 0
@@ -21,6 +21,11 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
         setAddedAttacks(temp);
     }
 
+    function toggleEditButton(evt){
+        evt.preventDefault();
+        setEdit(attack);
+    }
+
     return (
         <div className="attack-holder">
             {showToggle? <button className={`checkbox ${isAdded() ? "show-check" : ""}`} onClick={evt => toggleAttack(evt)}>{"✔"}</button>: null}
@@ -30,13 +35,14 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
             <div className="attack-stats-1">
                 <div>Skill: {attack.skill}</div>
                 <div>Damage: {attack.damage} {attack.attribute != "None" ? `+ ${attack.attribute}`:null}</div>
-                {attack.spcialAttribute != null ? <div>Spec. Attr.: {attack.spcialAttribute}</div>: null}
+                {attack.specialAttribute != "None" ? <div>Spec. Attr.: {attack.specialAttribute}</div>: null}
             </div>
             <div className="attack-stats-2">
                 <div>Range: {attack.range}</div>
                 <div>Crit: {attack.crit}</div>
             </div>
             <div>{attack.properties}</div>
+            {editButton? <button className="edit-button small-button" onClick={evt => toggleEditButton(evt)}>Edit</button>:null}
         </div>
     )
 }

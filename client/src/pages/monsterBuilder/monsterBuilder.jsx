@@ -4,6 +4,7 @@ import CreateMonster from "./createMonster";
 import { useEffect, useState, useRef } from 'react';
 import './monsterBuilder.css';
 import CreateAttack from "./createAttack";
+import MyAttacks from "./myAttacks";
 
 const tabOptions={
     CREATE_MONSTER: "CREATE_MONSTER",
@@ -28,7 +29,7 @@ export default function MonsterBuilder(){
             case tabOptions.MY_MONSTERS:
                 return <div>my monsters</div>
             case tabOptions.MY_ATTACKS:
-                return <div>my attacks</div>
+                return <MyAttacks/>
         }
     }
 

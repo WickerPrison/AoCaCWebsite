@@ -20,7 +20,7 @@ export default async function SubmitAttack(evt, name, skill, specialAttribute, d
         accurate: accurate,
         properties: properties,
         public: makePublic,
-        username: auth.getProfile().username
+        username: auth.getProfile().data.username
     }
 
     const response = await fetch(getUrl() + '/api/monsters/attack', {

@@ -18,18 +18,20 @@
 }
 
 #create-monster,
-#create-attack{
+#create-attack,
+#my-attacks{
     margin-top: 1rem;
 }
 
 #monster-builder .stats-grid{
     display: grid;
-    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
     /* grid-template-columns: 30% 30% 30%; */
     text-align: right;
     row-gap: 1rem;
     margin: 1rem 0;
     align-items: center;
+    padding: 0 1rem;
 }
 
 #create-monster .stats-grid .line{
@@ -67,14 +69,14 @@
     justify-content: left;
 }
 
-#create-attack .flex-grid-entries{
+#edit-attack .flex-grid-entries{
     grid-column: 2 / 7;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
 }
 
-#create-attack .flex-grid-entries div{
+#edit-attack .flex-grid-entries div{
     flex-basis: 18rem;
     margin: 0.3rem 0;
     text-align: left;
@@ -113,7 +115,7 @@
 }
 
 #monster-builder .button-margin{
-    margin: 1rem 0;
+    margin: 1rem 1rem 1rem;
 }
 
 #monster-builder h4{
@@ -122,5 +124,13 @@
 }
 
 #monster-builder .make-public{
-    margin-top: 1rem;
+    grid-column: 1/7;
+    margin: 1rem auto 0
+}
+
+#monster-builder .edit-button{
+    font-size: calc(var(--baseTextSize) * 0.8);
+    padding: 0.2rem 0.4rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
 }

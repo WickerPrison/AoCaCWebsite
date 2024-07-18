@@ -31,6 +31,13 @@ router.get('/attacks', async (req, res) => {
     res.json(attacks);
 });
 
+router.get('/attacks/:username', async (req, res) => {
+    const attacks = await Attack.find({username: req.params.username}).sort("name").catch(err => {
+        res.json(err);
+    })
+    res.json(attacks);
+})
+
 router.post('/attack', async (req, res) => {
     try{
         const attack = await Attack.create(req.body);

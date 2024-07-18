@@ -144,7 +144,7 @@ export default async function SubmitMonster(evt, data, resetStates){
         talentsAbilities: data.talents,
         specialFeatures: data.specialFeatures,
         public: data.makePublic,
-        username: auth.getProfile().username
+        username: auth.getProfile().data.username
     }
 
     const response = await fetch(getUrl() + '/api/monsters/', {
