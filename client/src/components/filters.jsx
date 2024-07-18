@@ -49,7 +49,6 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                     case Number:
                         return sortOptions.direction * (A[sortOptions.parameter] - B[sortOptions.parameter]);
                 }
-    
             })
         }
 

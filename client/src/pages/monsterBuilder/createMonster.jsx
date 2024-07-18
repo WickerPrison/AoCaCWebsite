@@ -6,6 +6,7 @@ import Skills from './skills';
 import ResWeakImm from './resWeakImm';
 import AddAttacks from './addAttacks';
 import AttackDisplay from './attackDisplay';
+import SubmitMonster from './submitMonster';
 
 const Tiers={
     MINION: "Minion",
@@ -38,14 +39,15 @@ export default function CreateMonster(){
     const [talents, setTalents] = useState("");
     const [specialFeatures, setSpecialFeatures] = useState("");
     const [skills, setSkills] = useState([]);
-    const [immunities, setImmunities] = useState([]);
+    const [conditionImmunities, setConditionImmunities] = useState([]);
+    const [damageImmunities, setDamageImmunities] = useState([]);
     const [customImmunities, setCustomImmunities] = useState("");
     const [weakResist, setWeakResist] = useState([]);
     const [attacks, setAttacks] = useState([]);
     
     function getStates(){
         const data = {
-            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, immunities, customImmunities, weakResist, attacks
+            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks
         }
         return data;
     }
@@ -88,7 +90,7 @@ export default function CreateMonster(){
             <h4 className="spell-name card-element">Skill Ranks</h4>
             <Skills skills={skills} setSkills={setSkills}/>
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
-            <ResWeakImm immunities={immunities} setImmunities={setImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
+            <ResWeakImm conditionImmunities={conditionImmunities} setConditionImmunities={setConditionImmunities} damageImmunities={damageImmunities} setDamageImmunities={setDamageImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
             <h4 className="spell-name card-element">Attacks</h4>
             {attacks.map((attack, index) => {
                 return(
@@ -104,7 +106,7 @@ export default function CreateMonster(){
                 <label>Make Public: </label>
                 <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
             </div>
-            <button className="small-button button-margin">Submit</button>
+            <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), () => {})}>Submit</button>
         </form>
     )
 }

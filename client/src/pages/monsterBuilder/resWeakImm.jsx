@@ -3,10 +3,10 @@ import './monsterBuilder.css';
 const conditions = ["Bleeding", "Blinded", "Burning", 'Charmed', "Deafened", "Disoriented", "Frightened", "Paralyzed", "Poisoned", "Sickened", "Staggered"];
 const damageTypes = ["Physical", "Silver", "Radiant", "Necrotic", "Cold", "Fire", "Lightning", "Poison"];
 
-export default function ResWeakImm({immunities, setImmunities, customImmunities, setCustomImmunities,weakResist, setWeakResist}){
+export default function ResWeakImm({conditionImmunities, setConditionImmunities, damageImmunities, setDamageImmunities, customImmunities, setCustomImmunities,weakResist, setWeakResist}){
     
     function getImmunity(name){
-        if(immunities.includes(name)){
+        if(conditionImmunities.includes(name) || damageImmunities.includes(name)){
             return true;
         }
         return false;
@@ -14,8 +14,15 @@ export default function ResWeakImm({immunities, setImmunities, customImmunities,
 
     function setImmunity(e, name, damage = false){
         e.preventDefault();
-        let temp = immunities.slice();
-        let index = immunities.indexOf(name);
+        let temp;
+        if(damage){
+            temp = damageImmunities.slice();
+        }
+        else{
+            temp = conditionImmunities.slice()
+        }
+
+        let index = temp.indexOf(name);
         if(index >= 0){
             temp.splice(index, 1);
             if(damage){
@@ -30,7 +37,13 @@ export default function ResWeakImm({immunities, setImmunities, customImmunities,
         else{
             temp.push(name);
         }
-        setImmunities(temp);
+
+        if(damage){
+            setDamageImmunities(temp);
+        }
+        else{
+            setConditionImmunities(temp);
+        }
     }
 
     function getResistance(name){
@@ -44,7 +57,7 @@ export default function ResWeakImm({immunities, setImmunities, customImmunities,
     }
 
     function setResistance(name, value){
-        let immuneIndex = immunities.indexOf(name);
+        let immuneIndex = damageImmunities.indexOf(name);
         if(immuneIndex >= 0) return;
 
         let index = weakResist.findIndex(x => x.name == name);

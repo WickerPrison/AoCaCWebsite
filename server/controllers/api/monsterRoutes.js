@@ -12,8 +12,8 @@ router.get("/", async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         req.body.attacks = [];
-        for(let i = 0; i < req.body.attackNames.length; i++){
-            let attack = await Attack.findOne({name: req.body.attackNames[i]});
+        for(let i = 0; i < req.body.attackIds.length; i++){
+            let attack = await Attack.findById({_id: req.body.attackIds[i]});
             req.body.attacks.push(attack);
         }
         const monster = await Monster.create(req.body);

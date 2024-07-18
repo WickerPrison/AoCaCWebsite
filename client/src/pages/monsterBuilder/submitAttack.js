@@ -1,8 +1,14 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitAttack(e, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates){
-    e.preventDefault();
+export default async function SubmitAttack(evt, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates){
+    evt.preventDefault();
+
+    if(!name){
+        alert("Unique name required");
+        return;
+    }
+
     let output = {
         name: name,
         skill: skill,
