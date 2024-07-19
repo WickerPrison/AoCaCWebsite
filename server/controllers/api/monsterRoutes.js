@@ -48,4 +48,11 @@ router.post('/attack', async (req, res) => {
     }
 });
 
+router.put('/attack', async (req, res) => {
+    const attack = await Attack.findByIdAndUpdate(req.body._id, req.body, {new: true}).catch(err => {
+        res.json(err);
+    });
+    res.json(attack);
+})
+
 module.exports = router;

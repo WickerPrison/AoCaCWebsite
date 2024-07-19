@@ -4,6 +4,7 @@ import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 import AttackDisplay from './attackDisplay';
 import EditAttack from './editAttack';
+import SubmitAttack from './submitAttack';
 
 export default function MyAttacks(){
     const [myAttacks, setMyAttacks] = useState([]);
@@ -40,24 +41,31 @@ export default function MyAttacks(){
         setMakePublic(attack.public);
     }
 
+    async function getData() {
+        try{
+            const response = await fetch(getUrl() + '/api/monsters/attacks/' + auth.getProfile().data.username, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            const data = await response.json();
+            setMyAttacks(data);
+        }
+        catch(err){
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
-        async function getData() {
-            try{
-                const response = await fetch(getUrl() + '/api/monsters/attacks/' + auth.getProfile().data.username, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
-    
-                const data = await response.json();
-                setMyAttacks(data);
-            }
-            catch(err){
-                console.log(err);
-            }
-        };
         getData();
     },[])
     
+    function updateAttack(evt){
+        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, () => {}, editAttack);
+        setEditAttack("");
+        getData();
+    }
+
     return (
         <div id="my-attacks" className="card box">
             <div className="box-header">My Attacks</div>
@@ -69,7 +77,7 @@ export default function MyAttacks(){
                             <EditAttack getStates={getStates}/>
                             <div>
                                 <button className="button-margin small-button" style={{marginTop: 0}} onClick={() => setEditAttack("")}>Cancel</button>
-                                <button className="button-margin small-button" style={{marginTop: 0}}>Submit</button>
+                                <button className="button-margin small-button" style={{marginTop: 0}} onClick={evt => updateAttack(evt)}>Submit</button>
                             </div>
                         </div> 
                         :<AttackDisplay attack={attack} showToggle={false} editButton={true} setEdit={switchEditTarget}/>}

@@ -40,7 +40,7 @@ export default function CreateAttack(){
         <form id="create-attack" className='card box'>
             <div className='box-header'>New Attack</div>
             <EditAttack getStates={getStates}/>
-            <button className='small-button button-margin' onClick={e => SubmitAttack(e, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
+            <button className='small-button button-margin' onClick={e => SubmitAttack(e, "POST", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
         </form>
     )
 }

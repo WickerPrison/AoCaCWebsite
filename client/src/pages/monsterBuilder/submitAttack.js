@@ -1,7 +1,7 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitAttack(evt, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates){
+export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates, _id=""){
     evt.preventDefault();
 
     if(!name){
@@ -23,8 +23,12 @@ export default async function SubmitAttack(evt, name, skill, specialAttribute, d
         username: auth.getProfile().data.username
     }
 
+    if(_id != ""){
+        output._id = _id;
+    }
+
     const response = await fetch(getUrl() + '/api/monsters/attack', {
-        method: 'POST',
+        method: method,
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(output)
