@@ -31,6 +31,13 @@ router.get('/attacks', async (req, res) => {
     res.json(attacks);
 });
 
+router.get("/:username", async (req, res) => {
+    const monsters = await Monster.find({username: req.params.username}).sort("name").catch(err => {
+        res.json(err);
+    });
+    res.json(monsters);
+});
+
 router.get('/attacks/:username', async (req, res) => {
     const attacks = await Attack.find({username: req.params.username}).sort("name").catch(err => {
         res.json(err);

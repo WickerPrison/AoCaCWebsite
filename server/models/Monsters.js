@@ -76,8 +76,20 @@ const monsterSchema = new Schema(
             type: [String],
             default: []
         },
-        immunities:{
+        conditionImmunities:{
+            type: [String]
+        },
+        damageImmunities:{
+            type:[String]
+        },
+        customImmunities:{
             type: String
+        },
+        immunitiesString:{
+            type: String
+        },
+        resistWeakArray:{
+            type: [Schema.Types.Mixed]
         },
         resistances:{
             type: String

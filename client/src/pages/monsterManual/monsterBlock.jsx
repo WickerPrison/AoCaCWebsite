@@ -3,31 +3,24 @@ import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
 import {skillsDict} from "../../js/skills";
 
-export default function MonsterBlock({monster, allAttacks, updateMethods, monsterData}){
+export default function MonsterBlock({monster, updateMethods, monsterData}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
-    let [attacks, setAttacks] = useState([]);
-
-    useEffect(() => {
-        let attacksStrings = monster.Attacks.split(', ');
-        setAttacks(allAttacks.filter((attack) => {
-            return attacksStrings.includes(attack.Name);
-        }))
-    }, [])
     
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
         newRoll.ability = attributeValue;
-        newRoll.name = monster.Name + " " + attributeName;
+        newRoll.name = monster.name + " " + attributeName;
         updateMethods.setRoll(newRoll);
         updateMethods.setShowRoll(true);
     }
 
     function rollSkillCheck(skillName, skillRanks){
         let attribute = skillsDict[skillName].reduce(
-            (largest, current) => monster[current] > monster[largest] ? current:largest
+            (largest, current) => monster[current.toLowerCase()] > monster[largest.toLowerCase()] ? current:largest
             , skillsDict[skillName][0]);
+        attribute = attribute.toLowerCase();
         let newRoll = new RollData();
-        newRoll.name = monster.Name + " " + skillName;
+        newRoll.name = monster.name + " " + skillName;
         if(skillRanks > monster[attribute]){
             newRoll.ability = skillRanks;
             newRoll.upgradeAbility = monster[attribute];
@@ -40,15 +33,26 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
         updateMethods.setShowRoll(true);
     }
     
+    function setupCreatureTypes(){
+        let outputString = "";
+        for (let i = 0; i < monster.creatureTypes.length; i++){
+            outputString += monster.creatureTypes[i];
+            if(i < monster.creatureTypes.length - 1){
+                outputString += ", ";
+            }
+        }
+        return outputString;
+    }
+
     function setupSkill(skill, index){
-        if(monster.Tier == "Swarm") return swarmSkill(skill, index);
+        if(monster.tier == "Swarm") return swarmSkill(skill, index);
         skill = skill.split(" ");
         if(skill.length == 3){
             skill[0] = skill[0] + " " + skill[1];
             skill.splice(1, 1);
         }
         let skillString = skill[0] + " " + skill[1];
-        if(index < monster.Skills.split(", ").length - 1){
+        if(index < monster.skills.length - 1){
             skillString += ", "
         }
         return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill[0], skill[1])}>{skillString}</div>);
@@ -56,24 +60,24 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
 
     function swarmSkill(skill, index){
         let skillString = skill + " ";
-        monsterData ? skillString += monsterData.hp: skillString += monster.HP;
+        monsterData ? skillString += monsterData.hp: skillString += monster.hp;
 
         if(index < monster.Skills.split(", ").length - 1){
             skillString += ", "
         }
-        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill, monsterData ? monsterData.hp : monster.HP)}>{skillString}</div>)
+        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill, monsterData ? monsterData.hp : monster.hp)}>{skillString}</div>)
     }
 
     function setResistances(){
         let outputString = "";
         if(monster.Immunities){
-            outputString += "<strong>Immunities:</strong> " + monster.Immunities + " ";
+            outputString += "<strong>Immunities:</strong> " + monster.immunities + " ";
         }
         if(monster.Resistances){
-            outputString += "<strong>Resistances:</strong> " + monster.Resistances + " ";
+            outputString += "<strong>Resistances:</strong> " + monster.resistances + " ";
         }
         if(monster.Weaknesses){
-            outputString += "<strong>Weaknesses:</strong> " + monster.Weaknesses + " ";
+            outputString += "<strong>Weaknesses:</strong> " + monster.weaknesses + " ";
         }
         return outputString;
     }
@@ -85,11 +89,11 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
 
     return (
         <section className="box monster-card">
-            <div className="box-header">{monster.Name}</div>
+            <div className="box-header">{monster.name}</div>
             {monsterData ? <div className="close-monster" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
             <div className="monster-row">
-                <div className="creature-types">Creature Types: {monster["Creature Types"]}</div>
-                <div className="monster-tier">Tier: {monster.Tier}</div>
+                <div className="creature-types">Creature Types: {setupCreatureTypes()}</div>
+                <div className="monster-tier">Tier: {monster.tier}</div>
             </div>
             <div className="monster-line"></div>
             <div className="stat-block-section">
@@ -108,29 +112,28 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                             <input className="stat-field" type="number" value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
                             <div className="stat-max">/{monster.HP}</div>
                         </div>)
-                        :<div className="hp">{monster.HP}</div>}
+                        :<div className="hp">{monster.hp}</div>}
                         {monsterData ?
                         (<div className="stamina">
                                 <input className="stat-field" type="number" value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
-                            <div className="stat-max">/{monster.Stamina}</div>
+                            <div className="stat-max">/{monster.stamina}</div>
                         </div>)
-                        :<div className="stamina">{monster.Stamina}</div>}
-                        <div className="damage-reduction">{monster["Damage Reduction"]}</div>
-                        <div className="defense">{monster["Melee Defense"]}|{monster["Ranged Defense"]}</div>
-                        <div className="sil">{monster.Silhouette}</div>
-                        <div className="move-pts">{monster.Speed}</div>
+                        :<div className="stamina">{monster.stamina}</div>}
+                        <div className="damage-reduction">{monster.damageReduction}</div>
+                        <div className="defense">{monster.meleeDefense}|{monster.rangedDefense}</div>
+                        <div className="sil">{monster.sil}</div>
+                        <div className="move-pts">{monster.speed}</div>
                     </div>
                     <div className="labels">
-
                         {attributes.map((attribute) => {
                             let classes = attribute + "-label clickable-text";
-                            return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute], attribute)}>{attribute}: </div>
+                            return <div key={attribute} className={classes} onClick={() => rollAttribute(monster[attribute.toLowerCase()], attribute)}>{attribute}: </div>
                         })}
                     </div>
                     <div className="monster-column2">
                         {attributes.map((attribute) => {
                             let classes = attribute + " clickable-text";
-                            return <div key={attribute} className={classes}>{monster[attribute]}</div>
+                            return <div key={attribute} className={classes}>{monster[attribute.toLowerCase()]}</div>
                         })}
                     </div>
                 </div>
@@ -138,28 +141,28 @@ export default function MonsterBlock({monster, allAttacks, updateMethods, monste
                 <div className="stat-text">
                     <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
 
-                    {monster.Skills.length > 0 
+                    {monster.skills.length > 0 
                     ?<div className="skills"><strong>Skills: </strong>
-                        {monster.Skills.split(", ").map((skill, index) => {
+                        {monster.skills.map((skill, index) => {
                             return setupSkill(skill, index);
                         })}
                     </div>
                     :null}
 
-                    {monster["Talents/Abilities"].length > 0 
-                    ? (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster["Talents/Abilities"]}</div>)
+                    {monster.talentsAbilities 
+                    ? (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster.talentsAbilities}</div>)
                     :(null)}
 
-                    {monster["Special Features"].length > 0 
-                    ? (<div className="talents-abilities"><strong>Special Features: </strong>{monster["Special Features"]}</div>)
+                    {monster.specialFeatures 
+                    ? (<div className="talents-abilities"><strong>Special Features: </strong>{monster.specialFeatures}</div>)
                     :(null)}
                 </div>
             </div>
-            {attacks.length > 0 
+            {monster.attacks.length > 0 
             ?(<>
                 <div className="attacks-heading">Attacks</div>
                 <div className="attacks">
-                    {attacks.map((attack, index) => {
+                    {monster.attacks.map((attack, index) => {
                         return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll}/>
                     })}
                 </div>

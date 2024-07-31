@@ -71,7 +71,7 @@ export default function AddAttacks({attacks, setAttacks}){
             })
 
             const data = await response.json();
-            
+ 
             setAllAttacks(data);
             setDisplayAttacks(data);
             setShowMenu(true);

@@ -4,24 +4,42 @@ import PageHeading from "../../components/headerComponents/pageHeading";
 import MonsterBlock from './monsterBlock';
 import Roll from "../../components/roll";
 import { useEffect, useState } from 'react';
-import { multipleFetch, singleFetch } from '../../js/getData';
 import { RollData } from '../../js/rollDice';
 import Loading from '../../components/loading';
 import Filters from '../../components/filters';
+import getUrl from '../../utils/getUrl';
 
 
 const filterArray = [
     {
-        category: "Tier",
-        options: ["Rival", "Nemesis", "Legendary","Swarm"]
+        category: "tier",
+        displayName: "Tier",
+        options: ["Rival", "Nemesis", "Legendary", "Swarm"]
     },
     {
-        category: "Creature Types",
+        category: "creatureTypes",
+        displayName: "Creature Types",
         options: ["Humanoid", "Mythic", "Undead", "Construct", "Abomination"]
     }
 ]
 
-const sortOptions = [{parameter: "Name", type: String}, {parameter: "HP", type: Number}, {parameter: "Stamina", type: Number}];
+const sortOptions = [
+    {
+        parameter: "name", 
+        displayName: "Name",
+        type: String
+    }, 
+    {
+        parameter: "hp", 
+        displayName: "HP",
+        type: Number
+    }, 
+    {
+        parameter: "stamina", 
+        displayName: "Stamina",
+        type: Number
+    }
+];
 
 const newRollStorage =() => {
     let newStorage = new RollData();
@@ -38,10 +56,14 @@ export default function MonsterManual(){
 
     useEffect(() => {
         async function getData(){
-            let data = await multipleFetch(["Monsters", "Attacks"]);
-            setMonsters(data[0]);
-            setDisplayedMonsters(data[0]);
-            setAttacks(data[1]);
+            let response = await fetch(getUrl() + '/api/monsters', {
+                method: "GET",
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            let data = await response.json();
+            setMonsters(data);
+            setDisplayedMonsters(data);
         }
         getData();
     }, [])
@@ -72,7 +94,7 @@ export default function MonsterManual(){
                 <Filters input={monsters} setOutput={setDisplayedMonsters} filterArray={filterArray} sortArray={sortOptions}/>
                 <section id="monster-list">
                     {displayedMonsters.map((monster) => {
-                        return <MonsterBlock key={monster.Name} monster={monster} allAttacks={attacks} updateMethods={{setRoll, setShowRoll}}/>
+                        return <MonsterBlock key={monster.name} monster={monster} updateMethods={{setRoll, setShowRoll}}/>
                     })}
                 </section>
                 {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods}/>:null}
