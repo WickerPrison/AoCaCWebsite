@@ -58,7 +58,7 @@ export default function CreateMonster({editMonster}){
             setName(editMonster.name);
             setTier(editMonster.tier);
             setSil(editMonster.sil);
-            setMakePublic(editMonster.makePublic);
+            setMakePublic(editMonster.public);
             setCreatureTypes(editMonster.creatureTypes);
             setStats({
                 hp: editMonster.hp,
@@ -82,9 +82,7 @@ export default function CreateMonster({editMonster}){
             if(editMonster.customImmunities){
                 setCustomImmunities(editMonster.customImmunities);
             }
-            if(editMonster.weakResistArray){
-                setWeakResist(editMonster.weakResistArray);
-            }
+            setWeakResist(editMonster.resistWeakArray);
             setAttacks(editMonster.attacks);
         }
     },[])

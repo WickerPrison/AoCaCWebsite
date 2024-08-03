@@ -33,17 +33,12 @@ export default async function SubmitMonster(evt, data, resetStates){
     }
 
     function formatSkills(array){
-        let output = [];
         array.sort((A, B) => {
             let a = A.name.toLowerCase();
             let b = B.name.toLowerCase();
             return a.localeCompare(b);
         });
-
-        for(let i = 0; i < array.length; i++){
-            output.push(array[i].name + " " + array[i].value);
-        }
-        return output;
+        return array;
     }
 
     function formatImmunities(){
@@ -141,7 +136,7 @@ export default async function SubmitMonster(evt, data, resetStates){
         damageImmunities: data.damageImmunities.sort(),
         customImmunities: data.customImmunities,
         immunitiesString: formatImmunities(),
-        resistWeakArray: resistancesAndWeaknesses,
+        resistWeakArray: data.weakResist,
         resistances: resistancesAndWeaknesses[0],
         weaknesses: resistancesAndWeaknesses[1],
         attacks: formatAttackIds(),

@@ -60,7 +60,6 @@ export default function MyMonsters(){
     };
     
     useEffect(() => {
-        console.log(monsterList);
         getData();
     },[])
 

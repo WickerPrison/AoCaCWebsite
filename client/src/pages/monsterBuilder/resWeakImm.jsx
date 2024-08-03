@@ -4,7 +4,7 @@ import './monsterBuilder.css';
 const conditions = ["Bleeding", "Blinded", "Burning", 'Charmed', "Deafened", "Disoriented", "Frightened", "Paralyzed", "Poisoned", "Sickened", "Staggered"];
 const damageTypes = ["Physical", "Silver", "Radiant", "Necrotic", "Cold", "Fire", "Lightning", "Poison"];
 
-export default function ResWeakImm({conditionImmunities, setConditionImmunities, damageImmunities, setDamageImmunities, customImmunities, setCustomImmunities,weakResist, setWeakResist}){
+export default function ResWeakImm({conditionImmunities, setConditionImmunities, damageImmunities, setDamageImmunities, customImmunities, setCustomImmunities, weakResist, setWeakResist}){
     
     function getImmunity(name){
         if(conditionImmunities.includes(name) || damageImmunities.includes(name)){
@@ -69,6 +69,7 @@ export default function ResWeakImm({conditionImmunities, setConditionImmunities,
         else{
             temp.push({name: name, value: value});
         }
+        console.log(temp);
         setWeakResist(temp);
     }
 

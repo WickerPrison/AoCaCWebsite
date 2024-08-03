@@ -46,16 +46,12 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
 
     function setupSkill(skill, index){
         if(monster.tier == "Swarm") return swarmSkill(skill, index);
-        skill = skill.split(" ");
-        if(skill.length == 3){
-            skill[0] = skill[0] + " " + skill[1];
-            skill.splice(1, 1);
-        }
-        let skillString = skill[0] + " " + skill[1];
+
+        let skillString = skill.name + " " + skill.value;
         if(index < monster.skills.length - 1){
             skillString += ", "
         }
-        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill[0], skill[1])}>{skillString}</div>);
+        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill.name, skill.value)}>{skillString}</div>);
     }
 
     function swarmSkill(skill, index){

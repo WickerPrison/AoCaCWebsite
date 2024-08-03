@@ -27,6 +27,7 @@ export default function Skills({skills, setSkills}){
                 value: value
             });
         }
+        console.log(temp);
         setSkills(temp);
     }
 

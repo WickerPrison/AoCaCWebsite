@@ -73,7 +73,7 @@ const monsterSchema = new Schema(
             required: true
         },
         skills:{
-            type: [String],
+            type: [Schema.Types.Mixed],
             default: []
         },
         conditionImmunities:{
