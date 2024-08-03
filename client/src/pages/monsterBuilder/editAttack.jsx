@@ -9,6 +9,23 @@ const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ba
 export default function EditAttack({getStates}){
     const data = getStates();
     
+    function togglePublic(evt){
+        evt.preventDefault(); 
+        if(data.official){
+            data.setMakePublic(true);
+            return;
+        }
+        data.setMakePublic(!data.makePublic);
+    }
+
+    function toggleOfficial(evt){
+        evt.preventDefault();
+        data.setOfficial(!data.official);
+        if(!data.official){
+            data.setMakePublic(true); 
+        }
+    }
+
     return(
         <div id="edit-attack" className='stats-grid'>
             <label className='full-width-label'>Name: </label>
@@ -75,12 +92,12 @@ export default function EditAttack({getStates}){
             <input className="full-width-input" type="text" value={data.properties} onChange={e => data.setProperties(e.target.value)}></input>
             <div className="make-public">
                 <label>Make Public: </label>
-                <button className={`checkbox ${data.makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); data.setMakePublic(!data.makePublic)}}>{"✔"}</button>
+                <button className={`checkbox ${data.makePublic ? "show-check" : ""}`} onClick={evt => togglePublic(evt)}>{"✔"}</button>
             </div>
             {auth.getProfile().data.isAdmin
             ?<div className="make-public">
                 <label>Make Official: </label>
-                <button className={`checkbox ${data.official ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); data.setMakePublic(!data.official); data.setOfficial(!data.official)}}>{"✔"}</button>
+                <button className={`checkbox ${data.official ? "show-check" : ""}`} onClick={evt => toggleOfficial(evt)}>{"✔"}</button>
             </div>
             : null}
         </div>

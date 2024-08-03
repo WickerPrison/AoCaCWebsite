@@ -69,7 +69,7 @@ export default function MyMonsters(){
 
     if(updateMonster){
         return (
-            <CreateMonster editMonster={updateMonster}/>
+            <CreateMonster editMonster={updateMonster} resetStateFunction={() => {setUpdateMonster(null); getData()}}/>
         )
     }
     else{

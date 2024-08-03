@@ -18,26 +18,28 @@ const Tiers={
     SWARM: "Swarm"
 }
 
-export default function CreateMonster({editMonster}){
+const defaultStats = {
+    hp: 1,
+    stamina: 1,
+    dr: 0,
+    meleeDef: 0,
+    rangedDef: 0,
+    movePts: 15,
+    agility: 2, 
+    brawn: 2,
+    cunning: 2,
+    intellect: 2,
+    presence: 2,
+    willpower: 2
+}
+
+export default function CreateMonster({editMonster, resetStateFunction = null}){
     const [name, setName] = useState("");
     const [tier, setTier] = useState(Tiers.MINION);
     const [sil, setSil] = useState(1);
     const [makePublic, setMakePublic] = useState(true);
     const [creatureTypes, setCreatureTypes] = useState(["Humanoid"]);
-    const [stats, setStats] = useState({
-        hp: 1,
-        stamina: 1,
-        dr: 0,
-        meleeDef: 0,
-        rangedDef: 0,
-        movePts: 15,
-        agility: 2, 
-        brawn: 2,
-        cunning: 2,
-        intellect: 2,
-        presence: 2,
-        willpower: 2
-    });
+    const [stats, setStats] = useState(defaultStats);
     const [talents, setTalents] = useState("");
     const [specialFeatures, setSpecialFeatures] = useState("");
     const [skills, setSkills] = useState([]);
@@ -53,6 +55,26 @@ export default function CreateMonster({editMonster}){
             name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, official
         }
         return data;
+    }
+
+    function resetStates(){
+        setName("");
+        setTier(Tiers.MINION);
+        setSil(1);
+        setMakePublic(true);
+        setCreatureTypes(["Humanoid"]);
+        setStats(defaultStats);
+        setTalents("");
+        setSpecialFeatures("");
+        setSkills([]);
+        setConditionImmunities([]);
+        setDamageImmunities([]);
+        setCustomImmunities("");
+        setWeakResist([]);
+        setAttacks([]);
+        setOfficial(false);
+        window.scrollTo({top: 0, behavior: "smooth"});
+        if(resetStateFunction) resetStateFunction();
     }
 
     useEffect(() => {
@@ -89,6 +111,23 @@ export default function CreateMonster({editMonster}){
             setOfficial(editMonster.official);
         }
     },[])
+
+    function togglePublic(evt){
+        evt.preventDefault(); 
+        if(official){
+            setMakePublic(true);
+            return;
+        }
+        setMakePublic(!makePublic);
+    }
+
+    function toggleOfficial(evt){
+        evt.preventDefault();
+        setOfficial(!official);
+        if(!official){
+            setMakePublic(true); 
+        }
+    }
 
     return (
         <form id="create-monster" className="card box">
@@ -142,16 +181,16 @@ export default function CreateMonster({editMonster}){
             <h4 className="spell-name card-element">Finalize</h4>
             <div className="make-public">
                 <label>Make Public: </label>
-                <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
+                <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={evt => togglePublic(evt)}>{"✔"}</button>
             </div>
             {auth.getProfile().data.isAdmin
             ?   <div className="make-public">
                     <label>Make Official: </label>
-                    <button className={`checkbox ${official ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!official); setOfficial(!official);}}>{"✔"}</button>
+                    <button className={`checkbox ${official ? "show-check" : ""}`} onClick={(evt) => toggleOfficial(evt)}>{"✔"}</button>
                 </div>
             : null}
 
-            <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), () => {}, editMonster ? editMonster: null)}>Submit</button>
+            <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), resetStates, editMonster ? editMonster: null)}>Submit</button>
         </form>
     )
 }
