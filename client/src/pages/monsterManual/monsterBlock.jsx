@@ -3,7 +3,7 @@ import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
 import {skillsDict} from "../../js/skills";
 
-export default function MonsterBlock({monster, updateMethods, monsterData}){
+export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
     
     const rollAttribute = (attributeValue, attributeName) => {
@@ -70,13 +70,13 @@ export default function MonsterBlock({monster, updateMethods, monsterData}){
 
     function setResistances(){
         let outputString = "";
-        if(monster.Immunities){
-            outputString += "<strong>Immunities:</strong> " + monster.immunities + " ";
+        if(monster.immunitiesString){
+            outputString += "<strong>Immunities:</strong> " + monster.immunitiesString + " ";
         }
-        if(monster.Resistances){
+        if(monster.resistances){
             outputString += "<strong>Resistances:</strong> " + monster.resistances + " ";
         }
-        if(monster.Weaknesses){
+        if(monster.weaknesses){
             outputString += "<strong>Weaknesses:</strong> " + monster.weaknesses + " ";
         }
         return outputString;
@@ -91,6 +91,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData}){
         <section className="box monster-card">
             <div className="box-header">{monster.name}</div>
             {monsterData ? <div className="close-monster" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
+            {showEdit ? <button className="small-button edit-button" onClick={showEdit}>Edit</button> :null}
             <div className="monster-row">
                 <div className="creature-types">Creature Types: {setupCreatureTypes()}</div>
                 <div className="monster-tier">Tier: {monster.tier}</div>

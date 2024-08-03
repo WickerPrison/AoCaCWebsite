@@ -19,8 +19,11 @@
 
 #create-monster,
 #create-attack,
-#my-attacks{
+#my-attacks,
+#my-monsters{
     margin-top: 1rem;
+    position: relative;
+    top: 0;
 }
 
 #monster-builder .stats-grid{

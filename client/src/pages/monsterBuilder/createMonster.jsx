@@ -7,6 +7,7 @@ import ResWeakImm from './resWeakImm';
 import AddAttacks from './addAttacks';
 import AttackDisplay from './attackDisplay';
 import SubmitMonster from './submitMonster';
+import FlexibleTextarea from '../../components/flexibleTextarea';
 
 const Tiers={
     MINION: "Minion",
@@ -16,7 +17,7 @@ const Tiers={
     SWARM: "Swarm"
 }
 
-export default function CreateMonster(){
+export default function CreateMonster({editMonster}){
     const [name, setName] = useState("");
     const [tier, setTier] = useState(Tiers.MINION);
     const [sil, setSil] = useState(1);
@@ -52,6 +53,42 @@ export default function CreateMonster(){
         return data;
     }
 
+    useEffect(() => {
+        if(editMonster){
+            setName(editMonster.name);
+            setTier(editMonster.tier);
+            setSil(editMonster.sil);
+            setMakePublic(editMonster.makePublic);
+            setCreatureTypes(editMonster.creatureTypes);
+            setStats({
+                hp: editMonster.hp,
+                stamina: editMonster.stamina,
+                dr: editMonster.damageReduction,
+                meleeDef: editMonster.meleeDefense,
+                rangedDef: editMonster.rangedDefense,
+                movePts: editMonster.speed,
+                agility: editMonster.agility,
+                brawn: editMonster.brawn,
+                cunning: editMonster.cunning,
+                intellect: editMonster.intellect,
+                presence: editMonster.presence,
+                willpower: editMonster.willpower
+            });
+            setTalents(editMonster.talentsAbilities);
+            setSpecialFeatures(editMonster.specialFeatures);
+            setSkills(editMonster.skills);
+            setConditionImmunities(editMonster.conditionImmunities);
+            setDamageImmunities(editMonster.damageImmunities);
+            if(editMonster.customImmunities){
+                setCustomImmunities(editMonster.customImmunities);
+            }
+            if(editMonster.weakResistArray){
+                setWeakResist(editMonster.weakResistArray);
+            }
+            setAttacks(editMonster.attacks);
+        }
+    },[])
+
     return (
         <form id="create-monster" className="card box">
             <div className="box-header">Basic Info</div>
@@ -82,10 +119,10 @@ export default function CreateMonster(){
                 <Stats stats={stats} setStats={setStats}/>
 
                 <label className='full-width-label'>Talents/Abilities: </label>
-                <div contentEditable={true} className="full-width-input large-text-input" value={talents} onInput={e => setTalents(e.target.textContent)}></div>
-
+                <FlexibleTextarea className="fulll-width-input" input={talents} setOutput={setTalents} classNames={"full-width-input"}/>
+                
                 <label className='full-width-label'>Special Features: </label>
-                <div contentEditable={true} className="full-width-input large-text-input" value={specialFeatures} onInput={e => setSpecialFeatures(e.target.textContent)}></div>
+                <FlexibleTextarea className="fulll-width-input" input={specialFeatures} setOutput={setSpecialFeatures} classNames={"full-width-input"}/>
             </div>
             <h4 className="spell-name card-element">Skill Ranks</h4>
             <Skills skills={skills} setSkills={setSkills}/>

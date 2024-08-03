@@ -3,7 +3,8 @@ const {User, Attack, Monster} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
 router.get("/", async (req, res) => {
-    const monsters = await Monster.find().catch(err => {
+    const monsters = await Monster.find().populate('attacks').catch(err => {
+        console.log(err);
         res.json(err);
     });
     res.json(monsters)
@@ -11,15 +12,12 @@ router.get("/", async (req, res) => {
 
 router.post('/', async (req, res) => {
     try{
-        req.body.attacks = [];
-        for(let i = 0; i < req.body.attackIds.length; i++){
-            let attack = await Attack.findById({_id: req.body.attackIds[i]});
-            req.body.attacks.push(attack);
-        }
         const monster = await Monster.create(req.body);
+        console.log(req.body);
         res.json(monster);
     }
     catch(err){
+        console.log(err);
         res.json(err);
     }
 })
@@ -32,7 +30,7 @@ router.get('/attacks', async (req, res) => {
 });
 
 router.get("/:username", async (req, res) => {
-    const monsters = await Monster.find({username: req.params.username}).sort("name").catch(err => {
+    const monsters = await Monster.find({username: req.params.username}).populate('attacks').sort("name").catch(err => {
         res.json(err);
     });
     res.json(monsters);

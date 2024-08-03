@@ -1,3 +1,4 @@
+import FlexibleTextarea from '../../components/flexibleTextarea';
 import './monsterBuilder.css';
 
 const conditions = ["Bleeding", "Blinded", "Burning", 'Charmed', "Deafened", "Disoriented", "Frightened", "Paralyzed", "Poisoned", "Sickened", "Staggered"];
@@ -85,7 +86,7 @@ export default function ResWeakImm({conditionImmunities, setConditionImmunities,
                 })}
             </div>
             <label className='full-width-label'>Custom Immunities: </label>
-            <input className="full-width-input" type="text" value={customImmunities} onChange={e => setCustomImmunities(e.target.value)}></input>
+            <FlexibleTextarea input={customImmunities} setOutput={setCustomImmunities} classNames={"full-width-input"}/>
             <div className="line"></div>
             <div>Damage Immunities:</div>
             <div className='flex-grid-entries'>

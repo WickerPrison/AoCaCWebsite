@@ -307,6 +307,7 @@ input[type="password"],
 input[type="email"],
 .checkbox,
 .large-text-input{
+    resize: none;
     display: inline;
     font-size: var(--baseTextSize);
     background-color: var(--green2);

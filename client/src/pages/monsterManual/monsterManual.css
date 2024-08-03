@@ -9,9 +9,10 @@
     display: block;
     width: 90%;
     max-width: 90%;
-    margin: 1.5em auto;
+    margin: 2rem auto 0;
     background-color: var(--green2);
     padding: 0 2em 1em;
+    position: relative;
 }
 
 .monster-manual .monster-row{
@@ -224,6 +225,14 @@
 .monster-manual #results-holder img{
     height: 5em;
     margin: 0.4em 0.7em;
+}
+
+.monster-card .edit-button{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--green2);
+    padding: 2rem;
 }
 
 @media screen and (max-width: 768px){
