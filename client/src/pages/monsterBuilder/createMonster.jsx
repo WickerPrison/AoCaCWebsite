@@ -141,7 +141,7 @@ export default function CreateMonster({editMonster}){
                 <label>Make Public: </label>
                 <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
             </div>
-            <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), () => {})}>Submit</button>
+            <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), () => {}, editMonster ? editMonster: null)}>Submit</button>
         </form>
     )
 }

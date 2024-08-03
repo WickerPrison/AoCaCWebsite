@@ -1,10 +1,9 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitMonster(evt, data, resetStates){
+export default async function SubmitMonster(evt, data, resetStates, monsterId = null){
     evt.preventDefault();
      
-
     if(!data.name){
         alert("Unique name required");
         return;
@@ -143,15 +142,28 @@ export default async function SubmitMonster(evt, data, resetStates){
         talentsAbilities: data.talents,
         specialFeatures: data.specialFeatures,
         public: data.makePublic,
-        username: auth.getProfile().data.username
+        username: auth.getProfile().data.username,
     }
 
-    const response = await fetch(getUrl() + '/api/monsters/', {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(output)
-    })
+    let response;
+    if(!monsterId){
+            response = await fetch(getUrl() + '/api/monsters/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(output)
+        })
+    }
+    else{
+        output._id = monsterId;
+            response = await fetch(getUrl() + '/api/monsters/', {
+            method: 'PUT',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(output)
+        })
+    }
+    
 
     if(response.ok){
         const res = await response.json();

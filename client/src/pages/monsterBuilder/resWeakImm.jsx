@@ -69,7 +69,6 @@ export default function ResWeakImm({conditionImmunities, setConditionImmunities,
         else{
             temp.push({name: name, value: value});
         }
-        console.log(temp);
         setWeakResist(temp);
     }
 

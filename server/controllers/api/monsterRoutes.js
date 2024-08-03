@@ -13,13 +13,20 @@ router.get("/", async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         const monster = await Monster.create(req.body);
-        console.log(req.body);
         res.json(monster);
     }
     catch(err){
         console.log(err);
         res.json(err);
     }
+})
+
+router.put('/', async (req, res) => {
+    const monster = await Monster.findByIdAndUpdate(req.body._id, req.body, {new: true}).catch(err => {
+        console.log(err);
+        res.json(err);
+    })
+    res.json(monster);
 })
 
 router.get('/attacks', async (req, res) => {
