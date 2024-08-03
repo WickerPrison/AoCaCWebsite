@@ -8,6 +8,7 @@ import AddAttacks from './addAttacks';
 import AttackDisplay from './attackDisplay';
 import SubmitMonster from './submitMonster';
 import FlexibleTextarea from '../../components/flexibleTextarea';
+import auth from '../../utils/auth';
 
 const Tiers={
     MINION: "Minion",
@@ -45,10 +46,11 @@ export default function CreateMonster({editMonster}){
     const [customImmunities, setCustomImmunities] = useState("");
     const [weakResist, setWeakResist] = useState([]);
     const [attacks, setAttacks] = useState([]);
+    const [official, setOfficial] = useState(false);
     
     function getStates(){
         const data = {
-            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks
+            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, official
         }
         return data;
     }
@@ -84,6 +86,7 @@ export default function CreateMonster({editMonster}){
             }
             setWeakResist(editMonster.resistWeakArray);
             setAttacks(editMonster.attacks);
+            setOfficial(editMonster.official);
         }
     },[])
 
@@ -141,6 +144,13 @@ export default function CreateMonster({editMonster}){
                 <label>Make Public: </label>
                 <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!makePublic)}}>{"✔"}</button>
             </div>
+            {auth.getProfile().data.isAdmin
+            ?   <div className="make-public">
+                    <label>Make Official: </label>
+                    <button className={`checkbox ${official ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); setMakePublic(!official); setOfficial(!official);}}>{"✔"}</button>
+                </div>
+            : null}
+
             <button className="small-button button-margin" onClick={evt => SubmitMonster(evt, getStates(), () => {}, editMonster ? editMonster: null)}>Submit</button>
         </form>
     )

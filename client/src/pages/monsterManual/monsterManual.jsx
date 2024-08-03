@@ -98,6 +98,7 @@ export default function MonsterManual(){
                     })}
                 </section>
                 {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods}/>:null}
+                <footer></footer>
             </main>
         )
     }

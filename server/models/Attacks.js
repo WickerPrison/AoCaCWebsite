@@ -42,6 +42,9 @@ const attackSchema = new Schema(
             type: Boolean,
             default: true
         },
+        official:{
+            type: Boolean
+        },
         username:{
             type: String
         }

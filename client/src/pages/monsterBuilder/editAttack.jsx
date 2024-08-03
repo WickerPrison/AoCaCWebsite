@@ -1,5 +1,6 @@
 import './monsterBuilder.css';
 import {skillsDict} from "../../js/skills";
+import auth from '../../utils/auth';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -76,6 +77,12 @@ export default function EditAttack({getStates}){
                 <label>Make Public: </label>
                 <button className={`checkbox ${data.makePublic ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); data.setMakePublic(!data.makePublic)}}>{"✔"}</button>
             </div>
+            {auth.getProfile().data.isAdmin
+            ?<div className="make-public">
+                <label>Make Official: </label>
+                <button className={`checkbox ${data.official ? "show-check" : ""}`} onClick={(e) => {e.preventDefault(); data.setMakePublic(!data.official); data.setOfficial(!data.official)}}>{"✔"}</button>
+            </div>
+            : null}
         </div>
     )
 }

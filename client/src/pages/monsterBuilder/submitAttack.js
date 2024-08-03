@@ -1,7 +1,7 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates, _id=""){
+export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, resetStates, _id=""){
     evt.preventDefault();
 
     if(!name){
@@ -20,6 +20,7 @@ export default async function SubmitAttack(evt, method, name, skill, specialAttr
         accurate: accurate,
         properties: properties,
         public: makePublic,
+        official: official,
         username: auth.getProfile().data.username
     }
 

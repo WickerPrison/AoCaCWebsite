@@ -19,11 +19,12 @@ export default function MyAttacks(){
     const [accurate, setAccurate] = useState(0);
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
+    const [official, setOfficial] = useState(false);
 
     function getStates(){
         return {
-            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic,
-            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic
+            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official,
+            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic, setOfficial
         }
     }
 
@@ -39,6 +40,7 @@ export default function MyAttacks(){
         setAccurate(attack.accurate);
         setProperties(attack.properties);
         setMakePublic(attack.public);
+        setOfficial(attack.official);
     }
 
     async function getData() {
@@ -61,7 +63,7 @@ export default function MyAttacks(){
     },[])
     
     function updateAttack(evt){
-        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, () => {}, editAttack);
+        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, () => {}, editAttack);
         setEditAttack("");
         getData();
     }

@@ -14,11 +14,12 @@ export default function CreateAttack(){
     const [accurate, setAccurate] = useState(0);
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
+    const [official, setOfficial] = useState(false);
 
     function getStates(){
         return {
-            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic,
-            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic
+            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official,
+            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic, setOfficial
         }
     }
 
@@ -40,7 +41,7 @@ export default function CreateAttack(){
         <form id="create-attack" className='card box'>
             <div className='box-header'>New Attack</div>
             <EditAttack getStates={getStates}/>
-            <button className='small-button button-margin' onClick={e => SubmitAttack(e, "POST", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, resetStates)}>Submit</button>
+            <button className='small-button button-margin' onClick={e => SubmitAttack(e, "POST", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, resetStates)}>Submit</button>
         </form>
     )
 }

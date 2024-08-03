@@ -1,6 +1,7 @@
 import './monsterBuilder.css';
 import './attackDisplay.css';
 import { useEffect, useState, useRef } from 'react';
+import OfficialIcon from '../../components/officialIcon';
 
 export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, showToggle=true, editButton=false, setEdit}){
 
@@ -30,7 +31,9 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
         <div className="attack-holder">
             {showToggle? <button className={`checkbox ${isAdded() ? "show-check" : ""}`} onClick={evt => toggleAttack(evt)}>{"✔"}</button>: null}
             <div className="attack-name">
-                <div>{attack.name}</div>
+                {attack.official 
+                ? <div><OfficialIcon/>{attack.name}</div>
+                :<div>{attack.name}</div>}
             </div>
             <div className="attack-stats-1">
                 <div>Skill: {attack.skill}</div>

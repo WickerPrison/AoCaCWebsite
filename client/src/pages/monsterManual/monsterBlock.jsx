@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
 import {skillsDict} from "../../js/skills";
+import OfficialIcon from "../../components/officialIcon";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -85,12 +86,17 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
 
     return (
         <section className="box monster-card">
-            <div className="box-header">{monster.name}</div>
+            {monster.official 
+            ? <div className="box-header"><OfficialIcon/> {monster.name}</div>
+            : <div className="box-header">{monster.name}</div>
+            }
+            
             {monsterData ? <div className="close-monster" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
             {showEdit ? <button className="small-button edit-button" onClick={showEdit}>Edit</button> :null}
             <div className="monster-row">
                 <div className="creature-types">Creature Types: {setupCreatureTypes()}</div>
                 <div className="monster-tier">Tier: {monster.tier}</div>
+                <div className="username">Made By: {monster.username}</div>
             </div>
             <div className="monster-line"></div>
             <div className="stat-block-section">

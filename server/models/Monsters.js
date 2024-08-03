@@ -114,6 +114,9 @@ const monsterSchema = new Schema(
             type: Boolean,
             default: true
         },
+        official:{
+            type: Boolean
+        },
         username:{
             type: String
         }

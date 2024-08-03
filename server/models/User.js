@@ -23,6 +23,9 @@ const userSchema = new Schema(
         },
         rolls:{
             type: [rollSchema]
+        },
+        isAdmin:{
+            type: Boolean
         }
     }
 )

@@ -143,6 +143,7 @@ export default async function SubmitMonster(evt, data, resetStates, monsterId = 
         specialFeatures: data.specialFeatures,
         public: data.makePublic,
         username: auth.getProfile().data.username,
+        official: data.official
     }
 
     let response;
