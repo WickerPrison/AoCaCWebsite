@@ -8,11 +8,21 @@ import {combatSkills,
     speechSkills,
     stealthSkills} from "../../js/skills";
 
-export default function Skills({skills, setSkills}){
+export default function Skills({skills, setSkills, tier, hp}){
 
     function setSkill(skillName, value){
         let temp = skills.slice();
         const index = skills.findIndex(x => x.name == skillName);
+
+        if(tier == "Swarm") {
+            if(index < 0 || value > skills[index].value){
+                value = hp;
+            }
+            else{
+                value = 0;
+            }
+        }
+
         if(index >= 0 ){
             if(value == 0){
                 temp.splice(index, 1);
@@ -30,6 +40,15 @@ export default function Skills({skills, setSkills}){
         console.log(temp);
         setSkills(temp);
     }
+
+    useEffect(() => {
+        if(tier != "Swarm") return;
+        let temp = skills.slice();
+        for(let i = 0; i < temp.length; i++){
+            temp[i].value = hp;
+        }
+        setSkills(temp);
+    },[hp, tier])
 
     function getSkillValue(skillName){
         const index = skills.findIndex(x => x.name == skillName);

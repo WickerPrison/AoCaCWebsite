@@ -165,7 +165,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 <FlexibleTextarea className="fulll-width-input" input={specialFeatures} setOutput={setSpecialFeatures} classNames={"full-width-input"}/>
             </div>
             <h4 className="spell-name card-element">Skill Ranks</h4>
-            <Skills skills={skills} setSkills={setSkills}/>
+            <Skills skills={skills} setSkills={setSkills} tier={tier} hp={stats.hp}/>
             <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
             <ResWeakImm conditionImmunities={conditionImmunities} setConditionImmunities={setConditionImmunities} damageImmunities={damageImmunities} setDamageImmunities={setDamageImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
             <h4 className="spell-name card-element">Attacks</h4>
