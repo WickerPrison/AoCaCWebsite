@@ -4,7 +4,7 @@ import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
 import getUrl from '../../utils/getUrl';
 import {allSkills, combatSkills} from '../../js/skills';
-import Filters from '../../components/filters';
+import Filters, { FilterTypes } from '../../components/filters';
 
 const skills = allSkills.map(x => x[0]);
 const combatSkillsArray = combatSkills.map(x => x[0]);
@@ -33,6 +33,12 @@ const filterArray = [
         category: "range",
         displayName: "Range",
         options: ranges
+    },
+    {
+        category: "official",
+        displayName: "Source",
+        options: ["Official", "User Created"],
+        type: FilterTypes.BOOL
     }
 ];
 

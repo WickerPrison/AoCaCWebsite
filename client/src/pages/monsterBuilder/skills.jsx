@@ -37,7 +37,6 @@ export default function Skills({skills, setSkills, tier, hp}){
                 value: value
             });
         }
-        console.log(temp);
         setSkills(temp);
     }
 

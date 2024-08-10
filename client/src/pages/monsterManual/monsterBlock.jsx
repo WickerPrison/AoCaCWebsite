@@ -56,13 +56,13 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
     }
 
     function swarmSkill(skill, index){
-        let skillString = skill + " ";
+        let skillString = skill.name + " ";
         monsterData ? skillString += monsterData.hp: skillString += monster.hp;
 
-        if(index < monster.Skills.split(", ").length - 1){
+        if(index < monster.skills.length - 1){
             skillString += ", "
         }
-        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill, monsterData ? monsterData.hp : monster.hp)}>{skillString}</div>)
+        return (<div key={index} className="clickable-text" onClick={() => rollSkillCheck(skill.name, monsterData ? monsterData.hp : monster.hp)}>{skillString}</div>)
     }
 
     function setResistances(){

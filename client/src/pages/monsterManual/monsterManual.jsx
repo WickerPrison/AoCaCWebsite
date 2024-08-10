@@ -6,7 +6,7 @@ import Roll from "../../components/roll";
 import { useEffect, useState } from 'react';
 import { RollData } from '../../js/rollDice';
 import Loading from '../../components/loading';
-import Filters from '../../components/filters';
+import Filters, { FilterTypes } from '../../components/filters';
 import getUrl from '../../utils/getUrl';
 
 
@@ -20,6 +20,12 @@ const filterArray = [
         category: "creatureTypes",
         displayName: "Creature Types",
         options: ["Humanoid", "Mythic", "Undead", "Construct", "Abomination"]
+    },
+    {
+        category: "official",
+        displayName: "Source",
+        options: ["Official", "User Created"],
+        type: FilterTypes.BOOL
     }
 ]
 
