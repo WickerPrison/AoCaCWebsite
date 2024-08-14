@@ -10,7 +10,9 @@ import { RollData } from '../../js/rollDice';
 import getUrl from '../../utils/getUrl';
 import auth from '../../utils/auth';
 
+
 function MonsterData(){
+    this.id;
     this.monster;
     this.hp;
     this.stamina;
@@ -38,23 +40,26 @@ export default function EncounterBuilder(){
             })
             const data = await response.json();
 
+            if(data.encounterData){
+                let loadedMonsters = [];
+                for(let i = 0; i < data.encounterData.length; i++){
+                    let monster = data.monsters.find(monster => {
+                        return monster._id == data.encounterData[i].monster;
+                    });
+                    let newMonster = new MonsterData();
+                    newMonster.id = crypto.randomUUID();
+                    newMonster.monster = monster;
+                    newMonster.hp = data.encounterData[i].hp;
+                    newMonster.stamina = data.encounterData[i].stamina;
+                    loadedMonsters.push(newMonster);
+                }
+                setMonsters(loadedMonsters);
+            }
+
             setMonsterDict(data.monsters);
         }
         getData();
     }, [])
-
-    useEffect(() => {
-        console.log(monsters);
-        if(hasLoaded.current){
-            // localStorage.setItem("monsters", JSON.stringify(monsters))
-            // if(monsters.length == 0){
-            //     localStorage.setItem("monsterId", 0);
-            // }
-        }
-        else{
-            hasLoaded.current = true;
-        }
-    }, [monsters])
 
     const updateMethods = {
         setRoll,
@@ -86,7 +91,6 @@ export default function EncounterBuilder(){
     }
 
     async function save(){
-
         let saveArray = [];
         for(let i = 0; i < monsters.length; i++){
             let newObject = {
@@ -125,6 +129,7 @@ export default function EncounterBuilder(){
         } 
 
         let newMonster = new MonsterData();
+        newMonster.id = crypto.randomUUID();
         newMonster.monster = monster;
         newMonster.hp = monster.hp;
         newMonster.stamina = monster.stamina;

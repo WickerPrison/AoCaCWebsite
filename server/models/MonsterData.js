@@ -11,6 +11,9 @@ const monsterDataSchema = new Schema(
         },
         stamina:{
             type: Number
+        },
+        id:{
+            type: String
         }
     }
 )

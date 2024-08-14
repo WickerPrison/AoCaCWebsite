@@ -67,7 +67,7 @@ router.get('/encounterBuilder', authMiddleware, async (req, res) => {
         const user = await User.findById(req.user._id).catch(err => {
             res.json(err);
         });
-        data.user = user;
+        data.encounterData = user.encounterData;
     }
 
     const monsters = await Monster.find().populate('attacks').catch(err => {
