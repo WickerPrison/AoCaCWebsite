@@ -28,7 +28,8 @@ const resources = [
     },
     {
         link:"MonsterBuilder",
-        label:"Monster Builder"
+        label:"Monster Builder",
+        loggedIn: true
     }
 ];
 

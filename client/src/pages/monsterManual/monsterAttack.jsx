@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { RollData} from '../../js/rollDice';
 import {skillsDict} from "../../js/skills";
 
-export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
+export default function MonsterAttack({attack, monster, setRoll, setShowRoll, monsterData}){
     let [damageDisplay, setDamageDisplay] = useState(false);
 
     function getAttribute(){
@@ -47,13 +47,8 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll}){
         
         let skillRanks = 0;
         for(let i = 0; i < skills.length; i++){
-            let skill = skills[i].split(" ");
-            if(skill.length == 3){
-                skill[0] = skill[0] + " " + skill[1];
-                skill.splice(1, 1);
-            }
-            if(skill[0] == attack.Skill){
-                skillRanks = skill[1];
+            if(skills[i].name == attack.skill){
+                skillRanks = monster.tier == "Swarm" && monsterData ? monsterData.hp : skills[i].value;
                 break;
             }
         }

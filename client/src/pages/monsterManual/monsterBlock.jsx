@@ -166,7 +166,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                 <div className="attacks-heading">Attacks</div>
                 <div className="attacks">
                     {monster.attacks.map((attack, index) => {
-                        return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll}/>
+                        return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll} monsterData={monsterData}/>
                     })}
                 </div>
             </>)
