@@ -112,13 +112,13 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                     <div className="monster-column1">
                         {monsterData ? 
                         (<div className="hp">
-                            <input className="stat-field" type="number" value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
-                            <div className="stat-max">/{monster.HP}</div>
+                            <input className="stat-field" type="number" min={0} value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
+                            <div className="stat-max">/{monster.hp}</div>
                         </div>)
                         :<div className="hp">{monster.hp}</div>}
                         {monsterData ?
                         (<div className="stamina">
-                                <input className="stat-field" type="number" value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
+                                <input className="stat-field" type="number" min={0} value={monsterData.stamina} onChange={(e) => updateMonsterStat("stamina", e.target.value)}/>
                             <div className="stat-max">/{monster.stamina}</div>
                         </div>)
                         :<div className="stamina">{monster.stamina}</div>}

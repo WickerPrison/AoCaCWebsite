@@ -36,13 +36,6 @@ router.get('/attacks', async (req, res) => {
     res.json(attacks);
 });
 
-router.get("/:username", async (req, res) => {
-    const monsters = await Monster.find({username: req.params.username}).populate('attacks').sort("name").catch(err => {
-        res.json(err);
-    });
-    res.json(monsters);
-});
-
 router.get('/attacks/:username', async (req, res) => {
     const attacks = await Attack.find({username: req.params.username}).sort("name").catch(err => {
         res.json(err);
@@ -66,5 +59,47 @@ router.put('/attack', async (req, res) => {
     });
     res.json(attack);
 })
+
+router.get('/encounterBuilder', authMiddleware, async (req, res) => {
+    const data = {};
+
+    if(req.user){
+        const user = await User.findById(req.user._id).catch(err => {
+            res.json(err);
+        });
+        data.user = user;
+    }
+
+    const monsters = await Monster.find().populate('attacks').catch(err => {
+        res.json(err);
+    });
+
+    data.monsters = monsters;
+    res.json(data);
+});
+
+router.put('/encounterBuilder', authMiddleware, async (req, res) => {
+    if(!req.user) {
+        res.json("Authentication Error");
+        return;
+    }
+    const user = await User.findByIdAndUpdate(req.user._id,
+        {
+            encounterData: req.body
+        },
+        {new: true})
+        .catch((err) => {
+            res.json(err);
+        }
+    );
+    res.json("Monsters Saved");
+});
+
+router.get("/:username", async (req, res) => {
+    const monsters = await Monster.find({username: req.params.username}).populate('attacks').sort("name").catch(err => {
+        res.json(err);
+    });
+    res.json(monsters);
+});
 
 module.exports = router;
