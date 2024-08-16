@@ -137,7 +137,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 <input className="full-width-input" type="text" value={name} onChange={e => setName(e.target.value)}></input>
                 <CreatureTypeSelector creatureTypes={creatureTypes} setCreatureTypes={setCreatureTypes}/>
                 <div></div>
-                <div>
+                <div className="tier">
                     <label>Tier: </label>
                     <select value={tier} onChange={e => setTier(e.target.value)}>
                         <option value={Tiers.MINION}>{Tiers.MINION}</option>
@@ -148,7 +148,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
 
                     </select>
                 </div>
-                <div>
+                <div className="sil">
                     <label>Silhouette: </label>
                     <input type="number" value={sil} onChange={e => setSil(e.target.value)} min="0"></input>
                 </div>
@@ -158,7 +158,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             <div className="stats-grid">
                 <Stats stats={stats} setStats={setStats}/>
 
-                <label className='full-width-label'>Talents/Abilities: </label>
+                <label className='full-width-label'>Talents / Abilities: </label>
                 <FlexibleTextarea className="fulll-width-input" input={talents} setOutput={setTalents} classNames={"full-width-input"}/>
                 
                 <label className='full-width-label'>Special Features: </label>

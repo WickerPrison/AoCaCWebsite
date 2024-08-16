@@ -390,6 +390,7 @@ select{
     :root{
         --baseTextSize: .7rem;
         --size2: calc(0.7rem * 1.62);
+        --size3: calc(var(--size2) * 1.62);
         --diceSize: 6vh;
     }
 
@@ -398,12 +399,15 @@ select{
     }
 
     header{
-        flex-direction: column;
         top: -70px;
     }
 
     #page-title{
         margin: -4px auto 30px;
+    }
+
+    h2:has(+ #page-title){
+        font-size: var(--size3);
     }
 
     .spell-card{
@@ -416,5 +420,10 @@ select{
 
     .output-element{
         flex-basis: 50%;
+    }
+
+    .checkbox{
+        width: 0.9rem;
+        height: 0.9rem;
     }
 }

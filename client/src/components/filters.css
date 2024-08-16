@@ -59,3 +59,17 @@
     color: var(--green3);
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px){
+    .filters .options-label{
+        margin: auto 0;
+        font-size: calc(var(--baseTextSize) * 1.3);
+    }
+
+    .filters .option{
+        background-color: var(--green2);
+        padding: 0.15rem 0.5rem;
+        margin: 0.15rem;
+        border-radius: 15px;
+    }
+}

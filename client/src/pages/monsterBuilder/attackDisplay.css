@@ -13,17 +13,36 @@
 }
 
 #monster-builder .attack-holder .attack-name{
-    flex-basis: 10rem;
+    flex-basis: 20rem;
 }
 
-#monster-builder .attack-holder .attack-stats-1{
-    flex-basis: 15rem;
-}
-
+#monster-builder .attack-holder .attack-stats-1,
 #monster-builder .attack-holder .attack-stats-2{
-    flex-basis: 10rem;
+    flex-basis: 15rem;
 }
 
 #monster-builder .attack-display{
     margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px){
+    #monster-builder .attack-holder .checkbox{
+        margin: 0 0.3rem;
+        max-width: .9rem;
+        min-width: .9rem;
+        height: .9rem;
+    }
+    
+    #monster-builder .attack-holder div{
+        margin: 0.1rem 0.1rem;
+    }
+
+    #monster-builder .attack-holder .attack-name{
+        flex-basis: 10rem;
+    }
+
+    #monster-builder .attack-holder .attack-stats-1,
+    #monster-builder .attack-holder .attack-stats-2{
+        flex-basis: 10rem;
+    }
 }
