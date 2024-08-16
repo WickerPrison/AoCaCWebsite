@@ -1,9 +1,14 @@
 .encounter-builder .small-button{
-    width: 20em;
+    width: 10em;
     margin: 0 auto;
     color: white;
     text-align: center;
     padding: 0.6em;
+}
+
+.encounter-builder #new-monster{
+    width: 20em;
+    margin-top: 2rem;
 }
 
 .encounter-builder .small-button:hover{
@@ -30,12 +35,17 @@
     color: white;
 }
 
-.encounter-builder #clear-all{
-    display: block;
+#top-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.encounter-builder #clear-all,
+.encounter-builder #save-button{
     font-size: var(--baseTextSize);
     padding: 0.6em;
     padding-right: 1em;
-    margin: 0 auto;
+    margin: 0 1rem;
 }
 
 .encounter-builder .stat-field[type="number"]{

@@ -1,4 +1,4 @@
-var skillsDict = {
+const skillsDict = {
     "Brawl": ["Brawn"],
     "Heavy Weapons": ["Brawn"],
     "Light Weapons" : ["Brawn"],
@@ -37,4 +37,73 @@ var skillsDict = {
     "Streetwise":["Cunning"]
 }
 
-export default skillsDict;
+const combatSkills = [
+    ["Brawl", "Br"],
+    ["Heavy Weapons", "Br"],
+    ["Light Weapons", "Br"],
+    ["Ranged", "Ag"]
+];
+
+const generalSkills=[
+    ["Animal Handling", "Ag"],
+    ["Athletics", "Br"],
+    ["Cool", "Pr"],
+    ["Coordination", "Ag"],
+    ["Discipline", "Wi"],
+    ["Medicine", "Cu/In"],
+    ["Perception", "Cu"],
+    ["Resilience", "Br"],
+    ["Sailing", "Cu"],
+    ["Survival", "Cu"],
+    ["Vigilance", "Wi"]
+];
+
+const fabricationSkills=[
+    ["Alchemy", "In"],
+    ["Crafting", "In"],
+    ["Enchanting", "In"],
+    ["Engineering", "In"]
+];
+
+const knowledgeSkills=[
+    ["Arcana", "In"],
+    ["Linguistics", "In"],
+    ["Lore", "In"],
+    ["Nature", "Cu/In"],
+    ["Society", "In"]
+];
+
+const magicSkills=[
+    ["Innate", "Wi"],
+    ["Scholarly", "In"]
+];
+
+const speechSkills=[
+    ["Charm", "Pr"],
+    ["Coercion", "Br/Wi"],
+    ["Deception", "Cu"],
+    ["Insight", "Cu"],
+    ["Leadership", "Pr"],
+    ["Negotiation", "Pr"],
+    ["Performance", "Pr"]
+];
+
+const stealthSkills=[
+    ["Skulduggery", "Cu"],
+    ["Stealth", "Ag"],
+    ["Streetwise", "Cu"]
+];
+
+const allSkills=[...combatSkills, ...generalSkills, ...fabricationSkills, ...knowledgeSkills, ...magicSkills, ...speechSkills, ...stealthSkills];
+
+export {
+    skillsDict, 
+    combatSkills,
+    generalSkills,
+    fabricationSkills,
+    knowledgeSkills,
+    magicSkills, 
+    speechSkills,
+    stealthSkills,
+    allSkills
+};

@@ -304,17 +304,43 @@ input{
 input[type='text'],
 input[type="number"],
 input[type="password"],
-input[type="email"]{
+input[type="email"],
+.checkbox,
+.large-text-input{
+    resize: none;
     display: inline;
     font-size: var(--baseTextSize);
     background-color: var(--green2);
     color: white;
     border: none;
-    border-radius: 0.3em;
+    border-radius: 0.3rem;
     outline: white dashed 1px;
     font-family: var(--bodyFont);
     vertical-align: 0;
     padding: 0 0 0 0.4em;
+}
+
+.checkbox{
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    align-items: center;
+    font-size: calc(var(--baseTextSize) * 0.7);
+    color: var(--green2);
+}
+
+.show-check{
+    color: white;
+}
+
+.checkbox:hover{
+    outline-color: var(--green3);
+    color: var(--green2);
+}
+
+.show-check:hover{
+    color: white;
 }
 
 .can-point{
@@ -333,6 +359,23 @@ footer{
     box-sizing: border-box;
 }
 
+select{
+    border-radius: 0.3rem;
+    background-color: var(--green2);
+    color: white;
+    outline: white dashed 1px;
+    font-size: var(--baseTextSize);
+    font-family: var(--bodyFont);
+}
+
+.popup{
+    position: absolute;
+    z-index: 6;
+    top:0;
+    left: 0;
+    width: 100%;
+}
+
 @media screen and (min-width: 3000px) {
     :root{
         --baseTextSize:1.75em;
@@ -347,6 +390,7 @@ footer{
     :root{
         --baseTextSize: .7rem;
         --size2: calc(0.7rem * 1.62);
+        --size3: calc(var(--size2) * 1.62);
         --diceSize: 6vh;
     }
 
@@ -355,12 +399,15 @@ footer{
     }
 
     header{
-        flex-direction: column;
         top: -70px;
     }
 
     #page-title{
         margin: -4px auto 30px;
+    }
+
+    h2:has(+ #page-title){
+        font-size: var(--size3);
     }
 
     .spell-card{
@@ -373,5 +420,10 @@ footer{
 
     .output-element{
         flex-basis: 50%;
+    }
+
+    .checkbox{
+        width: 0.9rem;
+        height: 0.9rem;
     }
 }

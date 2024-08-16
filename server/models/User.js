@@ -1,5 +1,7 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
+const rollSchema = require('./Roll');
+const monsterDataSchema = require('./monsterData');
 
 const userSchema = new Schema(
     {
@@ -19,6 +21,15 @@ const userSchema = new Schema(
             type: String,
             required: true,
             minLength: 5
+        },
+        rolls:{
+            type: [rollSchema]
+        },
+        encounterData:{
+            type: [monsterDataSchema]
+        },
+        isAdmin:{
+            type: Boolean
         }
     }
 )

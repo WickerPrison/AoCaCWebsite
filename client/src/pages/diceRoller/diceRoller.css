@@ -5,7 +5,13 @@
     padding: 0.6em;
     padding-right: 1em;
     margin: 0 auto;
-    margin-bottom: 2em;
+    margin-bottom: 1rem;
+}
+
+#roller-page #save{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
 }
 
 #roller-page #new-roll:hover{

@@ -25,6 +25,11 @@ const resources = [
     {
         link:"CriticalInjuries",
         label:"Critical Injuries"
+    },
+    {
+        link:"MonsterBuilder",
+        label:"Monster Builder",
+        loggedIn: true
     }
 ];
 

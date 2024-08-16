@@ -1,0 +1,207 @@
+#monster-builder{
+    position: absolute
+}
+
+#monster-builder #tabs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#monster-builder .tab{
+    margin: 0 1rem;
+    background-color: var(--green2);
+}
+
+#monster-builder .selected{
+    background-color: var(--green);
+}
+
+#create-monster,
+#create-attack,
+#my-attacks,
+#my-monsters{
+    margin-top: 1rem;
+    position: relative;
+    top: 0;
+}
+
+#create-monster .tier{
+    grid-column: 1/3;
+}
+
+#create-monster .sil{
+    grid-column: 3/5;
+}
+
+#monster-builder .stats-grid{
+    display: grid;
+    grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
+    /* grid-template-columns: 30% 30% 30%; */
+    text-align: right;
+    row-gap: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+#create-monster .stats-grid .line{
+    grid-column: 1 / 7;
+    width: 150%;
+    position: relative;
+    left: -5rem;
+}
+
+#create-monster .stats-grid label{
+    margin: auto 0;
+}
+
+#create-monster .stats-grid .grid-section{
+    grid-column: 1 / 7;
+    margin: 0;
+}
+
+#monster-builder .stats-grid .full-width-label{
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+#monster-builder .stats-grid .full-width-input{
+    grid-column: 2 / 7;
+    text-align: left;
+    width: 90%;
+    margin-left: 1rem;
+}
+
+#create-monster .flex-grid-entries{
+    grid-column: 2 / 7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: 1rem
+}
+
+#edit-attack .flex-grid-entries{
+    grid-column: 2 / 7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+#edit-attack .flex-grid-entries div{
+    flex-basis: 18rem;
+    margin: 0.3rem 0;
+    text-align: left;
+}
+
+#create-monster .flex-grid-entries .toggle{
+    flex-basis: 8rem;
+}
+
+#create-monster .flex-grid-entries .skill{
+    flex-basis: 17rem;
+    margin: 0.3rem 0;
+}
+
+#create-monster .flex-grid-entries .immunity{
+    flex-basis: 10rem;
+    align-items: center;
+    justify-items: center;
+    margin: 0.3rem 0;
+}
+
+#create-monster .toggle{
+    text-align: center;
+    padding: 0.2rem 0;
+    margin: 0.3rem 0rem;
+}
+
+#create-monster .toggle:hover{
+    color: var(--green3);
+    cursor: pointer;
+}
+
+#create-monster .on{
+    background-color: var(--green);
+    border-radius: 15px;
+}
+
+#monster-builder .button-margin{
+    margin: 1rem 1rem 1rem;
+}
+
+#monster-builder h4{
+    width: 110%;
+    left: -5%;
+}
+
+#monster-builder .make-public{
+    grid-column: 1/7;
+    margin: 1rem auto 0
+}
+
+#monster-builder .edit-button{
+    font-size: calc(var(--baseTextSize) * 0.8);
+    padding: 0.2rem 0.4rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+#monster-bulider .popup{
+    position: absolute;
+    width: 120%;
+    max-width: 120%;
+}
+
+@media screen and (max-width: 768px){
+    #create-monster .flex-grid-entries .toggle{
+        flex-basis: 4rem;
+    }
+    
+    #create-monster .tier{
+        grid-column: 2/4;
+    }
+
+    #create-monster .sil{
+        grid-column: 4/6;
+    }
+
+    #create-monster .stats-grid .grid-section .stat{
+        grid-column: span 2;
+    }
+
+    #create-monster .flex-grid-entries .skill{
+        flex-basis: 11rem;
+        margin: 0.3rem 0;
+    }
+
+    #create-monster .flex-grid-entries .immunity{
+        flex-basis: 5.5rem;
+    }
+
+    #monster-builder #edit-attack{
+        row-gap: 0;
+        margin-bottom: 0;
+    }
+
+    #edit-attack .flex-grid-entries div{
+        margin: 0.4rem 0;
+    }
+
+    #edit-attack .full-width-input{
+        margin: 0.4rem 0;
+    }
+
+    #monster-builder .make-public{
+        margin: 0.4rem auto;
+    }
+
+    #monster-builder .button-margin{
+        margin: 0.4rem 1rem 0.4rem;
+    }
+
+    #monster-builder .edit-button{
+        margin-right: 0;
+        top: 0.7rem;
+    }
+}

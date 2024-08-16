@@ -6,65 +6,60 @@ import MonsterBlock from '../monsterManual/monsterBlock';
 import Roll from "../../components/roll";
 import { useEffect, useState, useRef } from 'react';
 import { multipleFetch, singleFetch } from '../../js/getData';
-import { RollStorage, RollData } from '../../js/rollDice';
+import { RollData } from '../../js/rollDice';
+import getUrl from '../../utils/getUrl';
+import auth from '../../utils/auth';
 
-const newRollStorage =() => {
-    let newStorage = new RollStorage();
-    newStorage.display = "none";
-    newStorage.rollData = new RollData();
-    return newStorage;
-}
 
 function MonsterData(){
     this.id;
-    this.monsterName;
+    this.monster;
     this.hp;
     this.stamina;
 }
 
 export default function EncounterBuilder(){
     let [monsters, setMonsters] = useState([]);
-    let [roll, setRoll] = useState(newRollStorage());
+    let [roll, setRoll] = useState(new RollData());
     let [showRoll, setShowRoll] = useState(false);
     let [monsterDict, setMonsterDict] = useState([]);
-    let [attackDict, setAttackDict] = useState([]);
     let [currentMonster, setCurrentMonster] = useState([]);
 
     let hasLoaded = useRef(false);
 
     useEffect(() => {
-        if(!localStorage.getItem("monsterId")){
-            localStorage.setItem("monsterId", 0);
-        }
-
         async function getData(){
-            let data = await multipleFetch(["Monsters", "Attacks"]);
-            setMonsterDict(data[0]);
-            setAttackDict(data[1]);
+            const response = await fetch(getUrl() + '/api/monsters/encounterBuilder',{
+                method: 'GET',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization':"token " + auth.getToken()
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+            const data = await response.json();
 
-            let storageMonsters = localStorage.getItem("monsters");
-            if(!storageMonsters || storageMonsters.length == 0){
-                localStorage.setItem("monsters", []);
+            if(data.encounterData){
+                let loadedMonsters = [];
+                for(let i = 0; i < data.encounterData.length; i++){
+                    let monster = data.monsters.find(monster => {
+                        return monster._id == data.encounterData[i].monster;
+                    });
+                    let newMonster = new MonsterData();
+                    newMonster.id = crypto.randomUUID();
+                    newMonster.monster = monster;
+                    newMonster.hp = data.encounterData[i].hp;
+                    newMonster.stamina = data.encounterData[i].stamina;
+                    loadedMonsters.push(newMonster);
+                }
+                setMonsters(loadedMonsters);
             }
-            else{
-                storageMonsters = JSON.parse(storageMonsters);
-                setMonsters(storageMonsters);
-            }
+
+            setMonsterDict(data.monsters);
         }
         getData();
     }, [])
-
-    useEffect(() => {
-        if(hasLoaded.current){
-            localStorage.setItem("monsters", JSON.stringify(monsters))
-            if(monsters.length == 0){
-                localStorage.setItem("monsterId", 0);
-            }
-        }
-        else{
-            hasLoaded.current = true;
-        }
-    }, [monsters])
 
     const updateMethods = {
         setRoll,
@@ -95,9 +90,38 @@ export default function EncounterBuilder(){
         }
     }
 
+    async function save(){
+        let saveArray = [];
+        for(let i = 0; i < monsters.length; i++){
+            let newObject = {
+                hp: monsters[i].hp,
+                stamina: monsters[i].stamina,
+                monster: monsters[i].monster._id
+            }
+            saveArray.push(newObject);
+        }
+        console.log(saveArray);
+        console.log(monsters);
+
+        const response = await fetch(getUrl() + '/api/monsters/encounterBuilder', {
+            method: 'PUT',
+            mode: 'cors',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization':"token " + auth.getToken()
+            },
+            body: JSON.stringify(saveArray)
+        })
+
+        if(response.ok){
+            let res = await response.json();
+            console.log(res);
+        }
+    }
+
     const addNewMonster = (name) => {
         let monster = monsterDict.find((monster) => {
-            return monster.Name == name;
+            return monster.name == name;
         })
         if(!monster) {
             console.log("Monster not found");
@@ -105,29 +129,25 @@ export default function EncounterBuilder(){
         } 
 
         let newMonster = new MonsterData();
-        newMonster.id = localStorage.getItem("monsterId");
-        localStorage.setItem("monsterId", Number(localStorage.getItem("monsterId")) + 1);
-        newMonster.monsterName = monster.Name;
-        newMonster.hp = monster.HP;
-        newMonster.stamina = monster.Stamina;
+        newMonster.id = crypto.randomUUID();
+        newMonster.monster = monster;
+        newMonster.hp = monster.hp;
+        newMonster.stamina = monster.stamina;
         setMonsters([...monsters, newMonster])
-    }
-
-    const getMonster = (name) => {
-        return monsterDict.find((monster) => {
-            return monster.Name == name;
-        })
     }
 
     return (
         <main className='monster-manual encounter-builder'>
             <FixedHeader/>
             <PageHeading title="Encounter Builder"/>
-            {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
+            <div id="top-buttons">
+                {auth.loggedIn() ? <button id="save-button" className="small-button" onClick={save}>Save</button>: null }
+                {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
+            </div>
             
             <section id="monster-list">
-                {monsters.map((monsterData) => {
-                        return <MonsterBlock key={monsterData.id} monster={getMonster(monsterData.monsterName)} allAttacks={attackDict} updateMethods={updateMethods} monsterData={monsterData}/>
+                {monsters.map((monsterData, index) => {
+                        return <MonsterBlock key={index} monster={monsterData.monster} updateMethods={updateMethods} monsterData={monsterData}/>
                     })}
             </section>
 
@@ -135,7 +155,7 @@ export default function EncounterBuilder(){
                 <input id="new-monster-input" list="monster-autocomplete" type="text" value={currentMonster} onChange={(e) => setCurrentMonster(e.target.value)}/>
                 <datalist id="monster-autocomplete">
                     {monsterDict.map((monster) => {
-                        return <option key={monster.Name} value={monster.Name}/>
+                        return <option key={monster.name} value={monster.name}/>
                     })}
                 </datalist>
                 <h4 id="add-monster" onClick={() => addNewMonster(currentMonster)}>+ Add Monster</h4>

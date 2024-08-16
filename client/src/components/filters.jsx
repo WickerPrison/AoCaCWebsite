@@ -5,7 +5,8 @@ import SortOptions from './sortOptions';
 
 export const FilterTypes = {
     NUMBER_ARRAY: "NUMBER_ARRAY",
-    STRING: "STRING"
+    STRING: "STRING",
+    BOOL: "BOOL"
 }
 
 export default function Filters({filterArray, setOutput, input, sortArray, title="Filters and Sorting"}){
@@ -30,6 +31,9 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                     case FilterTypes.NUMBER_ARRAY:
                         if(filterByNumberArray(entry, i) == false) return false;
                         break;
+                    case FilterTypes.BOOL:
+                        if(filterByBool(entry, i) == false) return false;
+                        break;
                     case FilterTypes.STRING:
                     default:
                         if(filterByString(entry, i) == false) return false;
@@ -49,7 +53,6 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                     case Number:
                         return sortOptions.direction * (A[sortOptions.parameter] - B[sortOptions.parameter]);
                 }
-    
             })
         }
 
@@ -75,6 +78,22 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         if(!filterOptions[i].options.includes("All") && intersection.length == 0){
             return false
         }
+    }
+
+    function filterByBool(entry, i){
+        if(filterOptions[i].options.includes("All")) {
+            return;
+        }
+        else if(filterOptions[i].options.includes(filterArray[i].options[0]) && entry[filterOptions[i].category] == true){
+            return;
+        }
+        else if(filterOptions[i].options.includes(filterArray[i].options[1]) && entry[filterOptions[i].category] == false){
+            return;
+        }
+        else{
+            return false;
+        }
+
     }
 
     return(

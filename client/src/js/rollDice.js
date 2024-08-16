@@ -1,9 +1,3 @@
-function RollStorage(){
-    this.id = 0;
-    this.name = "";
-    this.rollData = null;
-}
-
 function RollData(){
     this.proficiency = 0;
     this.ability = 0;
@@ -282,4 +276,4 @@ function upgradeRoll(rollData){
     return rollData;
 }
 
-export {RollStorage, RollData, ResultData, upgradeRoll, rollDice}
+export {RollData, ResultData, upgradeRoll, rollDice}
