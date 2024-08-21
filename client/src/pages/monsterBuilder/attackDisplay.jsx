@@ -44,8 +44,8 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
                 <div>Range: {attack.range}</div>
                 <div>Crit: {attack.crit}</div>
             </div>
-            <div>{attack.properties}</div>
             {editButton? <button className="edit-button small-button" onClick={evt => toggleEditButton(evt)}>Edit</button>:null}
+            <div className="properties">{attack.properties}</div>
         </div>
     )
 }

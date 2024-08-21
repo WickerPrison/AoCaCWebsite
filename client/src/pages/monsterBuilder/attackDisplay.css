@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     text-align: left;
+    flex-wrap: wrap;
 }
 
 #monster-builder .attack-holder .checkbox{
-    margin: 0 1rem;
+    margin: 0 0.1rem 0 1rem;
 }
 
 #monster-builder .attack-holder div{
@@ -13,16 +14,24 @@
 }
 
 #monster-builder .attack-holder .attack-name{
-    flex-basis: 20rem;
+    flex: 30% 0 0;
 }
 
 #monster-builder .attack-holder .attack-stats-1,
 #monster-builder .attack-holder .attack-stats-2{
-    flex-basis: 15rem;
+    flex: 26% 0 0;
 }
 
 #monster-builder .attack-display{
     margin-top: 2rem;
+}
+
+#monster-builder .attack-holder .properties{
+    flex: calc(100% - 0.5rem * 2) 0 0;
+}
+
+#monster-builder .attack-holder .edit-button{
+    margin: 0 0.5rem 0 auto;
 }
 
 @media screen and (max-width: 768px){
@@ -37,12 +46,7 @@
         margin: 0.1rem 0.1rem;
     }
 
-    #monster-builder .attack-holder .attack-name{
-        flex-basis: 10rem;
-    }
-
-    #monster-builder .attack-holder .attack-stats-1,
-    #monster-builder .attack-holder .attack-stats-2{
-        flex-basis: 10rem;
+    #monster-builder .attack-holder .properties{
+        flex: calc(100% - 0.1rem * 2) 0 0;
     }
 }
