@@ -30,6 +30,7 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
     return (
         <div className="attack-holder">
             {showToggle? <button className={`checkbox ${isAdded() ? "show-check" : ""}`} onClick={evt => toggleAttack(evt)}>{"✔"}</button>: null}
+            {editButton? <button className="edit-button small-button" onClick={evt => toggleEditButton(evt)}>Edit</button>:null}
             <div className="attack-name">
                 {attack.official 
                 ? <div><OfficialIcon/>{attack.name}</div>
@@ -44,7 +45,6 @@ export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, sh
                 <div>Range: {attack.range}</div>
                 <div>Crit: {attack.crit}</div>
             </div>
-            {editButton? <button className="edit-button small-button" onClick={evt => toggleEditButton(evt)}>Edit</button>:null}
             <div className="properties">{attack.properties}</div>
         </div>
     )
