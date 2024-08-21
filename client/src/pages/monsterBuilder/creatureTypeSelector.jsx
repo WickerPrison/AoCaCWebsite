@@ -3,7 +3,7 @@ import './monsterBuilder.css';
 const CreatureTypes={
     ABOMINATION: "Abomination",
     ANIMAL: "Animal",
-    AUTOMATON: "Automaton",
+    CONSTRUCT: "Construct",
     EXTRAPLANAR: "Extraplanar",
     HUMANOID: "Humanoid",
     LYCANTHROPE: "Lycanthrope",
@@ -37,9 +37,9 @@ export default function CreatureTypeSelector({creatureTypes, setCreatureTypes}){
                 <div className={`toggle ${creatureTypes.includes(CreatureTypes.ANIMAL) ? "on": ""}`} 
                     onClick={() => toggleCreatureType(CreatureTypes.ANIMAL)}
                     >Animal</div>
-                <div className={`toggle ${creatureTypes.includes(CreatureTypes.AUTOMATON) ? "on": ""}`} 
-                    onClick={() => toggleCreatureType(CreatureTypes.AUTOMATON)}
-                    >Automaton</div>
+                <div className={`toggle ${creatureTypes.includes(CreatureTypes.CONSTRUCT) ? "on": ""}`} 
+                    onClick={() => toggleCreatureType(CreatureTypes.CONSTRUCT)}
+                    >Construct</div>
                 <div className={`toggle ${creatureTypes.includes(CreatureTypes.EXTRAPLANAR) ? "on": ""}`} 
                     onClick={() => toggleCreatureType(CreatureTypes.EXTRAPLANAR)}
                     >Extraplanar</div>

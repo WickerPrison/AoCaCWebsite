@@ -7,7 +7,7 @@ export default function HomePageSection(props) {
             {props.data.map((result) => {
                 return (!result.loggedIn || result.loggedIn && auth.loggedIn()
                     ?  <Link to={result.link} className='page-button' key={result.label} href={result.link}><h4>{result.label}</h4></Link>
-                    : null)
+                    : <Link to={'Login'} className='page-button' key={result.label} href={'Login'}><h4>{result.label}</h4></Link>)
             })}
         </section>
     );
