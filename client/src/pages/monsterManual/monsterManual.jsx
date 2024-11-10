@@ -63,19 +63,13 @@ export default function MonsterManual(){
 
     useEffect(() => {
         async function getData(){
-            let response;
-            if(auth.loggedIn()){
-                response = await fetch(getUrl() + '/api/monsters/' + auth.getProfile().data.username, {
-                    method: "GET",
-                    headers: { 'Content-Type': 'application/json' }
-                })
-            }
-            else{
-                response = await fetch(getUrl() + '/api/monsters', {
-                    method: "GET",
-                    headers: { 'Content-Type': 'application/json' }
-                })
-            }
+            const response = await fetch(getUrl() + '/api/monsters', {
+                method: "GET",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': "token " + auth.getToken()
+                }
+            })
 
             let data = await response.json();
             setMonsters(data);
