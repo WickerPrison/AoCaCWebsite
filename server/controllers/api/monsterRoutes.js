@@ -3,7 +3,15 @@ const {User, Attack, Monster} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
 router.get("/", async (req, res) => {
-    const monsters = await Monster.find().populate('attacks').catch(err => {
+    const monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
+        console.log(err);
+        res.json(err);
+    });
+    res.json(monsters)
+});
+
+router.get("/:username", async (req, res) => {
+    const monsters = await Monster.find().or([{public: true}, {username: req.params.username}]).populate('attacks').catch(err => {
         console.log(err);
         res.json(err);
     });
@@ -95,7 +103,7 @@ router.put('/encounterBuilder', authMiddleware, async (req, res) => {
     res.json("Monsters Saved");
 });
 
-router.get("/:username", async (req, res) => {
+router.get("/myMonsters/:username", async (req, res) => {
     const monsters = await Monster.find({username: req.params.username}).populate('attacks').sort("name").catch(err => {
         res.json(err);
     });

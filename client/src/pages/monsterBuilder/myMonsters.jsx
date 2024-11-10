@@ -45,7 +45,7 @@ export default function MyMonsters(){
 
     async function getData(){
         try{
-            const response = await fetch(getUrl() + '/api/monsters/' + auth.getProfile().data.username, {
+            const response = await fetch(getUrl() + '/api/monsters/myMonsters/' + auth.getProfile().data.username, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             })

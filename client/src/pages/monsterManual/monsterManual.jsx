@@ -8,6 +8,7 @@ import { RollData } from '../../js/rollDice';
 import Loading from '../../components/loading';
 import Filters, { FilterTypes } from '../../components/filters';
 import getUrl from '../../utils/getUrl';
+import auth from '../../utils/auth';
 
 
 const filterArray = [
@@ -62,10 +63,19 @@ export default function MonsterManual(){
 
     useEffect(() => {
         async function getData(){
-            let response = await fetch(getUrl() + '/api/monsters', {
-                method: "GET",
-                headers: { 'Content-Type': 'application/json' }
-            })
+            let response;
+            if(auth.loggedIn()){
+                response = await fetch(getUrl() + '/api/monsters/' + auth.getProfile().data.username, {
+                    method: "GET",
+                    headers: { 'Content-Type': 'application/json' }
+                })
+            }
+            else{
+                response = await fetch(getUrl() + '/api/monsters', {
+                    method: "GET",
+                    headers: { 'Content-Type': 'application/json' }
+                })
+            }
 
             let data = await response.json();
             setMonsters(data);
