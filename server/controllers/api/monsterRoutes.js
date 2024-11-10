@@ -2,19 +2,20 @@ const router = require('express').Router();
 const {User, Attack, Monster} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
-router.get("/", async (req, res) => {
-    const monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
-        console.log(err);
-        res.json(err);
-    });
-    res.json(monsters)
-});
-
-router.get("/:username", async (req, res) => {
-    const monsters = await Monster.find().or([{public: true}, {username: req.params.username}]).populate('attacks').catch(err => {
-        console.log(err);
-        res.json(err);
-    });
+router.get("/", authMiddleware, async (req, res) => {
+    let monsters;
+    if(req.user){
+        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+    }
+    else{
+        monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+    }
     res.json(monsters)
 });
 
@@ -70,17 +71,24 @@ router.put('/attack', async (req, res) => {
 
 router.get('/encounterBuilder', authMiddleware, async (req, res) => {
     const data = {};
+    let monsters;
 
     if(req.user){
         const user = await User.findById(req.user._id).catch(err => {
             res.json(err);
         });
         data.encounterData = user.encounterData;
+
+        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').catch(err => {
+            res.json(err);
+        });
+    }
+    else{
+        monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
+            res.json(err);
+        });
     }
 
-    const monsters = await Monster.find().populate('attacks').catch(err => {
-        res.json(err);
-    });
 
     data.monsters = monsters;
     res.json(data);
