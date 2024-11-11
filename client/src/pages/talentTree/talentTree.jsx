@@ -1,8 +1,7 @@
 import './talentTree.css';
 import FixedHeader from '../../components/headerComponents/fixedHeader.jsx';
 import PageHeading from '../../components/headerComponents/pageHeading.jsx';
-import skillTrees from './talentTrees.js';
-import {singleFetch} from '../../js/getData.js';
+import {talentTrees} from '../../data/talentTrees.js';
 import { useEffect, useState } from 'react';
 import InnateSpells from './innateSpells.jsx';
 import Loading from '../../components/loading.jsx';
@@ -28,6 +27,7 @@ export default function TalentTree() {
         var talent = talentList.find(function(talentEntry){
             return talentEntry.Name == talentName;
         })
+        console.log(talent);
         return talent.Description;
     }
     
@@ -47,6 +47,8 @@ export default function TalentTree() {
             }
         }
         getData();
+
+        console.log(talentTrees.find(tree => tree.Name == currentClass));
     }, [])
 
     if(talentList.length === 0){
@@ -67,7 +69,7 @@ export default function TalentTree() {
                 <h3>Talent Tree</h3>
                 <div id="tree-holder">
                     <section id="tree">
-                        {skillTrees[currentClass].map((result, index) => {
+                        {talentTrees.find(tree => tree.Name == currentClass).Talents.map((result, index) => {
                             return <div key={index} className="talent" data-content={getTalentDescription(result)}>{result}</div>
                         })}
                     </section>
@@ -79,7 +81,7 @@ export default function TalentTree() {
                         <div className="table-talent">Talent</div>
                         <div className="table-description">Description</div>
                     </div>
-                    {skillTrees[currentClass].map((result, index) => {
+                    {talentTrees.find(tree => tree.Name == currentClass).Talents.map((result, index) => {
                         return (
                             <div className="talent-table-entry" key={index}>
                                 <div className="table-talent">{result}</div>
