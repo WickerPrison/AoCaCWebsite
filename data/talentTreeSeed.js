@@ -7,7 +7,9 @@ parseTalentTrees = (data) => {
     for(let i = 0; i < data.table.rows.length; i += 7){
         output.push(formatClass(i, data));
     }
-    fs.writeFile("talentTrees.json", JSON.stringify(output, null, '\t'), () => {});
+    output = JSON.stringify(output, null, '\t');
+    output = output.replaceAll("’", "'");
+    fs.writeFile("talentTrees.json", output, () => {});
 }
 
 formatClass = (startRow, data) => {
