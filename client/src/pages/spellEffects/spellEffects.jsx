@@ -6,6 +6,7 @@ import ScholarlySpellCard from '../../components/scholarlySpellCard';
 import Loading from '../../components/loading';
 import Filters from '../../components/filters';
 import getUrl from '../../utils/getUrl';
+import {spellEffects} from '../../data/scholarlySpellEffects';
 
 const filterArray = [
     {
@@ -27,25 +28,29 @@ export default function SpellEffects() {
     let [spellDisplay, setSpellDisplay] = useState([]);
 
     useEffect(() => {
-        async function getData() {
-            try{
-                const response = await fetch(getUrl() + '/api/data/spelleffects', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+        // async function getData() {
+        //     try{
+        //         const response = await fetch(getUrl() + '/api/data/spelleffects', {
+        //             method: 'GET',
+        //             headers: { 'Content-Type': 'application/json' }
+        //         })
     
-                const data = await response.json();
+        //         const data = await response.json();
                 
-                let list = [...data.metamagic, ...data.initiate, ...data.adept, ...data.magister, ...data.arcanist];
+        //         let list = [...data.metamagic, ...data.initiate, ...data.adept, ...data.magister, ...data.arcanist];
 
-                setSpellList(list);
-                setSpellDisplay(list);
-            }
-            catch(err){
-                console.log(err);
-            }
-        };
-        getData();
+        //         setSpellList(list);
+        //         setSpellDisplay(list);
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // };
+        // getData();
+
+        let list = [...spellEffects.metamagic, ...spellEffects.initiate, ...spellEffects.adept, ...spellEffects.magister, ...spellEffects.arcanist];
+        setSpellList(list);
+        setSpellDisplay(list);
     }, [])
     
 

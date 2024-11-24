@@ -12,47 +12,47 @@ const {
     Enchantment
 } = require('../../models');
 
-router.get('/allspelleffects', async (req, res) => {
-    const spellEffects = await SpellEffect.find().sort("Tier").catch((err) =>{
-        res.json(err)
-    });
-    res.json(spellEffects);
-});
+// router.get('/allspelleffects', async (req, res) => {
+//     const spellEffects = await SpellEffect.find().sort("Tier").catch((err) =>{
+//         res.json(err)
+//     });
+//     res.json(spellEffects);
+// });
 
-router.get('/spelleffects', async (req, res) => {
-    const data = await SpellEffect.find().sort("Name").catch((err) => {
-        res.json(err)
-    });
+// router.get('/spelleffects', async (req, res) => {
+//     const data = await SpellEffect.find().sort("Name").catch((err) => {
+//         res.json(err)
+//     });
 
-    let spellEffects = {
-        metamagic: [],
-        initiate: [],
-        adept: [],
-        magister: [],
-        arcanist: []
-    }
+//     let spellEffects = {
+//         metamagic: [],
+//         initiate: [],
+//         adept: [],
+//         magister: [],
+//         arcanist: []
+//     }
 
-    for(let i = 0; i < data.length; i++){
-        switch(data[i].Tier){
-            case "Metamagic":
-                spellEffects.metamagic.push(data[i]);
-                break;
-            case "Initiate":
-                spellEffects.initiate.push(data[i]);
-                break;
-            case "Adept":
-                spellEffects.adept.push(data[i]);
-                break;
-            case "Magister":
-                spellEffects.magister.push(data[i]);
-                break;
-            case "Arcanist":
-                spellEffects.arcanist.push(data[i]);
-                break;
-        }
-    }
-    res.json(spellEffects);
-})
+//     for(let i = 0; i < data.length; i++){
+//         switch(data[i].Tier){
+//             case "Metamagic":
+//                 spellEffects.metamagic.push(data[i]);
+//                 break;
+//             case "Initiate":
+//                 spellEffects.initiate.push(data[i]);
+//                 break;
+//             case "Adept":
+//                 spellEffects.adept.push(data[i]);
+//                 break;
+//             case "Magister":
+//                 spellEffects.magister.push(data[i]);
+//                 break;
+//             case "Arcanist":
+//                 spellEffects.arcanist.push(data[i]);
+//                 break;
+//         }
+//     }
+//     res.json(spellEffects);
+// })
 
 // router.get('/talents', async (req, res) => {
 //     const talents = await Talent.find().sort('Name').catch((err) => {

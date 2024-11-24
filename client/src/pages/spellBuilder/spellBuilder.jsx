@@ -12,6 +12,7 @@ import {assembleDicePool, Ranges, TargetTypes} from './buildSpell';
 import RollerResult from '../../components/rollerResult';
 import ResultDie from '../../components/resultDie';
 import getUrl from '../../utils/getUrl';
+import {spellEffects} from '../../data/scholarlySpellEffects';
 
 
 function SpellData(){
@@ -30,21 +31,23 @@ export default function SpellBuilder(){
     let [results, setResults] = useState(new ResultData);
 
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/spelleffects', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+        // async function getData(){
+        //     try{
+        //         const response = await fetch(getUrl() + '/api/data/spelleffects', {
+        //             method: 'GET',
+        //             headers: { 'Content-Type': 'application/json' }
+        //         })
     
-                const data = await response.json();
-                setSpellList(data);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
+        //         const data = await response.json();
+        //         setSpellList(data);
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        // getData();
+
+        setSpellList(spellEffects);
     }, [])
 
     function updateSpellData(property, value){

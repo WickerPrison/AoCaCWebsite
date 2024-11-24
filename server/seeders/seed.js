@@ -19,8 +19,8 @@ const {singleFetch} = require('./getData');
 db.once('open', async () => {
   try {
     await cleanDB('SpellEffect', 'spelleffects');
-    const spellEffectsData = await singleFetch("ScholarlySpells");
-    await SpellEffect.create(spellEffectsData);
+    // const spellEffectsData = await singleFetch("ScholarlySpells");
+    // await SpellEffect.create(spellEffectsData);
 
     await cleanDB('Talent', 'talents');
     // let talentsData = await singleFetch("Talents");
