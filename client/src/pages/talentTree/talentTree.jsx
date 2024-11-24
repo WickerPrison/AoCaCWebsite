@@ -28,13 +28,11 @@ export default function TalentTree() {
         var talent = talentList.find(function(talentEntry){
             return talentEntry.Name == talentName;
         })
-        console.log(talent);
         return talent.Description;
     }
     
     useEffect(() => {
         setTalentList(talents);
-        console.log(talentTrees.find(tree => tree.Name == currentClass));
     }, [])
 
     if(talentList.length === 0){
