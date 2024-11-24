@@ -7,6 +7,7 @@ import RollerResult from './rollerResult';
 
 export default function Roll({roll, update, fixedCard=false}){
     let [results, setResults] = useState(new ResultData());
+    let [d10val, setd10val] = useState('-');
 
     let styles;
     if(fixedCard){
@@ -33,7 +34,10 @@ export default function Roll({roll, update, fixedCard=false}){
     }
 
     function performRoll(){
-        setResults(rollDice(roll));
+        setResults(new ResultData());
+        setTimeout(() => {
+            setResults(rollDice(roll));
+        }, 200)
     }
 
     function applyUpgrades(){
@@ -48,6 +52,14 @@ export default function Roll({roll, update, fixedCard=false}){
         update.updateRoll(temp);
     }
 
+    function rolld10(){
+        setd10val('-');
+        setTimeout(() => {
+            var randInt = Math.floor(Math.random() * 10) + 1;
+            setd10val(randInt);
+        }, 200)
+    }
+
     return (
         <div id="dice-roller" className="box roll-box" style={styles.fixedCard}>
             <button className="remove-button" onClick={e =>update.removeRoll(roll.index)}>X</button>
@@ -59,16 +71,18 @@ export default function Roll({roll, update, fixedCard=false}){
                     <h4>Proficiency: <input className="proficiency" type="number" value={roll.proficiency} min="0" onChange={e => updateRoll("proficiency", e.target.value)}/></h4>
                     <h4>Ability: <input className="ability" type="number" value={roll.ability} min="0" onChange={e => updateRoll("ability", e.target.value)}/></h4>
                     <h4>Boost: <input className="boost" type="number" value={roll.boost} min="0" onChange={e => updateRoll("boost", e.target.value)}/></h4>
+                    <h4>Upgrade Ability: <input className="upgrade-abil" type="number" value={roll.upgradeAbility} min="0" onChange={e => updateRoll("upgradeAbility", e.target.value)}/></h4>
                 </div>
                 <div className="input-column">
                     <h4>Challenge: <input className="challenge" type="number" value={roll.challenge} min="0" onChange={e => updateRoll("challenge", e.target.value)}/></h4>
                     <h4>Difficulty: <input className="difficulty" type="number" value={roll.difficulty} min="0" onChange={e => updateRoll("difficulty", e.target.value)}/></h4>
                     <h4>Penalty: <input className="penalty" type="number" value={roll.penalty} min="0" onChange={e => updateRoll("penalty", e.target.value)}/></h4>
+                    <h4>Upgrade Difficulty: <input className="upgrade-diff" type="number" value={roll.upgradeDifficulty} min="0" onChange={e => updateRoll("upgradeDifficulty", e.target.value)}/></h4>
                 </div>
                 <div className="input-column">
-                    <h4>Upgrade Difficulty: <input className="upgrade-diff" type="number" value={roll.upgradeDifficulty} min="0" onChange={e => updateRoll("upgradeDifficulty", e.target.value)}/></h4>
-                    <h4>Upgrade Ability: <input className="upgrade-abil" type="number" value={roll.upgradeAbility} min="0" onChange={e => updateRoll("upgradeAbility", e.target.value)}/></h4>
                     <h4>Automatic Successes: <input className="auto-success" type="number" value={roll.autoSuccess} onChange={e => updateRoll("autoSuccess", e.target.value)}/></h4>
+                    <h4>Automatic Advantage: <input className="auto-advantage" type="number" value={roll.autoAdvantage} onChange={e => updateRoll("autoAdvantage", e.target.value)}/></h4>
+                    <h4>Roll d10: <button className='small-button d10-button' onClick={rolld10}>{d10val}</button></h4>
                 </div>
             </div>
             <div className="button-box">

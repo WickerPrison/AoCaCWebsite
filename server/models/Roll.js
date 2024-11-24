@@ -14,6 +14,10 @@ const rollSchema = new Schema(
             type: Number,
             default: 0
         },
+        autoAdvantage:{
+            type: Number,
+            default: 0
+        },
         boost:{
             type: Number,
             default: 0

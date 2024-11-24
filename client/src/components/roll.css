@@ -27,6 +27,12 @@
     outline: white dashed 1px;
 }
 
+#dice-roller .d10-button{
+    width: calc(var(--baseTextSize) * 2.5 + 0.4em);
+    padding: 0.1em 0;
+    pointer-events: auto;
+}
+
 #dice-roller .remove-button{
     color: white;
     font-size: calc(var(--baseTextSize) * 0.8);
