@@ -83,12 +83,12 @@ const {
 //     }
 // });
 
-router.get('/crits', async (req, res) => {
-    const crits = await CriticalInjuries.find().sort('d100min').catch((err) => {
-        res.json(err);
-    });
-    res.json(crits);
-});
+// router.get('/crits', async (req, res) => {
+//     const crits = await CriticalInjuries.find().sort('d100min').catch((err) => {
+//         res.json(err);
+//     });
+//     res.json(crits);
+// });
 
 router.get('/equipment', async (req, res) => {
     const equipment = await Equipment.find({Category: "General"}).sort('Name').catch((err) => {

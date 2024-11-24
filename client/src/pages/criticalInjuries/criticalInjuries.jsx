@@ -4,6 +4,7 @@ import PageHeading from "../../components/headerComponents/pageHeading";
 import Loading from "../../components/loading";
 import {useState, useEffect} from 'react';
 import getUrl from '../../utils/getUrl';
+import {criticalInjuries} from '../../data/criticalInjuries';
 
 export default function CriticalInjuries(){
     let [injuries, setInjuries] = useState([]);
@@ -16,37 +17,56 @@ export default function CriticalInjuries(){
     })
 
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/crits', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+        // async function getData(){
+        //     try{
+        //         const response = await fetch(getUrl() + '/api/data/crits', {
+        //             method: 'GET',
+        //             headers: { 'Content-Type': 'application/json' }
+        //         })
     
-                const data = await response.json();
-                for(let i = 0; i < data.length; i++){
-                    let string = "";
-                    if(data[i].d100min == -1){
-                        string += 1;
-                    }
-                    else string += data[i].d100min;
+        //         const data = await response.json();
+        //         for(let i = 0; i < data.length; i++){
+        //             let string = "";
+        //             if(data[i].d100min == -1){
+        //                 string += 1;
+        //             }
+        //             else string += data[i].d100min;
                     
-                    if(data[i].d100max == -1){
-                        string += "+";
-                    }
-                    else{
-                        string += "-" + data[i].d100max;
-                    }
+        //             if(data[i].d100max == -1){
+        //                 string += "+";
+        //             }
+        //             else{
+        //                 string += "-" + data[i].d100max;
+        //             }
     
-                    data[i].d100 = string;
-                }
-                setInjuries(data);
+        //             data[i].d100 = string;
+        //         }
+        //         setInjuries(data);
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        // getData();
+
+        const data = criticalInjuries;
+        for(let i = 0; i < data.length; i++){
+            let string = "";
+            if(data[i].d100min == -1){
+                string += 1;
             }
-            catch(err){
-                console.log(err);
+            else string += data[i].d100min;
+            
+            if(data[i].d100max == -1){
+                string += "+";
             }
+            else{
+                string += "-" + data[i].d100max;
+            }
+
+            data[i].d100 = string;
         }
-        getData();
+        setInjuries(data);
     },[])
 
     function rollCrit(){

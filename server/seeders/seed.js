@@ -28,20 +28,20 @@ db.once('open', async () => {
     // await Talent.create(talentsData);
 
     await cleanDB('InnateSpell', 'innatespells');
-    const innateSpellsData = await singleFetch("InnateSpells");
-    for(let i = 0; i < innateSpellsData.length; i++){
-      let stringArray = innateSpellsData[i].Classes.split(", ");
-      innateSpellsData[i].Classes = stringArray;
-    }
-    await InnateSpell.create(innateSpellsData);
+    // const innateSpellsData = await singleFetch("InnateSpells");
+    // for(let i = 0; i < innateSpellsData.length; i++){
+    //   let stringArray = innateSpellsData[i].Classes.split(", ");
+    //   innateSpellsData[i].Classes = stringArray;
+    // }
+    // await InnateSpell.create(innateSpellsData);
 
     await cleanDB('Fundamentalist', 'fundamentalists');
-    const fundamentalistData = await singleFetch("Fundamentalist");
-    await Fundamentalist.create(fundamentalistData);
+    // const fundamentalistData = await singleFetch("Fundamentalist");
+    // await Fundamentalist.create(fundamentalistData);
 
     await cleanDB('CriticalInjuries', 'crits');
-    const critsData = await singleFetch("CriticalInjuries");
-    await CriticalInjuries.create(critsData);
+    // const critsData = await singleFetch("CriticalInjuries");
+    // await CriticalInjuries.create(critsData);
 
     await cleanDB('Equipment', 'equipment');
     const equipmentData = await singleFetch("Equipment");
