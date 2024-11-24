@@ -7,6 +7,23 @@
     --minScreenWidth: 510px;
 }
 
+#talent-tree .class-skills-holder{
+    margin: 2rem 8% 0;
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 1rem;
+}
+
+#talent-tree .class-skills-description{
+    font-size: var(--size2);
+    margin: 2rem 8% 0
+}
+
+#talent-tree .class-skills{
+    font-size: var(--size2);
+    margin: 0 0;
+}
+
 #talent-tree h3{
     text-align: center;
     font-size: var(--size3);
