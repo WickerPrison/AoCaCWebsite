@@ -9,7 +9,8 @@ parseTalentTrees = (data) => {
     }
     output = JSON.stringify(output, null, '\t');
     output = output.replaceAll("’", "'");
-    fs.writeFile("talentTrees.json", output, () => {});
+    output = "export const talentTrees = " + output;
+    fs.writeFile("../client/src/data/talentTrees.js", output, () => {});
 }
 
 formatClass = (startRow, data) => {
@@ -27,7 +28,7 @@ formatClass = (startRow, data) => {
     return tree;
 }
 
-getTreeData = async () => {
+const getTreeData = async () => {
     try{
         let data = await fetch(sheetUrl + "TalentTrees");
         data = await data.text();
@@ -39,3 +40,5 @@ getTreeData = async () => {
 }
 
 getTreeData();
+
+module.exports = {getTreeData};
