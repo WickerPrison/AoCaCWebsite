@@ -1,11 +1,11 @@
 import './talentTree.css';
 import FixedHeader from '../../components/headerComponents/fixedHeader.jsx';
 import PageHeading from '../../components/headerComponents/pageHeading.jsx';
+import {talents} from '../../data/talents';
 import {talentTrees} from '../../data/talentTrees.js';
 import { useEffect, useState } from 'react';
 import InnateSpells from './innateSpells.jsx';
 import Loading from '../../components/loading.jsx';
-import getUrl from '../../utils/getUrl';
 
 
 export default function TalentTree() {
@@ -28,28 +28,11 @@ export default function TalentTree() {
         var talent = talentList.find(function(talentEntry){
             return talentEntry.Name == talentName;
         })
-        console.log(talent);
         return talent.Description;
     }
     
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/talents', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
-    
-                const data = await response.json();
-                setTalentList(data);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
-
-        console.log(talentTrees.find(tree => tree.Name == currentClass));
+        setTalentList(talents);
     }, [])
 
     if(talentList.length === 0){

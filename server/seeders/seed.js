@@ -11,7 +11,7 @@ const {
   WeaponProp,
   Enchantment
 } = require('../models');
-const talentListSeeder = require('./talentListSeeder');
+//const talentListSeeder = require('./talentListSeeder');
 const cleanDB = require('./cleanDB');
 const {singleFetch} = require('./getData');
 
@@ -19,29 +19,29 @@ const {singleFetch} = require('./getData');
 db.once('open', async () => {
   try {
     await cleanDB('SpellEffect', 'spelleffects');
-    const spellEffectsData = await singleFetch("ScholarlySpells");
-    await SpellEffect.create(spellEffectsData);
+    // const spellEffectsData = await singleFetch("ScholarlySpells");
+    // await SpellEffect.create(spellEffectsData);
 
     await cleanDB('Talent', 'talents');
-    let talentsData = await singleFetch("Talents");
-    talentsData = talentListSeeder.cleanTalentsData(talentsData);
-    await Talent.create(talentsData);
+    // let talentsData = await singleFetch("Talents");
+    // talentsData = talentListSeeder.cleanTalentsData(talentsData);
+    // await Talent.create(talentsData);
 
     await cleanDB('InnateSpell', 'innatespells');
-    const innateSpellsData = await singleFetch("InnateSpells");
-    for(let i = 0; i < innateSpellsData.length; i++){
-      let stringArray = innateSpellsData[i].Classes.split(", ");
-      innateSpellsData[i].Classes = stringArray;
-    }
-    await InnateSpell.create(innateSpellsData);
+    // const innateSpellsData = await singleFetch("InnateSpells");
+    // for(let i = 0; i < innateSpellsData.length; i++){
+    //   let stringArray = innateSpellsData[i].Classes.split(", ");
+    //   innateSpellsData[i].Classes = stringArray;
+    // }
+    // await InnateSpell.create(innateSpellsData);
 
     await cleanDB('Fundamentalist', 'fundamentalists');
-    const fundamentalistData = await singleFetch("Fundamentalist");
-    await Fundamentalist.create(fundamentalistData);
+    // const fundamentalistData = await singleFetch("Fundamentalist");
+    // await Fundamentalist.create(fundamentalistData);
 
     await cleanDB('CriticalInjuries', 'crits');
-    const critsData = await singleFetch("CriticalInjuries");
-    await CriticalInjuries.create(critsData);
+    // const critsData = await singleFetch("CriticalInjuries");
+    // await CriticalInjuries.create(critsData);
 
     await cleanDB('Equipment', 'equipment');
     const equipmentData = await singleFetch("Equipment");

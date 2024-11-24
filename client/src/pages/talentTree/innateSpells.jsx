@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { singleFetch } from "../../js/getData";
 import InnateSpellCard from './innateSpellCard';
 import FundamentalistSpellCard from './fundamentalistSpellCard';
 import getUrl from '../../utils/getUrl';
+import {innateSpells} from '../../data/innateSpells';
+import {fundamentalistSpells} from '../../data/fundamentalist';
 
 const innateClasses = ["Channeler", "Druid", "Sage", "Shapeshifter"];
 
@@ -10,21 +11,29 @@ export default function InnateSpells({currentClass}) {
     let [spells, setSpells] = useState([]);
 
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/innatespells/' + currentClass, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+        // async function getData(){
+        //     try{
+        //         const response = await fetch(getUrl() + '/api/data/innatespells/' + currentClass, {
+        //             method: 'GET',
+        //             headers: { 'Content-Type': 'application/json' }
+        //         })
     
-                const data = await response.json();
-                setSpells(data);
-            }
-            catch(err){
-                console.log(err);
-            }
+        //         const data = await response.json();
+        //         setSpells(data);
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        // getData();
+        let data;
+        if(currentClass == "Fundamentalist"){
+            data = fundamentalistSpells;
         }
-        getData();
+        else{
+            data = innateSpells.filter((spell) => {return spell.Classes.includes(currentClass)});
+        }
+        setSpells(data);
     }, [])
 
     const innateClass = (currentClass) =>{
