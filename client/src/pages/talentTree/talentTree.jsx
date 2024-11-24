@@ -12,6 +12,7 @@ export default function TalentTree() {
     
     let [talentList, setTalentList] = useState([]);
     const currentClass = sessionStorage.getItem('className');
+    const tree = talentTrees.find(tree => tree.Name == currentClass);
 
     function getTalentDescription(talentName){
         if(talentName.includes("Skill Proficiency")){
@@ -61,18 +62,28 @@ export default function TalentTree() {
         )
     }
     else{
-        return (
+        return ( 
             <main id="talent-tree">
                 <FixedHeader/>
                 <PageHeading title={currentClass}/>
-                {talentList.length > 0}
                 <h3>Talent Tree</h3>
                 <div id="tree-holder">
                     <section id="tree">
-                        {talentTrees.find(tree => tree.Name == currentClass).Talents.map((result, index) => {
+                        {tree.Talents.map((result, index) => {
                             return <div key={index} className="talent" data-content={getTalentDescription(result)}>{result}</div>
                         })}
                     </section>
+                </div>
+                <h3>Class Skills</h3>
+                <h4 className='class-skills-description'>When you choose a class at character creation, you gain all the class skills for both the class and the field chosen. You also gain one free rank in four of the field's listed skills, as well as one free rank in two of the class's listed skills.</h4>
+                <div className="class-skills-holder">
+                    <h4 className='class-skills'>{tree.Name}: </h4>
+                    <h4 className='class-skills'>{tree.ClassSkills}</h4>
+                </div>
+
+                <div className="class-skills-holder">
+                    <h4 className='class-skills'>{tree.Field} Field: </h4>
+                    <h4 className='class-skills'>{tree.FieldSkills}</h4>
                 </div>
                 <InnateSpells currentClass={currentClass}/>
                 <h3>Talent Table</h3>
@@ -81,7 +92,7 @@ export default function TalentTree() {
                         <div className="table-talent">Talent</div>
                         <div className="table-description">Description</div>
                     </div>
-                    {talentTrees.find(tree => tree.Name == currentClass).Talents.map((result, index) => {
+                    {tree.Talents.map((result, index) => {
                         return (
                             <div className="talent-table-entry" key={index}>
                                 <div className="table-talent">{result}</div>
