@@ -8,6 +8,7 @@ function RollData(){
     this.upgradeDifficulty = 0;
     this.upgradeAbility = 0;
     this.autoSuccess = 0;
+    this.autoAdvantage = 0;
 }
 
 function ResultData(){
@@ -50,6 +51,7 @@ function rollDice(rollData){
     }
 
     results.successes += Number(rollData.autoSuccess);
+    results.advantage += Number(rollData.autoAdvantage);
 
     return results;
 }

@@ -69,6 +69,7 @@ export default function Roll({roll, update, fixedCard=false}){
                     <h4>Upgrade Difficulty: <input className="upgrade-diff" type="number" value={roll.upgradeDifficulty} min="0" onChange={e => updateRoll("upgradeDifficulty", e.target.value)}/></h4>
                     <h4>Upgrade Ability: <input className="upgrade-abil" type="number" value={roll.upgradeAbility} min="0" onChange={e => updateRoll("upgradeAbility", e.target.value)}/></h4>
                     <h4>Automatic Successes: <input className="auto-success" type="number" value={roll.autoSuccess} onChange={e => updateRoll("autoSuccess", e.target.value)}/></h4>
+                    <h4>Automatic Advantage: <input className="auto-advantage" type="number" value={roll.autoAdvantage} onChange={e => updateRoll("autoAdvantage", e.target.value)}/></h4>
                 </div>
             </div>
             <div className="button-box">
