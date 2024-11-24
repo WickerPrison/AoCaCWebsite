@@ -1,12 +1,11 @@
 import '../../components/table.css'
 import './talentList.css'
+import {talents} from '../../data/talents';
 import {useState, useEffect} from 'react';
-import { singleFetch } from '../../js/getData';
 import FixedHeader from '../../components/headerComponents/fixedHeader';
 import PageHeading from '../../components/headerComponents/pageHeading';
 import Loading from '../../components/loading';
 import Filters, {FilterTypes} from '../../components/filters';
-import getUrl from '../../utils/getUrl';
 
 const filterArray =[
     {
@@ -21,23 +20,10 @@ export default function TalentList(){
     let [displayList, setDisplayList] = useState([]);
 
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/talents', {
-                    method: 'GET',
-                    headers:{'Content-Type':'application/json'}
-                })
-
-                let data = await response.json();
-                data = getCostString(data);
-                setDisplayList(data);
-                setTalentList(data);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
+        let data = talents;
+        data = getCostString(data);
+        setDisplayList(data);
+        setTalentList(data);
     },[])
 
     function getCostString(data){

@@ -54,12 +54,12 @@ router.get('/spelleffects', async (req, res) => {
     res.json(spellEffects);
 })
 
-router.get('/talents', async (req, res) => {
-    const talents = await Talent.find().sort('Name').catch((err) => {
-        res.json(err);
-    });
-    res.json(talents);
-});
+// router.get('/talents', async (req, res) => {
+//     const talents = await Talent.find().sort('Name').catch((err) => {
+//         res.json(err);
+//     });
+//     res.json(talents);
+// });
 
 router.get('/innatespells', async (req, res) => {
     const innateSpells = await InnateSpell.find().catch((err) => {

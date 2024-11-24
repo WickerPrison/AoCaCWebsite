@@ -11,7 +11,7 @@ const {
   WeaponProp,
   Enchantment
 } = require('../models');
-const talentListSeeder = require('./talentListSeeder');
+//const talentListSeeder = require('./talentListSeeder');
 const cleanDB = require('./cleanDB');
 const {singleFetch} = require('./getData');
 
@@ -23,9 +23,9 @@ db.once('open', async () => {
     await SpellEffect.create(spellEffectsData);
 
     await cleanDB('Talent', 'talents');
-    let talentsData = await singleFetch("Talents");
-    talentsData = talentListSeeder.cleanTalentsData(talentsData);
-    await Talent.create(talentsData);
+    // let talentsData = await singleFetch("Talents");
+    // talentsData = talentListSeeder.cleanTalentsData(talentsData);
+    // await Talent.create(talentsData);
 
     await cleanDB('InnateSpell', 'innatespells');
     const innateSpellsData = await singleFetch("InnateSpells");
