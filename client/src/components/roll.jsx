@@ -7,7 +7,7 @@ import RollerResult from './rollerResult';
 
 export default function Roll({roll, update, fixedCard=false}){
     let [results, setResults] = useState(new ResultData());
-    let [d10val, setd10val] = useState(0);
+    let [d10val, setd10val] = useState('-');
 
     let styles;
     if(fixedCard){
@@ -34,7 +34,10 @@ export default function Roll({roll, update, fixedCard=false}){
     }
 
     function performRoll(){
-        setResults(rollDice(roll));
+        setResults(new ResultData());
+        setTimeout(() => {
+            setResults(rollDice(roll));
+        }, 200)
     }
 
     function applyUpgrades(){
@@ -50,9 +53,11 @@ export default function Roll({roll, update, fixedCard=false}){
     }
 
     function rolld10(){
-        console.log("clicked");
-        var randInt = Math.floor(Math.random() * 10) + 1;
-        setd10val(randInt);
+        setd10val('-');
+        setTimeout(() => {
+            var randInt = Math.floor(Math.random() * 10) + 1;
+            setd10val(randInt);
+        }, 200)
     }
 
     return (
