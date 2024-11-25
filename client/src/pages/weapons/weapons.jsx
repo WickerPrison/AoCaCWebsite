@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import ModTable from './modTable';
 import Loading from '../../components/loading';
 import getUrl from '../../utils/getUrl';
+import {weapons} from '../../data/weapons';
+import {weaponMods} from '../../data/weaponMods';
+import {weaponProperties} from '../../data/weaponProperties';
 
 const headerEntries = [
     { link: "#brawl", label: "Brawl"},
@@ -34,37 +37,37 @@ const masterworkData = {
 }
 
 export default function Weapons(){
-    let [brawl, setBrawl] = useState([]);
-    let [lightWeapons, setLightWeapons] = useState([]);
-    let [heavyWeapons, setHeavyWeapons] = useState([]);
-    let [ranged, setRanged] = useState([]);
-    let [weaponMods, setWeaponMods] = useState([]);
-    let [masterwork, setMasterwork] = useState([]);
-    let [weaponProperties, setWeaponProperties] = useState([]);
+    let [brawl, setBrawl] = useState(weapons.brawl);
+    let [lightWeapons, setLightWeapons] = useState(weapons.light);
+    let [heavyWeapons, setHeavyWeapons] = useState(weapons.heavy);
+    let [ranged, setRanged] = useState(weapons.ranged);
+    let [mods, setMods] = useState(weaponMods.regular);
+    let [masterwork, setMasterwork] = useState(weaponMods.masterwork);
+    let [weaponProps, setWeaponProps] = useState(weaponProperties);
     
-    useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/weaponsdata', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+    // useEffect(() => {
+    //     async function getData(){
+    //         try{
+    //             const response = await fetch(getUrl() + '/api/data/weaponsdata', {
+    //                 method: 'GET',
+    //                 headers: { 'Content-Type': 'application/json' }
+    //             })
     
-                const data = await response.json();
-                setBrawl(data.weapons.brawl);
-                setLightWeapons(data.weapons.light);
-                setHeavyWeapons(data.weapons.heavy);
-                setRanged(data.weapons.ranged);
-                setWeaponMods(data.mods.regular);
-                setMasterwork(data.mods.masterwork);
-                setWeaponProperties(data.props);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
-    }, [])
+    //             const data = await response.json();
+    //             setBrawl(data.weapons.brawl);
+    //             setLightWeapons(data.weapons.light);
+    //             setHeavyWeapons(data.weapons.heavy);
+    //             setRanged(data.weapons.ranged);
+    //             setWeaponMods(data.mods.regular);
+    //             setMasterwork(data.mods.masterwork);
+    //             setWeaponProperties(data.props);
+    //         }
+    //         catch(err){
+    //             console.log(err);
+    //         }
+    //     }
+    //     getData();
+    // }, [])
     
 
     if(brawl.length <= 0){
@@ -90,9 +93,9 @@ export default function Weapons(){
                 <div id="ranged"></div>
                 {ranged.length > 0 ? <Table id="ranged" title="Ranged" tableData={weaponData} contentData={ranged}/> : null}
                 <div id="properties"></div>
-                {weaponProperties.length > 0 ? <Table tableData={propertiesData} contentData={weaponProperties}/> : null}
+                {weaponProps.length > 0 ? <Table tableData={propertiesData} contentData={weaponProps}/> : null}
                 <div id="mods"></div>
-                {weaponMods.length > 0 ? <ModTable mods={weaponMods}/> : null}
+                {mods.length > 0 ? <ModTable mods={mods}/> : null}
                 <div id="masterwork"></div>
                 {masterwork.length > 0 ? <Table tableData={masterworkData} contentData={masterwork}/> : null}
             </main>

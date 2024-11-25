@@ -4,6 +4,8 @@ import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import Loading from "../components/loading";
 import getUrl from "../utils/getUrl";
+import {equipment} from "../data/equipment";
+import { enchantingEffects } from "../data/enchantingEffects";
 
 const wondrousItemsData = {
     title:"Wondrous Items",
@@ -18,34 +20,34 @@ const enchantingEffectsData = {
 }
 
 export default function MagicItems(){
-    let [wondrousItems, setWondrousItems] = useState([]);
-    let [enchantingEffects, setEnchantingEffects] = useState([]);
+    let [wondrousItems, setWondrousItems] = useState(equipment.wondrous);
+    let [enchantingEffectsList, setEnchantingEffectsList] = useState(enchantingEffects);
 
-    useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/magicitems', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+    // useEffect(() => {
+    //     async function getData(){
+    //         try{
+    //             const response = await fetch(getUrl() + '/api/data/magicitems', {
+    //                 method: 'GET',
+    //                 headers: { 'Content-Type': 'application/json' }
+    //             })
     
-                const data = await response.json();
-                setWondrousItems(data.wondrous);
-                setEnchantingEffects(data.enchantments);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
-    }, [])
+    //             const data = await response.json();
+    //             setWondrousItems(data.wondrous);
+    //             setEnchantingEffects(data.enchantments);
+    //         }
+    //         catch(err){
+    //             console.log(err);
+    //         }
+    //     }
+    //     getData();
+    // }, [])
 
     return (
         <main>
             <FixedHeader/>
             <PageHeading title="Magic Items"/>
             {wondrousItems.length > 0 ? <Table tableData={wondrousItemsData} contentData={wondrousItems}/> : <Loading/>}
-            {enchantingEffects.length > 0 ? <Table tableData={enchantingEffectsData} contentData={enchantingEffects}/> : null}
+            {enchantingEffectsList.length > 0 ? <Table tableData={enchantingEffectsData} contentData={enchantingEffectsList}/> : null}
         </main>
     )
 }

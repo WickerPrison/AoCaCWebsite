@@ -44,24 +44,24 @@ db.once('open', async () => {
     // await CriticalInjuries.create(critsData);
 
     await cleanDB('Equipment', 'equipment');
-    const equipmentData = await singleFetch("Equipment");
-    await Equipment.create(equipmentData);
+    // const equipmentData = await singleFetch("Equipment");
+    // await Equipment.create(equipmentData);
 
     await cleanDB('Weapon', 'weapons');
-    const weaponData = await singleFetch("Weapons");
-    await Weapon.create(weaponData);
+    // const weaponData = await singleFetch("Weapons");
+    // await Weapon.create(weaponData);
 
     await cleanDB('WeaponMod', 'weaponmods');
-    const weaponModData = await singleFetch("WeaponModifications");
-    await WeaponMod.create(weaponModData);
+    // const weaponModData = await singleFetch("WeaponModifications");
+    // await WeaponMod.create(weaponModData);
 
     await cleanDB('WeaponProp', 'weaponprops');
-    const weaponPropData = await singleFetch("WeaponProperties");
-    await WeaponProp.create(weaponPropData);
+    // const weaponPropData = await singleFetch("WeaponProperties");
+    // await WeaponProp.create(weaponPropData);
 
     await cleanDB('Enchantment', 'enchantments');
-    const enchantmentData = await singleFetch("EnchantingEffects");
-    await Enchantment.create(enchantmentData);
+    // const enchantmentData = await singleFetch("EnchantingEffects");
+    // await Enchantment.create(enchantmentData);
 
   } catch (err) {
     console.error(err);

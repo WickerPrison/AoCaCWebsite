@@ -10,7 +10,7 @@ import Loading from '../../components/loading.jsx';
 
 export default function TalentTree() {
     
-    let [talentList, setTalentList] = useState([]);
+    let [talentList, setTalentList] = useState(talents);
     const currentClass = sessionStorage.getItem('className');
     const tree = talentTrees.find(tree => tree.Name == currentClass);
 
@@ -30,10 +30,6 @@ export default function TalentTree() {
         })
         return talent.Description;
     }
-    
-    useEffect(() => {
-        setTalentList(talents);
-    }, [])
 
     if(talentList.length === 0){
         return (
