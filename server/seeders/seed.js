@@ -48,8 +48,8 @@ db.once('open', async () => {
     // await Equipment.create(equipmentData);
 
     await cleanDB('Weapon', 'weapons');
-    const weaponData = await singleFetch("Weapons");
-    await Weapon.create(weaponData);
+    // const weaponData = await singleFetch("Weapons");
+    // await Weapon.create(weaponData);
 
     await cleanDB('WeaponMod', 'weaponmods');
     const weaponModData = await singleFetch("WeaponModifications");

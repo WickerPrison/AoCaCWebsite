@@ -5,6 +5,7 @@ const {getInnateSpells} = require('./innateSpellsSeed');
 const {getCriticalInjuries} = require('./criticalInjuriesSeed');
 const {getEquipment} = require('./equipmentSeed');
 const {getEnchantingEffects} = require('./enchantmentsSeed');
+const {getWeapons} = require('./weaponSeed');
 
 getTreeData();
 getTalents();
@@ -13,3 +14,4 @@ getInnateSpells();
 getCriticalInjuries();
 getEquipment();
 getEnchantingEffects();
+getWeapons();
