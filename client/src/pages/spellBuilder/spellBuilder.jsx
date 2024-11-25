@@ -25,30 +25,28 @@ function SpellData(){
 
 export default function SpellBuilder(){
     let [spellData, setSpellData] = useState(new SpellData);
-    let [spellList, setSpellList] = useState([]);
+    let [spellList, setSpellList] = useState(spellEffects);
     let [choosingSpell, setChoosingSpell] = useState(false);
     let [finalDicePool, setFinalDicePool] = useState(new RollData);
     let [results, setResults] = useState(new ResultData);
 
-    useEffect(() => {
-        // async function getData(){
-        //     try{
-        //         const response = await fetch(getUrl() + '/api/data/spelleffects', {
-        //             method: 'GET',
-        //             headers: { 'Content-Type': 'application/json' }
-        //         })
+    // useEffect(() => {
+    //     async function getData(){
+    //         try{
+    //             const response = await fetch(getUrl() + '/api/data/spelleffects', {
+    //                 method: 'GET',
+    //                 headers: { 'Content-Type': 'application/json' }
+    //             })
     
-        //         const data = await response.json();
-        //         setSpellList(data);
-        //     }
-        //     catch(err){
-        //         console.log(err);
-        //     }
-        // }
-        // getData();
-
-        setSpellList(spellEffects);
-    }, [])
+    //             const data = await response.json();
+    //             setSpellList(data);
+    //         }
+    //         catch(err){
+    //             console.log(err);
+    //         }
+    //     }
+    //     getData();
+    // }, [])
 
     function updateSpellData(property, value){
         let temp = {...spellData};

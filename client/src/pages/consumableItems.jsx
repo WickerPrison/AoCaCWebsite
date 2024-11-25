@@ -31,36 +31,31 @@ const miscData = {
 }
 
 export default function ConsumableItems(){
-    let [bombs, setBombs] = useState([]);
-    let [medicalItems, setMedicalItems] = useState([]);
-    let [potions, setPotions] = useState([]);
-    let [misc, setMisc] = useState([]);
+    let [bombs, setBombs] = useState(equipment.bomb);
+    let [medicalItems, setMedicalItems] = useState(equipment.medicinal);
+    let [potions, setPotions] = useState(equipment.potion);
+    let [misc, setMisc] = useState(equipment.misc);
 
-    useEffect(() => {
-        // async function getData(){
-        //     try{
-        //         const response = await fetch(getUrl() + '/api/data/consumeables', {
-        //             method: 'GET',
-        //             headers: { 'Content-Type': 'application/json' }
-        //         })
+    // useEffect(() => {
+    //     async function getData(){
+    //         try{
+    //             const response = await fetch(getUrl() + '/api/data/consumeables', {
+    //                 method: 'GET',
+    //                 headers: { 'Content-Type': 'application/json' }
+    //             })
     
-        //         const data = await response.json();
-        //         setBombs(data.bombs);
-        //         setMedicalItems(data.medicinal);
-        //         setPotions(data.potion);
-        //         setMisc(data.misc);
-        //     }
-        //     catch(err){
-        //         console.log(err);
-        //     }
-        // }
-        // getData();
-
-        setBombs(equipment.bomb);
-        setMedicalItems(equipment.medicinal);
-        setPotions(equipment.potion);
-        setMisc(equipment.misc);
-    }, [])
+    //             const data = await response.json();
+    //             setBombs(data.bombs);
+    //             setMedicalItems(data.medicinal);
+    //             setPotions(data.potion);
+    //             setMisc(data.misc);
+    //         }
+    //         catch(err){
+    //             console.log(err);
+    //         }
+    //     }
+    //     getData();
+    // }, [])
 
     if(bombs.length <= 0){
         return(

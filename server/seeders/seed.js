@@ -60,8 +60,8 @@ db.once('open', async () => {
     await WeaponProp.create(weaponPropData);
 
     await cleanDB('Enchantment', 'enchantments');
-    const enchantmentData = await singleFetch("EnchantingEffects");
-    await Enchantment.create(enchantmentData);
+    // const enchantmentData = await singleFetch("EnchantingEffects");
+    // await Enchantment.create(enchantmentData);
 
   } catch (err) {
     console.error(err);

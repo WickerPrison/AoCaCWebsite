@@ -174,19 +174,19 @@ router.get('/weaponsdata', async (req, res) => {
     res.json(data);
 });
 
-router.get('/magicitems', async (req, res) => {
-    let data = {};
-    const wondrousItems = await Equipment.find({Category: "Wondrous"}).sort('Name').catch((err) => {
-        res.json(err);
-    })
-    data.wondrous = wondrousItems;
+// router.get('/magicitems', async (req, res) => {
+//     let data = {};
+//     const wondrousItems = await Equipment.find({Category: "Wondrous"}).sort('Name').catch((err) => {
+//         res.json(err);
+//     })
+//     data.wondrous = wondrousItems;
 
-    const enchantments = await Enchantment.find().sort('Name').catch((err) => {
-        res.json(err);
-    });
-    data.enchantments = enchantments;
+//     const enchantments = await Enchantment.find().sort('Name').catch((err) => {
+//         res.json(err);
+//     });
+//     data.enchantments = enchantments;
 
-    res.json(data);
-})
+//     res.json(data);
+// })
 
 module.exports = router;
