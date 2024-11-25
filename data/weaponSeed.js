@@ -1,5 +1,11 @@
 const {getData, standardWrite} = require('./seedUtils');
 
+function getWeaponData(){
+    getWeapons();
+    getWeaponMods();
+    getWeaponProperties();
+}
+
 async function getWeapons(){
     let data = await getData("Weapons");
 
@@ -30,6 +36,31 @@ async function getWeapons(){
     standardWrite('../client/src/data/weapons.js', "weapons", weapons)
 }
 
-getWeapons();
+async function getWeaponMods(){
+    let data = await getData("WeaponModifications");
 
-module.exports = {getWeapons};
+    let weaponMods = {
+        regular: [],
+        masterwork: []
+    }
+
+    for(let i = 0; i < data.length; i++){
+        if(data[i].Name == ""){
+            weaponMods.regular.push(data[i]);
+        }
+        else{
+            weaponMods.masterwork.push(data[i]);
+        }
+    }
+
+    standardWrite('../client/src/data/weaponMods.js', "weaponMods", weaponMods)
+}
+
+async function getWeaponProperties(){
+    let data = await getData("WeaponProperties");
+    standardWrite('../client/src/data/weaponProperties.js', "weaponProperties", data)
+}
+
+getWeaponData();
+
+module.exports = {getWeaponData};
