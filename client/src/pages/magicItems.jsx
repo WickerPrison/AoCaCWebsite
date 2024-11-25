@@ -4,6 +4,7 @@ import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import Loading from "../components/loading";
 import getUrl from "../utils/getUrl";
+import {equipment} from "../data/equipment";
 
 const wondrousItemsData = {
     title:"Wondrous Items",
@@ -30,7 +31,7 @@ export default function MagicItems(){
                 })
     
                 const data = await response.json();
-                setWondrousItems(data.wondrous);
+                //setWondrousItems(data.wondrous);
                 setEnchantingEffects(data.enchantments);
             }
             catch(err){
@@ -38,6 +39,8 @@ export default function MagicItems(){
             }
         }
         getData();
+
+        setWondrousItems(equipment.wondrous);
     }, [])
 
     return (

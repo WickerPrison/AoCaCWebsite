@@ -4,6 +4,7 @@ import Table from "../components/table";
 import { useEffect, useState } from 'react';
 import getUrl from "../utils/getUrl";
 import Loading from "../components/loading";
+import {equipment} from "../data/equipment";
 
 const bombsData = {
     title:"Bombs",
@@ -36,24 +37,29 @@ export default function ConsumableItems(){
     let [misc, setMisc] = useState([]);
 
     useEffect(() => {
-        async function getData(){
-            try{
-                const response = await fetch(getUrl() + '/api/data/consumeables', {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
+        // async function getData(){
+        //     try{
+        //         const response = await fetch(getUrl() + '/api/data/consumeables', {
+        //             method: 'GET',
+        //             headers: { 'Content-Type': 'application/json' }
+        //         })
     
-                const data = await response.json();
-                setBombs(data.bombs);
-                setMedicalItems(data.medicinal);
-                setPotions(data.potion);
-                setMisc(data.misc);
-            }
-            catch(err){
-                console.log(err);
-            }
-        }
-        getData();
+        //         const data = await response.json();
+        //         setBombs(data.bombs);
+        //         setMedicalItems(data.medicinal);
+        //         setPotions(data.potion);
+        //         setMisc(data.misc);
+        //     }
+        //     catch(err){
+        //         console.log(err);
+        //     }
+        // }
+        // getData();
+
+        setBombs(equipment.bomb);
+        setMedicalItems(equipment.medicinal);
+        setPotions(equipment.potion);
+        setMisc(equipment.misc);
     }, [])
 
     if(bombs.length <= 0){

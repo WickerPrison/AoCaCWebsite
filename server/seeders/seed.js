@@ -44,8 +44,8 @@ db.once('open', async () => {
     // await CriticalInjuries.create(critsData);
 
     await cleanDB('Equipment', 'equipment');
-    const equipmentData = await singleFetch("Equipment");
-    await Equipment.create(equipmentData);
+    // const equipmentData = await singleFetch("Equipment");
+    // await Equipment.create(equipmentData);
 
     await cleanDB('Weapon', 'weapons');
     const weaponData = await singleFetch("Weapons");

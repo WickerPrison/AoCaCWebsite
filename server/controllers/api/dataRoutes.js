@@ -90,43 +90,43 @@ const {
 //     res.json(crits);
 // });
 
-router.get('/equipment', async (req, res) => {
-    const equipment = await Equipment.find({Category: "General"}).sort('Name').catch((err) => {
-        res.json(err);
-    });
-    res.json(equipment);
-});
+// router.get('/equipment', async (req, res) => {
+//     const equipment = await Equipment.find({Category: "General"}).sort('Name').catch((err) => {
+//         res.json(err);
+//     });
+//     res.json(equipment);
+// });
 
-router.get('/consumeables', async (req, res) => {
-    const data = await Equipment.find({Category: ["Bomb", "Medicinal", "Potion", "Misc"]}).sort('Name').catch((err) => {
-        res.json(err);
-    });
+// router.get('/consumeables', async (req, res) => {
+//     const data = await Equipment.find({Category: ["Bomb", "Medicinal", "Potion", "Misc"]}).sort('Name').catch((err) => {
+//         res.json(err);
+//     });
 
-    let consumeables = {
-        bombs: [],
-        medicinal: [],
-        potion: [],
-        misc: []
-    }
+//     let consumeables = {
+//         bombs: [],
+//         medicinal: [],
+//         potion: [],
+//         misc: []
+//     }
 
-    for(let i = 0; i < data.length; i++){
-        switch(data[i].Category){
-            case "Bomb":
-                consumeables.bombs.push(data[i]);
-                break;
-            case "Medicinal":
-                consumeables.medicinal.push(data[i]);
-                break;
-            case "Potion":
-                consumeables.potion.push(data[i]);
-                break;
-            case "Misc":
-                consumeables.misc.push(data[i]);
-                break;
-        }
-    }
-    res.json(consumeables);
-});
+//     for(let i = 0; i < data.length; i++){
+//         switch(data[i].Category){
+//             case "Bomb":
+//                 consumeables.bombs.push(data[i]);
+//                 break;
+//             case "Medicinal":
+//                 consumeables.medicinal.push(data[i]);
+//                 break;
+//             case "Potion":
+//                 consumeables.potion.push(data[i]);
+//                 break;
+//             case "Misc":
+//                 consumeables.misc.push(data[i]);
+//                 break;
+//         }
+//     }
+//     res.json(consumeables);
+// });
 
 router.get('/weaponsdata', async (req, res) => {
     let data = {};
