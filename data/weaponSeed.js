@@ -17,6 +17,23 @@ async function getWeapons(){
     }
 
     for(let i = 0; i < data.length; i++){
+        let damageArray = data[i].Damage.split(" + ");
+        if(damageArray.length > 1){
+            data[i].Damage = damageArray[0];
+            data[i].Attribute = damageArray[1];
+        }
+        else if(data[i].Properties.includes("Unwieldy") || data[i].Properties.includes("Underpowered")){
+            data[i].Damage = data[i].Damage.replace("*", "");
+            data[i].Attribute = "HalfBrawn";
+        }
+        else{
+            data[i].Attribute = "None";
+        }
+
+        if(data[i].Properties.includes("Finesse")){
+            data[i].Attribute += "/Agility";
+        }
+
         switch(data[i].Skill){
             case "Brawl":
                 weapons.brawl.push(data[i]);
