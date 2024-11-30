@@ -3,7 +3,7 @@ import {skillsDict} from "../../js/skills";
 import auth from '../../utils/auth';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
-const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
+const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "HalfBrawn", "HalfBrawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
 const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ballistic", "Artillery"];
 
 export default function EditAttack({getStates}){
@@ -57,7 +57,7 @@ export default function EditAttack({getStates}){
                     <label>Damage: </label>
                     <input type="number" value={data.damage} onChange={e => data.setDamage(e.target.value)} min="0"></input>
                 </div>
-                <div>
+                <div style={{flexGrow: 1}}>
                     <label>Damage Attribute: </label>
                     <select value={data.damageAttribute} onChange={e => data.setDamageAttribute(e.target.value)}>
                         {damageAttributes.map((attribute) => {
