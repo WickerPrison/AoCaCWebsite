@@ -22,17 +22,23 @@ async function getWeapons(){
             data[i].Damage = damageArray[0];
             data[i].Attribute = damageArray[1];
         }
-        else if(data[i].Properties.includes("Unwieldy") || data[i].Properties.includes("Underpowered")){
-            data[i].Damage = data[i].Damage.replace("*", "");
-            data[i].Attribute = "HalfBrawn";
-        }
         else{
             data[i].Attribute = "None";
         }
 
-        if(data[i].Properties.includes("Finesse")){
-            data[i].Attribute += "/Agility";
+        data[i].HalfAttribute = data[i].Properties.includes("Unwieldy") || data[i].Properties.includes("Underpowered");
+        data[i].Finesse = data[i].Properties.includes("Finesse");
+        let index = data[i].Properties.indexOf("Accurate ");
+        let accurateVal = "";
+        if(index != -1){
+            index += 9;
+            while(data[i].Properties[index] && data[i].Properties[index] != ","){
+                accurateVal += data[i].Properties[index];
+                index += 1;
+            }
         }
+        data[i].Accurate = accurateVal;
+
 
         switch(data[i].Skill){
             case "Brawl":

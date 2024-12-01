@@ -3,7 +3,7 @@ import {skillsDict} from "../../js/skills";
 import auth from '../../utils/auth';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
-const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "HalfBrawn", "HalfBrawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
+const damageAttributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ballistic", "Artillery"];
 
 export default function EditAttack({getStates}){
@@ -26,6 +26,16 @@ export default function EditAttack({getStates}){
         }
     }
 
+    function toggleFinesse(evt){
+        evt.preventDefault();
+        data.setFinesse(!data.finesse);
+    }
+
+    function toggleHalfAttribute(evt){
+        evt.preventDefault();
+        data.setHalfAttribute(!data.halfAttribute);
+    }
+
     return(
         <div id="edit-attack" className='stats-grid'>
             <label className='full-width-label'>Name: </label>
@@ -42,22 +52,10 @@ export default function EditAttack({getStates}){
                     </select>
                 </div>
                 <div>
-                    <label>Special Attribute: </label>
-                    <select value={data.specialAttribute} onChange={e => data.setSpecialAttribute(e.target.value)}>
-                        {attributes.map((attribute) => {
-                            return(
-                                <option key={attribute} value={attribute}>{attribute}</option>
-                            )
-                        })}
-                    </select>
-                </div>
-            </div>
-            <div className="flex-grid-entries">
-                <div>
                     <label>Damage: </label>
                     <input type="number" value={data.damage} onChange={e => data.setDamage(e.target.value)} min="0"></input>
                 </div>
-                <div style={{flexGrow: 1}}>
+                <div>
                     <label>Damage Attribute: </label>
                     <select value={data.damageAttribute} onChange={e => data.setDamageAttribute(e.target.value)}>
                         {damageAttributes.map((attribute) => {
@@ -84,8 +82,28 @@ export default function EditAttack({getStates}){
                     <input type="number" value={data.crit} onChange={e => data.setCrit(e.target.value)} min="0"></input>
                 </div>
                 <div>
+                    <label>ⓘ Special Attribute: </label>
+                    <select value={data.specialAttribute} onChange={e => data.setSpecialAttribute(e.target.value)}>
+                        {attributes.map((attribute) => {
+                            return(
+                                <option key={attribute} value={attribute}>{attribute}</option>
+                            )
+                        })}
+                    </select>
+                </div>
+            </div>
+            <div className="flex-grid-entries">
+                <div>
                     <label>Accurate: </label>
                     <input type="number" value={data.accurate} onChange={e => data.setAccurate(e.target.value)} min="0"></input>
+                </div>
+                <div>
+                    <label>Finesse: </label>
+                    <button className={`checkbox ${data.finesse ? "show-check" : ""}`} onClick={evt => toggleFinesse(evt)}>{"✔"}</button>
+                </div>
+                <div>
+                    <label>ⓘ Half Attribute: </label>
+                    <button className={`checkbox ${data.halfAttribute ? "show-check" : ""}`} onClick={evt => toggleHalfAttribute(evt)}>{"✔"}</button>
                 </div>
             </div>
             <label className='full-width-label'>Properties: </label>

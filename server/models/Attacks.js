@@ -35,6 +35,14 @@ const attackSchema = new Schema(
             type: Number,
             default: 0
         },
+        halfAttribute:{
+            type: Boolean,
+            default: false
+        },
+        finesse:{
+            type:Boolean,
+            default: false
+        },
         properties:{
             type: String
         },
