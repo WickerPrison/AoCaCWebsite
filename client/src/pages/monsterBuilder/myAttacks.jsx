@@ -18,7 +18,7 @@ export default function MyAttacks(){
     const [crit, setCrit] = useState(5);
     const [accurate, setAccurate] = useState(0);
     const [finesse, setFinesse] = useState(false);
-    const [halfAttribute, setHalfAttribute] = useState(false);
+    const [halfAttribute, setHalfAttribute] = useState("None");
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
     const [official, setOfficial] = useState(false);

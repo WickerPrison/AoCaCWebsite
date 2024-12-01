@@ -82,7 +82,8 @@ export default function EditAttack({getStates}){
                     <input type="number" value={data.crit} onChange={e => data.setCrit(e.target.value)} min="0"></input>
                 </div>
                 <div>
-                    <label>ⓘ Special Attribute: </label>
+                    {/* ⓘ */}
+                    <label>Special Attribute: </label>
                     <select value={data.specialAttribute} onChange={e => data.setSpecialAttribute(e.target.value)}>
                         {attributes.map((attribute) => {
                             return(
@@ -102,8 +103,15 @@ export default function EditAttack({getStates}){
                     <button className={`checkbox ${data.finesse ? "show-check" : ""}`} onClick={evt => toggleFinesse(evt)}>{"✔"}</button>
                 </div>
                 <div>
-                    <label>ⓘ Half Attribute: </label>
-                    <button className={`checkbox ${data.halfAttribute ? "show-check" : ""}`} onClick={evt => toggleHalfAttribute(evt)}>{"✔"}</button>
+                    {/* ⓘ */}
+                    <label>Half Attribute: </label>
+                    <select value={data.halfAttribute} onChange={e => data.setHalfAttribute(e.target.value)}>
+                        {attributes.map((attribute) => {
+                            return(
+                                <option key={attribute} value={attribute}>{attribute}</option>
+                            )
+                        })}
+                    </select>
                 </div>
             </div>
             <label className='full-width-label'>Properties: </label>

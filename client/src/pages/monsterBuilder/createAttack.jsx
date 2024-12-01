@@ -13,7 +13,7 @@ export default function CreateAttack(){
     const [crit, setCrit] = useState(5);
     const [accurate, setAccurate] = useState(0);
     const [finesse, setFinesse] = useState(false);
-    const [halfAttribute, setHalfAttribute] = useState(false);
+    const [halfAttribute, setHalfAttribute] = useState("None");
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
     const [official, setOfficial] = useState(false);
@@ -36,7 +36,7 @@ export default function CreateAttack(){
         setCrit(5);
         setAccurate(0);
         setFinesse(false);
-        setHalfAttribute(false);
+        setHalfAttribute("None");
         setProperties("");
         setMakePublic(true);
     }
