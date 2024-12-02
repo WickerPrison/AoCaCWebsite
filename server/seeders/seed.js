@@ -1,67 +1,31 @@
 const db = require('../config/connection');
-const {
-  SpellEffect, 
-  Talent, 
-  InnateSpell, 
-  Fundamentalist, 
-  CriticalInjuries, 
-  Equipment,
-  Weapon,
-  WeaponMod,
-  WeaponProp,
-  Enchantment
-} = require('../models');
-//const talentListSeeder = require('./talentListSeeder');
+const {getWeapons} = require('../../data/weaponSeed');
+const {Weapon} = require('../models');
 const cleanDB = require('./cleanDB');
-const {singleFetch} = require('./getData');
 
 
 db.once('open', async () => {
   try {
-    await cleanDB('SpellEffect', 'spelleffects');
-    // const spellEffectsData = await singleFetch("ScholarlySpells");
-    // await SpellEffect.create(spellEffectsData);
-
-    await cleanDB('Talent', 'talents');
-    // let talentsData = await singleFetch("Talents");
-    // talentsData = talentListSeeder.cleanTalentsData(talentsData);
-    // await Talent.create(talentsData);
-
-    await cleanDB('InnateSpell', 'innatespells');
-    // const innateSpellsData = await singleFetch("InnateSpells");
-    // for(let i = 0; i < innateSpellsData.length; i++){
-    //   let stringArray = innateSpellsData[i].Classes.split(", ");
-    //   innateSpellsData[i].Classes = stringArray;
-    // }
-    // await InnateSpell.create(innateSpellsData);
-
-    await cleanDB('Fundamentalist', 'fundamentalists');
-    // const fundamentalistData = await singleFetch("Fundamentalist");
-    // await Fundamentalist.create(fundamentalistData);
-
-    await cleanDB('CriticalInjuries', 'crits');
-    // const critsData = await singleFetch("CriticalInjuries");
-    // await CriticalInjuries.create(critsData);
-
-    await cleanDB('Equipment', 'equipment');
-    // const equipmentData = await singleFetch("Equipment");
-    // await Equipment.create(equipmentData);
 
     await cleanDB('Weapon', 'weapons');
-    // const weaponData = await singleFetch("Weapons");
-    // await Weapon.create(weaponData);
+    let weapons = await getWeapons();
+    let formattedWeapons = [];
+    let weaponTypes = ["brawl", "light", "heavy", "ranged"];
+    for(let i = 0; i < weaponTypes.length; i++){
+      for(let j = 0; j < weapons[weaponTypes[i]].length; j++){
+        let newWeapon = {};
+        for(const [key, value] of Object.entries(weapons[weaponTypes[i]][j])){
+          newWeapon[key.charAt(0).toLowerCase() + key.slice(1)] = value;
+        }
 
-    await cleanDB('WeaponMod', 'weaponmods');
-    // const weaponModData = await singleFetch("WeaponModifications");
-    // await WeaponMod.create(weaponModData);
-
-    await cleanDB('WeaponProp', 'weaponprops');
-    // const weaponPropData = await singleFetch("WeaponProperties");
-    // await WeaponProp.create(weaponPropData);
-
-    await cleanDB('Enchantment', 'enchantments');
-    // const enchantmentData = await singleFetch("EnchantingEffects");
-    // await Enchantment.create(enchantmentData);
+        newWeapon.crit = weapons[weaponTypes[i]][j].Critical;
+        newWeapon.specialAttribute = "None";
+        newWeapon.public = true;
+        newWeapon.official = true;
+        formattedWeapons.push(newWeapon);
+      }
+    }
+    await Weapon.create(formattedWeapons);
 
   } catch (err) {
     console.error(err);

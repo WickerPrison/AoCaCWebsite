@@ -1,7 +1,7 @@
 const {getData, standardWrite} = require('./seedUtils');
 
 function getWeaponData(){
-    getWeapons();
+    writeWeapons();
     getWeaponMods();
     getWeaponProperties();
 }
@@ -25,14 +25,17 @@ async function getWeapons(){
         else{
             data[i].Attribute = "None";
         }
+        data[i].Damage = data[i].Damage.replace("*","");
 
-        data[i].HalfAttribute = data[i].Properties.includes("Unwieldy") || data[i].Properties.includes("Underpowered");
+        if(data[i].Properties.includes("Unwieldy") || data[i].Properties.includes("Underpowered")){
+            data[i].HalfAttribute = "Brawn";
+        }
         data[i].Finesse = data[i].Properties.includes("Finesse");
         let index = data[i].Properties.indexOf("Accurate ");
         let accurateVal = "";
         if(index != -1){
             index += 9;
-            while(data[i].Properties[index] && data[i].Properties[index] != ","){
+            while(data[i].Properties[index] && data[i].Properties[index] != "," && data[i].Properties[index] != " "){
                 accurateVal += data[i].Properties[index];
                 index += 1;
             }
@@ -56,6 +59,11 @@ async function getWeapons(){
         }
     }
 
+    return weapons;
+}
+
+async function writeWeapons(){
+    let weapons = await getWeapons();
     standardWrite('../client/src/data/weapons.js', "weapons", weapons)
 }
 
@@ -86,4 +94,4 @@ async function getWeaponProperties(){
 
 getWeaponData();
 
-module.exports = {getWeaponData};
+module.exports = {getWeaponData, getWeapons};

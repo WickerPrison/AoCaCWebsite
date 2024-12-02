@@ -13,7 +13,6 @@ export const weapons = {
 			"Rarity": "2",
 			"Properties": "Finesse, Grapple, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -30,14 +29,13 @@ export const weapons = {
 			"Rarity": " -",
 			"Properties": "Basic, Finesse, Grapple, Nimble, Vicious 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
 		{
 			"Name": "Improvised Melee",
 			"Skill": "Brawl",
-			"Damage": "0*",
+			"Damage": "0",
 			"Range": "Engaged",
 			"Critical": "5",
 			"Parts": " - ",
@@ -47,7 +45,7 @@ export const weapons = {
 			"Rarity": " - ",
 			"Properties": "Basic, Grapple, Nimble, Unwieldy",
 			"Attribute": "None",
-			"HalfAttribute": true,
+			"HalfAttribute": "Brawn",
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -64,7 +62,6 @@ export const weapons = {
 			"Rarity": "2",
 			"Properties": "Finesse, Grapple, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -81,7 +78,6 @@ export const weapons = {
 			"Rarity": "3",
 			"Properties": "Block 1, Grapple, Nimble, Shield 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -98,7 +94,6 @@ export const weapons = {
 			"Rarity": " -",
 			"Properties": "Basic, Finesse, Grapple, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -115,14 +110,13 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Grapple, Nimble, Pierce 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
 		{
 			"Name": "Unarmed Strike",
 			"Skill": "Brawl",
-			"Damage": "0*",
+			"Damage": "0",
 			"Range": "Engaged",
 			"Critical": "5",
 			"Parts": " - ",
@@ -132,7 +126,7 @@ export const weapons = {
 			"Rarity": " - ",
 			"Properties": "Basic, Finesse, Grapple, Nimble, Underpowered",
 			"Attribute": "None",
-			"HalfAttribute": true,
+			"HalfAttribute": "Brawn",
 			"Finesse": true,
 			"Accurate": ""
 		}
@@ -151,7 +145,6 @@ export const weapons = {
 			"Rarity": "2",
 			"Properties": "Nimble, Vicious 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -168,7 +161,6 @@ export const weapons = {
 			"Rarity": "1",
 			"Properties": "Disorient 1, Nimble.",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -185,7 +177,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": " -",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -202,7 +193,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Disorient 1, Finesse",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -219,7 +209,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Block 3, Cumbersome 3, Knockdown, Shield 2",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -236,7 +225,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Defensive 1, Becomes Defensive 2 if used in 2 hands",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -253,7 +241,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Block 2, Cumbersome 2, Knockdown, Nimble, Shield 2",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -270,7 +257,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Finesse, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -287,9 +273,8 @@ export const weapons = {
 			"Rarity": "3",
 			"Properties": "Accurate 2 if used in two hands",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
-			"Accurate": "2 if used in two hands"
+			"Accurate": "2"
 		},
 		{
 			"Name": "Shortsword",
@@ -304,7 +289,6 @@ export const weapons = {
 			"Rarity": "3",
 			"Properties": "Finesse, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -321,7 +305,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Defensive 2, Disarm, Finesse, Nimble",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -338,9 +321,8 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Gains Accurate 2 if used in two hands, Defensive 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
-			"Accurate": "2 if used in two hands"
+			"Accurate": "2"
 		},
 		{
 			"Name": "Warhammer",
@@ -355,7 +337,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Disorient 1, Pierce 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		}
@@ -374,7 +355,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Cumbersome 4, Defensive 2",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -391,7 +371,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Cumbersome 3, Pierce 5",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -408,7 +387,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 3, Vicious 2",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -425,7 +403,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 3, Disarm, First Strike",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -442,7 +419,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 3, First Strike, Knockdown",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -459,7 +435,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Cumbersome 4, Inaccurate 2, Mounted, Pierce 1, Special (when Mounted, this weapon is used in only 1 hand, and loses its Cumbersome and Inaccurate properties. If your mount has moved at least 10 cm in a straight line towards the enemy during your turn, you may declare a Mounted Charge attack, adding your Mount's Brawn to your damage. This attack reduces the condition of the lance by 1 stage.)",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -476,7 +451,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 3, Disorient 1, First Strike",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -493,7 +467,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 5, Disorient 2, Pierce 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -510,7 +483,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Block 4, Cumbersome 3. ",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -527,7 +499,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Cumbersome 4, Special Reach (weapon has a range of 11 cm, increase the Difficulty of attacks made on targets within Engaged range). Pike Brace: as a Reaction when a mounted enemy enters your attack range, make an attack on them immediately - pausing their turn. This attack gains the Knockdown property. After this attack, your opponent continues with the rest of their turn. ",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -544,7 +515,6 @@ export const weapons = {
 			"Rarity": "2",
 			"Properties": "Disorient 1, Finesse, First Strike, Knockdown",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		}
@@ -563,7 +533,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Accurate 1, Nimble, Limited Ammo 1, Mounted",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": "1"
 		},
@@ -580,7 +549,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Accurate 1, Cumbersome 2, Limited Ammo 5, Loading 1",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": "1"
 		},
@@ -597,7 +565,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Accurate 1, Cumbersome 2, Limited Ammo 1",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": "1"
 		},
@@ -614,7 +581,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Accurate 1, Cumbersome 3, Limited Ammo 1, Loading 1, Pierce 2",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": "1"
 		},
@@ -631,7 +597,6 @@ export const weapons = {
 			"Rarity": "3",
 			"Properties": "Cumbersome 2, Mounted",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -648,7 +613,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Cumbersome 3, Mounted",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -665,7 +629,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Cumbersome 3",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -682,7 +645,6 @@ export const weapons = {
 			"Rarity": "6",
 			"Properties": "Cumbersome 4, Pierce 1",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -699,7 +661,6 @@ export const weapons = {
 			"Rarity": "1",
 			"Properties": "Disorient 1",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -716,7 +677,6 @@ export const weapons = {
 			"Rarity": "2",
 			"Properties": "Disorient 1. Can be used as a Heavy Weapon but with a Range of Extended.",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -733,7 +693,6 @@ export const weapons = {
 			"Rarity": "5",
 			"Properties": "Pierce 1. Can be used as a Light Weapon with a range of Engaged.",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -742,7 +701,7 @@ export const weapons = {
 			"Skill": "Ranged",
 			"Damage": "1",
 			"Range": "Short",
-			"Critical": "-",
+			"Critical": "5",
 			"Parts": " - ",
 			"Encumbrance": "1",
 			"Material": "Hide",
@@ -750,14 +709,13 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Knockdown",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
 		{
 			"Name": "Improvised Thrown",
 			"Skill": "Ranged",
-			"Damage": "0*",
+			"Damage": "0",
 			"Range": "Short",
 			"Critical": "5",
 			"Parts": " - ",
@@ -767,7 +725,7 @@ export const weapons = {
 			"Rarity": "-",
 			"Properties": "Basic, Unwieldy",
 			"Attribute": "None",
-			"HalfAttribute": true,
+			"HalfAttribute": "Brawn",
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -784,7 +742,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Nimble, Stack 4, Vicious 1. Can be use as a Light Weapon with a range of Engaged.",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		},
@@ -801,7 +758,6 @@ export const weapons = {
 			"Rarity": "3",
 			"Properties": "Finesse, Grapple, Nimble, Stack 5. Can be used as a Brawl weapon with a Range of Engaged.",
 			"Attribute": "Brawn",
-			"HalfAttribute": false,
 			"Finesse": true,
 			"Accurate": ""
 		},
@@ -818,7 +774,6 @@ export const weapons = {
 			"Rarity": "4",
 			"Properties": "Functions normally under water. Range is reduced to Extended when out of water.",
 			"Attribute": "None",
-			"HalfAttribute": false,
 			"Finesse": false,
 			"Accurate": ""
 		}

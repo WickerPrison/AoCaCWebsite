@@ -60,5 +60,6 @@ const attackSchema = new Schema(
 )
 
 const Attack = model('attack', attackSchema);
+const Weapon = model('weapon', attackSchema);
 
-module.exports = {Attack, attackSchema};
+module.exports = {Attack, Weapon, attackSchema};
