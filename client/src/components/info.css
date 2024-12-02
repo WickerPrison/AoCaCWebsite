@@ -1,0 +1,29 @@
+.info{
+    font-size: 1rem;
+    position: relative;
+    display: inline;
+}
+
+.info:focus::after, .info:hover::after{
+    content: attr(data-content);
+    display: block;
+    position: absolute;
+    bottom: 1rem;
+    box-sizing: border-box;
+    font-size: var(--baseTextSize);
+    background-color: var(--silver);
+    color: black;
+    width: 20rem;
+    left: -9rem;
+    z-index: 2;
+    padding: 0.3rem;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px 0.05px black;
+}
+
+@media screen and (max-width: 768px){
+    .info:focus::after, .info:hover::after{
+        width: 10rem;
+        left: -4.5rem;
+    }
+}
