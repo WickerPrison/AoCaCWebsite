@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Attack, Monster} = require('../../models');
+const {User, Attack, Monster, Weapon} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
 router.get("/", authMiddleware, async (req, res) => {
@@ -42,7 +42,15 @@ router.get('/attacks', async (req, res) => {
     const attacks = await Attack.find().catch(err => {
         res.json(err);
     })
-    res.json(attacks);
+    const weapons = await Weapon.find().catch(err => {
+        res.json(err);
+    })
+
+    let output = {
+        attacks: attacks,
+        weapons: weapons
+    }
+    res.json(output);
 });
 
 router.get('/attacks/:username', async (req, res) => {
