@@ -32,6 +32,7 @@ export default function FilterOptions({data, index, filterOptions, setFilterOpti
         else{
             tempArray[index].options.push(option);
         }
+        console.log(tempArray);
         setFilterOptions(tempArray);
     }
     
