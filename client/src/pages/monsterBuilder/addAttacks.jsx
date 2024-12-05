@@ -14,6 +14,12 @@ const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ba
 
 const filterArray = [
     {
+        category: "type",
+        options: ["Weapons", "Attacks"],
+        displayName: "Attack Types",
+        type: FilterTypes.MULTIINPUT
+    },
+    {
         category: "skill",
         displayName: "Combat Skills",
         options: combatSkillsArray,
@@ -65,6 +71,7 @@ const sortOptions = [
 export default function AddAttacks({attacks, setAttacks}){
     const [showMenu, setShowMenu] = useState(false);
     const [allAttacks, setAllAttacks] = useState([]);
+    const [allWeapons, setAllWeapons] = useState([]);
     const [displayAttacks, setDisplayAttacks] = useState([]);
 
     async function getAttacks(e) {
@@ -78,8 +85,9 @@ export default function AddAttacks({attacks, setAttacks}){
 
             const data = await response.json();
  
-            setAllAttacks(data);
-            setDisplayAttacks(data);
+            setAllAttacks(data.attacks);
+            setAllWeapons(data.weapons);
+            setDisplayAttacks(data.weapons);
             setShowMenu(true);
             window.scrollTo({top: 0, behavior: "smooth"});
         }
@@ -94,17 +102,19 @@ export default function AddAttacks({attacks, setAttacks}){
             {showMenu ? <GreyOut/>: null}
             {showMenu ? 
                 <div className="popup">
-                    <Filters input={allAttacks} setOutput={setDisplayAttacks} filterArray={filterArray} sortArray={sortOptions}/>
-                    <div className="card box attack-display">
+                    <Filters input={{Weapons:allWeapons, Attacks:allAttacks}} setOutput={setDisplayAttacks} filterArray={filterArray} sortArray={sortOptions}/>
+                    <div className="card box attacks-card">
                         <div className="box-header">Attacks</div>
-                        {displayAttacks.map((attack, index) => {
-                            return(
-                                <div key={attack.name}>
-                                    <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
-                                    {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
-                                </div>
-                            )
-                        })}
+                        <div className = "attacks-list">
+                            {displayAttacks.map((attack, index) => {
+                                return(
+                                    <div key={attack.name}>
+                                        <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
+                                        {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
+                                    </div>
+                                )
+                            })}
+                        </div>
                         <button className="small-button button-margin" onClick={evt => {evt.preventDefault(); setShowMenu(false);}}>Done</button>
                     </div>
                 </div>

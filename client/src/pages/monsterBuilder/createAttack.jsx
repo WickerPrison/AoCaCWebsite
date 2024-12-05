@@ -12,14 +12,16 @@ export default function CreateAttack(){
     const [range, setRange] = useState("Engaged");
     const [crit, setCrit] = useState(5);
     const [accurate, setAccurate] = useState(0);
+    const [finesse, setFinesse] = useState(false);
+    const [halfAttribute, setHalfAttribute] = useState("None");
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
     const [official, setOfficial] = useState(false);
 
     function getStates(){
         return {
-            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official,
-            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic, setOfficial
+            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official,
+            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setFinesse, setHalfAttribute, setProperties, setMakePublic, setOfficial
         }
     }
 
@@ -33,6 +35,8 @@ export default function CreateAttack(){
         setRange("Engaged");
         setCrit(5);
         setAccurate(0);
+        setFinesse(false);
+        setHalfAttribute("None");
         setProperties("");
         setMakePublic(true);
     }
@@ -41,7 +45,7 @@ export default function CreateAttack(){
         <form id="create-attack" className='card box'>
             <div className='box-header'>New Attack</div>
             <EditAttack getStates={getStates}/>
-            <button className='small-button button-margin' onClick={e => SubmitAttack(e, "POST", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, resetStates)}>Submit</button>
+            <button className='small-button button-margin' onClick={e => SubmitAttack(e, "POST", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, resetStates)}>Submit</button>
         </form>
     )
 }

@@ -1,7 +1,7 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, resetStates, _id=""){
+export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, resetStates, _id=""){
     evt.preventDefault();
 
     if(!name){
@@ -18,6 +18,8 @@ export default async function SubmitAttack(evt, method, name, skill, specialAttr
         range: range,
         crit: crit,
         accurate: accurate,
+        finesse: finesse,
+        halfAttribute: halfAttribute,
         properties: properties,
         public: makePublic,
         official: official,

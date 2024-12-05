@@ -6,7 +6,8 @@ import SortOptions from './sortOptions';
 export const FilterTypes = {
     NUMBER_ARRAY: "NUMBER_ARRAY",
     STRING: "STRING",
-    BOOL: "BOOL"
+    BOOL: "BOOL",
+    MULTIINPUT: "MULTIINPUT"
 }
 
 export default function Filters({filterArray, setOutput, input, sortArray, title="Filters and Sorting"}){
@@ -24,7 +25,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
     });
     
     useEffect(() =>{
-        let tempArray = input.slice();
+        let tempArray = inputArrayHandler();
         tempArray = tempArray.filter((entry) => {
             for(let i = 0; i < filterOptions.length; i++){
                 switch(filterOptions[i].type){
@@ -34,6 +35,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                     case FilterTypes.BOOL:
                         if(filterByBool(entry, i) == false) return false;
                         break;
+                    case FilterTypes.MULTIINPUT: break; 
                     case FilterTypes.STRING:
                     default:
                         if(filterByString(entry, i) == false) return false;
@@ -58,6 +60,26 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
 
         setOutput(tempArray);
     }, [filterOptions, sortOptions])
+
+    function inputArrayHandler(){
+        let tempArray = [];
+        if(filterArray[0].type == FilterTypes.MULTIINPUT){
+            if(filterOptions[0].options.includes("All")){
+                for(let i = 0; i < filterArray[0].options.length; i++){
+                    tempArray = tempArray.concat(input[filterArray[0].options[i]]);
+                }
+            }
+            else{
+                for(let i = 0; i < filterOptions[0].options.length; i++){
+                    tempArray = tempArray.concat(input[filterOptions[0].options[i]]);
+                }
+            }
+        }
+        else{
+            tempArray = input.slice();
+        }
+        return tempArray;
+    }
 
     function filterByString(entry, i){
         let containsOption = false;

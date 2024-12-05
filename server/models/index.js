@@ -5,11 +5,11 @@ const InnateSpell = require('./InnateSpell');
 const Fundamentalist = require('./Fundamentalist');
 const CriticalInjuries = require('./CriticalInjuries');
 const Equipment = require('./Equipment');
-const Weapon = require('./Weapons');
+// const Weapon = require('./Weapons');
 const WeaponMod = require('./WeaponMods');
 const WeaponProp = require('./WeaponProps');
 const Enchantment = require('./Enchantments');
-const {Attack} = require('./Attacks');
+const {Attack, Weapon} = require('./Attacks');
 const Monster = require('./Monsters');
 
 module.exports = {

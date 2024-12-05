@@ -48,6 +48,6 @@ const weaponSchema = new Schema(
     }
 )
 
-const Weapon = model('weapon', weaponSchema);
+// const Weapon = model('weapon', weaponSchema);
 
-module.exports = Weapon;
+// module.exports = Weapon;

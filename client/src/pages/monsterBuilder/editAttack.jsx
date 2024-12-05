@@ -1,10 +1,14 @@
 import './monsterBuilder.css';
 import {skillsDict} from "../../js/skills";
 import auth from '../../utils/auth';
+import Info from '../../components/info';
 
 const attributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
-const damageAttributes = ["None", "Agility", "Brawn", "Brawn/Agility", "Cunning", "Intellect", "Presence", "Willpower"];
+const damageAttributes = ["None", "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ballistic", "Artillery"];
+
+const specialAttributeInfo = "Rarely used. Uses non-standard attribute for roll but not damage."
+const halfAttributeInfo = "Add half of this attribute (rounded up) to damage. Will use Agility instead if attack has Finesse."
 
 export default function EditAttack({getStates}){
     const data = getStates();
@@ -26,6 +30,16 @@ export default function EditAttack({getStates}){
         }
     }
 
+    function toggleFinesse(evt){
+        evt.preventDefault();
+        data.setFinesse(!data.finesse);
+    }
+
+    function toggleHalfAttribute(evt){
+        evt.preventDefault();
+        data.setHalfAttribute(!data.halfAttribute);
+    }
+
     return(
         <div id="edit-attack" className='stats-grid'>
             <label className='full-width-label'>Name: </label>
@@ -41,18 +55,6 @@ export default function EditAttack({getStates}){
                         })}
                     </select>
                 </div>
-                <div>
-                    <label>Special Attribute: </label>
-                    <select value={data.specialAttribute} onChange={e => data.setSpecialAttribute(e.target.value)}>
-                        {attributes.map((attribute) => {
-                            return(
-                                <option key={attribute} value={attribute}>{attribute}</option>
-                            )
-                        })}
-                    </select>
-                </div>
-            </div>
-            <div className="flex-grid-entries">
                 <div>
                     <label>Damage: </label>
                     <input type="number" value={data.damage} onChange={e => data.setDamage(e.target.value)} min="0"></input>
@@ -84,8 +86,34 @@ export default function EditAttack({getStates}){
                     <input type="number" value={data.crit} onChange={e => data.setCrit(e.target.value)} min="0"></input>
                 </div>
                 <div>
+                    <label><Info content={specialAttributeInfo}></Info> Special Attribute: </label>
+                    <select value={data.specialAttribute} onChange={e => data.setSpecialAttribute(e.target.value)}>
+                        {attributes.map((attribute) => {
+                            return(
+                                <option key={attribute} value={attribute}>{attribute}</option>
+                            )
+                        })}
+                    </select>
+                </div>
+            </div>
+            <div className="flex-grid-entries">
+                <div>
                     <label>Accurate: </label>
                     <input type="number" value={data.accurate} onChange={e => data.setAccurate(e.target.value)} min="0"></input>
+                </div>
+                <div>
+                    <label>Finesse: </label>
+                    <button className={`checkbox ${data.finesse ? "show-check" : ""}`} onClick={evt => toggleFinesse(evt)}>{"✔"}</button>
+                </div>
+                <div>
+                    <label><Info content={halfAttributeInfo}></Info> Half Attribute: </label>
+                    <select value={data.halfAttribute} onChange={e => data.setHalfAttribute(e.target.value)}>
+                        {attributes.map((attribute) => {
+                            return(
+                                <option key={attribute} value={attribute}>{attribute}</option>
+                            )
+                        })}
+                    </select>
                 </div>
             </div>
             <label className='full-width-label'>Properties: </label>

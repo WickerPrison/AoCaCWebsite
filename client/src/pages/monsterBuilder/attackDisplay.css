@@ -58,5 +58,6 @@
 
     #monster-builder .attack-holder .properties{
         flex: calc(100% - 0.1rem * 2) 0 0;
+        margin-left: calc(30% + 1.9rem); 
     }
 }

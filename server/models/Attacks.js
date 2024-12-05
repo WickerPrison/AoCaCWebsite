@@ -35,6 +35,14 @@ const attackSchema = new Schema(
             type: Number,
             default: 0
         },
+        halfAttribute:{
+            type: String,
+            default: "None"
+        },
+        finesse:{
+            type:Boolean,
+            default: false
+        },
         properties:{
             type: String
         },
@@ -52,5 +60,6 @@ const attackSchema = new Schema(
 )
 
 const Attack = model('attack', attackSchema);
+const Weapon = model('weapon', attackSchema);
 
-module.exports = {Attack, attackSchema};
+module.exports = {Attack, Weapon, attackSchema};

@@ -74,7 +74,7 @@ export const innateSpells = [
 		"Tier": "Natural",
 		"Classes": "Sage, Shapeshifter",
 		"Stamina": "0",
-		"Description": "As an Action, make a Difficulty 0 Innate check. If successful, summon a tiny, incorporeal, partially translucent creature as your servant for minutes equal to uncancelled Successes. For the duration your turn is spent as the creature, using Actions, Maneuvers, Incidentals, and Reactions as the servant and not as yourself. You can see what the servant sees, hear what it hears, and speak through it in your own voice at a sound level from a whisper to a conversational tone. This creature cannot interract with the physical world in other ways such as manipulating objects, attacking, etc. Your servant can squeeze through openings as small as the crack under a door or through a large keyhole, but not through solid walls. While using your servant you are completely unaware of your own body and surroundings. You can voluntarily end this spell as an Incidental, and it ends automatically if you or your spirit servant are hit by an attack or take damage."
+		"Description": "As an Action, make a Difficulty 0 Innate check. If successful, summon a partially translucent, slightly glowing creature about the size of a mouse, as your servant for minutes equal to uncancelled Successes. For the duration, you see through your servant's eyes instead of your own. If you have Darkvision or True Sight, so does your servant. The servant has the Climber ability. You can voluntarily end this spell as an Incidental, and it ends automatically if you or your spirit servant are hit by an attack or take damage."
 	},
 	{
 		"Name": "Elemental Discharge",

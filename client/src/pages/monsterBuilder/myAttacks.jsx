@@ -17,14 +17,16 @@ export default function MyAttacks(){
     const [range, setRange] = useState("Engaged");
     const [crit, setCrit] = useState(5);
     const [accurate, setAccurate] = useState(0);
+    const [finesse, setFinesse] = useState(false);
+    const [halfAttribute, setHalfAttribute] = useState("None");
     const [properties, setProperties] = useState("");
     const [makePublic, setMakePublic] = useState(true);
     const [official, setOfficial] = useState(false);
 
     function getStates(){
         return {
-            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official,
-            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setProperties, setMakePublic, setOfficial
+            name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official,
+            setName, setSkill, setSpecialAttribute, setDamage, setDamageAttribute, setRange, setCrit, setAccurate, setFinesse, setHalfAttribute, setProperties, setMakePublic, setOfficial
         }
     }
 
@@ -38,6 +40,8 @@ export default function MyAttacks(){
         setRange(attack.range);
         setCrit(attack.crit);
         setAccurate(attack.accurate);
+        setFinesse(attack.finesse);
+        setHalfAttribute(attack.halfAttribute);
         setProperties(attack.properties);
         setMakePublic(attack.public);
         setOfficial(attack.official);
@@ -63,7 +67,7 @@ export default function MyAttacks(){
     },[])
     
     function updateAttack(evt){
-        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, properties, makePublic, official, () => {}, editAttack);
+        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, () => {}, editAttack);
         setEditAttack("");
         getData();
     }

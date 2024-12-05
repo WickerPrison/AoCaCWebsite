@@ -153,6 +153,15 @@
     max-width: 120%;
 }
 
+#monster-builder .attacks-card{
+    margin-top: 1.5rem;
+}
+
+#monster-builder .attacks-list{
+    height: 40rem;
+    overflow: auto;
+}
+
 @media screen and (max-width: 768px){
     #create-monster .flex-grid-entries .toggle{
         flex-basis: 4rem;

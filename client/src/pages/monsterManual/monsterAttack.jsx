@@ -5,13 +5,33 @@ import {skillsDict} from "../../js/skills";
 export default function MonsterAttack({attack, monster, setRoll, setShowRoll, monsterData}){
     let [damageDisplay, setDamageDisplay] = useState(false);
 
-    function getAttribute(){
-        if(attack.attribute == "None") return 0;
-        let attackAttributes = attack.attribute.split("/");
-        let attribute = attackAttributes.reduce(
-            (largest, current) => monster[current.toLowerCase()] > monster[largest.toLowerCase()] ? current:largest
-            , attackAttributes[0]);
-        return Number(monster[attribute.toLowerCase()]);
+    function getDamageAttribute(){
+        if(attack.attribute == "None" && attack.halfAttribute == "None") return 0;
+
+        let attribute = 0;
+        if(attack.attribute != "None"){
+            if(attack.finesse && Number(monster.agility) > Number(monster[attack.attribute.toLowerCase()])){
+                attribute += Number(monster.agility);
+            }
+            else{
+                attribute += Number(monster[attack.attribute.toLowerCase()]);
+            }
+        }
+
+        if(attack.halfAttribute != "None"){
+            if(attack.finesse && Number(monster.agility) > Number(monster[attack.halfAttribute.toLowerCase()])){
+                attribute += Math.ceil(Number(monster.agility) / 2);
+            }
+            else{
+                attribute += Math.ceil(Number(monster[attack.halfAttribute.toLowerCase()]) / 2);
+            }
+        }
+        return attribute;
+    }
+
+    function getDamageAttributeDisplay(){
+        if(attack.halfAttribute == "None") return attack.attribute;
+        return attack.halfAttribute + "/2";
     }
 
     function attackRoll(){
@@ -20,30 +40,20 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll, mo
             (largest, current) => monster[current.toLowerCase()] > monster[largest.toLowerCase()] ? current:largest
             , skillsDict[attack.skill][0]
         );
-            
 
-        let attribute;
-        switch(attack.attribute){
-            case "None":
-                attribute = skillAttribute;
-                break;
-            case "Brawn/Agility":
-                if(monster.brawn > monster.agility){
-                    attribute = "brawn";
-                }
-                else{
-                    attribute = "agility";
-                }
-                break;
-            default:
-                attribute = attack.attribute;
+        let attribute = skillAttribute.toLowerCase();
+
+        if(attack.attribute != "None"){
+            attribute = attack.attribute.toLowerCase();
         }
 
-        if(attack.specialAttribute && monster[attack.specialAttribute.toLowerCase()] > monster[attribute.toLowerCase()]){
-            attribute = attack.specialAttribute;
+        if(attack.finesse && monster.agility > monster[attribute]){
+            attribute = "agility";
         }
 
-        attribute = attribute.toLowerCase();
+        if(attack.specialAttribute && monster[attack.specialAttribute.toLowerCase()] > monster[attribute]){
+            attribute = attack.specialAttribute.toLowerCase();
+        }
         
         let skillRanks = 0;
         for(let i = 0; i < skills.length; i++){
@@ -74,8 +84,8 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll, mo
             <div className="attack-stats">
                 <div className="attack-skill"><strong>Skill: </strong>{attack.skill}</div>
                 {damageDisplay ?
-                (<div className="damage clickable-text" onClick={() => setDamageDisplay(false)}><strong>Damage: </strong>{attack.damage} + {attack.attribute}</div>)
-                :(<div className="damage clickable-text" onClick={() => setDamageDisplay(true)}><strong>Damage: </strong>{Number(attack.damage) + getAttribute()}</div>)
+                (<div className="damage clickable-text" onClick={() => setDamageDisplay(false)}><strong>Damage: </strong>{attack.damage} + {getDamageAttributeDisplay()}</div>)
+                :(<div className="damage clickable-text" onClick={() => setDamageDisplay(true)}><strong>Damage: </strong>{Number(attack.damage) + getDamageAttribute()}</div>)
                 }
                 <div className="range"><strong>Range: </strong> {attack.range}</div>
                 <div className="crit"><strong>Crit: </strong>{attack.crit}</div>
