@@ -103,16 +103,18 @@ export default function AddAttacks({attacks, setAttacks}){
             {showMenu ? 
                 <div className="popup">
                     <Filters input={{Weapons:allWeapons, Attacks:allAttacks}} setOutput={setDisplayAttacks} filterArray={filterArray} sortArray={sortOptions}/>
-                    <div className="card box attack-display">
+                    <div className="card box attacks-card">
                         <div className="box-header">Attacks</div>
-                        {displayAttacks.map((attack, index) => {
-                            return(
-                                <div key={attack.name}>
-                                    <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
-                                    {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
-                                </div>
-                            )
-                        })}
+                        <div className = "attacks-list">
+                            {displayAttacks.map((attack, index) => {
+                                return(
+                                    <div key={attack.name}>
+                                        <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
+                                        {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
+                                    </div>
+                                )
+                            })}
+                        </div>
                         <button className="small-button button-margin" onClick={evt => {evt.preventDefault(); setShowMenu(false);}}>Done</button>
                     </div>
                 </div>
