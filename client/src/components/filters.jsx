@@ -66,6 +66,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         if(filterArray[0].type == FilterTypes.MULTIINPUT){
             if(filterOptions[0].options.includes("All")){
                 for(let i = 0; i < filterArray[0].options.length; i++){
+                    console.log(input);
                     tempArray = tempArray.concat(input[filterArray[0].options[i]]);
                 }
             }
