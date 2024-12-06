@@ -26,6 +26,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
     
     useEffect(() =>{
         let tempArray = inputArrayHandler();
+        console.log(tempArray);
         tempArray = tempArray.filter((entry) => {
             for(let i = 0; i < filterOptions.length; i++){
                 switch(filterOptions[i].type){
@@ -57,7 +58,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                 }
             })
         }
-
+        console.log(tempArray);
         setOutput(tempArray);
     }, [filterOptions, sortOptions])
 
