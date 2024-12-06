@@ -72,6 +72,8 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
             }
             else{
                 for(let i = 0; i < filterOptions[0].options.length; i++){
+                    console.log("Filter Options");
+                    console.log(filterOptions[0]);
                     tempArray = tempArray.concat(input[filterOptions[0].options[i]]);
                 }
             }
@@ -79,6 +81,7 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         else{
             tempArray = input.slice();
         }
+        console.log(tempArray);
         return tempArray;
     }
 
