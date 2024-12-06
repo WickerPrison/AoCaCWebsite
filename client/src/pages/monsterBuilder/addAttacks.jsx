@@ -96,6 +96,10 @@ export default function AddAttacks({attacks, setAttacks}){
         }
     };
 
+    useEffect(() => {
+        console.log(displayAttacks);
+    },[displayAttacks])
+
     return (
         <div>
             <button className="small-button button-margin" onClick={e => getAttacks(e)}>Add/Remove Attacks</button>

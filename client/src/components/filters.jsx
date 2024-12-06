@@ -26,7 +26,6 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
     
     useEffect(() =>{
         let tempArray = inputArrayHandler();
-        console.log(tempArray);
         tempArray = tempArray.filter((entry) => {
             for(let i = 0; i < filterOptions.length; i++){
                 switch(filterOptions[i].type){
@@ -58,7 +57,6 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
                 }
             })
         }
-        console.log(tempArray);
         setOutput(tempArray);
     }, [filterOptions, sortOptions])
 
@@ -67,14 +65,11 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         if(filterArray[0].type == FilterTypes.MULTIINPUT){
             if(filterOptions[0].options.includes("All")){
                 for(let i = 0; i < filterArray[0].options.length; i++){
-                    console.log(input);
                     tempArray = tempArray.concat(input[filterArray[0].options[i]]);
                 }
             }
             else{
                 for(let i = 0; i < filterOptions[0].options.length; i++){
-                    console.log("Filter Options");
-                    console.log(filterOptions[0]);
                     tempArray = tempArray.concat(input[filterOptions[0].options[i]]);
                 }
             }
@@ -82,7 +77,6 @@ export default function Filters({filterArray, setOutput, input, sortArray, title
         else{
             tempArray = input.slice();
         }
-        console.log(tempArray);
         return tempArray;
     }
 
