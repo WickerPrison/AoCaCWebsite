@@ -72,6 +72,22 @@ export default function MyAttacks(){
         getData();
     }
 
+    async function deleteAttack(evt){
+        if(confirm("Are you sure you want to delete this attack?") === true){
+            try{
+                const response = await fetch(getUrl() + '/api/monsters/attack/' + editAttack, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                setEditAttack("");
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+    }
+
     return (
         <div id="my-attacks" className="card box">
             <div className="box-header">My Attacks</div>
@@ -83,7 +99,8 @@ export default function MyAttacks(){
                             <EditAttack getStates={getStates}/>
                             <div>
                                 <button className="button-margin small-button" style={{marginTop: 0}} onClick={() => setEditAttack("")}>Cancel</button>
-                                <button className="button-margin small-button" style={{marginTop: 0}} onClick={evt => updateAttack(evt)}>Submit</button>
+                                <button className="button-margin small-button" style={{marginTop: 0}} onClick={evt => deleteAttack(evt)}>Delete</button>
+                                <button className="button-margin small-button" style={{marginTop: 0}} onClick={evt => updateAttack(evt)}>Update</button>
                             </div>
                         </div> 
                         :<AttackDisplay attack={attack} showToggle={false} editButton={true} setEdit={switchEditTarget}/>}

@@ -84,11 +84,24 @@ router.put('/attack', async (req, res) => {
             return;
         }
     }
-    
+
     const attack = await Attack.findByIdAndUpdate(req.body._id, req.body, {new: true}).catch(err => {
         res.json(err);
     });
     res.json(attack);
+})
+
+router.delete('/attack/:id', async (req, res) => {
+    const attack = await Attack.deleteOne({_id: req.params.id}).catch((err) => {
+        res.json(err);
+    });
+
+    const monsters = await Monster.find({attacks: req.params.id});
+    for(let i = 0; i < monsters.length; i++){
+        monsters[i].attacks.splice(monsters[i].attacks.indexOf(req.params.id), 1);
+        monsters[i].save();
+    }
+    res.json("Deleted");
 })
 
 router.get('/encounterBuilder', authMiddleware, async (req, res) => {
