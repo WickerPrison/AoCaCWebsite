@@ -44,8 +44,8 @@ export default async function SubmitAttack(evt, method, name, skill, specialAttr
             console.log("success");
             resetStates();
         }
-        else if(res.code == 11000){
-            alert("This attack name has been taken")
+        else if(res == "Attack name taken"){
+            alert("Error. This attack name is already in use.")
         }
     }
 }

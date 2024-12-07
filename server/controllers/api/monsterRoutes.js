@@ -62,6 +62,12 @@ router.get('/attacks/:username', async (req, res) => {
 
 router.post('/attack', async (req, res) => {
     try{
+        console.log(Weapon.exists({name: req.body.name}));
+        if(await Weapon.exists({name: req.body.name}) || await Attack.exists({name: req.body.name})){
+            res.json("Attack name taken");
+            return;
+        }
+        
         const attack = await Attack.create(req.body);
         res.json(attack);
     }
@@ -71,6 +77,14 @@ router.post('/attack', async (req, res) => {
 });
 
 router.put('/attack', async (req, res) => {
+    const dbEntry = await Attack.findById(req.body._id);
+    if(dbEntry.name != req.body.name){
+        if(await Weapon.exists({name: req.body.name}) || await Attack.exists({name: req.body.name})){
+            res.json("Attack name taken");
+            return;
+        }
+    }
+    
     const attack = await Attack.findByIdAndUpdate(req.body._id, req.body, {new: true}).catch(err => {
         res.json(err);
     });
