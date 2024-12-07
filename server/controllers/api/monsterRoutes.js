@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Attack, Monster, Weapon} = require('../../models');
+const {User, Attack, Monster} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
 router.get("/", authMiddleware, async (req, res) => {
@@ -42,15 +42,8 @@ router.get('/attacks', async (req, res) => {
     const attacks = await Attack.find().catch(err => {
         res.json(err);
     })
-    const weapons = await Weapon.find().catch(err => {
-        res.json(err);
-    })
 
-    let output = {
-        attacks: attacks,
-        weapons: weapons
-    }
-    res.json(output);
+    res.json(attacks);
 });
 
 router.get('/attacks/:username', async (req, res) => {
@@ -62,8 +55,7 @@ router.get('/attacks/:username', async (req, res) => {
 
 router.post('/attack', async (req, res) => {
     try{
-        console.log(Weapon.exists({name: req.body.name}));
-        if(await Weapon.exists({name: req.body.name}) || await Attack.exists({name: req.body.name})){
+        if(await Attack.exists({name: req.body.name})){
             res.json("Attack name taken");
             return;
         }
@@ -79,7 +71,7 @@ router.post('/attack', async (req, res) => {
 router.put('/attack', async (req, res) => {
     const dbEntry = await Attack.findById(req.body._id);
     if(dbEntry.name != req.body.name){
-        if(await Weapon.exists({name: req.body.name}) || await Attack.exists({name: req.body.name})){
+        if(await Attack.exists({name: req.body.name})){
             res.json("Attack name taken");
             return;
         }

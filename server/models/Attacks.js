@@ -46,6 +46,10 @@ const attackSchema = new Schema(
         properties:{
             type: String
         },
+        isWeapon:{
+            type: Boolean,
+            default: false
+        },
         public:{
             type: Boolean,
             default: true
@@ -60,6 +64,5 @@ const attackSchema = new Schema(
 )
 
 const Attack = model('attack', attackSchema);
-const Weapon = model('weapon', attackSchema);
 
-module.exports = {Attack, Weapon, attackSchema};
+module.exports = {Attack, attackSchema};

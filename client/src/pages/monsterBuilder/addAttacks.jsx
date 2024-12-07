@@ -14,9 +14,10 @@ const ranges = ["Engaged", "Extended", "Short", "Medium", "Long", "Extreme", "Ba
 
 const filterArray = [
     {
-        category: "type",
-        options: ["Weapons", "Attacks"],
+        category: "isWeapon",
+        options: ["Weapons", "Other"],
         displayName: "Attack Types",
+        type: FilterTypes.BOOL
     },
     {
         category: "skill",
@@ -82,20 +83,9 @@ export default function AddAttacks({attacks, setAttacks}){
             })
 
             const data = await response.json();
- 
-            let attacks = [];
-            for(let i = 0; i < data.attacks.length; i++){
-                data.attacks[i].type = "Attacks";
-                attacks.push(data.attacks[i])
-            }
 
-            for(let i = 0; i < data.weapons.length; i++){
-                data.weapons[i].type = "Weapons";
-                attacks.push(data.weapons[i]);
-            }
-
-            setAllAttacks(attacks);
-            setDisplayAttacks(attacks);
+            setAllAttacks(data);
+            setDisplayAttacks(data);
             setShowMenu(true);
             window.scrollTo({top: 0, behavior: "smooth"});
         }

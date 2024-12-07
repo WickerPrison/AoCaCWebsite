@@ -1,15 +1,12 @@
 const db = require('../config/connection');
 const {getWeapons} = require('../../data/weaponSeed');
-const {Weapon} = require('../models');
+const {Attack} = require('../models');
 const cleanDB = require('./cleanDB');
 
 
 db.once('open', async () => {
   try {
-
-    await cleanDB('Weapon', 'weapons');
     let weapons = await getWeapons();
-    let formattedWeapons = [];
     let weaponTypes = ["brawl", "light", "heavy", "ranged"];
     for(let i = 0; i < weaponTypes.length; i++){
       for(let j = 0; j < weapons[weaponTypes[i]].length; j++){
@@ -22,10 +19,10 @@ db.once('open', async () => {
         newWeapon.specialAttribute = "None";
         newWeapon.public = true;
         newWeapon.official = true;
-        formattedWeapons.push(newWeapon);
+        newWeapon.isWeapon = true;
+        await Attack.findOneAndUpdate({name: newWeapon.name}, newWeapon, {upsert: true});
       }
     }
-    await Weapon.create(formattedWeapons);
 
   } catch (err) {
     console.error(err);

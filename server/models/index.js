@@ -9,7 +9,7 @@ const Equipment = require('./Equipment');
 const WeaponMod = require('./WeaponMods');
 const WeaponProp = require('./WeaponProps');
 const Enchantment = require('./Enchantments');
-const {Attack, Weapon} = require('./Attacks');
+const {Attack} = require('./Attacks');
 const Monster = require('./Monsters');
 
 module.exports = {
@@ -20,7 +20,6 @@ module.exports = {
     Fundamentalist, 
     CriticalInjuries, 
     Equipment,
-    Weapon,
     WeaponMod,
     WeaponProp,
     Enchantment,
