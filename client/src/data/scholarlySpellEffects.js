@@ -9,7 +9,7 @@ export const spellEffects = {
 			"Penalty": "0",
 			"SpecialModifier": "boost",
 			"Modifier": "Add 1 Boost die",
-			"Description": "The effects of this spell occur at the beginning of your next turn, instead of Immediately. Additional instances of this Spell Effect delay the effects of this spell by an additional round but do not add any additional Boost dice beyond the first."
+			"Description": "The effects of this spell occur at the beginning of your next turn, instead of Immediately. Additional instances of this Spell Effect delay the effects of this spell by an additional turn but do not add any additional Boost dice beyond the first."
 		},
 		{
 			"Name": "Exclude Targets",
@@ -99,7 +99,7 @@ export const spellEffects = {
 			"Penalty": "0",
 			"SpecialModifier": "",
 			"Modifier": "Increase Difficulty 1 time",
-			"Description": "The target may Upgrade the Ability of one check 2 times before the end of this effect's duration. Additional nodes of this effect increase the duration of this effect by 1 round each."
+			"Description": "The target may Upgrade the Ability of one check 2 times before the end of this effect's duration. Additional nodes of this effect increase the duration of this effect by 1 turn each."
 		},
 		{
 			"Name": "Animate Object",
@@ -343,7 +343,7 @@ export const spellEffects = {
 			"Penalty": "0",
 			"SpecialModifier": "",
 			"Modifier": "Upgrade Difficulty 1 time",
-			"Description": "The target upgrades the Ability or Difficulty (chosen at time of casting by the caster) of all Cool, Discipline, and Insight checks 2 times. For each additional node of this spell, increase the duration by 1 round."
+			"Description": "The target upgrades the Ability or Difficulty (chosen at time of casting by the caster) of all Cool, Discipline, and Insight checks 2 times. For each additional node of this spell, increase the duration by 1 turn."
 		},
 		{
 			"Name": "Inhibit Lies",
@@ -576,7 +576,7 @@ export const spellEffects = {
 			"Penalty": "0",
 			"SpecialModifier": "",
 			"Modifier": "Increase Difficulty by 1, upgrade Difficulty 2 times",
-			"Description": "You can squeeze through very small places (under doors, through prison bars, down chimneys, etc.), though not through solid walls. Take half damage (round up) from all sources, calculated after Damage Reduction and Resistances. You can still interract with things normally. Reduce target's Movement Point Max by 10 (to a minimum 1). For each additional node of this spell, increase the duration by 1 round."
+			"Description": "You can squeeze through very small places (under doors, through prison bars, down chimneys, etc.), though not through solid walls. Take half damage (round up) from all sources, calculated after Damage Reduction and Resistances. You can still interract with things normally. Reduce target's Movement Point Max by 10 (to a minimum 1). For each additional node of this spell, increase the duration by 1 turn."
 		},
 		{
 			"Name": "Ghostwalk",
