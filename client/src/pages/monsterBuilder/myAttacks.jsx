@@ -48,6 +48,7 @@ export default function MyAttacks(){
     }
 
     async function getData() {
+        console.log('get data');
         try{
             const response = await fetch(getUrl() + '/api/monsters/attacks/' + auth.getProfile().data.username, {
                 method: 'GET',
@@ -67,9 +68,8 @@ export default function MyAttacks(){
     },[])
     
     function updateAttack(evt){
-        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, () => {}, editAttack);
+        SubmitAttack(evt, "PUT", name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, getData, editAttack);
         setEditAttack("");
-        getData();
     }
 
     async function deleteAttack(evt){
@@ -81,6 +81,7 @@ export default function MyAttacks(){
                 });
                 
                 setEditAttack("");
+                getData();
             }
             catch(err){
                 console.log(err);
