@@ -116,7 +116,7 @@ export default function AddAttacks({attacks, setAttacks}){
                         <div className = "attacks-list">
                             {displayAttacks.map((attack, index) => {
                                 return(
-                                    <div key={attack.name}>
+                                    <div key={attack._id}>
                                         <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
                                         {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
                                     </div>
