@@ -35,11 +35,6 @@ export default function EditAttack({getStates}){
         data.setFinesse(!data.finesse);
     }
 
-    function toggleHalfAttribute(evt){
-        evt.preventDefault();
-        data.setHalfAttribute(!data.halfAttribute);
-    }
-
     return(
         <div id="edit-attack" className='stats-grid'>
             <label className='full-width-label'>Name: </label>

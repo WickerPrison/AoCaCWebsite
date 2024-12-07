@@ -707,8 +707,9 @@ export const weapons = {
 			"Material": "Hide",
 			"Price": "23",
 			"Rarity": "4",
-			"Properties": "Knockdown",
-			"Attribute": "Brawn",
+			"Properties": "Knockdown, Underpowered",
+			"Attribute": "None",
+			"HalfAttribute": "Brawn",
 			"Finesse": false,
 			"Accurate": ""
 		},

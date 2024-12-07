@@ -1,7 +1,7 @@
 import auth from '../../utils/auth';
 import getUrl from '../../utils/getUrl';
 
-export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, resetStates, _id=""){
+export default async function SubmitAttack(evt, method, name, skill, specialAttribute, damage, damageAttribute, range, crit, accurate, finesse, halfAttribute, properties, makePublic, official, callback, _id=""){
     evt.preventDefault();
 
     if(!name){
@@ -42,10 +42,10 @@ export default async function SubmitAttack(evt, method, name, skill, specialAttr
         console.log(res);
         if(res._id != null){
             console.log("success");
-            resetStates();
+            callback();
         }
-        else if(res.code == 11000){
-            alert("This attack name has been taken")
+        else if(res == "Attack name taken"){
+            alert("Error. This attack name is already in use.")
         }
     }
 }
