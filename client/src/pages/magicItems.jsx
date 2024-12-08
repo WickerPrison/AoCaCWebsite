@@ -9,7 +9,7 @@ import { enchantingEffects } from "../data/enchantingEffects";
 
 const wondrousItemsData = {
     title:"Wondrous Items",
-    column1: ["Material", "Base Item"],
+    column1: ["Material", "BaseItem"],
     column2: ["Price", "Rarity", "Encumbrance"]
 }
 

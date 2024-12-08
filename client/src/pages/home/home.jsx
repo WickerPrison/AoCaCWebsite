@@ -100,6 +100,10 @@ const equipment = [
         label: "Weapons"
     },
     {
+        link: "Armor",
+        label: "Armor"
+    },
+    {
         link: "MagicItems",
         label: "Magic Items"
     }

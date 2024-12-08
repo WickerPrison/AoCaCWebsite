@@ -37,40 +37,8 @@ const masterworkData = {
 }
 
 export default function Weapons(){
-    let [brawl, setBrawl] = useState(weapons.brawl);
-    let [lightWeapons, setLightWeapons] = useState(weapons.light);
-    let [heavyWeapons, setHeavyWeapons] = useState(weapons.heavy);
-    let [ranged, setRanged] = useState(weapons.ranged);
-    let [mods, setMods] = useState(weaponMods.regular);
-    let [masterwork, setMasterwork] = useState(weaponMods.masterwork);
-    let [weaponProps, setWeaponProps] = useState(weaponProperties);
-    
-    // useEffect(() => {
-    //     async function getData(){
-    //         try{
-    //             const response = await fetch(getUrl() + '/api/data/weaponsdata', {
-    //                 method: 'GET',
-    //                 headers: { 'Content-Type': 'application/json' }
-    //             })
-    
-    //             const data = await response.json();
-    //             setBrawl(data.weapons.brawl);
-    //             setLightWeapons(data.weapons.light);
-    //             setHeavyWeapons(data.weapons.heavy);
-    //             setRanged(data.weapons.ranged);
-    //             setWeaponMods(data.mods.regular);
-    //             setMasterwork(data.mods.masterwork);
-    //             setWeaponProperties(data.props);
-    //         }
-    //         catch(err){
-    //             console.log(err);
-    //         }
-    //     }
-    //     getData();
-    // }, [])
-    
 
-    if(brawl.length <= 0){
+    if(weapons.brawl.length <= 0){
         return(
             <main>
                 <FixedHeader entries={headerEntries}/>
@@ -81,23 +49,23 @@ export default function Weapons(){
     }
     else{
         return(
-            <main>
+            <main id="weapons">
                 <FixedHeader entries={headerEntries}/>
                 <PageHeading title="Weapons"/>
                 <div id="brawl"></div>
-                {brawl.length > 0 ? <Table title="Brawl" tableData={weaponData} contentData={brawl}/> : null}
+                {weapons.brawl.length > 0 ? <Table title="Brawl" tableData={weaponData} contentData={weapons.brawl}/> : null}
                 <div id="lightWeapons"></div>
-                {lightWeapons.length > 0 ? <Table title="Light Weapons" tableData={weaponData} contentData={lightWeapons}/> : null}
+                {weapons.light.length > 0 ? <Table title="Light Weapons" tableData={weaponData} contentData={weapons.light}/> : null}
                 <div id="heavyWeapons"></div>
-                {heavyWeapons.length > 0 ? <Table title="Heavy Weapons" tableData={weaponData} contentData={heavyWeapons}/> : null}
+                {weapons.heavy.length > 0 ? <Table title="Heavy Weapons" tableData={weaponData} contentData={weapons.heavy}/> : null}
                 <div id="ranged"></div>
-                {ranged.length > 0 ? <Table id="ranged" title="Ranged" tableData={weaponData} contentData={ranged}/> : null}
+                {weapons.ranged.length > 0 ? <Table id="ranged" title="Ranged" tableData={weaponData} contentData={weapons.ranged}/> : null}
                 <div id="properties"></div>
-                {weaponProps.length > 0 ? <Table tableData={propertiesData} contentData={weaponProps}/> : null}
+                {weaponProperties.length > 0 ? <Table tableData={propertiesData} contentData={weaponProperties}/> : null}
                 <div id="mods"></div>
-                {mods.length > 0 ? <ModTable mods={mods}/> : null}
+                {weaponMods.regular.length > 0 ? <ModTable mods={weaponMods.regular}/> : null}
                 <div id="masterwork"></div>
-                {masterwork.length > 0 ? <Table tableData={masterworkData} contentData={masterwork}/> : null}
+                {weaponMods.masterwork.length > 0 ? <Table tableData={masterworkData} contentData={weaponMods.masterwork}/> : null}
             </main>
         )
     }

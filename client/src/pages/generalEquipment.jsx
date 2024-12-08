@@ -37,7 +37,7 @@ export default function GeneralEquipment(){
         <main>
             <FixedHeader/>
             <PageHeading title="General Equipment"/>
-            {equipmentList.length > 0 ? <Table tableData={tableData} contentData={equipmentList}/> : <Loading/>}
+            {equipmentList.length > 0 ? <Table tableData={tableData} contentData={equipmentList} options={{column2Basis: "12%"}}/> : <Loading/>}
         </main>
     )
 }

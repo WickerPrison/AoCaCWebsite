@@ -21,7 +21,7 @@ export default function ModTable({mods}){
     return (
     <section id="modifications-table" className="table">
         <h3 className="table-header">Weapon Modifications</h3>
-        <p>Adding a weapon attachment to a weapon costs 30 gold. A weapon can have one attachment for each customization part. Modifications on this table can be added to weapons with the Fabrication skill.</p>
+        <p className="mod-explanation">Adding a weapon attachment to a weapon costs 30 gold. A weapon can have one attachment for each customization part. Modifications on this table can be added to weapons with the Fabrication skill.</p>
         <div className="mod-header">
             <div>Customization Parts</div>
             <div>Customization Options</div>
