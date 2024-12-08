@@ -10,7 +10,7 @@ export const innateSpells = [
 		"Name": "Charm Person",
 		"Tier": "Natural",
 		"Classes": "Sage",
-		"Description": "As an Action, make an Innate check against a creature within Short range, opposed by the target's Discipline. If succesful, the target gains the Charmed Condition and is unaware the spell has been cast. If you fail the check, the target is aware that you attempted to charm them. ",
+		"Description": "As an Action, make an Innate check against a creature within Short range, opposed by the target's Discipline. If succesful, the target gains the Charmed Condition and is unaware the spell has been cast. If you fail the check, the target is aware that you attempted to charm them.",
 		"Stamina": "0"
 	},
 	{
@@ -21,7 +21,7 @@ export const innateSpells = [
 		"Stamina": "0"
 	},
 	{
-		"Name": "Cracked Earth ",
+		"Name": "Cracked Earth",
 		"Tier": "Natural",
 		"Classes": "Channeler, Druid",
 		"Description": "An an Action, make a Difficulty 0 Innate check and pick a point within Medium range. If successful, the ground within Extended range of the point becomes Difficult Terrain for a number of rounds equal to uncancelled Successes.",
@@ -38,7 +38,7 @@ export const innateSpells = [
 		"Name": "Elemental Display",
 		"Tier": "Natural",
 		"Classes": "Channeler",
-		"Description": "As an Incidental, create a harmless elemental effect such as warming or cooling a soup, making lightning crackle across your fingertips, or lighting a candle. Can also create light ",
+		"Description": "As an Incidental, create a harmless elemental effect such as warming or cooling a soup, making lightning crackle across your fingertips, or lighting a candle. Can also create light",
 		"Stamina": "0"
 	},
 	{
@@ -52,7 +52,7 @@ export const innateSpells = [
 		"Name": "Goodberry",
 		"Tier": "Natural",
 		"Classes": "Druid, Sage",
-		"Description": "Once per day as an Action, make a Difficulty 1 Innate check. If successful, a number of allies equal to uncancelled Successes and within Medium range of you add 2 Boost dice to their Survival check for foraging today. ",
+		"Description": "Once per day as an Action, make a Difficulty 1 Innate check. If successful, a number of allies equal to uncancelled Successes and within Medium range of you add 2 Boost dice to their Survival check for foraging today.",
 		"Stamina": "0"
 	},
 	{
@@ -108,7 +108,7 @@ export const innateSpells = [
 		"Name": "Elemental Strike",
 		"Tier": "Developed",
 		"Classes": "Channeler, Druid",
-		"Description": "As an Action, make a Spell Attack. Spell Attack Profile: Skill: Innate Magic, Damage: 7, Range: Medium, Crit: 3, Damage Type: Elemental. Choose the damage type of this spell each time you cast it. The damage type must be Elemental. ",
+		"Description": "As an Action, make a Spell Attack. Spell Attack Profile: Skill: Innate Magic, Damage: 7, Range: Medium, Crit: 3, Damage Type: Elemental. Choose the damage type of this spell each time you cast it. The damage type must be Elemental.",
 		"Stamina": "2"
 	},
 	{
@@ -157,7 +157,7 @@ export const innateSpells = [
 		"Name": "Pack Leader",
 		"Tier": "Developed",
 		"Classes": "Shapeshifter",
-		"Description": "As a Maneuver, make a Difficulty 2 Innate check. If successful, for turns equal to uncancelled Successes, allied creatures add 1 automatic Success to all checks made while within Extended range of you; additionally, you add 1 automatic Success to all checks made when you are within Extended range of at least 1 ally. ",
+		"Description": "As a Maneuver, make a Difficulty 2 Innate check. If successful, for turns equal to uncancelled Successes, allied creatures add 1 automatic Success to all checks made while within Extended range of you; additionally, you add 1 automatic Success to all checks made when you are within Extended range of at least 1 ally.",
 		"Stamina": "2"
 	},
 	{
@@ -206,7 +206,7 @@ export const innateSpells = [
 		"Name": "Control Terrain",
 		"Tier": "Mastered",
 		"Classes": "Druid",
-		"Description": "As an Action, make an Innate check, with a Difficulty determined by the material you choose to manipulate: Water = 1, Dirt/Wood/Ice = 2, Stone/Brick = 3. If you succeed, you consume 1 Encumbrance worth of loose material to make a solid object with a volume of up to 40 cm^3, plus 5 cm^3 per uncancelled Success. The object you make must be completely within Medium range of you, and will last for 1 minute. You may spend 1 Stamina to continue the wall for another minute as long as it is within Extreme range. Each cm^3 has 10 HP and Damage Reduction equal to twice the Difficulty of the check used to make it. ",
+		"Description": "As an Action, make an Innate check, with a Difficulty determined by the material you choose to manipulate: Water = 1, Dirt/Wood/Ice = 2, Stone/Brick = 3. If you succeed, you consume 1 Encumbrance worth of loose material to make a solid object with a volume of up to 40 cm^3, plus 5 cm^3 per uncancelled Success. The object you make must be completely within Medium range of you, and will last for 1 minute. You may spend 1 Stamina to continue the wall for another minute as long as it is within Extreme range. Each cm^3 has 10 HP and Damage Reduction equal to twice the Difficulty of the check used to make it.",
 		"Stamina": "3"
 	}
 ]

@@ -6,6 +6,7 @@ const {getCriticalInjuries} = require('./criticalInjuriesSeed');
 const {getEquipment} = require('./equipmentSeed');
 const {getEnchantingEffects} = require('./enchantmentsSeed');
 const {getWeaponData} = require('./weaponSeed');
+const {getArmor} = require('./armorSeed');
 
 getTreeData();
 getTalents();
@@ -15,3 +16,4 @@ getCriticalInjuries();
 getEquipment();
 getEnchantingEffects();
 getWeaponData();
+getArmor();
