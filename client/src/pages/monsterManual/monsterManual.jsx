@@ -20,7 +20,7 @@ const filterArray = [
     {
         category: "creatureTypes",
         displayName: "Creature Types",
-        options: ["Humanoid", "Mythic", "Undead", "Construct", "Abomination"]
+        options: ["Abomination", "Animal", "Construct", "Extraplanar", "Humanoid", "Lycanthrope", "Mythic", "Undead"]
     },
     {
         category: "official",
