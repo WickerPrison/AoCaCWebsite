@@ -18,6 +18,8 @@ export default function Armor(){
             <FixedHeader/>
             <PageHeading title="Armor"/>
             <Table title = "Light Armors" tableData={armorData} contentData={armor.light} options={{column2Basis: "17%"}}/>
+            <Table title = "Medium Armors" tableData={armorData} contentData={armor.medium} options={{column2Basis: "17%"}}/>
+            <Table title = "Heavy Armors" tableData={armorData} contentData={armor.heavy} options={{column2Basis: "17%"}}/>
         </main>
     )
 }
