@@ -1,94 +1,14 @@
-.table{
-    width: 85%;
-    background-color: var(--green2);
-    border-radius: 2em;
-    margin: 2em auto;
-    font-size: var(--baseTextSize);
-    color: white;
-    padding-bottom: 1em;
-}
 
-.table-header{
-    background-color: var(--green);
-    margin: 0;
-    border-top-left-radius: 0.8em;
-    border-top-right-radius: 0.8em;
-    border-bottom: 2px solid black;
-}
-
-.weapon{
+#weapons .weapon{
     display: flex;
     color: white;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }
 
-
-.weapon div{
-    padding: 0.7em;
-    flex-basis: 20%;
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
-
-.weapon .weapon-name{
-    flex-basis: 15%;
-    margin: auto 0;
-    font-size: var(--baseTextSize);
-    display: block;
-    text-align: center;
-}
-
-
-.weapon .Properties{
-    flex-basis: 45%;
-    display: block;
-}
-
-.weapon div p{
-    flex-basis: 100%;
-    margin: 0;
-}
-
-.weapon:last-of-type{
-    border-bottom: none;
-}
-
-.property-entry{
-    color: white;
-    display: flex;
-    box-sizing: border-box;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: 0.7em 0;
-}
-
-.property-entry:last-of-type,
-.masterwork-entry:last-of-type{
-    border-bottom: none;
-}
-
-.property-entry div{
-    padding: 0 1em;
-}
-
-.property-name{
-    flex-basis: 15%;
-    margin-left: 2em;
-}
-
-.property-description{
-    flex-basis: 85%;
-}
-
-.table p{
-    padding: 0 2em;
-}
-
-.mod-header,
-.mod-part,
-.masterwork-entry{
+#weapons .mod-header,
+#weapons .mod-part,
+#weapons .masterwork-entry{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -97,20 +17,25 @@
     margin: 0.5em 0;
 }
 
-.mod-header > div:first-child,
-.part-label{
+#weapons .mod-explanation{
+    padding: 1em;
+    margin: 0;
+}
+
+#weapons .mod-header > div:first-child,
+#weapons .part-label{
     flex-basis: 25%;
     text-align: center;
     margin: auto 0;
 }
 
-.mod-header > div:nth-child(2),
-.mod-descriptions{
+#weapons .mod-header > div:nth-child(2),
+#weapons .mod-descriptions{
     flex-basis: 75%;
 }
 
-.mod-part,
-.masterwork-entry{
+#weapons .mod-part,
+#weapons .masterwork-entry{
     border-top: 4px solid black;
 }
 
@@ -119,25 +44,25 @@
     border: none;
 }
 
-.masterwork-entry{
+#weapons .masterwork-entry{
     padding-left: 5%;
 }
 
-.masterwork-entry div{
+#weapons .masterwork-entry div{
     margin: 1em 0;
 }
 
-.masterwork-name{
+#weapons .masterwork-name{
     flex-basis: 15%;
     text-align: center;
 }
 
-.masterwork-parts{
+#weapons .masterwork-parts{
     flex-basis: 10%;
     text-align: center;
 }
 
-.masterwork-description{
+#weapons .masterwork-description{
     flex-basis: 68%;
     padding-left: 2%;
 }
@@ -152,53 +77,17 @@
 
 
 @media screen and (max-width: 768px){
-    .table{
-        width: 95%;
-    }
-
-    .weapon{
-        flex-wrap: wrap;
-    }
-
-    .weapon div{
-        padding: 0.7em;
-        flex-basis: 50%;
-        width: 50%;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .weapon .weapon-name{
-        flex-basis: 100%;
-        width: 100%;
-        font-size: var(--size2);
-    }
-
-    .weapon .Properties{
-        flex-basis: 100%;
-    }
-
-    .property-entry{
-        flex-direction: column;
-    }
-
-    .property-name{
-        margin: 0;
-        text-align: center;
-        font-size: var(--size2);
-    }
-
-    .masterwork-name{
+    #weapons .masterwork-name{
         flex-basis: 40%;
         text-align: left;
     }
     
-    .masterwork-parts{
+    #weapons .masterwork-parts{
         flex-basis: 50%;
         text-align: left;
     }
     
-    .masterwork-entry .masterwork-description{
+    #weapons .masterwork-entry .masterwork-description{
         flex-basis: 100%;
         padding-left: 0;
         margin: 0;

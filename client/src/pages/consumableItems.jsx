@@ -71,10 +71,10 @@ export default function ConsumableItems(){
             <main>
                 <FixedHeader/>
                 <PageHeading title="Consumable Items"/>
-                {bombs.length > 0 ? <Table tableData={bombsData} contentData={bombs}/> : null}
-                {medicalItems.length > 0 ? <Table tableData={medicalItemsData} contentData={medicalItems}/> : null}
-                {potions.length > 0 ? <Table tableData={potionsData} contentData={potions}/> : null}
-                {misc.length > 0 ? <Table tableData={miscData} contentData={misc}/> : null}
+                {bombs.length > 0 ? <Table tableData={bombsData} contentData={bombs} options={{column2Basis: "12%"}}/> : null}
+                {medicalItems.length > 0 ? <Table tableData={medicalItemsData} contentData={medicalItems} options={{column2Basis: "12%"}}/> : null}
+                {potions.length > 0 ? <Table tableData={potionsData} contentData={potions} options={{column2Basis: "12%"}}/> : null}
+                {misc.length > 0 ? <Table tableData={miscData} contentData={misc} options={{column2Basis: "12%"}}/> : null}
             </main>
         )
     }

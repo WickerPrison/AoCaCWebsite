@@ -1,21 +1,3 @@
-/* This is the template for the table that this stylesheet is designed to be used for */
-/* <section class="table" id="table-template">
-    <h3 class="table-header">Table Title</h3>
-    <p class="table-explanation">Table Explanation</p>
-
-</section>
-<div class="table-entry" id="table-entry-template">
-    <div class="table-label">Table Label</div>
-    <div class="column-1">
-        
-    </div>
-    <div class="column-2">
-
-    </div>
-    <div class="table-description">Description</div>
-</div>*/
-
-
 .table{
     width: 85%;
     background-color: var(--green2);
@@ -26,7 +8,7 @@
     padding-bottom: 1em;
 }
 
-.table-header{
+.table .table-header{
     background-color: var(--green);
     margin: 0;
     border-top-left-radius: 0.8em;
@@ -50,14 +32,19 @@
 }
 
 .table-entry div{
-    padding: 0.7em;
+    padding: 0.3em;
     flex-basis: 15%;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
+    align-content: center;
 }
 
-.column-2{
+.table-entry .column{
+    flex-basis: 15%;
+}
+
+.table-entry .column-2{
     flex-shrink: 1;
 }
 
@@ -79,9 +66,10 @@
 }
 
 .table-entry .table-description{
-    flex-basis: 45%;
+    flex-basis: 35%;
     flex-grow: 1;
     display: block;
+    align-content: center;
 }
 
 

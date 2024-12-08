@@ -17,6 +17,7 @@ import TalentList from './pages/talentList/talentList.jsx';
 import CriticalInjuries from './pages/criticalInjuries/criticalInjuries.jsx';
 import Login from './pages/login/login.jsx';
 import MonsterBuilder from './pages/monsterBuilder/monsterBuilder.jsx';
+import Armor from './pages/Armor/armor.jsx';
 
 
 const router = createBrowserRouter([
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path:"/MonsterBuilder",
         element:<MonsterBuilder/>
+      },
+      {
+        path:"/Armor",
+        element:<Armor/>
       }
     ],
   },
