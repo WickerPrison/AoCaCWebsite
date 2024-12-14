@@ -7,6 +7,8 @@ const {getEquipment} = require('./equipmentSeed');
 const {getEnchantingEffects} = require('./enchantmentsSeed');
 const {getWeaponData} = require('./weaponSeed');
 const {getArmor} = require('./armorSeed');
+const {getAbilities} = require('./abilitiesSeed');
+const {getRaces} = require('./racesSeed');
 
 getTreeData();
 getTalents();
@@ -17,3 +19,5 @@ getEquipment();
 getEnchantingEffects();
 getWeaponData();
 getArmor();
+getAbilities();
+getRaces();

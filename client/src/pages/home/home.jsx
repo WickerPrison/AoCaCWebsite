@@ -19,10 +19,6 @@ const resources = [
         label: "Encounter Builder"
     },
     {
-        link:"TalentList",
-        label: "Talent List"
-    },
-    {
         link:"CriticalInjuries",
         label:"Critical Injuries"
     },
@@ -31,6 +27,21 @@ const resources = [
         label:"Monster Builder",
         loggedIn: true
     }
+];
+
+const characterCreation = [
+    {
+        link: "Races",
+        label: "Races"
+    },
+    {
+        link: "Abilities",
+        label: "Abilities"
+    },
+    {
+        link:"TalentList",
+        label: "Talent List"
+    },
 ];
 
 const classes = [
@@ -130,6 +141,8 @@ export default function Home() {
             <PageHeading title="Age of Conquest and Calamity"/>
             <h3 className="heading-band">Resources</h3>
             <HomePageSection data={resources}/>
+            <h3 className="heading-band">Character Creation</h3>
+            <HomePageSection data={characterCreation}/>
             <h3 className="heading-band">Classes</h3>
             <section id="home-page-section">
                 {classes.map((result) => {

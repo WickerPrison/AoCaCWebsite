@@ -15,24 +15,6 @@ const tableData = {
 export default function GeneralEquipment(){
     let [equipmentList, setEquipmentList] = useState(equipment.general);
 
-    // useEffect(() => {
-    //     async function getData(){
-    //         try{
-    //             const response = await fetch(getUrl() + '/api/data/equipment', {
-    //                 method: 'GET',
-    //                 headers: { 'Content-Type': 'application/json' }
-    //             })
-    
-    //             const data = await response.json();
-    //             setEquipment(data);
-    //         }
-    //         catch(err){
-    //             console.log(err);
-    //         }
-    //     }
-    //     getData();
-    // }, [])
-
     return (
         <main>
             <FixedHeader/>
