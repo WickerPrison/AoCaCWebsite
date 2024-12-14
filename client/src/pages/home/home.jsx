@@ -33,6 +33,13 @@ const resources = [
     }
 ];
 
+const characterCreation = [
+    {
+        link: "Races",
+        label: "Races"
+    }
+];
+
 const classes = [
     {
         fieldName: "Combat",
@@ -130,6 +137,8 @@ export default function Home() {
             <PageHeading title="Age of Conquest and Calamity"/>
             <h3 className="heading-band">Resources</h3>
             <HomePageSection data={resources}/>
+            <h3 className="heading-band">Character Creation</h3>
+            <HomePageSection data={characterCreation}/>
             <h3 className="heading-band">Classes</h3>
             <section id="home-page-section">
                 {classes.map((result) => {

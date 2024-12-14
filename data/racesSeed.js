@@ -7,6 +7,11 @@ async function getRaces(){
     for(let i = 0; i < data.length; i++){
         if(data[i].IsDone == 1){
             delete data[i].IsDone;
+            if(data[i].Stats != ""){
+                data[i].Abilities = data[i].Stats + ". " + data[i].Abilities;
+            }
+            delete data[i].Stats;
+
             races.push(data[i]);
         }
     }
