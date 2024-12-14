@@ -1,7 +1,7 @@
 export default function TableEntry({tableData, content, options = {}}){
     return (
         <div className="table-entry">
-            <div className="table-label">{content.Name}</div>
+            <div className="table-label" style={options.nameBasis ? {flexBasis: options.nameBasis}:null}>{content.Name}</div>
             {tableData.column1 ? (
             <div className="column column-1">
                 {tableData.column1.map((property, index) => {

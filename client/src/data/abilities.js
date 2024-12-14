@@ -90,9 +90,5 @@ export const abilities = [
 	{
 		"Name": "Improved Special Proficiency",
 		"Description": "Gain the benefits of Special Proficiency. You also gain the specified skill as a Class skill."
-	},
-	{
-		"Name": "",
-		"Description": " "
 	}
 ]

@@ -19,6 +19,7 @@ import Login from './pages/login/login.jsx';
 import MonsterBuilder from './pages/monsterBuilder/monsterBuilder.jsx';
 import Armor from './pages/Armor/armor.jsx';
 import Races from './pages/races.jsx';
+import Abilities from './pages/abilities.jsx';
 
 
 const router = createBrowserRouter([
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path:"/Races",
         element:<Races/>
+      },
+      {
+        path:"/Abilities",
+        element:<Abilities/>
       }
     ],
   },

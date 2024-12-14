@@ -19,10 +19,6 @@ const resources = [
         label: "Encounter Builder"
     },
     {
-        link:"TalentList",
-        label: "Talent List"
-    },
-    {
         link:"CriticalInjuries",
         label:"Critical Injuries"
     },
@@ -37,7 +33,15 @@ const characterCreation = [
     {
         link: "Races",
         label: "Races"
-    }
+    },
+    {
+        link: "Abilities",
+        label: "Abilities"
+    },
+    {
+        link:"TalentList",
+        label: "Talent List"
+    },
 ];
 
 const classes = [
