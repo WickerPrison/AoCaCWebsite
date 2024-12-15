@@ -20,21 +20,22 @@ function parseSheets(data){
     return output;
 }
 
-module.exports = {
-    getData: async (tabName) => {
-        try{
-            let data = await fetch(sheetUrl + tabName);
-            data = await data.text();
-            return parseSheets(data);
-        }
-        catch(err){
-            console.error(err);
-        }
-    },
-    standardWrite: async (filename, varName, data) => {
-        let output = JSON.stringify(data, null, '\t');
-        output = output.replaceAll("’", "'");
-        output = "export const " + varName +  " = " + output;
-        fs.writeFile(filename, output, () => {});
+async function getData(tabName){
+    try{
+        let data = await fetch(sheetUrl + tabName);
+        data = await data.text();
+        return parseSheets(data);
+    }
+    catch(err){
+        console.error(err);
     }
 }
+
+async function standardWrite(filename, varName, data){
+    let output = JSON.stringify(data, null, '\t');
+    output = output.replaceAll("’", "'");
+    output = "export const " + varName +  " = " + output;
+    fs.writeFile(filename, output, () => {});
+}
+
+module.exports = {getData, standardWrite}
