@@ -1,6 +1,6 @@
 import FixedHeader from "../components/headerComponents/fixedHeader";
 import PageHeading from "../components/headerComponents/pageHeading";
-import Table from "../components/table";
+import Table from "../components/table/table";
 import {races} from "../data/races"
 
 const tableData = {

@@ -1,4 +1,4 @@
-import '../../components/table.css'
+import '../../components/table/table.css'
 import './talentList.css'
 import {talents} from '../../data/talents';
 import {useState, useEffect} from 'react';

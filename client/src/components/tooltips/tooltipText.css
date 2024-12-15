@@ -1,0 +1,33 @@
+.tooltip-text:hover,
+.tooltip-text:active{
+    color: black;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip-text:hover::after,
+.tooltip-text:active::after{
+    content: attr(data-content);
+    display: inline;
+    position: absolute;
+    top: 1.3rem;
+    left: calc(-10rem + 50%);
+    box-sizing: border-box;
+    font-size: var(--baseTextSize);
+    background-color: var(--silver);
+    color: black;
+    width: 20rem;
+    z-index: 2;
+    padding: 0.3rem;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px 0.05px black;
+}
+
+@media screen and (max-width: 768px){
+    .tooltip-text:hover::after,
+    .tooltip-text:active::after{
+        width: 10rem;
+        top: 0.9rem;
+        left:calc(-5rem + 50%)
+    }
+}

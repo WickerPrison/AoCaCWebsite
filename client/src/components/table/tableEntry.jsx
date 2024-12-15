@@ -1,4 +1,22 @@
+import reactStringReplace from 'react-string-replace';
+import TooltipText from '../tooltips/tooltipText';
+import {abilities} from '../../data/abilities';
+
 export default function TableEntry({tableData, content, options = {}}){
+    function setUpDescription(){
+        if(!content.tags || content.tags.length  == 0) return content[tableData.description]
+        let output = content[tableData.description];
+
+        for(let i = 0; i < content.tags.length; i++){
+            let description = abilities.find(ability => ability.Name == content.tags[i].name).Description;
+            output = reactStringReplace(output, content.tags[i].name, (match, i) => (
+                <TooltipText key={match + i} displayText={match} tooltipText={description}></TooltipText>
+            ));
+        }
+
+        return output
+    }
+    
     return (
         <div className="table-entry">
             <div className="table-label" style={options.nameBasis ? {flexBasis: options.nameBasis}:null}>{content.Name}</div>
@@ -16,7 +34,7 @@ export default function TableEntry({tableData, content, options = {}}){
                 })}
             </div>
             ): null}
-            <div className="table-description">{tableData.description ? content[tableData.description] : content.Description}</div>
+            <div className="table-description">{tableData.description ? setUpDescription() : content.Description}</div>
         </div>
     )
 }

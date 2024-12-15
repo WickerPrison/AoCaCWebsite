@@ -45,7 +45,7 @@ export const races = [
 		"Intellect": "2",
 		"Presence": "1",
 		"Willpower": "1",
-		"Abilities": "Replace your Unarmed Strike with Improved Natural Weapons. Special Proficiency in Linguistics and Perception. Additional ranks in Linguistics cost 5 XP less. Corvians can perfectly recall any information they have ever heard.",
+		"Abilities": "Improved Natural Weapons. Special Proficiency in Linguistics and Perception. Additional ranks in Linguistics cost 5 XP less. Corvians can perfectly recall any information they have ever heard.",
 		"tags": [
 			{
 				"type": "Abilities",
@@ -101,11 +101,19 @@ export const races = [
 		"Intellect": "1",
 		"Presence": "1",
 		"Willpower": "2",
-		"Abilities": "Darkvision. Improved natural weapons. Take no damage from falling. Begin the game with 1 rank in Vigilance, and it may be trained up to rank 6, instead of 5.",
+		"Abilities": "Darkvision. Improved Natural Weapons. Take no damage from falling. Begin the game with 1 rank in Vigilance, and it may be trained up to rank 6, instead of 5.",
 		"tags": [
 			{
 				"type": "Abilities",
 				"name": "Darkvision"
+			},
+			{
+				"type": "Abilities",
+				"name": "Improved Natural Weapons"
+			},
+			{
+				"type": "Abilities",
+				"name": "Natural Weapons"
 			}
 		]
 	},
@@ -117,7 +125,7 @@ export const races = [
 		"Intellect": "1",
 		"Presence": "3",
 		"Willpower": "2",
-		"Abilities": "Darkvision. Natural weapons. Long Jump. Begin the game with one rank in Coordination, and it may be trained up to rank 6, instead of 5. ",
+		"Abilities": "Darkvision. Natural Weapons. Long Jump. Begin the game with one rank in Coordination, and it may be trained up to rank 6, instead of 5. ",
 		"tags": [
 			{
 				"type": "Abilities",
@@ -126,6 +134,10 @@ export const races = [
 			{
 				"type": "Abilities",
 				"name": "Long Jump"
+			},
+			{
+				"type": "Abilities",
+				"name": "Natural Weapons"
 			}
 		]
 	},
@@ -226,22 +238,6 @@ export const races = [
 		"tags": []
 	},
 	{
-		"Name": "Hobgoblin",
-		"Agility": "2",
-		"Brawn": "3",
-		"Cunning": "2",
-		"Intellect": "1",
-		"Presence": "3",
-		"Willpower": "1",
-		"Abilities": "HP +1, Stamina +1. Special Proficiency in Discipline and Vigilance, ignore 1 setback die from armor",
-		"tags": [
-			{
-				"type": "Abilities",
-				"name": "Special Proficiency"
-			}
-		]
-	},
-	{
 		"Name": "Human",
 		"Agility": "2",
 		"Brawn": "2",
@@ -311,11 +307,15 @@ export const races = [
 		"Intellect": "1",
 		"Presence": "1",
 		"Willpower": "3",
-		"Abilities": "Darkvision. Natural weapons. Begin the game with one rank in Coercion, and it may be trained up to rank 6, instead of 5. Reckless Charge.",
+		"Abilities": "Darkvision. Natural Weapons. Begin the game with one rank in Coercion, and it may be trained up to rank 6, instead of 5. Reckless Charge.",
 		"tags": [
 			{
 				"type": "Abilities",
 				"name": "Darkvision"
+			},
+			{
+				"type": "Abilities",
+				"name": "Natural Weapons"
 			},
 			{
 				"type": "Abilities",
