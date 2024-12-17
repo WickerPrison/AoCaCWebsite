@@ -174,6 +174,18 @@ export const races = [
 			{
 				"type": "Abilities",
 				"name": "Small Frame"
+			},
+			{
+				"type": "Talents",
+				"name": "Deft Defense"
+			},
+			{
+				"type": "Talents",
+				"name": "Quick Strike"
+			},
+			{
+				"type": "Talents",
+				"name": "Rapid Reaction"
 			}
 		]
 	},
@@ -332,7 +344,12 @@ export const races = [
 		"Presence": "1",
 		"Willpower": "3",
 		"Abilities": "HP +1, Stamina +1. Gain 1 rank of the Durable talent. Once per day, damage that would reduce your Hit Points to 0 or less reduces them to 1 instead.",
-		"tags": []
+		"tags": [
+			{
+				"type": "Talents",
+				"name": "Durable"
+			}
+		]
 	},
 	{
 		"Name": "Ratman",
@@ -355,6 +372,14 @@ export const races = [
 			{
 				"type": "Abilities",
 				"name": "Small Frame"
+			},
+			{
+				"type": "Talents",
+				"name": "Disease Immunity"
+			},
+			{
+				"type": "Talents",
+				"name": "Forager"
 			}
 		]
 	},
@@ -418,7 +443,12 @@ export const races = [
 		"Presence": "3",
 		"Willpower": "2",
 		"Abilities": "From the following list of skills, choose one to become a Class skill, and one to begin the game with 1 rank, and to be able to be trained up to rank 6 instead of 5 (can choose the same skill for both): Charm, Deception, Coercion, Leadership, Negotiation, and Society. Gain 1 rank in the Smooth Talker talent.",
-		"tags": []
+		"tags": [
+			{
+				"type": "Talents",
+				"name": "Smooth Talker"
+			}
+		]
 	},
 	{
 		"Name": "Wildfolk (Firbolg)",
@@ -444,6 +474,10 @@ export const races = [
 			{
 				"type": "Abilities",
 				"name": "Primitive Diet"
+			},
+			{
+				"type": "Talents",
+				"name": "Disease Immunity"
 			}
 		]
 	}

@@ -1,6 +1,7 @@
 import reactStringReplace from 'react-string-replace';
 import TooltipText from '../tooltips/tooltipText';
 import {abilities} from '../../data/abilities';
+import {talents} from '../../data/talents';
 
 export default function TableEntry({tableData, content, options = {}}){
     function setUpDescription(){
@@ -8,9 +9,20 @@ export default function TableEntry({tableData, content, options = {}}){
         let output = content[tableData.description];
 
         for(let i = 0; i < content.tags.length; i++){
-            let description = abilities.find(ability => ability.Name == content.tags[i].name).Description;
+            let description;
+            let linkObject;
+            switch(content.tags[i].type){
+                case "Abilities":
+                    description = abilities.find(ability => ability.Name == content.tags[i].name).Description;
+                    linkObject = {text: "Abilities Table", link: "/Abilities"};
+                    break;
+                case "Talents":
+                    description = talents.find(talent => talent.Name == content.tags[i].name).Description;
+                    linkObject = {text: "Talent List", link: "/TalentList"};
+                    break;
+            }
             output = reactStringReplace(output, content.tags[i].name, (match, i) => (
-                <TooltipText key={match + i} displayText={match} tooltipText={description} link={{text: "Abilities Table", link: "/Abilities"}}></TooltipText>
+                <TooltipText key={match + i} displayText={match} tooltipText={description} link={linkObject}></TooltipText>
             ));
         }
 
