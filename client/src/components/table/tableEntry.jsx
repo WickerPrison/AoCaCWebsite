@@ -10,7 +10,7 @@ export default function TableEntry({tableData, content, options = {}}){
         for(let i = 0; i < content.tags.length; i++){
             let description = abilities.find(ability => ability.Name == content.tags[i].name).Description;
             output = reactStringReplace(output, content.tags[i].name, (match, i) => (
-                <TooltipText key={match + i} displayText={match} tooltipText={description}></TooltipText>
+                <TooltipText key={match + i} displayText={match} tooltipText={description} link={{text: "Abilities Table", link: "/Abilities"}}></TooltipText>
             ));
         }
 

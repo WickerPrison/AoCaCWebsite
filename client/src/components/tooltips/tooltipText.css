@@ -5,11 +5,25 @@
     position: relative;
 }
 
-.tooltip-text:hover::after,
-.tooltip-text:active::after{
-    content: attr(data-content);
-    display: inline;
+.tooltip-text .tooltip{
+    display: none;
     position: absolute;
+}
+
+.tooltip-link{
+    text-decoration: underline;
+    font-size: var(--baseTextSize);
+    padding: 0.3rem;
+}
+
+.tooltip-link:hover,
+.tooltip-text:active{
+    color: var(--green2);
+}
+
+.tooltip-text:hover .tooltip,
+.tooltip-text:active .tooltip{
+    display: inline;
     top: 1.3rem;
     left: calc(-10rem + 50%);
     box-sizing: border-box;
@@ -24,8 +38,8 @@
 }
 
 @media screen and (max-width: 768px){
-    .tooltip-text:hover::after,
-    .tooltip-text:active::after{
+    .tooltip-text:hover .tooltip,
+    .tooltip-text:active .tooltip{
         width: 10rem;
         top: 0.9rem;
         left:calc(-5rem + 50%)
