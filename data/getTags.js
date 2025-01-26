@@ -1,5 +1,5 @@
+const {talentsCache} = require('./talentsCache');
 const {abilitiesCache} = require('./abilitiesSeed');
-const {talentsCache} = require('./talentsSeed');
 
 async function getAbilityTags(textString, tags = []){
     let abilities = await abilitiesCache();
@@ -8,13 +8,15 @@ async function getAbilityTags(textString, tags = []){
             tags.push({type: "Abilities", name: abilities[i].Name})
         }
     }
+    console.log(typeof tags);
     return tags;
 }
 
-async function getTalentTags(textString, tags=[]){
+async function getTalentTags(textString, tags = []){
     let talents = await talentsCache();
     for(let i = 0; i < talents.length; i++){
         if(textString.includes(talents[i].Name)){
+            console.log(typeof tags);
             tags.push({type: "Talents", name: talents[i].Name})
         }
     }
