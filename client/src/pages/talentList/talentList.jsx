@@ -6,6 +6,9 @@ import FixedHeader from '../../components/headerComponents/fixedHeader';
 import PageHeading from '../../components/headerComponents/pageHeading';
 import Loading from '../../components/loading';
 import Filters, {FilterTypes} from '../../components/filters';
+import { abilities } from '../../data/abilities';
+import reactStringReplace from 'react-string-replace';
+import TooltipText from '../../components/tooltips/tooltipText';
 
 const filterArray =[
     {
@@ -56,6 +59,30 @@ export default function TalentList(){
         return output;
     }
 
+    const setUpDescription = (talent) => {
+        if(!talent.tags || talent.tags.length == 0) return talent.Description;
+        let output = talent.Description;
+
+        for(let i = 0; i < talent.tags.length; i++){
+            let description;
+            let linkObject;
+            switch(talent.tags[i].type){
+                case "Abilities":
+                    description = abilities.find(ability => ability.Name == talent.tags[i].name).Description;
+                    linkObject = {text: "Abilities Table", link: "/Abilities"};
+                    break;
+                case "Talents":
+                    description = talents.find(tableTalent => tableTalent.Name == talent.tags[i].name).Description;
+                    linkObject = {text: "Talent List", link: "/TalentList"};
+                    break;
+            }
+            output = reactStringReplace(output, talent.tags[i].name, (match, i) => (
+                <TooltipText key={match + i} displayText={match} tooltipText={description} link={linkObject}></TooltipText>
+            ));
+        }
+        return output;
+    }
+
     if(talentList.length <= 0){
         return(
             <main id="talent-list">
@@ -84,7 +111,7 @@ export default function TalentList(){
                                 <div className="entry">{talent.Name}</div>
                                 <div className='entry center-text'>{getXPcost(talent)}</div>
                                 <div className='entry center-text'>{talent.Stacks ? talent.Stacks : "-"}</div>
-                                <div className="talent-description">{talent.Description}</div>
+                                <div className="talent-description">{setUpDescription(talent)}</div>
                                 {index + 1 < displayList.length? <div className="line"></div> :null}
                             </div>
                     })}
