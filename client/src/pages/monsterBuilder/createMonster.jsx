@@ -105,8 +105,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 presence: editMonster.presence,
                 willpower: editMonster.willpower
             });
-            setTalents(editMonster.talents);
-            setAbilities(editMonster.abilities);
+            setTalents(editMonster.talents.map(monsterTalent => talentsList.find(talent => talent.Name == monsterTalent)));
+            setAbilities(editMonster.abilities.map(monsterAbility => abilitiesList.find(ability => ability.Name == monsterAbility)));
             setSpecialFeatures(editMonster.specialFeatures);
             setSkills(editMonster.skills);
             setConditionImmunities(editMonster.conditionImmunities);
