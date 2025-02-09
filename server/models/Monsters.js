@@ -105,7 +105,7 @@ const monsterSchema = new Schema(
             ref: "attack"
         }],
         talentsAbilities:{
-            type: String
+            type: [String]
         },
         specialFeatures:{
             type: String

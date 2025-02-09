@@ -100,14 +100,21 @@ export default function AddAttacks({attacks, setAttacks}){
             {showMenu ? <GreyOut/>: null}
             {showMenu ? 
                 <div className="popup">
-                    <Filters input={allAttacks} setOutput={setDisplayAttacks} filterArray={filterArray} sortArray={sortOptions}/>
+                    <Filters 
+                        input={allAttacks} 
+                        setOutput={setDisplayAttacks} 
+                        filterArray={filterArray} 
+                        sortArray={sortOptions}/>
                     <div className="card box attacks-card">
                         <div className="box-header">Attacks</div>
                         <div className = "attacks-list">
                             {displayAttacks.map((attack, index) => {
                                 return(
                                     <div key={attack._id}>
-                                        <AttackDisplay attack={attack} addedAttacks={attacks} setAddedAttacks={setAttacks}/>
+                                        <AttackDisplay 
+                                            attack={attack} 
+                                            addedAttacks={attacks} 
+                                            setAddedAttacks={setAttacks}/>
                                         {index < displayAttacks.length - 1 ? <div className="line"></div>:null }
                                     </div>
                                 )
