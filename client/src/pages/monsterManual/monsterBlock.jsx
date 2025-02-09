@@ -45,6 +45,18 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
         return outputString;
     }
 
+    const setupTalentsAbilities = () => {
+        if(monster.talents.length + monster.abilities.length == 0) return null;
+        let output = "";
+        for(let i = 0; i < monster.talents.length; i++){
+            output += monster.talents[i] + ", "
+        }
+        for(let i = 0; i < monster.abilities.length; i++){
+            output += monster.abilities[i] + ", ";
+        }
+        return <div className="talents-abilities"><strong>Talents/Abilities: </strong>{output}</div>
+    }
+
     function setupSkill(skill, index){
         if(monster.tier == "Swarm") return swarmSkill(skill, index);
 
@@ -152,9 +164,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                     </div>
                     :null}
 
-                    {monster.talentsAbilities 
-                    ? (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster.talentsAbilities}</div>)
-                    :(null)}
+                    {setupTalentsAbilities()}
 
                     {monster.specialFeatures 
                     ? (<div className="talents-abilities"><strong>Special Features: </strong>{monster.specialFeatures}</div>)
