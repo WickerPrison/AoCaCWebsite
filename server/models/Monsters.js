@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
 const {attackSchema} = require('./Attacks');
+const { abilities } = require('../../client/src/data/abilities');
 
 const monsterSchema = new Schema(
     {
@@ -104,7 +105,10 @@ const monsterSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "attack"
         }],
-        talentsAbilities:{
+        talents:{
+            type: [String]
+        },
+        abilities:{
             type: [String]
         },
         specialFeatures:{

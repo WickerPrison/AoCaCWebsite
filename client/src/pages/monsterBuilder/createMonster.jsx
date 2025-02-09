@@ -58,7 +58,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
     
     function getStates(){
         const data = {
-            name, tier, sil, makePublic, creatureTypes, stats, talents, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, official
+            name, tier, sil, makePublic, creatureTypes, stats, talents, abilities, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, official
         }
         return data;
     }
