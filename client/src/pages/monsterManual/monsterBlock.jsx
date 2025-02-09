@@ -3,6 +3,9 @@ import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
 import {skillsDict} from "../../js/skills";
 import OfficialIcon from "../../components/officialIcon";
+import { abilities } from "../../data/abilities";
+import { talents } from "../../data/talents";
+import TooltipText from "../../components/tooltips/tooltipText";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -46,13 +49,28 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
     }
 
     const setupTalentsAbilities = () => {
-        if(monster.talents.length + monster.abilities.length == 0) return null;
-        let output = "";
-        for(let i = 0; i < monster.talents.length; i++){
-            output += monster.talents[i] + ", "
+        let totalLength = monster.talents.length + monster.abilities.length;
+        if(totalLength == 0) return null;
+        let output = [];
+        let description;
+        let linkObject;
+        let i;
+        for(i = 0; i < monster.talents.length; i++){
+            description = talents.find(talent => talent.Name == monster.talents[i]).Description;
+            linkObject = {text: "Talent List", link: "/TalentList"};
+            console.log(monster.talents[i]);
+            output.push(<TooltipText key={i + monster.talents[i]} displayText={monster.talents[i]} tooltipText={description} link={linkObject}></TooltipText>);
+            if(i < totalLength - 1){
+                output.push(", ");
+            }
         }
-        for(let i = 0; i < monster.abilities.length; i++){
-            output += monster.abilities[i] + ", ";
+        for(let j = 0; j < monster.abilities.length; j++){
+            description = abilities.find(ability => ability.Name == monster.abilities[j]).Description;
+            linkObject = {text: "Abilities Table", link: "/Abilities"};
+            output.push(<TooltipText key={j + monster.abilities[j]} displayText={monster.abilities[j]} tooltipText={description} link={linkObject}></TooltipText>);
+            if(i + j < totalLength - 1){
+                output.push(", ");
+            }
         }
         return <div className="talents-abilities"><strong>Talents/Abilities: </strong>{output}</div>
     }

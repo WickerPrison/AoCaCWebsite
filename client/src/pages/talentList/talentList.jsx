@@ -80,6 +80,7 @@ export default function TalentList(){
                 <TooltipText key={match + i} displayText={match} tooltipText={description} link={linkObject}></TooltipText>
             ));
         }
+        console.log(output);
         return output;
     }
 
