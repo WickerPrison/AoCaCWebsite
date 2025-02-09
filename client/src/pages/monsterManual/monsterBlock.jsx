@@ -56,9 +56,13 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
         let linkObject;
         let i;
         for(i = 0; i < monster.talents.length; i++){
-            description = talents.find(talent => talent.Name == monster.talents[i]).Description;
+            description = talents.find(talent => talent.Name == monster.talents[i].Name).Description;
             linkObject = {text: "Talent List", link: "/TalentList"};
-            output.push(<TooltipText key={i + monster.talents[i]} displayText={monster.talents[i]} tooltipText={description} link={linkObject}></TooltipText>);
+            let displayName = monster.talents[i].Name;
+            if(monster.talents[i].ranks > 1){
+                displayName += ` (${monster.talents[i].ranks} ranks)`;
+            }
+            output.push(<TooltipText key={i + monster.talents[i].Name} displayText={displayName} tooltipText={description} link={linkObject}></TooltipText>);
             if(i < totalLength - 1){
                 output.push(", ");
             }

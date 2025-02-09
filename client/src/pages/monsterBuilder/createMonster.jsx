@@ -12,6 +12,7 @@ import SubmitMonster from './submitMonster';
 import FlexibleTextarea from '../../components/flexibleTextarea';
 import auth from '../../utils/auth';
 import Checklist from '../../components/checklist/checklist';
+import TalentsSelector from './talentsSelector';
 
 const Tiers={
     MINION: "Minion",
@@ -105,7 +106,13 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 presence: editMonster.presence,
                 willpower: editMonster.willpower
             });
-            setTalents(editMonster.talents.map(monsterTalent => talentsList.find(talent => talent.Name == monsterTalent)));
+            let talents = [];
+            for(let i = 0; i < editMonster.talents.length; i++){
+                let talent  = structuredClone(talentsList.find(talent => talent.Name == editMonster.talents[i].Name));
+                talent.ranks = editMonster.talents[i].ranks;
+                talents.push(talent);
+            }
+            setTalents(talents);
             setAbilities(editMonster.abilities.map(monsterAbility => abilitiesList.find(ability => ability.Name == monsterAbility)));
             setSpecialFeatures(editMonster.specialFeatures);
             setSkills(editMonster.skills);
@@ -141,14 +148,13 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
         evt.preventDefault();
         if(showTalentList) return;
         setShowTalentList(true);
-        window.scrollTo({top: 0, behavior: "smooth"});
+        // window.scrollTo({top: 0, behavior: "smooth"});
     }
 
     const toggleAbilitiesList = evt => {
         evt.preventDefault();
         if(showAbilitiesList) return;
         setShowAbilitiesList(true);
-        window.scrollTo({top: 0, behavior: "smooth"});
     }
 
     const setTalentsAbilitiesString = () => {
@@ -158,19 +164,26 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             case 0:
                 break;
             case 1:
-                output += combined[0].Name;
+                output += setTalentAbilityText(combined, 0);
                 break;
             case 2: 
-                output += combined[0].Name + ", " + combined[1].Name;
+                output += setTalentAbilityText(combined, 0); + ", " + setTalentAbilityText(combined, 1);;
                 break;
             default:
                 for(let i = 0; i < combined.length - 1; i++){
-                    output += combined[i].Name + ", ";
+                    output += setTalentAbilityText(combined, i) + ", ";
                 }
-                output += combined[combined.length - 1].Name;
+                output += setTalentAbilityText(combined, combined.length - 1);
                 break;
         }
         return output;
+    }
+
+    const setTalentAbilityText = (combined, index) => {
+        if(combined[index].ranks > 1){
+            return combined[index].Name + ` (${combined[index].ranks} ranks)`;
+        } 
+        else return combined[index].Name;
     }
 
     return (
@@ -211,7 +224,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 <button className="small-button button-margin" onClick={evt => toggleTalentList(evt)}>+ Add Talents</button>
                 <button className="small-button button-margin" onClick={evt => toggleAbilitiesList(evt)}>+ Add Abilities</button>
             </div>
-            <Checklist options={talentsList} currentOptions={talents} setOptions={setTalents} showMenu={showTalentList} setShowMenu={setShowTalentList} title="Talents"/>
+            <TalentsSelector options={talentsList} currentOptions={talents} setOptions={setTalents} showMenu={showTalentList} setShowMenu={setShowTalentList}/>
             <Checklist options={abilitiesList} currentOptions={abilities} setOptions={setAbilities} showMenu={showAbilitiesList} setShowMenu={setShowAbilitiesList} title="Abilities"/>
 
             <h4 className="spell-name card-element">Skill Ranks</h4>

@@ -139,7 +139,7 @@ export default async function SubmitMonster(evt, data, resetStates, monsterId = 
         resistances: resistancesAndWeaknesses[0],
         weaknesses: resistancesAndWeaknesses[1],
         attacks: formatAttackIds(),
-        talents: data.talents.map(talent => talent.Name),
+        talents: data.talents.map(talent => ({Name:talent.Name, ranks:talent.ranks})),
         abilities: data.abilities.map(ability => ability.Name),
         specialFeatures: data.specialFeatures,
         public: data.makePublic,

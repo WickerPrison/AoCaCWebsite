@@ -106,10 +106,12 @@ const monsterSchema = new Schema(
             ref: "attack"
         }],
         talents:{
-            type: [String]
+            type: [Schema.Types.Mixed],
+            default: []
         },
         abilities:{
-            type: [String]
+            type: [String],
+            default: []
         },
         specialFeatures:{
             type: String
