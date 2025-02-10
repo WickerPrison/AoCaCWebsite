@@ -1,20 +1,15 @@
-const {getData, standardWrite} = require('./seedUtils');
+const {standardWrite} = require('./seedUtils');
+const {talentsCache} = require('./talentsCache');
+const {getAbilityTags, getTalentTags} = require('./getTags');
 
-function cleanTalentsData (data){
-    for(let i = 0; i < data.length; i++){
-        let strings = data[i].XP.split("-");
-        data[i].XPmin = strings[0];
-        data[i].XPmax = strings[1] || "";
-
-        data[i].Stacks = data[i].Stacks.replace("-", "");
-    }
-    return data;
-}
 
 async function getTalents(){
-    let data = await getData("Talents");
-    data = cleanTalentsData(data);
-    standardWrite('../client/src/data/talents.js', "talents",data)
+    talents = await talentsCache();
+    for(let i = 0; i < talents.length; i++){
+        talents[i].tags = await getAbilityTags(talents[i].Description);
+        talents[i].tags = await getTalentTags(talents[i].Description, talents[i].tags);
+    }
+    standardWrite('../client/src/data/talents.js', "talents", talents)
 }
 
 getTalents();

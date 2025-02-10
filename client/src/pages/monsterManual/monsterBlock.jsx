@@ -3,6 +3,9 @@ import MonsterAttack from "./monsterAttack";
 import { RollData } from "../../js/rollDice";
 import {skillsDict} from "../../js/skills";
 import OfficialIcon from "../../components/officialIcon";
+import { abilities } from "../../data/abilities";
+import { talents } from "../../data/talents";
+import TooltipText from "../../components/tooltips/tooltipText";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
@@ -43,6 +46,36 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
             }
         }
         return outputString;
+    }
+
+    const setupTalentsAbilities = () => {
+        let totalLength = monster.talents.length + monster.abilities.length;
+        if(totalLength == 0) return null;
+        let output = [];
+        let description;
+        let linkObject;
+        let i;
+        for(i = 0; i < monster.talents.length; i++){
+            description = talents.find(talent => talent.Name == monster.talents[i].Name).Description;
+            linkObject = {text: "Talent List", link: "/TalentList"};
+            let displayName = monster.talents[i].Name;
+            if(monster.talents[i].ranks > 1){
+                displayName += ` (${monster.talents[i].ranks} ranks)`;
+            }
+            output.push(<TooltipText key={i + monster.talents[i].Name} displayText={displayName} tooltipText={description} link={linkObject}></TooltipText>);
+            if(i < totalLength - 1){
+                output.push(", ");
+            }
+        }
+        for(let j = 0; j < monster.abilities.length; j++){
+            description = abilities.find(ability => ability.Name == monster.abilities[j]).Description;
+            linkObject = {text: "Abilities Table", link: "/Abilities"};
+            output.push(<TooltipText key={j + monster.abilities[j]} displayText={monster.abilities[j]} tooltipText={description} link={linkObject}></TooltipText>);
+            if(i + j < totalLength - 1){
+                output.push(", ");
+            }
+        }
+        return <div className="talents-abilities"><strong>Talents/Abilities: </strong>{output}</div>
     }
 
     function setupSkill(skill, index){
@@ -152,9 +185,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                     </div>
                     :null}
 
-                    {monster.talentsAbilities 
-                    ? (<div className="talents-abilities"><strong>Talents/Abilities: </strong>{monster.talentsAbilities}</div>)
-                    :(null)}
+                    {setupTalentsAbilities()}
 
                     {monster.specialFeatures 
                     ? (<div className="talents-abilities"><strong>Special Features: </strong>{monster.specialFeatures}</div>)

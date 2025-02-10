@@ -1,4 +1,5 @@
 const {getData, standardWrite} = require('./seedUtils');
+const {getAbilityTags, getTalentTags} = require('./getTags');
 
 async function getRaces(){
     let data = await getData("Races");
@@ -11,6 +12,9 @@ async function getRaces(){
                 data[i].Abilities = data[i].Stats + ". " + data[i].Abilities;
             }
             delete data[i].Stats;
+
+            data[i].tags = await getAbilityTags(data[i].Abilities);
+            data[i].tags = await getTalentTags(data[i].Abilities, data[i].tags);
 
             races.push(data[i]);
         }

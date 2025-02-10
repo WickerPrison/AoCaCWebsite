@@ -73,6 +73,14 @@
     margin-left: 1rem;
 }
 
+#monster-builder .stats-grid .full-width-display{
+    grid-column: 2 / 7;
+    text-align: left;
+    width: 90%;
+    margin: 0;
+    margin-left: 1rem;
+}
+
 #create-monster .flex-grid-entries{
     grid-column: 2 / 7;
     display: flex;

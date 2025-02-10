@@ -1,0 +1,72 @@
+.checklist .checklist-card{
+    margin-top: 1.5rem;
+}
+
+.checklist .checklist-list{
+    height: 40rem;
+    overflow: auto;
+}
+
+.checklist .checklist-holder{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+.checklist .checklist-holder .checkbox{
+    margin: 0 0.1rem 0 1rem;
+}
+
+.checklist .checklist-holder div{
+    margin: 0.2rem 0.5rem;
+}
+
+.checklist .checklist-holder .checklist-name{
+    flex: 20% 0 0;
+}
+
+.checklist .checklist-holder .attack-stats-1,
+.checklist .checklist-holder .attack-stats-2{
+    flex: 20% 0 0;
+}
+
+.checklist .checklist-display{
+    margin-top: 2rem;
+}
+
+.checklist .checklist-holder .checklist-description{
+    /* flex: calc(100% - 0.5rem * 2) 0 0; */
+    flex: 20% 1 0;
+}
+
+.checklist .checklist-holder .edit-button{
+    margin: 0 auto 0 0.5rem;
+}
+
+@media screen and (max-width: 768px){
+    .checklist .checklist-holder .checkbox{
+        margin: 0 0.3rem;
+        max-width: .9rem;
+        min-width: .9rem;
+        height: .9rem;
+    }
+    
+    .checklist .checklist-holder div{
+        margin: 0.1rem 0.1rem;
+    }
+
+    .checklist .checklist-holder .attack-name{
+        flex: 30% 0 0;
+    }
+    
+    .checklist .checklist-holder .attack-stats-1,
+    .checklist .checklist-holder .attack-stats-2{
+        flex: 26% 0 0;
+    }
+
+    .checklist .checklist-holder .checklist-description{
+        flex: calc(100% - 0.1rem * 2) 0 0;
+        margin-left: calc(30% + 1.9rem); 
+    }
+}

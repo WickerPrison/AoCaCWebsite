@@ -84,7 +84,7 @@ export const abilities = [
 		"Description": "All light levels are treated as Normal Light when not under water."
 	},
 	{
-		"Name": "True Sight",
+		"Name": "Truesight",
 		"Description": "Treat all light levels as Normal Light. You may see Invisible creatures and automatically see through illusions. You are immune to the Blinded Condition."
 	},
 	{
