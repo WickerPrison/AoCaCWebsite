@@ -1,6 +1,5 @@
 const {Schema, model} = require('mongoose');
 const {attackSchema} = require('./Attacks');
-const { abilities } = require('../../client/src/data/abilities');
 
 const monsterSchema = new Schema(
     {
