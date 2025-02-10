@@ -49,6 +49,8 @@ export default function Roll({roll, update, fixedCard=false}){
     function clearRoll(){
         let temp = {...roll};
         temp = new RollData();
+        temp.name = roll.name;
+        temp.index = roll.index;
         update.updateRoll(temp);
     }
 
