@@ -167,7 +167,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 output += setTalentAbilityText(combined, 0);
                 break;
             case 2: 
-                output += setTalentAbilityText(combined, 0); + ", " + setTalentAbilityText(combined, 1);;
+                output += setTalentAbilityText(combined, 0) + ", " + setTalentAbilityText(combined, 1);
                 break;
             default:
                 for(let i = 0; i < combined.length - 1; i++){
