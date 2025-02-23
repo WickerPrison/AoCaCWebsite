@@ -40,16 +40,15 @@
     /* grid-template-columns: 30% 30% 30%; */
     text-align: right;
     row-gap: 1rem;
-    margin: 1rem 0;
+    margin: 1rem 1rem 1rem 0.2rem;
     align-items: center;
     padding: 0 0.5rem;
 }
 
 #create-monster .stats-grid .line{
     grid-column: 1 / 7;
-    width: 150%;
+    width: 100%;
     position: relative;
-    left: -5rem;
 }
 
 #create-monster .stats-grid label{
@@ -139,8 +138,12 @@
 }
 
 #monster-builder h4{
-    width: 110%;
-    left: -5%;
+    width: 100%;
+    left: 0;
+    background-color: var(--green);
+    margin: 0;
+    padding: 1rem 0;
+    font-size: var(--size2);
 }
 
 #monster-builder .make-public{

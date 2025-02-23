@@ -211,7 +211,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 </div>
             </div>
 
-            <h4 className="spell-name card-element">Stats and Features</h4>
+            <h4 className="card-element">Stats and Features</h4>
             <div className="stats-grid">
                 <Stats stats={stats} setStats={setStats}/>
                 <label className='full-width-label'>Special Features: </label>
@@ -227,11 +227,11 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             <TalentsSelector options={talentsList} currentOptions={talents} setOptions={setTalents} showMenu={showTalentList} setShowMenu={setShowTalentList}/>
             <Checklist options={abilitiesList} currentOptions={abilities} setOptions={setAbilities} showMenu={showAbilitiesList} setShowMenu={setShowAbilitiesList} title="Abilities"/>
 
-            <h4 className="spell-name card-element">Skill Ranks</h4>
+            <h4 className="card-element">Skill Ranks</h4>
             <Skills skills={skills} setSkills={setSkills} tier={tier} hp={stats.hp}/>
-            <h4 className="spell-name card-element">Resistances, Weaknesses, and Immunities</h4>
+            <h4 className="card-element">Resistances, Weaknesses, and Immunities</h4>
             <ResWeakImm conditionImmunities={conditionImmunities} setConditionImmunities={setConditionImmunities} damageImmunities={damageImmunities} setDamageImmunities={setDamageImmunities} customImmunities={customImmunities} setCustomImmunities={setCustomImmunities} weakResist={weakResist} setWeakResist={setWeakResist}/>
-            <h4 className="spell-name card-element">Attacks</h4>
+            <h4 className="card-element">Attacks</h4>
             {attacks.map((attack, index) => {
                 return(
                     <div key={attack.name}>
@@ -241,7 +241,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 )
             })}
             <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
-            <h4 className="spell-name card-element">Finalize</h4>
+            <h4 className="card-element">Finalize</h4>
             <div className="make-public">
                 <label>Make Public: </label>
                 <button className={`checkbox ${makePublic ? "show-check" : ""}`} onClick={evt => togglePublic(evt)}>{"✔"}</button>
