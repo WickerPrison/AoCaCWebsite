@@ -32,6 +32,19 @@ export default function InitiativeTracker(){
         setInitEntries([]);
     }
 
+    const sortEntries = evt => {
+        evt.preventDefault();
+        const temp = initEntries.slice();
+        console.log(temp);
+        temp.sort((a, b) => {
+            if(a.successes == b.successes){
+                return b.advantage - a.advantage;
+            }
+            return b.successes - a.successes;
+        })
+        setInitEntries(temp);
+    }
+
     const updateMethods = {
         updateEntry(entry){
             const updatedEntries = initEntries.map(oldEntry => {
@@ -40,7 +53,6 @@ export default function InitiativeTracker(){
                 }
                 return oldEntry;
             })
-            console.log(updatedEntries);
             setInitEntries(updatedEntries);
         },
         removeEntry(id){
@@ -81,7 +93,7 @@ export default function InitiativeTracker(){
                 </div>
                 <div>
                     <button className="small-button" onClick={e => addEntry(e)}>Add</button>
-                    <button className="small-button">Sort</button>
+                    <button className="small-button" onClick={e => sortEntries(e)}>Sort</button>
                     <button className="small-button" onClick={e => clearEntries(e)}>Clear</button>
                 </div>
             </div>
