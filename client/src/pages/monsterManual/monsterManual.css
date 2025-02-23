@@ -1,3 +1,7 @@
+:root{
+    --monsterMargin: 2rem;
+}
+
 .monster-manual #monster-list{
     width: 100%;
     display: flex;
@@ -11,7 +15,7 @@
     max-width: 90%;
     margin: 2rem auto 0;
     background-color: var(--green2);
-    padding: 0 2em 1em;
+    padding: 0 0 1em;
     position: relative;
 }
 
@@ -19,7 +23,7 @@
     display: flex;
     justify-content: left;
     text-align: left;
-    margin: 0.6em 0;
+    margin: 0.6em var(--monsterMargin);
 }
 
 .monster-manual .monster-row div{
@@ -28,7 +32,7 @@
 
 .monster-manual .stat-block-section{
     display: flex;
-    margin: 0.6em 0;
+    margin: 0.6em var(--monsterMargin);
 }
 
 .monster-manual .stat-numbers{
@@ -93,18 +97,17 @@
 
 
 .monster-manual .attacks-heading{
-    width: 120%;
+    width: 100%;
     position: relative;
-    left: -10%;
     background-color: var(--green);
     font-size: var(--size2);
-    padding: 0.3em;
+    padding: 0.3em 0;
 }
 
 .monster-manual .attacks{
     display: flex;
     flex-direction: column;
-    margin: 0.6em 0;
+    margin: 0.6em var(--monsterMargin);
 }
 
 .monster-manual .attack-profile{
@@ -196,16 +199,6 @@
 .monster-manual .stat-numbers:has(.Willpower:hover) .Willpower-label{
     color: black;
     cursor: pointer;
-}
-
-.monster-manual .card-banner{
-    background-color: var(--green);
-    width: 110%;
-    position: relative;
-    left: -5%;
-    font-size: var(--size2);
-    padding: 0.3em 0;
-    margin: 0.4em;
 }
 
 .monster-manual #results-holder{

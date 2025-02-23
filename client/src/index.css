@@ -27,6 +27,7 @@
     --leftMargin: 1.17em;
 
     --cardCorner: 1.5em;
+    --boxCorner: 12px;
 
     --diceSize: 9vh;
 }
@@ -152,18 +153,16 @@ h4{
 }
 
 .box{
-    display: inline-block;
+    position: relative;
     background-color: var(--green2);
     border: none;
-    padding: 0.3em;
     padding-top: 0;
     color: white;
-    border-radius: 12px;
+    border-radius: var(--boxCorner);
     text-align: center;
     margin: 0 auto;
     font-size: var(--baseTextSize);
     max-width: 30%;
-    overflow: hidden;
 }
 
 .box p, .box h4{
@@ -185,12 +184,27 @@ h4{
 }
 
 .box-header{
+    position: relative;
     background-color: var(--green);
     padding-bottom: 0.4em;
     padding-top: 0.4em;
-    width: 150%;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    font-size: var(--size2);
+    margin-bottom: 0.4em;
+    margin-top: 0;
+    border-radius: var(--boxCorner) var(--boxCorner) 0 0;
+}
+
+.box-banner{
     position: relative;
-    left: -25%;
+    background-color: var(--green);
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
     font-size: var(--size2);
     margin-bottom: 0.4em;
     margin-top: 0;

@@ -18,8 +18,8 @@
 }
 
 #crit .roll-info .box-header{
-    width: 110%;
-    left: -5%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #crit #rolled-severity{
@@ -52,7 +52,7 @@
 #crit .roll-info button{
     grid-column: 1/3;
     padding: 0.1rem 0.7rem;
-    margin: 0 auto;
+    margin: 0 auto 0.4rem;
 }
 
 #crit .left-column{
@@ -184,6 +184,7 @@
 
     #crit .roll-info{
         height: 6rem;
+        row-gap: 0.2rem;
     }
 
     #crit .crit-info{

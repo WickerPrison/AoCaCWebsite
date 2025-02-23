@@ -166,7 +166,7 @@
     flex-wrap: wrap;
     min-height: 6em;
     background-color: var(--grey);
-    margin: -0.6em -0.2em 0;
+    margin: -0.6em 0em 0;
 }
 
 #spell-builder #results-holder .square-die{
