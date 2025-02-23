@@ -26,7 +26,7 @@
     --smallFont: calc(var(--baseTextSize) / 1.62);
     --leftMargin: 1.17em;
 
-    --cardCorner: 1.5em;
+    --cardCorner: 1.5rem;
     --boxCorner: 12px;
 
     --diceSize: 9vh;

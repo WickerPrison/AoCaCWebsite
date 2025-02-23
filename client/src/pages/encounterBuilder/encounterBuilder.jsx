@@ -9,6 +9,7 @@ import { multipleFetch, singleFetch } from '../../js/getData';
 import { RollData } from '../../js/rollDice';
 import getUrl from '../../utils/getUrl';
 import auth from '../../utils/auth';
+import InitiativeTracker from './initiativeTracker';
 
 
 function MonsterData(){
@@ -140,6 +141,7 @@ export default function EncounterBuilder(){
         <main className='monster-manual encounter-builder'>
             <FixedHeader/>
             <PageHeading title="Encounter Builder"/>
+            <InitiativeTracker/>
             <div id="top-buttons">
                 {auth.loggedIn() ? <button id="save-button" className="small-button" onClick={save}>Save</button>: null }
                 {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
