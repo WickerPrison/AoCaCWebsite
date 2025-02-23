@@ -42,6 +42,30 @@ export default function InitiativeTracker(){
             })
             console.log(updatedEntries);
             setInitEntries(updatedEntries);
+        },
+        removeEntry(id){
+            const updatedEntries = initEntries.filter(entry => {
+                return entry.id !== id;
+            })
+            setInitEntries(updatedEntries);
+        },
+        moveUp(id){
+            const temp = initEntries.slice();
+            const index = temp.findIndex(entry => entry.id == id);
+            if(index == 0) return;
+            const tempEntry = temp[index - 1];
+            temp[index - 1] = temp[index];
+            temp[index] = tempEntry;
+            setInitEntries(temp);
+        },
+        moveDown(id){
+            const temp = initEntries.slice();
+            const index = temp.findIndex(entry => entry.id == id);
+            if(index + 1 >= temp.length) return;
+            const tempEntry = temp[index + 1];
+            temp[index + 1] = temp[index];
+            temp[index] = tempEntry;
+            setInitEntries(temp);
         }
     }
 
