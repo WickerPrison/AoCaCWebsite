@@ -11,6 +11,10 @@
     padding: 0 0 0 0.4em;
 }
 
+.filters{
+    overflow: auto;
+}
+
 .filters .options-holder{
     display: flex;
     flex-wrap: wrap;
@@ -40,6 +44,7 @@
 }
 
 .filters .sort-options{
+    position: relative;
     float: left;
     padding: 0.3rem 0.7rem;
     margin: 0.3rem;
