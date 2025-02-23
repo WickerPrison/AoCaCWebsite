@@ -154,7 +154,7 @@ export default function SpellBuilder(){
                         return <ResultDie squareDie={output.squareDie} dieName={output.dieName} key={index}/>
                     })}
                     </div>
-                    <h4 className="box-header">Total</h4>
+                    <h4 className="box-banner">Total</h4>
                     <div className="output-box">
                         <RollerResult result={results.conquests} label="Conquests: "/>
                         <RollerResult result={results.calamities} label="Calamities: "/>

@@ -13,6 +13,7 @@
 
 .filters{
     overflow: auto;
+    padding-bottom: 0.7rem;
 }
 
 .filters .options-holder{
@@ -46,7 +47,7 @@
 .filters .sort-options{
     position: relative;
     float: left;
-    padding: 0.3rem 0.7rem;
+    padding: 0 0.7rem;
     margin: 0.3rem;
 }
 

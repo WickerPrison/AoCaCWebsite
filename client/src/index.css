@@ -197,6 +197,19 @@ h4{
     border-radius: var(--boxCorner) var(--boxCorner) 0 0;
 }
 
+.box-banner{
+    position: relative;
+    background-color: var(--green);
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    font-size: var(--size2);
+    margin-bottom: 0.4em;
+    margin-top: 0;
+}
+
 .box-holder{
     display: flex;
     flex-direction: column;
