@@ -201,16 +201,6 @@
     cursor: pointer;
 }
 
-.monster-manual .card-banner{
-    background-color: var(--green);
-    width: 110%;
-    position: relative;
-    left: -5%;
-    font-size: var(--size2);
-    padding: 0.3em 0;
-    margin: 0.4em;
-}
-
 .monster-manual #results-holder{
     display: flex;
     flex-wrap: wrap;
