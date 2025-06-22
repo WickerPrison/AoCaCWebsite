@@ -67,6 +67,10 @@ export default function EncounterBuilder(){
             }
 
             setMonsterDict(data.monsters);
+            console.log(data.initiativeTracker);
+            if(data.initiativeTracker){
+                setInitEntries(data.initiativeTracker);
+            }
         }
         getData();
     }, [])
@@ -113,6 +117,23 @@ export default function EncounterBuilder(){
         console.log(saveArray);
         console.log(monsters);
 
+        let initiativeTracker = [];
+        for(let i = 0; i < initEntries.length; i++){
+            let newObject = {
+                name: initEntries[i].name,
+                team: initEntries[i].team,
+                successes: initEntries[i].successes,
+                advantage: initEntries[i].advantage,
+                conquests: initEntries[i].conquests
+            }
+            initiativeTracker.push(newObject);
+        }
+
+        let saveObject = {
+            monsters: saveArray,
+            initiativeTracker: initiativeTracker
+        }
+        console.log(saveObject);
         const response = await fetch(getUrl() + '/api/monsters/encounterBuilder', {
             method: 'PUT',
             mode: 'cors',
@@ -120,7 +141,7 @@ export default function EncounterBuilder(){
                 'Content-Type': 'application/json',
                 'Authorization':"token " + auth.getToken()
             },
-            body: JSON.stringify(saveArray)
+            body: JSON.stringify(saveObject)
         })
 
         if(response.ok){

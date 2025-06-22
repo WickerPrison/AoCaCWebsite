@@ -38,7 +38,7 @@ export default function Roll({roll, update, fixedCard=false, initStuff=null}){
         setTimeout(() => {
             let results = rollDice(roll);
             setResults(results);
-            if(addToInit != null) addToInit(roll.monsterName, results.successes, results.advantage, results.conquests);
+            if(useForInit) addToInit(roll.monsterName, results.successes, results.advantage, results.conquests);
         }, 200)
     }
 
@@ -79,6 +79,7 @@ export default function Roll({roll, update, fixedCard=false, initStuff=null}){
         let temp = initStuff.initEntries.slice();
         temp.push(newData);
         initStuff.setInitEntries(temp);
+        setUseForInit(false);
     };
 
     return (
