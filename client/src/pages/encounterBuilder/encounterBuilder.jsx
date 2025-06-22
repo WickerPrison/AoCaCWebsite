@@ -11,6 +11,14 @@ import getUrl from '../../utils/getUrl';
 import auth from '../../utils/auth';
 import InitiativeTracker from './initiativeTracker';
 
+function initData(){
+    this.name = "";
+    this.team = "";
+    this.successes = 0;
+    this.advantage = 0;
+    this.conquests = 0;
+    this.id = crypto.randomUUID();
+}
 
 function MonsterData(){
     this.id;
@@ -25,6 +33,7 @@ export default function EncounterBuilder(){
     let [showRoll, setShowRoll] = useState(false);
     let [monsterDict, setMonsterDict] = useState([]);
     let [currentMonster, setCurrentMonster] = useState([]);
+    let [initEntries, setInitEntries] = useState([]);
 
     let hasLoaded = useRef(false);
 
@@ -141,7 +150,7 @@ export default function EncounterBuilder(){
         <main className='monster-manual encounter-builder'>
             <FixedHeader/>
             <PageHeading title="Encounter Builder"/>
-            <InitiativeTracker/>
+            <InitiativeTracker initEntries={initEntries} setInitEntries={setInitEntries} initData={initData}/>
             <div id="top-buttons">
                 {auth.loggedIn() ? <button id="save-button" className="small-button" onClick={save}>Save</button>: null }
                 {monsters.length > 0 ? <button id="clear-all" className="small-button" onClick={() => setMonsters([])}>Clear All</button>: null }
@@ -162,7 +171,7 @@ export default function EncounterBuilder(){
                 </datalist>
                 <h4 id="add-monster" onClick={() => addNewMonster(currentMonster)}>+ Add Monster</h4>
             </div>
-            {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods}/>:null}
+            {showRoll ? <Roll roll={roll} fixedCard={true} update={updateRollMethods} initStuff={{initData: initData, initEntries: initEntries, setInitEntries: setInitEntries}}/>:null}
             <footer></footer>
         </main>
     )

@@ -2,18 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import InitiativeEntry from './initiativeEntry';
 import './initiativeTracker.css';
 
-function initData(){
-    this.name = "";
-    this.team = "";
-    this.successes = 0;
-    this.advantage = 0;
-    this.conquests = 0;
-    this.id = crypto.randomUUID();
-}
-
-export default function InitiativeTracker(){
+export default function InitiativeTracker({initEntries, setInitEntries, initData}){
     let [showInit, setShowInit] = useState(false);
-    let [initEntries, setInitEntries] = useState([]);
     
     const toggleShowInit = evt => {
         evt.preventDefault();
@@ -35,7 +25,6 @@ export default function InitiativeTracker(){
     const sortEntries = evt => {
         evt.preventDefault();
         const temp = initEntries.slice();
-        console.log(temp);
         temp.sort((a, b) => {
             if(a.successes == b.successes){
                 return b.advantage - a.advantage;
