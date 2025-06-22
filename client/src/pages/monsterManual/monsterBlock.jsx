@@ -13,6 +13,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
         newRoll.ability = attributeValue;
+        newRoll.monsterName = monster.name;
         newRoll.name = monster.name + " " + attributeName;
         updateMethods.setRoll(newRoll);
         updateMethods.setShowRoll(true);
@@ -24,6 +25,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
             , skillsDict[skillName][0]);
         attribute = attribute.toLowerCase();
         let newRoll = new RollData();
+        newRoll.monsterName = monster.name;
         newRoll.name = monster.name + " " + skillName;
         if(skillRanks > monster[attribute]){
             newRoll.ability = skillRanks;

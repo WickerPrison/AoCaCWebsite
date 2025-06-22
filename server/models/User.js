@@ -2,6 +2,7 @@ const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
 const rollSchema = require('./Roll');
 const monsterDataSchema = require('./MonsterData'); // with a capital M
+const initiativeTrackerSchema = require('./InitiativeTracker');
 
 const userSchema = new Schema(
     {
@@ -27,6 +28,9 @@ const userSchema = new Schema(
         },
         encounterData:{
             type: [monsterDataSchema]
+        },
+        initiativeTracker:{
+            type:[initiativeTrackerSchema]
         },
         isAdmin:{
             type: Boolean

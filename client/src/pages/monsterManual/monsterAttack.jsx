@@ -64,6 +64,7 @@ export default function MonsterAttack({attack, monster, setRoll, setShowRoll, mo
         }
 
         let newRoll = new RollData();
+        newRoll.monsterName = monster.name;
         newRoll.name = monster.name + " " + attack.name;
         newRoll.challenge = 1;
         newRoll.difficulty = 1;

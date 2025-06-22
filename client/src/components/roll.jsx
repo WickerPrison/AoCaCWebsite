@@ -4,10 +4,10 @@ import { ResultData, RollData, rollDice, upgradeRoll } from '../js/rollDice';
 import ResultDie from './resultDie';
 import RollerResult from './rollerResult';
 
-
-export default function Roll({roll, update, fixedCard=false}){
+export default function Roll({roll, update, fixedCard=false, initStuff=null}){
     let [results, setResults] = useState(new ResultData());
     let [d10val, setd10val] = useState('-');
+    let [useForInit, setUseForInit] = useState(false);
 
     let styles;
     if(fixedCard){
@@ -36,7 +36,9 @@ export default function Roll({roll, update, fixedCard=false}){
     function performRoll(){
         setResults(new ResultData());
         setTimeout(() => {
-            setResults(rollDice(roll));
+            let results = rollDice(roll);
+            setResults(results);
+            if(useForInit) addToInit(roll.monsterName, results.successes, results.advantage, results.conquests);
         }, 200)
     }
 
@@ -62,6 +64,24 @@ export default function Roll({roll, update, fixedCard=false}){
         }, 200)
     }
 
+    const toggleInit = (evt) => {
+        evt.preventDefault();
+        setUseForInit(!useForInit);
+    }
+
+
+    const addToInit = (name, success, advantage, conquests) => {
+        let newData = new initStuff.initData;
+        newData.name = name;
+        newData.successes = success;
+        newData.advantage = advantage;
+        newData.conquests = conquests;
+        let temp = initStuff.initEntries.slice();
+        temp.push(newData);
+        initStuff.setInitEntries(temp);
+        setUseForInit(false);
+    };
+
     return (
         <div id="dice-roller" className="box roll-box" style={styles.fixedCard}>
             <button className="remove-button" onClick={e =>update.removeRoll(roll.index)}>X</button>
@@ -85,6 +105,10 @@ export default function Roll({roll, update, fixedCard=false}){
                     <h4>Automatic Successes: <input className="auto-success" type="number" value={roll.autoSuccess} onChange={e => updateRoll("autoSuccess", e.target.value)}/></h4>
                     <h4>Automatic Advantage: <input className="auto-advantage" type="number" value={roll.autoAdvantage} onChange={e => updateRoll("autoAdvantage", e.target.value)}/></h4>
                     <h4>Roll d10: <button className='small-button d10-button' onClick={rolld10}>{d10val}</button></h4>
+                    {initStuff != null?
+                        <h4>Use for Initiative: <button className={`checkbox ${useForInit ? "show-check" : ""}`} onClick={evt => toggleInit(evt)}>{"✔"}</button></h4> 
+                        : null
+                    }
                 </div>
             </div>
             <div className="button-box">

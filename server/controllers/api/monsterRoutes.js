@@ -105,6 +105,7 @@ router.get('/encounterBuilder', authMiddleware, async (req, res) => {
             res.json(err);
         });
         data.encounterData = user.encounterData;
+        data.initiativeTracker = user.initiativeTracker;
 
         monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').catch(err => {
             res.json(err);
@@ -121,14 +122,15 @@ router.get('/encounterBuilder', authMiddleware, async (req, res) => {
     res.json(data);
 });
 
-router.put('/encounterBuilder', authMiddleware, async (req, res) => {
+router.put('/encounterBuilder', authMiddleware, async (req, res) => {    
     if(!req.user) {
         res.json("Authentication Error");
         return;
     }
     const user = await User.findByIdAndUpdate(req.user._id,
         {
-            encounterData: req.body
+            encounterData: req.body.monsters,
+            initiativeTracker: req.body.initiativeTracker
         },
         {new: true})
         .catch((err) => {

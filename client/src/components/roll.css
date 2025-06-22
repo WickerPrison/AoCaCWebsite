@@ -33,6 +33,11 @@
     pointer-events: auto;
 }
 
+#dice-roller .checkbox{
+    pointer-events:  auto;
+    margin: 0 1.1rem;
+}
+
 #dice-roller .remove-button{
     color: white;
     font-size: calc(var(--baseTextSize) * 0.8);
@@ -163,5 +168,10 @@
     #dice-roller .results-holder img{
         height: 4em;
         margin: 0 0.4em;
+    }
+
+    #dice-roller .checkbox{
+        pointer-events:  auto;
+        margin: 0 0.55rem;
     }
 }

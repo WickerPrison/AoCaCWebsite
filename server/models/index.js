@@ -24,5 +24,5 @@ module.exports = {
     WeaponProp,
     Enchantment,
     Attack,
-    Monster
+    Monster,
 };
