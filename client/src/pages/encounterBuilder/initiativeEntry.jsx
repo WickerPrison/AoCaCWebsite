@@ -30,14 +30,14 @@ export default function InitiativeEntry({entryData, updateMethods}){
             <input type="text" value={entryData.name} onChange={e => updateEntry("name", e.target.value)}></input>
             <label>Team </label>
             <input type="text" value={entryData.team} onChange={e => updateEntry("team", e.target.value)}></input>
-            <button className="order-button" onClick={e => moveUp(e)}>^</button>
+            {/* <button className="order-button" onClick={e => moveUp(e)}>^</button> */}
             <label>Suc. </label>
             <input type="number" value={entryData.successes} onChange={e => updateEntry("successes", e.target.value)}></input>
             <label>Adv. </label>
             <input type="number" value={entryData.advantage} onChange={e => updateEntry("advantage", e.target.value)}></input>
             <label>Conq. </label>
             <input type="number" value={entryData.conquests} onChange={e => updateEntry("conquests", e.target.value)}></input>
-            <button className="order-button" onClick={e => moveDown(e)}>v</button>
+            {/* <button className="order-button" onClick={e => moveDown(e)}>v</button> */}
         </div>
     )
 }

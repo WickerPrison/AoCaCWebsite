@@ -114,8 +114,6 @@ export default function EncounterBuilder(){
             }
             saveArray.push(newObject);
         }
-        console.log(saveArray);
-        console.log(monsters);
 
         let initiativeTracker = [];
         for(let i = 0; i < initEntries.length; i++){
