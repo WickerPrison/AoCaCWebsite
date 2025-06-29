@@ -3,6 +3,7 @@ import './monsterBuilder.css';
 import { useEffect, useState, useRef } from 'react';
 import getUrl from '../../utils/getUrl';
 import {spellEffects} from '../../data/scholarlySpellEffects';
+import TooltipText from '../../components/tooltips/tooltipText';
 
 
 export default function AddSpells(){
@@ -49,16 +50,21 @@ export default function AddSpells(){
                         {spellEffects.metamagic.map(spell => {
                             return <div key={spell.Name} className={`toggle ${spells.includes(spell.Name) ? "on" : ""}`}
                             onClick={() => toggleSpellEffect(spell)}
-                            >{spell.Name}</div>
+                            ><TooltipText displayText={spell.Name} tooltipText={[
+                                `Duration: ${spell.Duration}`,
+                                `Modifer: ${spell.Modifier}`,
+                                `${spell.Description}`]}/></div>
                         })}
-
                     </div>
                     <div>
                         <div className='effects-header'>Initiate</div>
                         {spellEffects.initiate.map(spell => {
                             return <div key={spell.Name} className={`toggle ${spells.includes(spell.Name) ? "on" : ""}`}
                             onClick={() => toggleSpellEffect(spell)}
-                            >{spell.Name}</div>
+                            ><TooltipText displayText={spell.Name} tooltipText={[
+                                `Duration: ${spell.Duration}`,
+                                `Modifer: ${spell.Modifier}`,
+                                `${spell.Description}`]}/></div>
                         })}
                     </div>
                     <div>
@@ -66,7 +72,10 @@ export default function AddSpells(){
                         {spellEffects.adept.map(spell => {
                             return <div key={spell.Name} className={`toggle ${spells.includes(spell.Name) ? "on" : ""}`}
                             onClick={() => toggleSpellEffect(spell)}
-                            >{spell.Name}</div>
+                            ><TooltipText displayText={spell.Name} tooltipText={[
+                                `Duration: ${spell.Duration}`,
+                                `Modifer: ${spell.Modifier}`,
+                                `${spell.Description}`]}/></div>
                         })}
                     </div>
                     <div>
@@ -74,7 +83,10 @@ export default function AddSpells(){
                         {spellEffects.magister.map(spell => {
                             return <div key={spell.Name} className={`toggle ${spells.includes(spell.Name) ? "on" : ""}`}
                             onClick={() => toggleSpellEffect(spell)}
-                            >{spell.Name}</div>
+                            ><TooltipText displayText={spell.Name} tooltipText={[
+                                `Duration: ${spell.Duration}`,
+                                `Modifer: ${spell.Modifier}`,
+                                `${spell.Description}`]}/></div>
                         })}
                     </div>
                     <div>
@@ -82,7 +94,10 @@ export default function AddSpells(){
                         {spellEffects.arcanist.map(spell => {
                             return <div key={spell.Name} className={`toggle ${spells.includes(spell.Name) ? "on" : ""}`}
                             onClick={() => toggleSpellEffect(spell)}
-                            >{spell.Name}</div>
+                            ><TooltipText displayText={spell.Name} tooltipText={[
+                                `Duration: ${spell.Duration}`,
+                                `Modifer: ${spell.Modifier}`,
+                                `${spell.Description}`]}/></div>
                         })}
                     </div>
                 </div>

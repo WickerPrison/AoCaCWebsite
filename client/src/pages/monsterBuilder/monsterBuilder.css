@@ -185,6 +185,13 @@
     padding: 0 0.5rem;
 }
 
+#monster-builder .spell-effect-grid .tooltip-text:hover,
+#monster-builder .spell-effect-grid .tooltip-text:active{
+    color: var(--green3);
+    cursor: pointer;
+    position: relative;
+}
+
 #monster-builder .effects-header{
     font-size: var(--size2);
     font-family: var(--headerFont);
