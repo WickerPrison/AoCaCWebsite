@@ -13,6 +13,7 @@ import FlexibleTextarea from '../../components/flexibleTextarea';
 import auth from '../../utils/auth';
 import Checklist from '../../components/checklist/checklist';
 import TalentsSelector from './talentsSelector';
+import AddSpells from './addSpells';
 
 const Tiers={
     MINION: "Minion",
@@ -241,6 +242,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 )
             })}
             <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
+            <h4 className="card-element">Scholarly Magic</h4>
+            <AddSpells></AddSpells>
             <h4 className="card-element">Finalize</h4>
             <div className="make-public">
                 <label>Make Public: </label>
