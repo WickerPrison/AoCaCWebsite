@@ -6,9 +6,7 @@ import {spellEffects} from '../../data/scholarlySpellEffects';
 import TooltipText from '../../components/tooltips/tooltipText';
 
 
-export default function AddSpells(){
-    const [hasSpells, setHasSpells] = useState(false);
-    const [spells, setSpells] = useState([]);
+export default function AddSpells({hasSpells, setHasSpells, spells, setSpells}){
 
     function toggleSpells(evt){
         evt.preventDefault(); 

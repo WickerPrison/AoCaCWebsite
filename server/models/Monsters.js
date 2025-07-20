@@ -104,6 +104,10 @@ const monsterSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "attack"
         }],
+        spells:{
+            type: [String],
+            default: [],
+        },
         talents:{
             type: [Schema.Types.Mixed],
             default: []
