@@ -39,15 +39,15 @@ export default function MonsterSpell({spellName, spellData, setSpellData}){
                 temp.splice(index, 1);
             }
         }
-        let tempData = spellData;
+        let tempData = {...spellData};
         tempData.currentEffects = temp;
         setSpellData(tempData);
     }
 
     return (
         <div className="spell-effect">
-            <div className="spell-effect-name"><strong>{spell.Name}</strong></div>
             <input className="stat-field" type="number" min={0} value={nodes} onChange={(e) => updateNodes(e.target.value)}/>
+            <div className="spell-effect-name"><strong>{spell.Name}</strong></div>
             <div className="monster-line"></div>
             <div className="spell-stats"><strong>{"Tier:              "}</strong>{spell.Tier}</div>
             <div className="spell-stats"><strong>Duration: </strong>{spell.Duration}</div>

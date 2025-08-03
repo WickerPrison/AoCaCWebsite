@@ -8,6 +8,7 @@ import { talents } from "../../data/talents";
 import TooltipText from "../../components/tooltips/tooltipText";
 import MonsterSpell from "./monsterSpell";
 import {SpellData} from "../spellBuilder/spellBuilder"
+import { assembleDicePool } from "../spellBuilder/buildSpell";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     let [spellData, setSpellData] = useState(new SpellData())
@@ -23,6 +24,25 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
     }
 
     function rollSkillCheck(skillName, skillRanks){
+        let newRoll = getSkillCheckData(skillName, skillRanks);
+        updateMethods.setRoll(newRoll);
+        updateMethods.setShowRoll(true);
+    }
+
+    function rollScholarlySpell(){
+        let skill = monster.skills.find(skill => { return skill.name == "Scholarly"})
+        let ranks = 0;
+        if(skill) ranks = skill.value;
+        let newRoll = getSkillCheckData("Scholarly", ranks);
+        let tempData = {...spellData};
+        tempData.customMods = newRoll;
+        let pool = assembleDicePool(tempData);
+        updateMethods.setRoll(pool);
+        updateMethods.setShowRoll(true);
+        setSpellData(tempData);
+    }
+
+    function getSkillCheckData(skillName, skillRanks){
         let attribute = skillsDict[skillName].reduce(
             (largest, current) => monster[current.toLowerCase()] > monster[largest.toLowerCase()] ? current:largest
             , skillsDict[skillName][0]);
@@ -38,8 +58,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
             newRoll.ability = monster[attribute];
             newRoll.upgradeAbility = skillRanks;
         }
-        updateMethods.setRoll(newRoll);
-        updateMethods.setShowRoll(true);
+        return newRoll;
     }
     
     function setupCreatureTypes(){
@@ -215,6 +234,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                         return <MonsterSpell key={index} spellName={spell} spellData={spellData} setSpellData={setSpellData}/>
                     })} 
                 </div>
+                <button id="new-roll" className="small-button" onClick={rollScholarlySpell}>Cast Spell</button>
             </>) : null}
 
         </section>
