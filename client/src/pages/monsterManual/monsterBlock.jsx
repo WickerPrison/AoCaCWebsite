@@ -12,6 +12,7 @@ import { assembleDicePool, TargetTypes, Ranges } from "../spellBuilder/buildSpel
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     let [spellData, setSpellData] = useState(new SpellData())
+    let [showFullSpells, setShowFullSpell] = useState(false);
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 
 

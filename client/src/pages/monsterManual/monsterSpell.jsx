@@ -4,6 +4,7 @@ import {spellEffects} from "../../data/scholarlySpellEffects";
 
 export default function MonsterSpell({spellName, spellData, setSpellData}){
     let [nodes, setNodes] = useState(0);
+    let [showFull, setShowFull] = useState(false);
     const spellTiers = ["metamagic", "initiate", "adept", "magister", "arcanist"]
     const spell =(() => {
         for(let i = 0; i < spellTiers.length; i++){
@@ -44,15 +45,24 @@ export default function MonsterSpell({spellName, spellData, setSpellData}){
         setSpellData(tempData);
     }
 
+    function toggleShowFull(){
+        setShowFull(!showFull);
+    }
+
     return (
         <div className="spell-effect">
             <input className="stat-field" type="number" min={0} value={nodes} onChange={(e) => updateNodes(e.target.value)}/>
-            <div className="spell-effect-name"><strong>{spell.Name}</strong></div>
+            <div className="spell-effect-name clickable-text" onClick={toggleShowFull}><strong>{spell.Name}</strong></div>
             <div className="monster-line"></div>
-            <div className="spell-stats"><strong>{"Tier:              "}</strong>{spell.Tier}</div>
-            <div className="spell-stats"><strong>Duration: </strong>{spell.Duration}</div>
-            <div className="spell-modifier"><strong>Modifier: </strong>{spell.Modifier}</div>
-            <div className="spell-description"><strong>Description: </strong>{spell.Description}</div>
+            {showFull ? 
+            <div className='spell-effect'>
+                <div className="spell-stats"><strong>{"Tier:              "}</strong>{spell.Tier}</div>
+                <div className="spell-stats"><strong>Duration: </strong>{spell.Duration}</div>
+                <div className="spell-modifier"><strong>Modifier: </strong>{spell.Modifier}</div>
+                <div className="spell-description"><strong>Description: </strong>{spell.Description}</div>
+            </div>
+            :null}
+
         </div>
     )
 }
