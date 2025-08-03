@@ -158,6 +158,41 @@
     max-width: 90%;
 }
 
+.monster-manual .spell-effects-list{
+    display: flex;
+    flex-direction: column;
+    margin: 0.6em var(--monsterMargin);
+}
+
+.monster-manual .spell-effect {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.4em 0;
+}
+
+.monster-manual .spell-effect-name{
+    margin-left: 2rem;
+    text-align: left;
+    flex-basis: 80%;
+}
+
+.monster-manual .spell-stats{
+    flex-basis: 17.5%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.monster-manual .spell-modifier{
+    flex-basis: 65%;
+    text-align: left;
+}
+
+.monster-manual .spell-description{
+    flex-basis: 100%;
+    text-align: left;
+}
+
 /* .monster-manual #close-button{
     position: fixed;
     left: 6%;

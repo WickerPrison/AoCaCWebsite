@@ -6,10 +6,13 @@ import OfficialIcon from "../../components/officialIcon";
 import { abilities } from "../../data/abilities";
 import { talents } from "../../data/talents";
 import TooltipText from "../../components/tooltips/tooltipText";
+import MonsterSpell from "./monsterSpell";
+import {SpellData} from "../spellBuilder/spellBuilder"
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
+    let [spellData, setSpellData] = useState(new SpellData())
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
-    
+
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
         newRoll.ability = attributeValue;
@@ -204,6 +207,15 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                 </div>
             </>)
             :null}
+            {monster.spells.length > 0
+            ?(<>
+                <div className="attacks-heading">Scholarly Spell Effects</div>
+                <div className="spell-effects-list">
+                    {monster.spells.map((spell, index) => {
+                        return <MonsterSpell key={index} spellName={spell} spellData={spellData} setSpellData={setSpellData}/>
+                    })} 
+                </div>
+            </>) : null}
 
         </section>
     )
