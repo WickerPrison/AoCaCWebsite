@@ -8,11 +8,12 @@ import { talents } from "../../data/talents";
 import TooltipText from "../../components/tooltips/tooltipText";
 import MonsterSpell from "./monsterSpell";
 import {SpellData} from "../spellBuilder/spellBuilder"
-import { assembleDicePool } from "../spellBuilder/buildSpell";
+import { assembleDicePool, TargetTypes, Ranges } from "../spellBuilder/buildSpell";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     let [spellData, setSpellData] = useState(new SpellData())
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
+
 
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
@@ -40,6 +41,12 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
         updateMethods.setRoll(pool);
         updateMethods.setShowRoll(true);
         setSpellData(tempData);
+    }
+
+    function updateSpellData(property, value){
+        let temp = {...spellData};
+        temp[property] = value;
+        setSpellData(temp);
     }
 
     function getSkillCheckData(skillName, skillRanks){
@@ -233,6 +240,33 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                     {monster.spells.map((spell, index) => {
                         return <MonsterSpell key={index} spellName={spell} spellData={spellData} setSpellData={setSpellData}/>
                     })} 
+                </div>
+                <div className="spell-options">
+                    <div className="spell-option-pair">
+                        <label>Range:</label>
+                        <select name="ranges" id="ranges" value={spellData.range} onChange={(e) => {updateSpellData("range", e.target.value)}}>
+                            <option value={Ranges.ENGAGED}>Engaged (5cm)</option>
+                            <option value={Ranges.EXTENDED}>Extended (8cm)</option>
+                            <option value={Ranges.SHORT}>Short (15cm)</option>
+                            <option value={Ranges.MEDIUM}>Medium (30cm)</option>
+                            <option value={Ranges.LONG}>Long (70cm)</option>
+                            <option value={Ranges.EXTREME}>Extreme (120cm)</option>
+                        </select>
+                    </div>
+                    <div className="spell-option-pair">
+                        <label>Target Type:</label>
+                        <select name="target-types" id="target-types" value={spellData.targetType} onChange={(e) => {updateSpellData("targetType", e.target.value)}}>
+                            <option value={TargetTypes.SINGLE}>Single</option>
+                            <option value={TargetTypes.MULTI}>Multi</option>
+                            <option value={TargetTypes.AREA}>Area</option>
+                        </select>
+                    </div>
+                    {spellData.targetType == TargetTypes.MULTI ? 
+                    <div className="spell-option-pair">
+                        <label>Target Number:</label>
+                        <input className="stat-field" type="number" min={2} value={spellData.targetNum} onChange={(e) => updateSpellData("targetNum", e.target.value)}/>
+                    </div>
+                    :<div className="spell-option-pair"></div>}
                 </div>
                 <button id="new-roll" className="small-button" onClick={rollScholarlySpell}>Cast Spell</button>
             </>) : null}
