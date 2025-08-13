@@ -173,6 +173,30 @@
     overflow: auto;
 }
 
+#monster-builder .spacer{
+    margin: 1rem 1rem;
+}
+
+#monster-builder .spell-effect-grid{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    row-gap: 1rem;
+    align-items: top;
+    padding: 0 0.5rem;
+}
+
+#monster-builder .spell-effect-grid .tooltip-text:hover,
+#monster-builder .spell-effect-grid .tooltip-text:active{
+    color: var(--green3);
+    cursor: pointer;
+    position: relative;
+}
+
+#monster-builder .effects-header{
+    font-size: var(--size2);
+    font-family: var(--headerFont);
+}
+
 @media screen and (max-width: 768px){
     #create-monster .flex-grid-entries .toggle{
         flex-basis: 4rem;

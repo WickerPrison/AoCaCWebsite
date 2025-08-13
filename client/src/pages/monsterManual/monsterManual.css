@@ -158,6 +158,66 @@
     max-width: 90%;
 }
 
+.monster-manual .spell-effects-list{
+    display: flex;
+    flex-direction: column;
+    margin: 0.6em var(--monsterMargin);
+}
+
+.monster-manual .spell-effect {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.4em 0;
+}
+
+.monster-manual .spell-effect-name{
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.monster-manual .effect-edge-case{
+    margin-left: 1rem;
+}
+
+.monster-manual .spell-stats{
+    flex-basis: 17.5%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.monster-manual .spell-modifier{
+    flex-basis: 65%;
+    text-align: left;
+}
+
+.monster-manual .spell-description{
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.monster-manual .spell-options{
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding: 0 var(--monsterMargin);
+    justify-content: center;
+}
+
+.monster-manual .spell-options .spell-option-pair{
+    display: flex;
+    flex-basis: 33%;
+}
+
+.monster-manual .spell-options .spell-option-pair label{
+    margin-right: 0.5rem;
+    margin-left: auto;
+}
+
+.monster-manual .spell-options .spell-option-pair *{
+    margin-right: auto
+}
+
+
 /* .monster-manual #close-button{
     position: fixed;
     left: 6%;

@@ -27,6 +27,7 @@ const TargetTypes = {
 const modTypes = ["proficiency", "ability", "boost", "challenge", "difficulty", "penalty", "upgradeDifficulty", "upgradeAbility", "autoSuccess"]
 
 function assembleDicePool(spellData){
+    console.log(spellData);
     let pool = new RollData();
     // ranges
     pool.difficulty += Number(RangeValues[spellData.range]);

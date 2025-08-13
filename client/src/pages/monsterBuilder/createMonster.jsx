@@ -13,6 +13,7 @@ import FlexibleTextarea from '../../components/flexibleTextarea';
 import auth from '../../utils/auth';
 import Checklist from '../../components/checklist/checklist';
 import TalentsSelector from './talentsSelector';
+import AddSpells from './addSpells';
 
 const Tiers={
     MINION: "Minion",
@@ -56,10 +57,12 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
     const [weakResist, setWeakResist] = useState([]);
     const [attacks, setAttacks] = useState([]);
     const [official, setOfficial] = useState(false);
+    const [hasSpells, setHasSpells] = useState(false);
+    const [spells, setSpells] = useState([]);
     
     function getStates(){
         const data = {
-            name, tier, sil, makePublic, creatureTypes, stats, talents, abilities, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, official
+            name, tier, sil, makePublic, creatureTypes, stats, talents, abilities, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, spells, official
         }
         return data;
     }
@@ -80,6 +83,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
         setCustomImmunities("");
         setWeakResist([]);
         setAttacks([]);
+        setHasSpells(false);
+        setSpells([]);
         setOfficial(false);
         window.scrollTo({top: 0, behavior: "smooth"});
         if(resetStateFunction) resetStateFunction();
@@ -123,6 +128,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             }
             setWeakResist(editMonster.resistWeakArray);
             setAttacks(editMonster.attacks);
+            setHasSpells(editMonster.spells.length > 0);
+            setSpells(editMonster.spells);
             setOfficial(editMonster.official);
         }
     },[])
@@ -241,6 +248,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
                 )
             })}
             <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
+            <h4 className="card-element">Scholarly Magic</h4>
+            <AddSpells hasSpells={hasSpells} setHasSpells={setHasSpells} spells={spells} setSpells={setSpells}></AddSpells>
             <h4 className="card-element">Finalize</h4>
             <div className="make-public">
                 <label>Make Public: </label>

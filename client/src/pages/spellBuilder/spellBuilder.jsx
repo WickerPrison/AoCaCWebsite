@@ -23,6 +23,8 @@ function SpellData(){
     this.customMods = new RollData();
 }
 
+export {SpellData}
+
 export default function SpellBuilder(){
     let [spellData, setSpellData] = useState(new SpellData);
     let [spellList, setSpellList] = useState(spellEffects);
