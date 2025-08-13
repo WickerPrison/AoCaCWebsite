@@ -173,7 +173,10 @@
 .monster-manual .spell-effect-name{
     margin-left: 1rem;
     text-align: left;
-    flex-basis: 80%;
+}
+
+.monster-manual .effect-edge-case{
+    margin-left: 1rem;
 }
 
 .monster-manual .spell-stats{
