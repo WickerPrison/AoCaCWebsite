@@ -69,7 +69,16 @@ export default function EncounterBuilder(){
             setMonsterDict(data.monsters);
             console.log(data.initiativeTracker);
             if(data.initiativeTracker){
-                setInitEntries(data.initiativeTracker);
+                let loadInitData = data.initiativeTracker.map(entry => {
+                    let newInitData = new initData();
+                    newInitData.name = entry.name;
+                    newInitData.team = entry.team;
+                    newInitData. successes = entry.successes;
+                    newInitData.advantage = entry.advantage;
+                    newInitData.conquests = entry.conquests;
+                    return newInitData;
+                });
+                setInitEntries(loadInitData);
             }
         }
         getData();
