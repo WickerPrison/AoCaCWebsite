@@ -4,6 +4,7 @@ import './monsterPart.css';
 import { useEffect, useState, useRef } from 'react';
 import getUrl from '../../utils/getUrl';
 import TooltipText from '../../components/tooltips/tooltipText';
+import FlexibleTextarea from '../../components/flexibleTextarea';
 
 
 export default function MonsterPart({parts, setParts, thisPart}){
@@ -18,7 +19,7 @@ export default function MonsterPart({parts, setParts, thisPart}){
     return(
         <div className="monster-part">
             <div className="part-name">
-                <label className='full-width-label'>Name: </label>
+                <label>Name: </label>
                 <input className="full-width-input" type="text" value={thisPart.name} onChange={e => updatePart("name", e.target.value)}></input>
             </div>
             <div className="stat">
@@ -37,6 +38,8 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 <label>Ranged Def:  </label>
                 <input type="number" value={thisPart.rDef} onChange={e => updatePart("rDef", e.target.value)} min="0"></input>
             </div>
+            <label className='special-features-label'>Special Features: </label>
+            <FlexibleTextarea className="fulll-width-input" input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)} classNames={"full-width-input"}/>
         </div>
     )
 }

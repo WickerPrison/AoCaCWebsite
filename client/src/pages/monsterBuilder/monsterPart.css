@@ -25,3 +25,7 @@
     width: 90%;
     margin-left: 1rem;
 }
+
+.monster-part .special-features-label{
+    text-align: right;
+}
