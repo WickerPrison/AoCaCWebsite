@@ -14,6 +14,7 @@ import auth from '../../utils/auth';
 import Checklist from '../../components/checklist/checklist';
 import TalentsSelector from './talentsSelector';
 import AddSpells from './addSpells';
+import MultiPartSection from './multiPartSection';
 
 const Tiers={
     MINION: "Minion",
@@ -59,6 +60,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
     const [official, setOfficial] = useState(false);
     const [hasSpells, setHasSpells] = useState(false);
     const [spells, setSpells] = useState([]);
+    const [multiPart, setMultiPart] = useState(false);
+    const [parts, setParts] = useState([]);
     
     function getStates(){
         const data = {
@@ -250,6 +253,8 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             <AddAttacks attacks={attacks} setAttacks={setAttacks}/>
             <h4 className="card-element">Scholarly Magic</h4>
             <AddSpells hasSpells={hasSpells} setHasSpells={setHasSpells} spells={spells} setSpells={setSpells}></AddSpells>
+            <h4 className= "card-element">Multi Part</h4>
+            <MultiPartSection multiPart={multiPart} setMultiPart={setMultiPart} parts={parts} setParts={setParts}></MultiPartSection>
             <h4 className="card-element">Finalize</h4>
             <div className="make-public">
                 <label>Make Public: </label>

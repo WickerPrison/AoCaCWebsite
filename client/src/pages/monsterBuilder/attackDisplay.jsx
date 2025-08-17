@@ -3,7 +3,7 @@ import './attackDisplay.css';
 import { useEffect, useState, useRef } from 'react';
 import OfficialIcon from '../../components/officialIcon';
 
-export default function AttackDisplay({attack, addedAttacks, setAddedAttacks, showToggle=true, editButton=false, setEdit}){
+export default function  AttackDisplay({attack, addedAttacks, setAddedAttacks, showToggle=true, editButton=false, setEdit}){
 
     function isAdded(){
         return addedAttacks.findIndex(x => x.name == attack.name) >= 0
