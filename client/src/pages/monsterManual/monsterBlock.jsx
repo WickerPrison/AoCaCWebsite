@@ -156,7 +156,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
             : <div className="box-header">{monster.name}</div>
             }
             
-            {monsterData ? <div className="close-monster" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
+            {monsterData ? <div className="close-button" onClick={() => updateMethods.removeMonster(monsterData.id)}>X</div> :null}
             {showEdit ? <button className="small-button edit-button" onClick={showEdit}>Edit</button> :null}
             <div className="monster-row">
                 <div className="creature-types">Creature Types: {setupCreatureTypes()}</div>

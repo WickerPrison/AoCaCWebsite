@@ -390,6 +390,23 @@ select{
     width: 100%;
 }
 
+.close-button{
+    position: absolute;
+    font-size: calc(var(--baseTextSize) * 0.8);
+    top: 0.8em;
+    left: 1em;
+    background-color: var(--green2);
+    border-radius: var(--cardCorner);
+    padding: 0.3em 0.6em;
+    box-shadow: 0 0 5px 0.2px black;
+    font-family: sans-serif;
+}
+
+.close-button:hover{
+    color:black;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 3000px) {
     :root{
         --baseTextSize:1.75em;
@@ -439,5 +456,9 @@ select{
     .checkbox{
         width: 0.9rem;
         height: 0.9rem;
+    }
+
+    .close-button{
+        font-size: var(--baseTextSize);
     }
 }

@@ -18,6 +18,13 @@ export default function MonsterPart({parts, setParts, thisPart}){
         setParts(temp);
     }
 
+    function removePart(){
+        let temp = parts.slice();
+        let index = temp.findIndex(part => part.id == thisPart.id);
+        temp.splice(index, 1);
+        setParts(temp);
+    }
+
     return(
         <div className="monster-part">
             <div className="part-stats">
@@ -25,6 +32,7 @@ export default function MonsterPart({parts, setParts, thisPart}){
                     <label>Name: </label>
                     <input className="full-width-input" type="text" value={thisPart.name} onChange={e => updatePart("name", e.target.value)}></input>
                 </div>
+                <div className="close-button" onClick={removePart}>X</div>
                 <div className="stat">
                     <label>HP: </label>
                     <input type="number" value={thisPart.hp} onChange={e => updatePart("hp", e.target.value)} min="0"></input>
