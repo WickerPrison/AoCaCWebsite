@@ -52,9 +52,10 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 <label className='special-features-label'>Special Features: </label>
                 <FlexibleTextarea classNames={"full-width-input"} input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)}/>
             </div>
+            <div>Resistances, Weaknesses, and Immunities</div>
             <ResWeakImm 
-                conditionImmunities={thisPart.conditionImmunities} 
-                setConditionImmunities={output => updatePart("conditionImmunities", output)} 
+                // conditionImmunities={thisPart.conditionImmunities} 
+                // setConditionImmunities={output => updatePart("conditionImmunities", output)} 
                 damageImmunities={thisPart.damageImmunities} 
                 setDamageImmunities={output => updatePart("damageImmunities", output)} 
                 customImmunities={thisPart.customImmunities} 
@@ -62,6 +63,7 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 weakResist={thisPart.weaknessResistances} 
                 setWeakResist={output => updatePart("weaknessResistances", output)}
             />
+            <div>Attacks</div>
             {thisPart.attacks.map((attack, index) => {
                 return(
                     <div key={attack.name}>

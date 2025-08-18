@@ -4,10 +4,10 @@ import './monsterBuilder.css';
 const conditions = ["Bleeding", "Blinded", "Burning", 'Charmed', "Deafened", "Disoriented", "Frightened", "Paralyzed", "Poisoned", "Sickened", "Staggered"];
 const damageTypes = ["Physical", "Silver", "Radiant", "Necrotic", "Cold", "Fire", "Lightning", "Poison"];
 
-export default function ResWeakImm({conditionImmunities, setConditionImmunities, damageImmunities, setDamageImmunities, customImmunities, setCustomImmunities, weakResist, setWeakResist}){
+export default function ResWeakImm({damageImmunities, setDamageImmunities, customImmunities, setCustomImmunities, weakResist, setWeakResist, conditionImmunities = null, setConditionImmunities = null}){
     
     function getImmunity(name){
-        if(conditionImmunities.includes(name) || damageImmunities.includes(name)){
+        if((conditionImmunities != null && conditionImmunities.includes(name)) || damageImmunities.includes(name)){
             return true;
         }
         return false;
@@ -74,20 +74,24 @@ export default function ResWeakImm({conditionImmunities, setConditionImmunities,
 
     return(
         <div className="stats-grid">
-            <div>Condition Immunities:</div>
-            <div className='flex-grid-entries'>
-                {conditions.map((condition, index) => {
-                    return(
-                        <div className="immunity" key={condition}>
-                            <label>{condition}: </label>
-                            <button className={`checkbox ${getImmunity(condition) ? "show-check" : ""}`} onClick={(e) => setImmunity(e, condition)}>{"✔"}</button>
-                        </div>
-                    )
-                })}
-            </div>
-            <label className='full-width-label'>Custom Immunities: </label>
-            <FlexibleTextarea input={customImmunities} setOutput={setCustomImmunities} classNames={"full-width-input"}/>
-            <div className="line"></div>
+            {conditionImmunities != null ?
+            <>
+                <div>Condition Immunities:</div>
+                <div className='flex-grid-entries'>
+                    {conditions.map((condition, index) => {
+                        return(
+                            <div className="immunity" key={condition}>
+                                <label>{condition}: </label>
+                                <button className={`checkbox ${getImmunity(condition) ? "show-check" : ""}`} onClick={(e) => setImmunity(e, condition)}>{"✔"}</button>
+                            </div>
+                        )
+                    })}
+                </div>
+                <label className='full-width-label'>Custom Immunities: </label>
+                <FlexibleTextarea input={customImmunities} setOutput={setCustomImmunities} classNames={"full-width-input"}/>
+            </>
+        :null}
+
             <div>Damage Immunities:</div>
             <div className='flex-grid-entries'>
                 {damageTypes.map((damageType, index) => {
@@ -99,7 +103,6 @@ export default function ResWeakImm({conditionImmunities, setConditionImmunities,
                     )
                 })}
             </div>
-            <div className="line"></div>
             <div>Weaknesses & Resistances:</div>
             <div className='flex-grid-entries'>
                 {damageTypes.map((damageType, index) => {
