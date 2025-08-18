@@ -29,3 +29,7 @@
 .monster-part .special-features-label{
     text-align: right;
 }
+
+.monster-part .part-res-weak-imm{
+    grid-column: 1 / 6;
+}

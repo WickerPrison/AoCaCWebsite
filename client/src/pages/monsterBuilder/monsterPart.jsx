@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 import getUrl from '../../utils/getUrl';
 import TooltipText from '../../components/tooltips/tooltipText';
 import FlexibleTextarea from '../../components/flexibleTextarea';
+import ResWeakImm from './resWeakImm';
 
 
 export default function MonsterPart({parts, setParts, thisPart}){
@@ -39,7 +40,18 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 <input type="number" value={thisPart.rDef} onChange={e => updatePart("rDef", e.target.value)} min="0"></input>
             </div>
             <label className='special-features-label'>Special Features: </label>
-            <FlexibleTextarea className="fulll-width-input" input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)} classNames={"full-width-input"}/>
+            <FlexibleTextarea className="fulll-width-input" input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)}/>
+            <ResWeakImm 
+                conditionImmunities={thisPart.conditionImmunities} 
+                setConditionImmunities={output => updatePart("conditionImmunities", output)} 
+                damageImmunities={thisPart.damageImmunities} 
+                setDamageImmunities={output => updatePart("damageImmunities", output)} 
+                customImmunities={thisPart.customImmunities} 
+                setCustomImmunities={output => updatePart("customImmunities", output)} 
+                weakResist={thisPart.weaknessResistances} 
+                setWeakResist={output => updatePart("weaknessResistances", output)}
+            />
+            
         </div>
     )
 }

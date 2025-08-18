@@ -6,15 +6,17 @@ import TooltipText from '../../components/tooltips/tooltipText';
 import MonsterPart from './monsterPart';
 
 function Part(){
-    this.name = "",
-    this.hp = 0,
-    this.dr = 0,
-    this.mDef = 0,
-    this.rDef = 0,
-    this.specialFeatures = "",
-    this.damageImmunities = [],
-    this.weaknessResistances = [],
-    this.attacks = [],
+    this.name = "";
+    this.hp = 0;
+    this.dr = 0;
+    this.mDef = 0;
+    this.rDef = 0;
+    this.specialFeatures = "";
+    this.customImmunities = "";
+    this.conditionImmunities = [];
+    this.damageImmunities = [];
+    this.weaknessResistances = [];
+    this.attacks = [];
     this.id = crypto.randomUUID();
 }
 
