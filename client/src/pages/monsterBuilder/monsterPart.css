@@ -1,4 +1,4 @@
-.monster-part{
+.part-stats{
     display: grid;
     grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
     /* grid-template-columns: 30% 30% 30%; */
@@ -19,7 +19,7 @@
     text-align: left;
 }
 
-.monster-part .full-width-input{
+.part-stats .full-width-input{
     grid-column: 2 / 7;
     text-align: left;
     width: 90%;

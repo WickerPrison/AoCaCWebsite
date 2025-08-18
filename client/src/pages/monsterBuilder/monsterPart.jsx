@@ -19,28 +19,30 @@ export default function MonsterPart({parts, setParts, thisPart}){
 
     return(
         <div className="monster-part">
-            <div className="part-name">
-                <label>Name: </label>
-                <input className="full-width-input" type="text" value={thisPart.name} onChange={e => updatePart("name", e.target.value)}></input>
+            <div className="part-stats">
+                <div className="part-name">
+                    <label>Name: </label>
+                    <input className="full-width-input" type="text" value={thisPart.name} onChange={e => updatePart("name", e.target.value)}></input>
+                </div>
+                <div className="stat">
+                    <label>HP: </label>
+                    <input type="number" value={thisPart.hp} onChange={e => updatePart("hp", e.target.value)} min="0"></input>
+                </div>
+                <div className="stat">
+                    <label>DR: </label>
+                    <input type="number" value={thisPart.dr} onChange={e => updatePart("dr", e.target.value)} min="0"></input>
+                </div>
+                <div className="stat">
+                    <label>Melee Def:  </label>
+                    <input type="number" value={thisPart.mDef} onChange={e => updatePart("mDef", e.target.value)} min="0"></input>
+                </div>
+                <div className="stat">
+                    <label>Ranged Def:  </label>
+                    <input type="number" value={thisPart.rDef} onChange={e => updatePart("rDef", e.target.value)} min="0"></input>
+                </div>
+                <label className='special-features-label'>Special Features: </label>
+                <FlexibleTextarea classNames={"full-width-input"} input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)}/>
             </div>
-            <div className="stat">
-                <label>HP: </label>
-                <input type="number" value={thisPart.hp} onChange={e => updatePart("hp", e.target.value)} min="0"></input>
-            </div>
-            <div className="stat">
-                <label>DR: </label>
-                <input type="number" value={thisPart.dr} onChange={e => updatePart("dr", e.target.value)} min="0"></input>
-            </div>
-            <div className="stat">
-                <label>Melee Def:  </label>
-                <input type="number" value={thisPart.mDef} onChange={e => updatePart("mDef", e.target.value)} min="0"></input>
-            </div>
-            <div className="stat">
-                <label>Ranged Def:  </label>
-                <input type="number" value={thisPart.rDef} onChange={e => updatePart("rDef", e.target.value)} min="0"></input>
-            </div>
-            <label className='special-features-label'>Special Features: </label>
-            <FlexibleTextarea className="fulll-width-input" input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)}/>
             <ResWeakImm 
                 conditionImmunities={thisPart.conditionImmunities} 
                 setConditionImmunities={output => updatePart("conditionImmunities", output)} 
