@@ -1,3 +1,10 @@
+.monster-part{
+    border-color: var(--green);
+    border-style:solid;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
 .part-stats{
     display: grid;
     grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;

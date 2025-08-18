@@ -6,7 +6,8 @@ import getUrl from '../../utils/getUrl';
 import TooltipText from '../../components/tooltips/tooltipText';
 import FlexibleTextarea from '../../components/flexibleTextarea';
 import ResWeakImm from './resWeakImm';
-
+import AddAttacks from './addAttacks';
+import AttackDisplay from './attackDisplay';
 
 export default function MonsterPart({parts, setParts, thisPart}){
 
@@ -53,6 +54,15 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 weakResist={thisPart.weaknessResistances} 
                 setWeakResist={output => updatePart("weaknessResistances", output)}
             />
+            {thisPart.attacks.map((attack, index) => {
+                return(
+                    <div key={attack.name}>
+                        <AttackDisplay attack={attack} addedAttacks={thisPart.attacks} setAddedAttacks={output => updatePart("attacks", output)} showToggle={false}/>
+                        {index < thisPart.attacks.length - 1 ? <div className="line"></div>:null }
+                    </div>
+                )
+            })}
+            <AddAttacks attacks={thisPart.attacks} setAttacks={output => updatePart("attacks", output)}/>
             
         </div>
     )
