@@ -39,15 +39,15 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 </div>
                 <div className="stat">
                     <label>DR: </label>
-                    <input type="number" value={thisPart.dr} onChange={e => updatePart("dr", e.target.value)} min="0"></input>
+                    <input type="number" value={thisPart.damageReduction} onChange={e => updatePart("damageReduction", e.target.value)} min="0"></input>
                 </div>
                 <div className="stat">
                     <label>Melee Def:  </label>
-                    <input type="number" value={thisPart.mDef} onChange={e => updatePart("mDef", e.target.value)} min="0"></input>
+                    <input type="number" value={thisPart.meleeDefense} onChange={e => updatePart("meleeDefense", e.target.value)} min="0"></input>
                 </div>
                 <div className="stat">
                     <label>Ranged Def:  </label>
-                    <input type="number" value={thisPart.rDef} onChange={e => updatePart("rDef", e.target.value)} min="0"></input>
+                    <input type="number" value={thisPart.rangedDefense} onChange={e => updatePart("rangedDefense", e.target.value)} min="0"></input>
                 </div>
                 <label className='special-features-label'>Special Features: </label>
                 <FlexibleTextarea classNames={"full-width-input"} input={thisPart.specialFeatures} setOutput={output => updatePart("specialFeatures", output)}/>
@@ -60,8 +60,8 @@ export default function MonsterPart({parts, setParts, thisPart}){
                 setDamageImmunities={output => updatePart("damageImmunities", output)} 
                 customImmunities={thisPart.customImmunities} 
                 setCustomImmunities={output => updatePart("customImmunities", output)} 
-                weakResist={thisPart.weaknessResistances} 
-                setWeakResist={output => updatePart("weaknessResistances", output)}
+                weakResist={thisPart.weakResist} 
+                setWeakResist={output => updatePart("weakResist", output)}
             />
             <div>Attacks</div>
             {thisPart.attacks.map((attack, index) => {

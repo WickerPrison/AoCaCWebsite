@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
 const {attackSchema} = require('./Attacks');
+const {monsterPartsSchema} = require('./MonsterParts');
 
 const monsterSchema = new Schema(
     {
@@ -108,6 +109,10 @@ const monsterSchema = new Schema(
             type: [String],
             default: [],
         },
+        parts:[{
+            type: Schema.Types.ObjectId,
+            ref:"part"
+        }],
         talents:{
             type: [Schema.Types.Mixed],
             default: []

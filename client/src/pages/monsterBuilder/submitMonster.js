@@ -3,7 +3,7 @@ import getUrl from '../../utils/getUrl';
 
 export default async function SubmitMonster(evt, data, resetStates, monsterId = null){
     evt.preventDefault();
-     
+
     if(!data.name){
         alert("Unique name required");
         return;
@@ -143,6 +143,7 @@ export default async function SubmitMonster(evt, data, resetStates, monsterId = 
         talents: data.talents.map(talent => ({Name:talent.Name, ranks:talent.ranks})),
         abilities: data.abilities.map(ability => ability.Name),
         specialFeatures: data.specialFeatures,
+        parts: data.parts,
         public: data.makePublic,
         username: auth.getProfile().data.username,
         official: data.official

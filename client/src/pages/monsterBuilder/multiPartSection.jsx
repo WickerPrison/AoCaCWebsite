@@ -8,14 +8,14 @@ import MonsterPart from './monsterPart';
 function Part(){
     this.name = "";
     this.hp = 0;
-    this.dr = 0;
-    this.mDef = 0;
-    this.rDef = 0;
+    this.damageReduction = 0;
+    this.meleeDefense = 0;
+    this.rangedDefense = 0;
     this.specialFeatures = "";
     this.customImmunities = "";
     this.conditionImmunities = [];
     this.damageImmunities = [];
-    this.weaknessResistances = [];
+    this.weakResist = [];
     this.attacks = [];
     this.id = crypto.randomUUID();
 }

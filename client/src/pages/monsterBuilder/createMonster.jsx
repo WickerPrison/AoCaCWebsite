@@ -65,7 +65,24 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
     
     function getStates(){
         const data = {
-            name, tier, sil, makePublic, creatureTypes, stats, talents, abilities, specialFeatures, skills, conditionImmunities, damageImmunities, customImmunities, weakResist, attacks, spells, official
+            name, 
+            tier, 
+            sil, 
+            makePublic, 
+            creatureTypes, 
+            stats, 
+            talents, 
+            abilities, 
+            specialFeatures, 
+            skills, 
+            conditionImmunities, 
+            damageImmunities, 
+            customImmunities, 
+            weakResist, 
+            attacks, 
+            spells, 
+            parts, 
+            official
         }
         return data;
     }
@@ -88,6 +105,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
         setAttacks([]);
         setHasSpells(false);
         setSpells([]);
+        setParts([]);
         setOfficial(false);
         window.scrollTo({top: 0, behavior: "smooth"});
         if(resetStateFunction) resetStateFunction();
@@ -133,6 +151,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             setAttacks(editMonster.attacks);
             setHasSpells(editMonster.spells.length > 0);
             setSpells(editMonster.spells);
+            setParts(editMonster.parts);
             setOfficial(editMonster.official);
         }
     },[])
