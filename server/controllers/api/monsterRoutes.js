@@ -5,13 +5,13 @@ const { authMiddleware } = require('../../Utils/auth');
 router.get("/", authMiddleware, async (req, res) => {
     let monsters;
     if(req.user){
-        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').catch(err => {
+        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').populate('parts').catch(err => {
             console.log(err);
             res.json(err);
         });
     }
     else{
-        monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
+        monsters = await Monster.find({public: true}).populate('attacks').populate('parts').catch(err => {
             console.log(err);
             res.json(err);
         });
@@ -20,11 +20,12 @@ router.get("/", authMiddleware, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
     try{
-        const promises = req.body.parts.map(async part => {
-            await Part.create(part);
-        });
+        if(req.body.parts.length > 0){
+            let newParts = req.body.parts.map(part => Part.create(part));
+            newParts = await Promise.all(newParts);
+            req.body.parts = newParts.map(part => part._id);
+        }
         const monster = await Monster.create(req.body);
         res.json(monster);
     }

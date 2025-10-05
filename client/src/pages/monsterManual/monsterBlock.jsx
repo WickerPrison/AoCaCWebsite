@@ -151,6 +151,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
 
     return (
         <section className="box monster-card">
+            {console.log(monster.parts)}
             {monster.official 
             ? <div className="box-header"><OfficialIcon/> {monster.name}</div>
             : <div className="box-header">{monster.name}</div>
