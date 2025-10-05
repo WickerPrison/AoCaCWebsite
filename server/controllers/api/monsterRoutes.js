@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Attack, Monster} = require('../../models');
+const {User, Attack, Monster, Part} = require('../../models');
 const { authMiddleware } = require('../../Utils/auth');
 
 router.get("/", authMiddleware, async (req, res) => {
@@ -20,7 +20,11 @@ router.get("/", authMiddleware, async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try{
+        const promises = req.body.parts.map(async part => {
+            await Part.create(part);
+        });
         const monster = await Monster.create(req.body);
         res.json(monster);
     }

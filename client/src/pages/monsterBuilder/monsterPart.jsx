@@ -13,14 +13,14 @@ export default function MonsterPart({parts, setParts, thisPart}){
 
     function updatePart(field, value){
         let temp = parts.slice();
-        let index = temp.findIndex(part => part.id == thisPart.id);
+        let index = temp.findIndex(part => part.tempId == thisPart.tempId);
         temp[index][field] = value;
         setParts(temp);
     }
 
     function removePart(){
         let temp = parts.slice();
-        let index = temp.findIndex(part => part.id == thisPart.id);
+        let index = temp.findIndex(part => part.tempId == thisPart.tempId);
         temp.splice(index, 1);
         setParts(temp);
     }

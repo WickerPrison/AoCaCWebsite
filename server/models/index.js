@@ -11,6 +11,7 @@ const WeaponProp = require('./WeaponProps');
 const Enchantment = require('./Enchantments');
 const {Attack} = require('./Attacks');
 const Monster = require('./Monsters');
+const {Part} = require('./MonsterParts');
 
 module.exports = {
     User, 
@@ -25,4 +26,5 @@ module.exports = {
     Enchantment,
     Attack,
     Monster,
+    Part,
 };

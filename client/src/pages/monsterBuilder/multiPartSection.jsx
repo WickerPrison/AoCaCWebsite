@@ -17,7 +17,7 @@ function Part(){
     this.damageImmunities = [];
     this.weakResist = [];
     this.attacks = [];
-    this.id = crypto.randomUUID();
+    this.tempId = crypto.randomUUID();
 }
 
 export default function MultiPartSection({multiPart, setMultiPart, parts, setParts}){
