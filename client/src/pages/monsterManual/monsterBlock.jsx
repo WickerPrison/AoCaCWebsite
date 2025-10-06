@@ -9,12 +9,14 @@ import TooltipText from "../../components/tooltips/tooltipText";
 import MonsterSpell from "./monsterSpell";
 import {SpellData} from "../spellBuilder/spellBuilder"
 import { assembleDicePool, TargetTypes, Ranges } from "../spellBuilder/buildSpell";
+import MonsterPart from "./monsterPart";
 
 export default function MonsterBlock({monster, updateMethods, monsterData, showEdit = null}){
     let [spellData, setSpellData] = useState(new SpellData())
     let [showFullSpells, setShowFullSpell] = useState(false);
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 
+    console.log(monster);
 
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
@@ -151,7 +153,6 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
 
     return (
         <section className="box monster-card">
-            {console.log(monster.parts)}
             {monster.official 
             ? <div className="box-header"><OfficialIcon/> {monster.name}</div>
             : <div className="box-header">{monster.name}</div>
@@ -272,6 +273,13 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
                 </div>
                 <button id="new-roll" className="small-button" onClick={rollScholarlySpell}>Cast Spell</button>
             </>) : null}
+            {monster.parts.length > 0 ? (
+            <>
+                <div className="attacks-heading">Parts</div>
+                {monster.parts.map(part => {
+                    return <MonsterPart part={part} key={part._id}></MonsterPart>
+                })}
+            </>):null}
 
         </section>
     )

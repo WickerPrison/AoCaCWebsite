@@ -1,0 +1,10 @@
+.monster-part-display{
+    border-color: var(--green);
+    border-style:solid;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.monster-part-display .part-name{
+    
+}
