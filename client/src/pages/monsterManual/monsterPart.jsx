@@ -1,9 +1,9 @@
 import './monsterPartDisplay.css';
 import {useState} from 'react';
+import MonsterAttack from "./monsterAttack";
 
 
-export default function MonsterPart({part}){
-    console.log(part);
+export default function MonsterPart({part, monster, monsterData, updateMethods}){
 
     function setResistances(){
         let outputString = "";
@@ -40,13 +40,18 @@ export default function MonsterPart({part}){
                         <div className="defense">{part.meleeDefense}|{part.rangedDefense}</div>
                     </div>
                 </div>
-            </div>
-            <div className="stat-text">
-                <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
+                <div className="stat-text">
+                    <div className="immunities" dangerouslySetInnerHTML={{__html: setResistances()}}></div>
 
-                {part.specialFeatures 
-                ? (<div className="talents-abilities"><strong>Special Features: </strong>{part.specialFeatures}</div>)
-                :(null)}
+                    {part.specialFeatures 
+                    ? (<div className="talents-abilities"><strong>Special Features: </strong>{part.specialFeatures}</div>)
+                    :(null)}
+                </div>
+            </div>
+            <div className="part-attacks">
+                {part.attacks.map((attack, index) => {
+                    return <MonsterAttack key={index} attack={attack} monster={monster} setRoll={updateMethods.setRoll} setShowRoll={updateMethods.setShowRoll} monsterData={monsterData}/>
+                })}
             </div>
         </div>
     )

@@ -16,8 +16,6 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
     let [showFullSpells, setShowFullSpell] = useState(false);
     const attributes = ["Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower"];
 
-    console.log(monster);
-
     const rollAttribute = (attributeValue, attributeName) => {
         let newRoll = new RollData();
         newRoll.ability = attributeValue;
@@ -277,7 +275,7 @@ export default function MonsterBlock({monster, updateMethods, monsterData, showE
             <>
                 <div className="attacks-heading">Parts</div>
                 {monster.parts.map(part => {
-                    return <MonsterPart part={part} key={part._id}></MonsterPart>
+                    return <MonsterPart part={part} key={part._id} monster={monster} monsterData={monsterData} updateMethods={updateMethods}></MonsterPart>
                 })}
             </>):null}
 

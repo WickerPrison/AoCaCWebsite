@@ -5,13 +5,13 @@ const { authMiddleware } = require('../../Utils/auth');
 router.get("/", authMiddleware, async (req, res) => {
     let monsters;
     if(req.user){
-        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').populate('parts').catch(err => {
+        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').populate({path:'parts', populate:{path:'attacks'}}).catch(err => {
             console.log(err);
             res.json(err);
         });
     }
     else{
-        monsters = await Monster.find({public: true}).populate('attacks').populate('parts').catch(err => {
+        monsters = await Monster.find({public: true}).populate('attacks').populate({path:'parts', populate:{path:'attacks'}}).catch(err => {
             console.log(err);
             res.json(err);
         });
