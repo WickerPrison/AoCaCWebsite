@@ -146,7 +146,7 @@ router.put('/encounterBuilder', authMiddleware, async (req, res) => {
 });
 
 router.get("/myMonsters/:username", async (req, res) => {
-    const monsters = await Monster.find({username: req.params.username}).populate('attacks').sort("name").catch(err => {
+    const monsters = await Monster.find({username: req.params.username}).populate('attacks').populate({path:'parts', populate:{path:'attacks'}}).sort("name").catch(err => {
         res.json(err);
     });
     res.json(monsters);

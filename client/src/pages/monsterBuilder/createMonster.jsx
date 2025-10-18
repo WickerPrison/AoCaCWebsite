@@ -151,6 +151,7 @@ export default function CreateMonster({editMonster, resetStateFunction = null}){
             setAttacks(editMonster.attacks);
             setHasSpells(editMonster.spells.length > 0);
             setSpells(editMonster.spells);
+            setMultiPart(editMonster.parts.length > 0);
             setParts(editMonster.parts);
             setOfficial(editMonster.official);
         }
