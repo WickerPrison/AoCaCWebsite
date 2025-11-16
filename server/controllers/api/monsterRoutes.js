@@ -112,12 +112,12 @@ router.get('/encounterBuilder', authMiddleware, async (req, res) => {
         data.encounterData = user.encounterData;
         data.initiativeTracker = user.initiativeTracker;
 
-        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').catch(err => {
+        monsters = await Monster.find().or([{public: true}, {username: req.user.username}]).populate('attacks').populate({path:'parts', populate:{path:'attacks'}}).catch(err => {
             res.json(err);
         });
     }
     else{
-        monsters = await Monster.find({public: true}).populate('attacks').catch(err => {
+        monsters = await Monster.find({public: true}).populate('attacks').populate({path:'parts', populate:{path:'attacks'}}).catch(err => {
             res.json(err);
         });
     }

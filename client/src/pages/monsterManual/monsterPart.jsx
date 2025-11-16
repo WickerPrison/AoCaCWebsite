@@ -5,6 +5,17 @@ import MonsterAttack from "./monsterAttack";
 
 export default function MonsterPart({part, monster, monsterData, updateMethods}){
 
+    let monsterPartData = monsterData.parts.find(p => p.id == part._id);
+    console.log(monsterPartData);
+    console.log(monsterData);
+    console.log(part);
+
+
+    function updatePartStat(stat, value){
+        monsterPartData[stat] = value;
+        updateMethods.updateMonster(monsterData);
+    }
+
     function setResistances(){
         let outputString = "";
         if(part.damageImmunities){
@@ -30,10 +41,10 @@ export default function MonsterPart({part, monster, monsterData, updateMethods})
                         <div>Def (M|R):</div>
                     </div>
                     <div className="monster-column1">
-                        {false ? 
+                        {monsterData ? 
                         (<div className="hp">
-                            <input className="stat-field" type="number" min={0} value={monsterData.hp} onChange={(e) => updateMonsterStat("hp", e.target.value)}/>
-                            <div className="stat-max">/{monster.hp}</div>
+                            <input className="stat-field" type="number" min={0} value={monsterPartData.hp} onChange={(e) => updatePartStat("hp", e.target.value)}/>
+                            <div className="stat-max">/{part.hp}</div>
                         </div>)
                         :<div className="hp">{part.hp}</div>}
                         <div className="damage-reduction">{part.damageReduction}</div>

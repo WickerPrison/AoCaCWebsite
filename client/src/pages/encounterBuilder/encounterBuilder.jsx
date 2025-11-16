@@ -25,6 +25,12 @@ function MonsterData(){
     this.monster;
     this.hp;
     this.stamina;
+    this.parts;
+}
+
+function MonsterPartData(){
+    this.id;
+    this.hp;
 }
 
 export default function EncounterBuilder(){
@@ -61,13 +67,20 @@ export default function EncounterBuilder(){
                     newMonster.monster = monster;
                     newMonster.hp = data.encounterData[i].hp;
                     newMonster.stamina = data.encounterData[i].stamina;
+                    newMonster.parts = [];
+                    for(let j = 0; j < data.encounterData[i].partsData.length; j++){
+                        let part = new MonsterPartData();
+                        part.id = data.encounterData[i].partsData[j]._id;
+                        part.hp = data.encounterData[i].partsData[j].hp;
+                        newMonster.parts.push(part);
+                    }
+                    console.log(newMonster);
                     loadedMonsters.push(newMonster);
                 }
                 setMonsters(loadedMonsters);
             }
 
             setMonsterDict(data.monsters);
-            console.log(data.initiativeTracker);
             if(data.initiativeTracker){
                 let loadInitData = data.initiativeTracker.map(entry => {
                     let newInitData = new initData();
@@ -119,7 +132,16 @@ export default function EncounterBuilder(){
             let newObject = {
                 hp: monsters[i].hp,
                 stamina: monsters[i].stamina,
-                monster: monsters[i].monster._id
+                monster: monsters[i].monster._id,
+                partsData: []
+            }
+            for(let j = 0; j < monsters[i].parts.length; j++){
+                let newPart = {
+                    hp: monsters[i].parts[j].hp,
+                    id: monsters[i].parts[j].id
+                }
+                console.log(newPart);
+                newObject.partsData.push(newPart);
             }
             saveArray.push(newObject);
         }
@@ -171,6 +193,13 @@ export default function EncounterBuilder(){
         newMonster.monster = monster;
         newMonster.hp = monster.hp;
         newMonster.stamina = monster.stamina;
+        newMonster.parts = [];
+        for(let i = 0; i < monster.parts.length; i++){
+            let newPart = new MonsterPartData();
+            newPart.id = monster.parts[i]._id;
+            newPart.hp = monster.parts[i].hp;
+            newMonster.parts.push(newPart);
+        }
         setMonsters([...monsters, newMonster])
     }
 

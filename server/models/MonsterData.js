@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const monsterPartDataSchema = require('./MonsterPartData');
 
 const monsterDataSchema = new Schema(
     {
@@ -11,6 +12,9 @@ const monsterDataSchema = new Schema(
         },
         stamina:{
             type: Number
+        },
+        partsData:{
+            type: [monsterPartDataSchema]
         },
         id:{
             type: String
