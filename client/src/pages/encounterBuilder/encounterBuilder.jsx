@@ -70,11 +70,10 @@ export default function EncounterBuilder(){
                     newMonster.parts = [];
                     for(let j = 0; j < data.encounterData[i].partsData.length; j++){
                         let part = new MonsterPartData();
-                        part.id = data.encounterData[i].partsData[j]._id;
+                        part.id = data.encounterData[i].partsData[j].id;
                         part.hp = data.encounterData[i].partsData[j].hp;
                         newMonster.parts.push(part);
                     }
-                    console.log(newMonster);
                     loadedMonsters.push(newMonster);
                 }
                 setMonsters(loadedMonsters);
@@ -140,7 +139,6 @@ export default function EncounterBuilder(){
                     hp: monsters[i].parts[j].hp,
                     id: monsters[i].parts[j].id
                 }
-                console.log(newPart);
                 newObject.partsData.push(newPart);
             }
             saveArray.push(newObject);

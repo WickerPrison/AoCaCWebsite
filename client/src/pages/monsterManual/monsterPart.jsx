@@ -6,10 +6,6 @@ import MonsterAttack from "./monsterAttack";
 export default function MonsterPart({part, monster, monsterData, updateMethods}){
 
     let monsterPartData = monsterData.parts.find(p => p.id == part._id);
-    console.log(monsterPartData);
-    console.log(monsterData);
-    console.log(part);
-
 
     function updatePartStat(stat, value){
         monsterPartData[stat] = value;
